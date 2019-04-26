@@ -33,7 +33,7 @@
 
 <security:authorize access="hasRole('HACKER')">
 	<jstl:if test="${curriculum.noCopy}">
-		<a href="personalData/hacker/edit.do?personalDataId=${curriculum.personalData.id }"><spring:message code="curriculum.editPersonal"/></a>
+		<a href="personalData/rookie/edit.do?personalDataId=${curriculum.personalData.id }"><spring:message code="curriculum.editPersonal"/></a>
 	</jstl:if>		
 </security:authorize>	
 </fieldset>
@@ -55,7 +55,7 @@
 	
 	<security:authorize access="hasRole('HACKER')">
 		<jstl:if test="${curriculum.noCopy}">
-			<acme:url href="positionData/hacker/edit.do?positionRecordId=${row1.id }" code="curriculum.edit"/>
+			<acme:url href="positionData/rookie/edit.do?positionRecordId=${row1.id }" code="curriculum.edit"/>
 		</jstl:if>		
 	</security:authorize>	
 	
@@ -65,7 +65,7 @@
 
 <security:authorize access="hasRole('HACKER')">
 	<jstl:if test="${curriculum.noCopy}">
-		<a href="positionData/hacker/create.do?curriculumId=${curriculum.id }"><spring:message code="curriculum.create"/></a>
+		<a href="positionData/rookie/create.do?curriculumId=${curriculum.id }"><spring:message code="curriculum.create"/></a>
 	</jstl:if>	
 </security:authorize>	
 
@@ -90,7 +90,7 @@
 	
 	<security:authorize access="hasRole('HACKER')">
 		<jstl:if test="${curriculum.noCopy}">
-			<acme:url href="educationData/hacker/edit.do?educationRecordId=${row2.id }" code="curriculum.edit"/>
+			<acme:url href="educationData/rookie/edit.do?educationRecordId=${row2.id }" code="curriculum.edit"/>
 		</jstl:if>
 	</security:authorize>	
 	
@@ -100,7 +100,7 @@
 
 <security:authorize access="hasRole('HACKER')">
 	<jstl:if test="${curriculum.noCopy}">
-		<a href="educationData/hacker/create.do?curriculumId=${curriculum.id }"><spring:message code="curriculum.create"/></a>
+		<a href="educationData/rookie/create.do?curriculumId=${curriculum.id }"><spring:message code="curriculum.create"/></a>
 	</jstl:if>
 </security:authorize>	
 
@@ -123,7 +123,7 @@
 
 	<security:authorize access="hasRole('HACKER')">
 		<jstl:if test="${curriculum.noCopy}">
-			<acme:url href="miscellaneousData/hacker/edit.do?miscellaneousRecordId=${row3.id }" code="curriculum.edit"/>
+			<acme:url href="miscellaneousData/rookie/edit.do?miscellaneousRecordId=${row3.id }" code="curriculum.edit"/>
 		</jstl:if>	
 	</security:authorize>	
 	
@@ -132,7 +132,7 @@
 
 <security:authorize access="hasRole('HACKER')">
 	<jstl:if test="${curriculum.noCopy}">
-		<a href="miscellaneousData/hacker/create.do?curriculumId=${curriculum.id }"><spring:message code="curriculum.create"/></a>
+		<a href="miscellaneousData/rookie/create.do?curriculumId=${curriculum.id }"><spring:message code="curriculum.create"/></a>
 	</jstl:if>	
 </security:authorize>	
 </fieldset>
@@ -140,12 +140,12 @@
 <br/>
 <security:authorize access="hasRole('HACKER')">
 	<jstl:if test="${curriculum.noCopy}">
-		<a href="curriculum/hacker/delete.do?curriculumId=${curriculum.id }"><spring:message code="curriculum.deleteall"/></a>
+		<a href="curriculum/rookie/delete.do?curriculumId=${curriculum.id }"><spring:message code="curriculum.deleteall"/></a>
 	</jstl:if>		
 </security:authorize>	
 
 <security:authorize access="hasRole('HACKER')">
-	<acme:button name="back" code="curriculum.back" onclick="javascript: relativeRedir('curriculum/hacker/list.do');"/>
+	<acme:button name="back" code="curriculum.back" onclick="javascript: relativeRedir('curriculum/rookie/list.do');"/>
 </security:authorize>	
 
 <security:authorize access="hasRole('COMPANY')">

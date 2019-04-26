@@ -283,20 +283,20 @@ public class AdministratorService {
 		return this.administratorRepository.stdOfPositionsPerCompany();
 	}
 
-	public Double avgOfApplicationsPerHacker() {
-		return this.administratorRepository.avgOfApplicationsPerHacker();
+	public Double avgOfApplicationsPerRookie() {
+		return this.administratorRepository.avgOfApplicationsPerRookie();
 	}
 
-	public Integer minOfApplicationsPerHacker() {
-		return this.administratorRepository.minApplicationsOfHacker();
+	public Integer minOfApplicationsPerRookie() {
+		return this.administratorRepository.minApplicationsOfRookie();
 	}
 
-	public Integer maxOfApplicationsPerHacker() {
-		return this.administratorRepository.maxApplicationsOfHacker();
+	public Integer maxOfApplicationsPerRookie() {
+		return this.administratorRepository.maxApplicationsOfRookie();
 	}
 
-	public Double stdOfApplicationsPerHacker() {
-		return this.administratorRepository.stdOfApplicationsPerHacker();
+	public Double stdOfApplicationsPerRookie() {
+		return this.administratorRepository.stdOfApplicationsPerRookie();
 	}
 
 	public List<String> topCompaniesWithMorePositions() {
@@ -309,8 +309,8 @@ public class AdministratorService {
 		return result;
 	}
 
-	public List<String> topHackersWithMoreApplications() {
-		final List<String> result = this.administratorRepository.topHackerWithMoreApplications();
+	public List<String> topRookiesWithMoreApplications() {
+		final List<String> result = this.administratorRepository.topRookieWithMoreApplications();
 		
 		if (result.size() == 0) {
 			result.add(" N/A ");
@@ -360,20 +360,20 @@ public class AdministratorService {
 		return result;
 	}
 	
-	public Integer minNumberOfCurriculaPerHacker() {
-		return this.administratorRepository.minNumberOfCurriculaPerHacker();
+	public Integer minNumberOfCurriculaPerRookie() {
+		return this.administratorRepository.minNumberOfCurriculaPerRookie();
 	}
 	
-	public Integer maxNumberOfCurriculaPerHacker() {
-		return this.administratorRepository.maxNumberOfCurriculaPerHacker();
+	public Integer maxNumberOfCurriculaPerRookie() {
+		return this.administratorRepository.maxNumberOfCurriculaPerRookie();
 	}
 	
-	public Double avgNumberOfCurriculaPerHacker() {
-		return this.administratorRepository.avgNumberOfCurriculaPerHacker();
+	public Double avgNumberOfCurriculaPerRookie() {
+		return this.administratorRepository.avgNumberOfCurriculaPerRookie();
 	}
 	
-	public Double stdNumberOfCurriculaPerHacker() {
-		return this.administratorRepository.stdNumberOfCurriculaPerHacker();
+	public Double stdNumberOfCurriculaPerRookie() {
+		return this.administratorRepository.stdNumberOfCurriculaPerRookie();
 	}
 
 	public Integer minNumberOfResultsInFinders() {
@@ -389,7 +389,7 @@ public class AdministratorService {
 	}
 	
 	public Double stdNumberOfResultsInFinders() {
-		return this.administratorRepository.stdNumberOfCurriculaPerHacker();
+		return this.administratorRepository.stdNumberOfCurriculaPerRookie();
 	}
 	
 	public Double ratioEmptyNotEmptyFinders() {

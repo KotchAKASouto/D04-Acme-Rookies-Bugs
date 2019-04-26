@@ -13,11 +13,11 @@ import org.hibernate.validator.constraints.URL;
 
 import domain.CreditCard;
 
-public class RegisterHackerForm {
+public class RegisterRookieForm {
 
 	// Constructors -----------------------------------------------------------
 
-	public RegisterHackerForm() {
+	public RegisterRookieForm() {
 		super();
 	}
 

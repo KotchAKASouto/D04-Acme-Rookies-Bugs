@@ -8,7 +8,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags" %>
 
-<form:form action="curriculum/hacker/edit.do" modelAttribute="curriculum">
+<form:form action="curriculum/rookie/edit.do" modelAttribute="curriculum">
 	
 	<acme:textbox path="statement" code="curriculum.statement" obligatory="true"/>
 	
@@ -20,7 +20,7 @@
   	
 	<acme:submit name="save" code="curriculum.save" />	
 
-	<acme:cancel code="curriculum.back" url="curriculum/hacker/list.do" />
+	<acme:cancel code="curriculum.back" url="curriculum/rookie/list.do" />
 
 </form:form>
 

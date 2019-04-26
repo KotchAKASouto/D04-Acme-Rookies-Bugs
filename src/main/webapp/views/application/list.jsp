@@ -22,10 +22,10 @@
 	
 	<security:authorize access="hasRole('HACKER')">
 	
-	<acme:url href="curriculum/hacker/display.do?curriculumId=${row.curriculum.id}" code = "application.curriculum" />
+	<acme:url href="curriculum/rookie/display.do?curriculumId=${row.curriculum.id}" code = "application.curriculum" />
 	
 		<display:column>
-				<a href="application/hacker/display.do?applicationId=${row.id}"><spring:message code="application.display"/></a>
+				<a href="application/rookie/display.do?applicationId=${row.id}"><spring:message code="application.display"/></a>
 		</display:column>
 			
 	</security:authorize>	
@@ -58,10 +58,10 @@
 	
 	<security:authorize access="hasRole('HACKER')">
 	
-	<acme:url href="curriculum/hacker/display.do?curriculumId=${row2.curriculum.id}" code = "application.curriculum" />
+	<acme:url href="curriculum/rookie/display.do?curriculumId=${row2.curriculum.id}" code = "application.curriculum" />
 	
 		<display:column>
-				<a href="application/hacker/display.do?applicationId=${row2.id}"><spring:message code="application.display"/></a>
+				<a href="application/rookie/display.do?applicationId=${row2.id}"><spring:message code="application.display"/></a>
 		</display:column>	
 		
 	</security:authorize>
@@ -94,14 +94,14 @@
 	
 	<security:authorize access="hasRole('HACKER')">
 	
-	<acme:url href="curriculum/hacker/display.do?curriculumId=${row3.curriculum.id}" code = "application.curriculum" />
+	<acme:url href="curriculum/rookie/display.do?curriculumId=${row3.curriculum.id}" code = "application.curriculum" />
 	
 		<display:column>
-				<a href="application/hacker/display.do?applicationId=${row3.id}"><spring:message code="application.display"/></a>
+				<a href="application/rookie/display.do?applicationId=${row3.id}"><spring:message code="application.display"/></a>
 		</display:column>
 		
 		<display:column>
-				<a href="application/hacker/edit.do?applicationId=${row3.id}"><spring:message code="application.edit"/></a>
+				<a href="application/rookie/edit.do?applicationId=${row3.id}"><spring:message code="application.edit"/></a>
 		</display:column>
 			
 	</security:authorize>
@@ -142,14 +142,14 @@
 	
 	<security:authorize access="hasRole('HACKER')">
 	
-	<acme:url href="curriculum/hacker/display.do?curriculumId=${row4.curriculum.id}" code = "application.curriculum" />
+	<acme:url href="curriculum/rookie/display.do?curriculumId=${row4.curriculum.id}" code = "application.curriculum" />
 	
 		<display:column>
-				<a href="application/hacker/display.do?applicationId=${row4.id}"><spring:message code="application.display"/></a>
+				<a href="application/rookie/display.do?applicationId=${row4.id}"><spring:message code="application.display"/></a>
 		</display:column>
 			
 		<display:column>
-				<a href="application/hacker/edit.do?applicationId=${row4.id}"><spring:message code="application.edit"/></a>
+				<a href="application/rookie/edit.do?applicationId=${row4.id}"><spring:message code="application.edit"/></a>
 		</display:column>
 		
 	</security:authorize>

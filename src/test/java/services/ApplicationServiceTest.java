@@ -178,7 +178,7 @@ public class ApplicationServiceTest extends AbstractTest {
 				"company1", "application1", null
 			},//1. All fine
 			{
-				"hacker1", "application1", IllegalArgumentException.class
+				"rookie1", "application1", IllegalArgumentException.class
 			},//2. A company is not registered
 		};
 		for (int i = 0; i < testingData.length; i++)
@@ -229,7 +229,7 @@ public class ApplicationServiceTest extends AbstractTest {
 				"company1", "application1", null
 			},//1. All fine
 			{
-				"hacker1", "application1", IllegalArgumentException.class
+				"rookie1", "application1", IllegalArgumentException.class
 			},//2. A company is not registered
 		};
 		for (int i = 0; i < testingData.length; i++)
@@ -260,37 +260,37 @@ public class ApplicationServiceTest extends AbstractTest {
 
 	/*
 	 * ACME.HACKERRANK
-	 * a)(Level C) Requirement 10.1: An actor who is authenticated as a hacker must be able to:
+	 * a)(Level C) Requirement 10.1: An actor who is authenticated as a rookie must be able to:
 	 * List their applications by status
 	 * 
 	 * b) Negative cases:
 	 * 2. The number is incorrect
 	 * 
 	 * c) Sentence coverage
-	 * findAllAcceptedByHacker()=100%
-	 * findAllRejectedByHacker()=100%
-	 * findAllSubmittedByHacker()=100%
-	 * findAllPendingByHacker()=100%
+	 * findAllAcceptedByRookie()=100%
+	 * findAllRejectedByRookie()=100%
+	 * findAllSubmittedByRookie()=100%
+	 * findAllPendingByRookie()=100%
 	 * 
 	 * d) Data coverage
 	 * -Application=0%
 	 */
 
 	@Test
-	public void driverListApplicationHacker() {
+	public void driverListApplicationRookie() {
 		final Object testingData[][] = {
 			{
-				"hacker1", 1, null
+				"rookie1", 1, null
 			},//1. All fine
 			{
-				"hacker1", 0, IllegalArgumentException.class
+				"rookie1", 0, IllegalArgumentException.class
 			},//2. The number is incorrect
 		};
 		for (int i = 0; i < testingData.length; i++)
-			this.templateListApplicationHacker((String) testingData[i][0], (Integer) testingData[i][1], (Class<?>) testingData[i][2]);
+			this.templateListApplicationRookie((String) testingData[i][0], (Integer) testingData[i][1], (Class<?>) testingData[i][2]);
 
 	}
-	protected void templateListApplicationHacker(final String username, final Integer number, final Class<?> expected) {
+	protected void templateListApplicationRookie(final String username, final Integer number, final Class<?> expected) {
 
 		Class<?> caught;
 
@@ -304,10 +304,10 @@ public class ApplicationServiceTest extends AbstractTest {
 			Collection<Application> applicationSubmitted;
 			Collection<Application> applicationPending;
 
-			applicationAccepted = this.applicationService.findAllAcceptedByHacker(super.getEntityId(username));
-			applicationRejected = this.applicationService.findAllRejectedByHacker(super.getEntityId(username));
-			applicationSubmitted = this.applicationService.findAllSubmittedByHacker(super.getEntityId(username));
-			applicationPending = this.applicationService.findAllPendingByHacker(super.getEntityId(username));
+			applicationAccepted = this.applicationService.findAllAcceptedByRookie(super.getEntityId(username));
+			applicationRejected = this.applicationService.findAllRejectedByRookie(super.getEntityId(username));
+			applicationSubmitted = this.applicationService.findAllSubmittedByRookie(super.getEntityId(username));
+			applicationPending = this.applicationService.findAllPendingByRookie(super.getEntityId(username));
 
 			final Collection<Application> applicationAll = new ArrayList<Application>();
 			applicationAll.addAll(applicationAccepted);
@@ -329,7 +329,7 @@ public class ApplicationServiceTest extends AbstractTest {
 
 	/*
 	 * ACME.HACKERRANK
-	 * a)(Level C) Requirement 10.1: An actor who is authenticated as a hacker must be able to:
+	 * a)(Level C) Requirement 10.1: An actor who is authenticated as a rookie must be able to:
 	 * Show their applications
 	 * 
 	 * b) Negative cases:
@@ -343,27 +343,27 @@ public class ApplicationServiceTest extends AbstractTest {
 	 */
 
 	@Test
-	public void driverFindApplicationHacker() {
+	public void driverFindApplicationRookie() {
 		final Object testingData[][] = {
 			{
-				"hacker1", "application1", null
+				"rookie1", "application1", null
 			},//1. All fine
 			{
-				"hacker1", "application1000", AssertionError.class
+				"rookie1", "application1000", AssertionError.class
 			},//2. Application not exist
 		};
 		for (int i = 0; i < testingData.length; i++)
-			this.templateFindApplicationHacker((String) testingData[i][0], (String) testingData[i][1], (Class<?>) testingData[i][2]);
+			this.templateFindApplicationRookie((String) testingData[i][0], (String) testingData[i][1], (Class<?>) testingData[i][2]);
 
 	}
-	protected void templateFindApplicationHacker(final String hacker, final String application, final Class<?> expected) {
+	protected void templateFindApplicationRookie(final String rookie, final String application, final Class<?> expected) {
 
 		Class<?> caught;
 
 		caught = null;
 		try {
 			this.startTransaction();
-			this.authenticate(hacker);
+			this.authenticate(rookie);
 
 			final Application found = this.applicationService.findOne(super.getEntityId(application));
 			Assert.notNull(found);
@@ -379,11 +379,11 @@ public class ApplicationServiceTest extends AbstractTest {
 
 	/*
 	 * ACME.HACKERRANK
-	 * a)(Level C) Requirement 10.1: An actor who is authenticated as a hacker must be able to:
+	 * a)(Level C) Requirement 10.1: An actor who is authenticated as a rookie must be able to:
 	 * Create an application
 	 * 
 	 * b) Negative cases:
-	 * 2. A hacker is not registered
+	 * 2. A rookie is not registered
 	 * 
 	 * c) Sentence coverage
 	 * -create()=100%
@@ -397,24 +397,24 @@ public class ApplicationServiceTest extends AbstractTest {
 	public void driverCreateApplication() {
 		final Object testingData[][] = {
 			{
-				"hacker1", "answer", null
+				"rookie1", "answer", null
 			},//1. All fine
 			{
 				"company1", "answer", IllegalArgumentException.class
-			},//2. A hacker is not registered
+			},//2. A rookie is not registered
 		};
 		for (int i = 0; i < testingData.length; i++)
 			this.templateCreateApplication((String) testingData[i][0], (String) testingData[i][1], (Class<?>) testingData[i][2]);
 
 	}
-	protected void templateCreateApplication(final String hacker, final String application, final Class<?> expected) {
+	protected void templateCreateApplication(final String rookie, final String application, final Class<?> expected) {
 
 		Class<?> caught;
 
 		caught = null;
 		try {
 			this.startTransaction();
-			this.authenticate(hacker);
+			this.authenticate(rookie);
 
 			final ApplicationForm app = this.applicationService.create();
 
@@ -432,11 +432,11 @@ public class ApplicationServiceTest extends AbstractTest {
 
 	/*
 	 * ACME.HACKERRANK
-	 * a)(Level C) Requirement 10.1: An actor who is authenticated as a hacker must be able to:
+	 * a)(Level C) Requirement 10.1: An actor who is authenticated as a rookie must be able to:
 	 * Update an application.
 	 * 
 	 * b) Negative cases:
-	 * 2. A hacker is not registered
+	 * 2. A rookie is not registered
 	 * 
 	 * c) Sentence coverage
 	 * findOne()=100%
@@ -450,24 +450,24 @@ public class ApplicationServiceTest extends AbstractTest {
 	public void driverEditApplication() {
 		final Object testingData[][] = {
 			{
-				"hacker1", "answer", null
+				"rookie1", "answer", null
 			},//1. All fine
 			{
 				"company1", "answer", IllegalArgumentException.class
-			},//2. A hacker is not registered
+			},//2. A rookie is not registered
 		};
 		for (int i = 0; i < testingData.length; i++)
 			this.templateEditApplication((String) testingData[i][0], (String) testingData[i][1], (Class<?>) testingData[i][2]);
 
 	}
-	protected void templateEditApplication(final String hacker, final String answer, final Class<?> expected) {
+	protected void templateEditApplication(final String rookie, final String answer, final Class<?> expected) {
 
 		Class<?> caught;
 
 		caught = null;
 		try {
 			this.startTransaction();
-			this.authenticate(hacker);
+			this.authenticate(rookie);
 
 			final Application app = this.applicationService.findOne(super.getEntityId("application1"));
 

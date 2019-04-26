@@ -16,7 +16,7 @@ import repositories.FinderRepository;
 import security.Authority;
 import domain.Actor;
 import domain.Finder;
-import domain.Hacker;
+import domain.Rookie;
 import domain.Position;
 
 @Service
@@ -74,9 +74,9 @@ public class FinderService {
 			Assert.notNull(actor);
 
 			final Authority hW = new Authority();
-			hW.setAuthority(Authority.HACKER);
+			hW.setAuthority(Authority.ROOKIE);
 			if (actor.getUserAccount().getAuthorities().contains(hW)) {
-				final Hacker owner = finder.getHacker();
+				final Rookie owner = finder.getRookie();
 				Assert.notNull(owner);
 				Assert.isTrue(actor.getId() == owner.getId());
 				finder.setLastUpdate(new Date(System.currentTimeMillis() - 1000));
@@ -106,7 +106,7 @@ public class FinderService {
 
 	public void deleteFinderActor(final int actorId) {
 
-		final Finder finder = this.finderRepository.findFinderByHacker(actorId);
+		final Finder finder = this.finderRepository.findFinderByRookie(actorId);
 
 		this.finderRepository.delete(finder);
 
@@ -118,7 +118,7 @@ public class FinderService {
 
 		final Finder finderBBDD = this.findOne(finder.getId());
 
-		finder.setHacker(finderBBDD.getHacker());
+		finder.setRookie(finderBBDD.getRookie());
 
 		finder.setLastUpdate(new Date(System.currentTimeMillis() - 1000));
 
@@ -128,8 +128,8 @@ public class FinderService {
 
 	}
 
-	public Finder findFinderByHacker(final int hackerId) {
-		final Finder finder = this.finderRepository.findFinderByHacker(hackerId);
+	public Finder findFinderByRookie(final int rookieId) {
+		final Finder finder = this.finderRepository.findFinderByRookie(rookieId);
 		return finder;
 	}
 

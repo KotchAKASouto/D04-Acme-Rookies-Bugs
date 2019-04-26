@@ -1,5 +1,5 @@
 
-package controllers.hacker;
+package controllers.rookie;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,8 +18,8 @@ import domain.PersonalData;
 import forms.PersonalDataForm;
 
 @Controller
-@RequestMapping("/personalData/hacker")
-public class PersonalDataHackerController {
+@RequestMapping("/personalData/rookie")
+public class PersonalDataRookieController {
 
 	// Services ---------------------------------------------------
 
@@ -90,7 +90,7 @@ public class PersonalDataHackerController {
 				else
 					try {
 						this.personalDataService.save(personalReconstruct);
-						result = new ModelAndView("redirect:/curriculum/hacker/display.do?curriculumId=" + form.getCurriculumId());
+						result = new ModelAndView("redirect:/curriculum/rookie/display.do?curriculumId=" + form.getCurriculumId());
 
 					} catch (final Throwable oops) {
 						result = this.createEditModelAndView(form, "curriculum.commit.error");

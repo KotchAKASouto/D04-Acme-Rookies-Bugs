@@ -21,7 +21,7 @@ import domain.Application;
 import domain.Company;
 import domain.Curriculum;
 import domain.EducationData;
-import domain.Hacker;
+import domain.Rookie;
 import domain.MiscellaneousData;
 import domain.PersonalData;
 import domain.PositionData;
@@ -41,7 +41,7 @@ public class CurriculumService {
 	private ActorService				actorService;
 
 	@Autowired
-	private HackerService				hackerService;
+	private RookieService				rookieService;
 
 	@Autowired
 	private ApplicationService			applicationService;
@@ -69,7 +69,7 @@ public class CurriculumService {
 		final Actor actor = this.actorService.findByPrincipal();
 		Assert.notNull(actor);
 		final Authority authority = new Authority();
-		authority.setAuthority(Authority.HACKER);
+		authority.setAuthority(Authority.ROOKIE);
 		Assert.isTrue((actor.getUserAccount().getAuthorities().contains(authority)));
 
 		Curriculum result;
@@ -117,7 +117,7 @@ public class CurriculumService {
 
 	public void deleteAll(final int actorId) {
 
-		final Collection<Curriculum> curricula = this.findAllByHackerId(actorId);
+		final Collection<Curriculum> curricula = this.findAllByRookieId(actorId);
 
 		if (!curricula.isEmpty())
 			for (final Curriculum c : curricula)
@@ -126,7 +126,7 @@ public class CurriculumService {
 
 	public Curriculum reconstruct(final CreateCurriculumForm form, final BindingResult binding) {
 
-		final Hacker actor = this.hackerService.findByPrincipal();
+		final Rookie actor = this.rookieService.findByPrincipal();
 
 		final Date currentMoment = new Date(System.currentTimeMillis());
 
@@ -136,23 +136,23 @@ public class CurriculumService {
 
 		result.setNoCopy(true);
 		result.setTicker(ticker);
-		result.setHacker(actor);
+		result.setRookie(actor);
 
 		return result;
 
 	}
 	//Other methods
 
-	public Collection<Curriculum> findByHackerId(final int hackerId) {
+	public Collection<Curriculum> findByRookieId(final int rookieId) {
 
-		final Collection<Curriculum> result = this.curriculumRepository.findByHackerId(hackerId);
+		final Collection<Curriculum> result = this.curriculumRepository.findByRookieId(rookieId);
 
 		return result;
 	}
 
-	public Collection<Curriculum> findAllByHackerId(final int hackerId) {
+	public Collection<Curriculum> findAllByRookieId(final int rookieId) {
 
-		final Collection<Curriculum> result = this.curriculumRepository.findAllByHackerId(hackerId);
+		final Collection<Curriculum> result = this.curriculumRepository.findAllByRookieId(rookieId);
 
 		return result;
 	}
@@ -162,11 +162,11 @@ public class CurriculumService {
 		Boolean res = false;
 
 		if (curriculumId != 0) {
-			final Hacker hacker = this.hackerService.findByPrincipal();
+			final Rookie rookie = this.rookieService.findByPrincipal();
 
 			final Curriculum curriculum = this.findOne(curriculumId);
 
-			final Collection<Curriculum> curriculums = this.findAllByHackerId(hacker.getId());
+			final Collection<Curriculum> curriculums = this.findAllByRookieId(rookie.getId());
 
 			if (curriculums.contains(curriculum))
 				res = true;
@@ -256,7 +256,7 @@ public class CurriculumService {
 		final PersonalData personalDataCopy = this.personalDataService.save(newPersonalData);
 
 		res.setEducationDatas(educationDataCopy);
-		res.setHacker(curriculum.getHacker());
+		res.setRookie(curriculum.getRookie());
 		res.setMiscellaneousDatas(miscellaneousDataCopy);
 		res.setNoCopy(false);
 		res.setTicker("C-" + curriculum.getTicker());

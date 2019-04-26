@@ -16,7 +16,7 @@ import security.Authority;
 import domain.Actor;
 import domain.Application;
 import domain.Company;
-import domain.Hacker;
+import domain.Rookie;
 import forms.ApplicationForm;
 
 @Service
@@ -36,7 +36,7 @@ public class ApplicationService {
 	private CurriculumService		curriculumService;
 
 	@Autowired
-	private HackerService			hackerService;
+	private RookieService			rookieService;
 
 	@Autowired
 	private PositionService			positionService;
@@ -57,7 +57,7 @@ public class ApplicationService {
 		final Actor actor = this.actorService.findByPrincipal();
 		Assert.notNull(actor);
 		final Authority authority = new Authority();
-		authority.setAuthority(Authority.HACKER);
+		authority.setAuthority(Authority.ROOKIE);
 		Assert.isTrue((actor.getUserAccount().getAuthorities().contains(authority)));
 
 		ApplicationForm result;
@@ -86,7 +86,7 @@ public class ApplicationService {
 		final Actor actor = this.actorService.findByPrincipal();
 		Assert.notNull(actor);
 		final Authority authority = new Authority();
-		authority.setAuthority(Authority.HACKER);
+		authority.setAuthority(Authority.ROOKIE);
 		Assert.isTrue((actor.getUserAccount().getAuthorities().contains(authority)));
 
 		Application res = null;
@@ -142,51 +142,51 @@ public class ApplicationService {
 
 	public void deleteAll(final int actorId) {
 
-		final Collection<Application> apps = this.findByHackerId(actorId);
+		final Collection<Application> apps = this.findByRookieId(actorId);
 
 		if (!apps.isEmpty())
 			for (final Application a : apps)
 				this.applicationRepository.delete(a);
 	}
 
-	public Collection<Application> findByHackerId(final int hackerId) {
+	public Collection<Application> findByRookieId(final int rookieId) {
 
-		final Collection<Application> result = this.applicationRepository.findByHackerId(hackerId);
+		final Collection<Application> result = this.applicationRepository.findByRookieId(rookieId);
 
 		return result;
 	}
 
-	public Collection<Application> findAllAcceptedByHacker(final int hackerId) {
+	public Collection<Application> findAllAcceptedByRookie(final int rookieId) {
 		Collection<Application> result;
-		result = this.applicationRepository.findAllAcceptedByHacker(hackerId);
+		result = this.applicationRepository.findAllAcceptedByRookie(rookieId);
 		Assert.notNull(result);
 		return result;
 	}
 
-	public Collection<Application> findAllRejectedByHacker(final int hackerId) {
+	public Collection<Application> findAllRejectedByRookie(final int rookieId) {
 		Collection<Application> result;
-		result = this.applicationRepository.findAllRejectedByHacker(hackerId);
+		result = this.applicationRepository.findAllRejectedByRookie(rookieId);
 		Assert.notNull(result);
 		return result;
 	}
 
-	public Collection<Application> findAllPendingByHacker(final int hackerId) {
+	public Collection<Application> findAllPendingByRookie(final int rookieId) {
 		Collection<Application> result;
-		result = this.applicationRepository.findAllPendingByHacker(hackerId);
+		result = this.applicationRepository.findAllPendingByRookie(rookieId);
 		Assert.notNull(result);
 		return result;
 	}
 
-	public Collection<Application> findAllSubmittedByHacker(final int hackerId) {
+	public Collection<Application> findAllSubmittedByRookie(final int rookieId) {
 		Collection<Application> result;
-		result = this.applicationRepository.findAllSubmittedByHacker(hackerId);
+		result = this.applicationRepository.findAllSubmittedByRookie(rookieId);
 		Assert.notNull(result);
 		return result;
 	}
 
-	public Collection<Application> findAllDeadLinePastByHacker(final int hackerId) {
+	public Collection<Application> findAllDeadLinePastByRookie(final int rookieId) {
 		Collection<Application> result;
-		result = this.applicationRepository.findAllDeadLinePastByHacker(hackerId);
+		result = this.applicationRepository.findAllDeadLinePastByRookie(rookieId);
 		Assert.notNull(result);
 		return result;
 	}
@@ -229,7 +229,7 @@ public class ApplicationService {
 	public Boolean ApplicationSecurity(final int applicationId) {
 		Boolean res = false;
 
-		final Hacker owner = this.findOne(applicationId).getHacker();
+		final Rookie owner = this.findOne(applicationId).getRookie();
 		final Company owner2 = this.findOne(applicationId).getPosition().getCompany();
 
 		final Actor login = this.actorService.findByPrincipal();
@@ -268,10 +268,10 @@ public class ApplicationService {
 			final Actor actor = this.actorService.findByPrincipal();
 			Assert.notNull(actor);
 			final Authority authority = new Authority();
-			authority.setAuthority(Authority.HACKER);
+			authority.setAuthority(Authority.ROOKIE);
 			Assert.isTrue((actor.getUserAccount().getAuthorities().contains(authority)));
 
-			res.setHacker(this.hackerService.findByPrincipal());
+			res.setRookie(this.rookieService.findByPrincipal());
 			res.setMoment(now);
 
 			if (!res.getAnswer().isEmpty()) {
@@ -287,12 +287,12 @@ public class ApplicationService {
 			final Application oldOne = this.applicationRepository.findOne(applicationForm.getId());
 
 			res.setMoment(oldOne.getMoment());
-			res.setHacker(oldOne.getHacker());
+			res.setRookie(oldOne.getRookie());
 
 			final Actor actor = this.actorService.findByPrincipal();
 			Assert.notNull(actor);
 			final Authority authority = new Authority();
-			authority.setAuthority(Authority.HACKER);
+			authority.setAuthority(Authority.ROOKIE);
 			final Authority authority2 = new Authority();
 			authority2.setAuthority(Authority.COMPANY);
 			Assert.isTrue((actor.getUserAccount().getAuthorities().contains(authority) || actor.getUserAccount().getAuthorities().contains(authority2)));
@@ -317,20 +317,20 @@ public class ApplicationService {
 
 	}
 
-	public Boolean securityHacker(final int applicationId) {
+	public Boolean securityRookie(final int applicationId) {
 
 		Boolean res = false;
 
-		final Hacker hacker = this.hackerService.findByPrincipal();
+		final Rookie rookie = this.rookieService.findByPrincipal();
 
 		if (applicationId != 0) {
 
 			final Application application = this.applicationRepository.findOne(applicationId);
 
 			if (application != null) {
-				final Hacker owner = application.getHacker();
+				final Rookie owner = application.getRookie();
 
-				if (owner.equals(hacker))
+				if (owner.equals(rookie))
 					res = true;
 			}
 

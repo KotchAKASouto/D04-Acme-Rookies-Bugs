@@ -12,11 +12,11 @@ import domain.Curriculum;
 @Repository
 public interface CurriculumRepository extends JpaRepository<Curriculum, Integer> {
 
-	@Query("select c from Curriculum c where c.noCopy = true and c.hacker.id = ?1")
-	Collection<Curriculum> findByHackerId(int hackerId);
+	@Query("select c from Curriculum c where c.noCopy = true and c.rookie.id = ?1")
+	Collection<Curriculum> findByRookieId(int rookieId);
 
-	@Query("select c from Curriculum c where c.hacker.id = ?1")
-	Collection<Curriculum> findAllByHackerId(int hackerId);
+	@Query("select c from Curriculum c where c.rookie.id = ?1")
+	Collection<Curriculum> findAllByRookieId(int rookieId);
 
 	@Query("select c from Curriculum c where c.noCopy = true and c.personalData.id = ?1")
 	Curriculum findByPersonalDataId(int personalDataId);

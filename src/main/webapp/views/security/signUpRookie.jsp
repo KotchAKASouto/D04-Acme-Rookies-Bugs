@@ -8,7 +8,7 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags" %>
 
-<form:form action="register/saveHacker.do" modelAttribute="hacker">
+<form:form action="register/saveRookie.do" modelAttribute="rookie">
 	
 	
 	<acme:textbox code="actor.name" path="name" obligatory="true"/>
@@ -52,7 +52,7 @@
 	
 	<jstl:if test="${showError == true}">
 		<div class="error">
-			<spring:message code="hacker.commit.error" />
+			<spring:message code="rookie.commit.error" />
 		</div>
 	</jstl:if>
 	
@@ -63,7 +63,7 @@
 </form:form>
 
 <jstl:if test="${message!=null }">
-	<div class="error"><spring:message code="hacker.commit.error" /></div>
+	<div class="error"><spring:message code="rookie.commit.error" /></div>
 </jstl:if> 
  
 <script type="text/javascript">

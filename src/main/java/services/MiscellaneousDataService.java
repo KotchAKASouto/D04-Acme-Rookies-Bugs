@@ -14,7 +14,7 @@ import repositories.MiscellaneousDataRepository;
 import security.Authority;
 import domain.Actor;
 import domain.Curriculum;
-import domain.Hacker;
+import domain.Rookie;
 import domain.MiscellaneousData;
 import forms.MiscellaneousDataForm;
 
@@ -35,7 +35,7 @@ public class MiscellaneousDataService {
 	private CurriculumService			curriculumService;
 
 	@Autowired
-	private HackerService				hackerService;
+	private RookieService				rookieService;
 
 	@Autowired
 	private Validator					validator;
@@ -48,7 +48,7 @@ public class MiscellaneousDataService {
 		final Actor actor = this.actorService.findByPrincipal();
 		Assert.notNull(actor);
 		final Authority authority = new Authority();
-		authority.setAuthority(Authority.HACKER);
+		authority.setAuthority(Authority.ROOKIE);
 		Assert.isTrue((actor.getUserAccount().getAuthorities().contains(authority)));
 
 		MiscellaneousData result;
@@ -159,9 +159,9 @@ public class MiscellaneousDataService {
 
 		Boolean result = false;
 
-		final Hacker hacker = this.hackerService.findByPrincipal();
+		final Rookie rookie = this.rookieService.findByPrincipal();
 
-		final Collection<Curriculum> curricula = this.curriculumService.findByHackerId(hacker.getId());
+		final Collection<Curriculum> curricula = this.curriculumService.findByRookieId(rookie.getId());
 
 		final MiscellaneousData miscellaneous = this.findOne(miscellaneousRecordId);
 

@@ -30,7 +30,7 @@ public class Application extends DomainEntity {
 
 	private Position	position;
 	private Curriculum	curriculum;
-	private Hacker		hacker;
+	private Rookie		rookie;
 
 
 	@NotNull
@@ -96,12 +96,12 @@ public class Application extends DomainEntity {
 
 	@ManyToOne(optional = false)
 	@Valid
-	public Hacker getHacker() {
-		return this.hacker;
+	public Rookie getRookie() {
+		return this.rookie;
 	}
 
-	public void setHacker(final Hacker hacker) {
-		this.hacker = hacker;
+	public void setRookie(final Rookie rookie) {
+		this.rookie = rookie;
 	}
 
 }

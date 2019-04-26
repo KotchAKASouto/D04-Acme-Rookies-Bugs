@@ -13,12 +13,12 @@ import services.ActorService;
 import services.AdministratorService;
 import services.CompanyService;
 import services.ConfigurationService;
-import services.HackerService;
+import services.RookieService;
 import controllers.AbstractController;
 import domain.Actor;
 import domain.Administrator;
 import domain.Company;
-import domain.Hacker;
+import domain.Rookie;
 
 @Controller
 @RequestMapping("/actor")
@@ -33,7 +33,7 @@ public class ActorController extends AbstractController {
 	private AdministratorService	administratorService;
 
 	@Autowired
-	private HackerService			hackerService;
+	private RookieService			rookieService;
 
 	@Autowired
 	private CompanyService			companyService;
@@ -48,16 +48,16 @@ public class ActorController extends AbstractController {
 
 		final Actor actor = this.actorService.findByPrincipal();
 
-		Collection<Hacker> hackers;
+		Collection<Rookie> rookies;
 		Collection<Company> companies;
 		Collection<Administrator> administrators;
 
-		hackers = this.hackerService.findAll();
+		rookies = this.rookieService.findAll();
 		companies = this.companyService.findAll();
 		administrators = this.administratorService.findAll();
 
-		if (hackers.contains(actor))
-			hackers.remove(actor);
+		if (rookies.contains(actor))
+			rookies.remove(actor);
 		else if (companies.contains(actor))
 			companies.remove(actor);
 		else if (administrators.contains(actor))
@@ -66,7 +66,7 @@ public class ActorController extends AbstractController {
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
 		result = new ModelAndView("actor/list");
-		result.addObject("hackers", hackers);
+		result.addObject("hackers", rookies);
 		result.addObject("companies", companies);
 		result.addObject("administrators", administrators);
 		result.addObject("banner", banner);

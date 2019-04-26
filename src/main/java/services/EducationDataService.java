@@ -16,7 +16,7 @@ import security.Authority;
 import domain.Actor;
 import domain.Curriculum;
 import domain.EducationData;
-import domain.Hacker;
+import domain.Rookie;
 import forms.EducationDataForm;
 
 @Service
@@ -36,7 +36,7 @@ public class EducationDataService {
 	private CurriculumService		curriculumService;
 
 	@Autowired
-	private HackerService			hackerService;
+	private RookieService			rookieService;
 
 	@Autowired
 	private Validator				validator;
@@ -49,7 +49,7 @@ public class EducationDataService {
 		final Actor actor = this.actorService.findByPrincipal();
 		Assert.notNull(actor);
 		final Authority authority = new Authority();
-		authority.setAuthority(Authority.HACKER);
+		authority.setAuthority(Authority.ROOKIE);
 		Assert.isTrue((actor.getUserAccount().getAuthorities().contains(authority)));
 
 		EducationData result;
@@ -177,9 +177,9 @@ public class EducationDataService {
 
 		Boolean result = false;
 
-		final Hacker hacker = this.hackerService.findByPrincipal();
+		final Rookie rookie = this.rookieService.findByPrincipal();
 
-		final Collection<Curriculum> curricula = this.curriculumService.findByHackerId(hacker.getId());
+		final Collection<Curriculum> curricula = this.curriculumService.findByRookieId(rookie.getId());
 
 		final EducationData education = this.findOne(educationRecordId);
 

@@ -8,7 +8,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags" %>
 
-<form:form action="educationData/hacker/edit.do" modelAttribute="educationData">
+<form:form action="educationData/rookie/edit.do" modelAttribute="educationData">
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
@@ -30,6 +30,6 @@
 		<acme:submit name="delete" code="curriculum.delete" />
 	</jstl:if>
 	
-	<acme:cancel code="curriculum.back" url="curriculum/hacker/display.do?curriculumId=${educationData.curriculumId }" />
+	<acme:cancel code="curriculum.back" url="curriculum/rookie/display.do?curriculumId=${educationData.curriculumId }" />
 	
 </form:form> 

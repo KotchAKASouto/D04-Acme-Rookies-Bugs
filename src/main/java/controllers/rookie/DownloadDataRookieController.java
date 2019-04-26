@@ -1,5 +1,5 @@
 
-package controllers.hacker;
+package controllers.rookie;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -14,20 +14,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import services.HackerService;
+import services.RookieService;
 import services.MessageService;
 import services.SocialProfileService;
 import controllers.AbstractController;
-import domain.Hacker;
+import domain.Rookie;
 import domain.Message;
 import domain.SocialProfile;
 
 @Controller
-@RequestMapping("/data/hacker")
-public class DownloadDataHackerController extends AbstractController {
+@RequestMapping("/data/rookie")
+public class DownloadDataRookieController extends AbstractController {
 
 	@Autowired
-	private HackerService			hackerService;
+	private RookieService			rookieService;
 
 	@Autowired
 	private SocialProfileService	socialProfileService;
@@ -43,7 +43,7 @@ public class DownloadDataHackerController extends AbstractController {
 		if (language == "en") {
 			String myString = "Below these lines you can find all the data we have at Acme-Parade:\r\n";
 
-			final Hacker c = this.hackerService.findByPrincipal();
+			final Rookie c = this.rookieService.findByPrincipal();
 			final Collection<SocialProfile> sc = this.socialProfileService.findAllByActor(c.getId());
 			final Collection<Message> msgs = this.messageService.messagePerActor(c.getId());
 
@@ -62,7 +62,7 @@ public class DownloadDataHackerController extends AbstractController {
 			myString += "\r\n\r\n";
 
 			response.setContentType("text/plain");
-			response.setHeader("Content-Disposition", "attachment;filename=my_data_as_hacker.txt");
+			response.setHeader("Content-Disposition", "attachment;filename=my_data_as_rookie.txt");
 			final ServletOutputStream out = response.getOutputStream();
 			out.println(myString);
 			out.flush();
@@ -71,7 +71,7 @@ public class DownloadDataHackerController extends AbstractController {
 		} else {
 			String myString = "Debajo de estas lineas puedes encontrar todos los datos que tenemos de ti en Acme-Parade:\r\n";
 
-			final Hacker c = this.hackerService.findByPrincipal();
+			final Rookie c = this.rookieService.findByPrincipal();
 			final Collection<SocialProfile> sc = this.socialProfileService.findAllByActor(c.getId());
 			final Collection<Message> msgs = this.messageService.messagePerActor(c.getId());
 
@@ -90,7 +90,7 @@ public class DownloadDataHackerController extends AbstractController {
 			myString += "\r\n\r\n";
 
 			response.setContentType("text/plain");
-			response.setHeader("Content-Disposition", "attachment;filename=mis_datos_como_hacker.txt");
+			response.setHeader("Content-Disposition", "attachment;filename=mis_datos_como_rookie.txt");
 			final ServletOutputStream out = response.getOutputStream();
 			out.println(myString);
 			out.flush();

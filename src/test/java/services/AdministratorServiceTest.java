@@ -197,7 +197,7 @@ public class AdministratorServiceTest extends AbstractTest {
 				"admin", null
 			},//1. All fine
 			{
-				"hacker1", IllegalArgumentException.class
+				"rookie1", IllegalArgumentException.class
 			},//2. Invalid authority
 		};
 
@@ -257,10 +257,10 @@ public class AdministratorServiceTest extends AbstractTest {
 			final Integer maxPC = this.adminService.maxOfPositionsPerCompany();
 			final Double stdPC = this.adminService.stdOfPositionsPerCompany();
 
-			final Double avgAH = this.adminService.avgOfApplicationsPerHacker();
-			final Integer minAH = this.adminService.minOfApplicationsPerHacker();
-			final Integer maxAH = this.adminService.maxOfApplicationsPerHacker();
-			final Double stdAH = this.adminService.stdOfApplicationsPerHacker();
+			final Double avgAH = this.adminService.avgOfApplicationsPerRookie();
+			final Integer minAH = this.adminService.minOfApplicationsPerRookie();
+			final Integer maxAH = this.adminService.maxOfApplicationsPerRookie();
+			final Double stdAH = this.adminService.stdOfApplicationsPerRookie();
 
 			final List<String> topC = this.adminService.topCompaniesWithMorePositions();
 
@@ -272,10 +272,10 @@ public class AdministratorServiceTest extends AbstractTest {
 			final Position bP = this.adminService.findBestPosition();
 			final Position wP = this.adminService.findWorstPosition();
 
-			final Integer minCH = this.adminService.minNumberOfCurriculaPerHacker();
-			final Integer maxCH = this.adminService.maxNumberOfCurriculaPerHacker();
-			final Double avgCH = this.adminService.avgNumberOfCurriculaPerHacker();
-			final Double stdCH = this.adminService.stdNumberOfCurriculaPerHacker();
+			final Integer minCH = this.adminService.minNumberOfCurriculaPerRookie();
+			final Integer maxCH = this.adminService.maxNumberOfCurriculaPerRookie();
+			final Double avgCH = this.adminService.avgNumberOfCurriculaPerRookie();
+			final Double stdCH = this.adminService.stdNumberOfCurriculaPerRookie();
 
 			final Double stdRF = this.adminService.stdNumberOfResultsInFinders();
 			final Integer minRF = this.adminService.minNumberOfResultsInFinders();

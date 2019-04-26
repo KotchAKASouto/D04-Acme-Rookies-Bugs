@@ -41,14 +41,14 @@ public class DashboardAdministratorController extends AbstractController {
 		final Integer maxPC = this.administratorService.maxOfPositionsPerCompany();
 		final Double stdPC = this.administratorService.stdOfPositionsPerCompany();
 		
-		final Double avgAH = this.administratorService.avgOfApplicationsPerHacker();
-		final Integer minAH = this.administratorService.minOfApplicationsPerHacker();
-		final Integer maxAH = this.administratorService.maxOfApplicationsPerHacker();
-		final Double stdAH = this.administratorService.stdOfApplicationsPerHacker();
+		final Double avgAH = this.administratorService.avgOfApplicationsPerRookie();
+		final Integer minAH = this.administratorService.minOfApplicationsPerRookie();
+		final Integer maxAH = this.administratorService.maxOfApplicationsPerRookie();
+		final Double stdAH = this.administratorService.stdOfApplicationsPerRookie();
 		
 		final List<String> topC = this.administratorService.topCompaniesWithMorePositions();
 		
-		final List<String> topH = this.administratorService.topHackersWithMoreApplications();
+		final List<String> topH = this.administratorService.topRookiesWithMoreApplications();
 		
 		
 		final Double avgS = this.administratorService.avgSalaries();
@@ -59,10 +59,10 @@ public class DashboardAdministratorController extends AbstractController {
 		final Position bP = this.administratorService.findBestPosition();
 		final Position wP = this.administratorService.findWorstPosition();
 		
-		final Integer minCH = this.administratorService.minNumberOfCurriculaPerHacker();
-		final Integer maxCH = this.administratorService.maxNumberOfCurriculaPerHacker();
-		final Double avgCH = this.administratorService.avgNumberOfCurriculaPerHacker();
-		final Double stdCH = this.administratorService.stdNumberOfCurriculaPerHacker();
+		final Integer minCH = this.administratorService.minNumberOfCurriculaPerRookie();
+		final Integer maxCH = this.administratorService.maxNumberOfCurriculaPerRookie();
+		final Double avgCH = this.administratorService.avgNumberOfCurriculaPerRookie();
+		final Double stdCH = this.administratorService.stdNumberOfCurriculaPerRookie();
 		
 		final Double stdRF = this.administratorService.stdNumberOfResultsInFinders();
 		final Integer minRF = this.administratorService.minNumberOfResultsInFinders();

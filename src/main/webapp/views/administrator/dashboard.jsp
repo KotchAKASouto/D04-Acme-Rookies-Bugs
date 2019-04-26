@@ -19,11 +19,11 @@
 <br/>
 
 <fieldset>
-<legend><spring:message code="dashboard.statshacker" /></legend>
-<p><spring:message code="dashboard.statshacker.avg" />: ${avgAH} </p>
-<p><spring:message code="dashboard.statshacker.min" />: ${minAH} </p>
-<p><spring:message code="dashboard.statshacker.max" />: ${maxAH} </p>
-<p><spring:message code="dashboard.statshacker.std" />: ${stdAH} </p>
+<legend><spring:message code="dashboard.statsrookie" /></legend>
+<p><spring:message code="dashboard.statsrookie.avg" />: ${avgAH} </p>
+<p><spring:message code="dashboard.statsrookie.min" />: ${minAH} </p>
+<p><spring:message code="dashboard.statsrookie.max" />: ${maxAH} </p>
+<p><spring:message code="dashboard.statsrookie.std" />: ${stdAH} </p>
 <br/>
 </fieldset>
 <br/>
@@ -34,7 +34,7 @@
 </display:table>
 
 <br/>
-<p><spring:message code="dashboard.tophackers" /></p>
+<p><spring:message code="dashboard.toprookies" /></p>
 <display:table name="topH" id="row">
 </display:table>
 

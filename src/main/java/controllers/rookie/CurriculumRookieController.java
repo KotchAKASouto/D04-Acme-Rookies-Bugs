@@ -1,5 +1,5 @@
 
-package controllers.hacker;
+package controllers.rookie;
 
 import java.util.Collection;
 
@@ -14,17 +14,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.ConfigurationService;
 import services.CurriculumService;
-import services.HackerService;
+import services.RookieService;
 import services.PersonalDataService;
 import controllers.AbstractController;
 import domain.Curriculum;
-import domain.Hacker;
+import domain.Rookie;
 import domain.PersonalData;
 import forms.CreateCurriculumForm;
 
 @Controller
-@RequestMapping("/curriculum/hacker")
-public class CurriculumHackerController extends AbstractController {
+@RequestMapping("/curriculum/rookie")
+public class CurriculumRookieController extends AbstractController {
 
 	// Services ---------------------------------------------------
 
@@ -32,7 +32,7 @@ public class CurriculumHackerController extends AbstractController {
 	private CurriculumService		curriculumService;
 
 	@Autowired
-	private HackerService			hackerService;
+	private RookieService			rookieService;
 
 	@Autowired
 	private PersonalDataService		personalDataService;
@@ -77,16 +77,16 @@ public class CurriculumHackerController extends AbstractController {
 		final ModelAndView result;
 		Collection<Curriculum> curriculums;
 
-		final Hacker hacker = this.hackerService.findByPrincipal();
+		final Rookie rookie = this.rookieService.findByPrincipal();
 
-		curriculums = this.curriculumService.findByHackerId(hacker.getId());
+		curriculums = this.curriculumService.findByRookieId(rookie.getId());
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
 		result = new ModelAndView("curriculum/listCurriculum");
 		result.addObject("curriculums", curriculums);
 		result.addObject("banner", banner);
-		result.addObject("requestURI", "curriculum/hacker/list.do");
+		result.addObject("requestURI", "curriculum/rookie/list.do");
 
 		return result;
 	}
@@ -117,7 +117,7 @@ public class CurriculumHackerController extends AbstractController {
 				final PersonalData p = this.personalDataService.save(personalReconstruct);
 				curriculumReconstruct.setPersonalData(p);
 				this.curriculumService.save(curriculumReconstruct);
-				result = new ModelAndView("redirect:/curriculum/hacker/list.do");
+				result = new ModelAndView("redirect:/curriculum/rookie/list.do");
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(form, "curriculums.commit.error");
 			}
@@ -140,9 +140,9 @@ public class CurriculumHackerController extends AbstractController {
 			if (security)
 				try {
 					this.curriculumService.delete(curriculum);
-					result = new ModelAndView("redirect:/curriculum/hacker/list.do");
+					result = new ModelAndView("redirect:/curriculum/rookie/list.do");
 				} catch (final Throwable oops) {
-					result = new ModelAndView("redirect:/curriculum/hacker/display.do?curriculumId=" + curriculumId);
+					result = new ModelAndView("redirect:/curriculum/rookie/display.do?curriculumId=" + curriculumId);
 				}
 			else
 				result = new ModelAndView("redirect:/welcome/index.do");

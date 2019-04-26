@@ -39,7 +39,7 @@ public class EducationDataServiceTest extends AbstractTest {
 
 	/*
 	 * ACME.HACKERRANK
-	 * a)(Level B) Requirement 17.1: An actor who is authenticated as an hacker must be able to: Manage his or her curricula: Create education data
+	 * a)(Level B) Requirement 17.1: An actor who is authenticated as an rookie must be able to: Manage his or her curricula: Create education data
 	 * 
 	 * b) Negative cases:
 	 * 2. Degree = null
@@ -57,13 +57,13 @@ public class EducationDataServiceTest extends AbstractTest {
 	public void driverCreateEducationData() {
 		final Object testingData[][] = {
 			{
-				"hacker1", "test", "test", 5.0, "1998/06/29", "2000/06/29", null
+				"rookie1", "test", "test", 5.0, "1998/06/29", "2000/06/29", null
 			},//1. All fine
 			{
-				"hacker1", null, "test", 5.0, "1998/06/29", "2000/06/29", ConstraintViolationException.class
+				"rookie1", null, "test", 5.0, "1998/06/29", "2000/06/29", ConstraintViolationException.class
 			},//2. Degree = null
 			{
-				"hacker1", "		", "test", 5.0, "1998/06/29", "2000/06/29", ConstraintViolationException.class
+				"rookie1", "		", "test", 5.0, "1998/06/29", "2000/06/29", ConstraintViolationException.class
 			},//3. Degree = blank
 		};
 
@@ -107,7 +107,7 @@ public class EducationDataServiceTest extends AbstractTest {
 
 	/*
 	 * ACME.HACKERRANK
-	 * a)(Level B) Requirement 17.1: An actor who is authenticated as an hacker must be able to: Manage his or her curricula: Edit education data
+	 * a)(Level B) Requirement 17.1: An actor who is authenticated as an rookie must be able to: Manage his or her curricula: Edit education data
 	 * 
 	 * b) Negative cases:
 	 * 2. Mark < 0
@@ -177,7 +177,7 @@ public class EducationDataServiceTest extends AbstractTest {
 
 	/*
 	 * ACME.HACKERRANK
-	 * a)(Level B) Requirement 17.1: An actor who is authenticated as an hacker must be able to: Manage his or her curricula: Delete education data
+	 * a)(Level B) Requirement 17.1: An actor who is authenticated as an rookie must be able to: Manage his or her curricula: Delete education data
 	 * 
 	 * b) Negative cases:
 	 * 2. Not Curriculum
@@ -198,7 +198,7 @@ public class EducationDataServiceTest extends AbstractTest {
 				"educationData14", null
 			},//1. All fine
 			{
-				"hacker1", IllegalArgumentException.class
+				"rookie1", IllegalArgumentException.class
 			},//2. Not Curriculum
 
 		};

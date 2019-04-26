@@ -12,7 +12,7 @@ import org.springframework.util.Assert;
 
 import utilities.AbstractTest;
 import domain.Curriculum;
-import domain.Hacker;
+import domain.Rookie;
 import domain.PersonalData;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -30,7 +30,7 @@ public class CurriculumServiceTest extends AbstractTest {
 	private PersonalDataService	personalDataService;
 
 	@Autowired
-	private HackerService		hackerService;
+	private RookieService		rookieService;
 
 
 	/*
@@ -43,7 +43,7 @@ public class CurriculumServiceTest extends AbstractTest {
 
 	/*
 	 * ACME.HACKERRANK
-	 * a)(Level B) Requirement 17.1: An actor who is authenticated as an hacker must be able to: Manage his or her curricula: Create curriculum
+	 * a)(Level B) Requirement 17.1: An actor who is authenticated as an rookie must be able to: Manage his or her curricula: Create curriculum
 	 * 
 	 * b) Negative cases:
 	 * 2. Invalid authority
@@ -60,7 +60,7 @@ public class CurriculumServiceTest extends AbstractTest {
 	public void driverCreateCurriculum() {
 		final Object testingData[][] = {
 			{
-				"hacker1", null
+				"rookie1", null
 			},//1. All fine
 			{
 				"company2", IllegalArgumentException.class
@@ -81,7 +81,7 @@ public class CurriculumServiceTest extends AbstractTest {
 
 			super.authenticate(username);
 
-			final Hacker hacker = this.hackerService.findOne(super.getEntityId(username));
+			final Rookie rookie = this.rookieService.findOne(super.getEntityId(username));
 
 			final Curriculum c = this.curriculumService.create();
 
@@ -96,7 +96,7 @@ public class CurriculumServiceTest extends AbstractTest {
 
 			c.setTicker("180918-F4T78H");
 			c.setNoCopy(true);
-			c.setHacker(hacker);
+			c.setRookie(rookie);
 			c.setPersonalData(pd);
 
 			this.curriculumService.save(c);
@@ -116,13 +116,13 @@ public class CurriculumServiceTest extends AbstractTest {
 
 	/*
 	 * ACME.HACKERRANK
-	 * a)(Level B) Requirement 17.1: An actor who is authenticated as an hacker must be able to: Manage his or her curricula: List curriculum
+	 * a)(Level B) Requirement 17.1: An actor who is authenticated as an rookie must be able to: Manage his or her curricula: List curriculum
 	 * 
 	 * b) Negative cases:
 	 * 2. Incorrect result
 	 * 
 	 * c) Sentence coverage
-	 * -findAllByHackerId(): 100%
+	 * -findAllByRookieId(): 100%
 	 * 
 	 * d) Data coverage
 	 * -Curriculum: 0%
@@ -133,10 +133,10 @@ public class CurriculumServiceTest extends AbstractTest {
 		final Object testingData[][] = {
 
 			{
-				"hacker1", 2, null
+				"rookie1", 2, null
 			},//1. All fine
 			{
-				"hacker1", 1651, IllegalArgumentException.class
+				"rookie1", 1651, IllegalArgumentException.class
 			},//2. Incorrect result
 
 		};
@@ -153,8 +153,8 @@ public class CurriculumServiceTest extends AbstractTest {
 		caught = null;
 		try {
 
-			final Hacker hacker = this.hackerService.findOne(super.getEntityId(actor));
-			final Integer result = this.curriculumService.findAllByHackerId(hacker.getId()).size();
+			final Rookie rookie = this.rookieService.findOne(super.getEntityId(actor));
+			final Integer result = this.curriculumService.findAllByRookieId(rookie.getId()).size();
 			Assert.isTrue(expectedInt == result);
 
 		} catch (final Throwable oops) {
@@ -167,7 +167,7 @@ public class CurriculumServiceTest extends AbstractTest {
 
 	/*
 	 * ACME.HACKERRANK
-	 * a)(Level B) Requirement 17.1: An actor who is authenticated as an hacker must be able to: Manage his or her curricula: Display curriculum
+	 * a)(Level B) Requirement 17.1: An actor who is authenticated as an rookie must be able to: Manage his or her curricula: Display curriculum
 	 * 
 	 * b) Negative cases:
 	 * 2. Unexpected position datas size
@@ -228,7 +228,7 @@ public class CurriculumServiceTest extends AbstractTest {
 
 	/*
 	 * ACME.HACKERRANK
-	 * a)(Level B) Requirement 17.1: An actor who is authenticated as an hacker must be able to: Manage his or her curricula: Delete curriculum
+	 * a)(Level B) Requirement 17.1: An actor who is authenticated as an rookie must be able to: Manage his or her curricula: Delete curriculum
 	 * 
 	 * b) Negative cases:
 	 * 2. Not Curriculum
@@ -249,7 +249,7 @@ public class CurriculumServiceTest extends AbstractTest {
 				"curriculum1", null
 			},//1. All fine
 			{
-				"hacker1", IllegalArgumentException.class
+				"rookie1", IllegalArgumentException.class
 			},//2. Not Curriculum
 
 		};

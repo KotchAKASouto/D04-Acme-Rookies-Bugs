@@ -51,7 +51,7 @@ public class PositionService {
 	private ApplicationService	applicationService;
 
 	@Autowired
-	private HackerService		hackerService;
+	private RookieService		rookieService;
 
 	@Autowired
 	private MessageService		messageService;

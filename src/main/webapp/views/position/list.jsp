@@ -74,7 +74,7 @@
 	<security:authorize access="hasRole('HACKER')">
 		<display:column>
 			<jstl:if test="${row.deadline > now}">
-				<a href="application/hacker/create.do?positionId=${row.id }"> <spring:message code="position.application"/></a>
+				<a href="application/rookie/create.do?positionId=${row.id }"> <spring:message code="position.application"/></a>
 			</jstl:if>
 		</display:column>
 	</security:authorize> 

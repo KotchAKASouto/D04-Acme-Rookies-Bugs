@@ -1,5 +1,5 @@
 
-package controllers.hacker;
+package controllers.rookie;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,32 +12,32 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.ConfigurationService;
 import services.CurriculumService;
-import services.MiscellaneousDataService;
+import services.EducationDataService;
 import controllers.AbstractController;
 import domain.Curriculum;
-import domain.MiscellaneousData;
-import forms.MiscellaneousDataForm;
+import domain.EducationData;
+import forms.EducationDataForm;
 
 @Controller
-@RequestMapping("/miscellaneousData/hacker")
-public class MiscellaneousDataHackerController extends AbstractController {
+@RequestMapping("/educationData/rookie")
+public class EducationDataRookieController extends AbstractController {
 
 	// Services ---------------------------------------------------
 
 	@Autowired
-	private CurriculumService			curriculumService;
+	private CurriculumService		curriculumService;
 
 	@Autowired
-	private MiscellaneousDataService	miscellaneousDataService;
+	private EducationDataService	educationDataService;
 
 	@Autowired
-	private ConfigurationService		configurationService;
+	private ConfigurationService	configurationService;
 
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create(@RequestParam final int curriculumId) {
 		ModelAndView result;
-		MiscellaneousDataForm miscellaneousData;
+		EducationDataForm educationData;
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
@@ -48,12 +48,12 @@ public class MiscellaneousDataHackerController extends AbstractController {
 
 			final Curriculum c = this.curriculumService.findOne(curriculumId);
 
-			if (c.getNoCopy() && security) {
-				miscellaneousData = new MiscellaneousDataForm();
+			if (security && c.getNoCopy()) {
+				educationData = new EducationDataForm();
 
-				miscellaneousData.setCurriculumId(curriculumId);
+				educationData.setCurriculumId(curriculumId);
 
-				result = this.createEditModelAndView(miscellaneousData);
+				result = this.createEditModelAndView(educationData);
 			} else
 				result = new ModelAndView("redirect:/welcome/index.do");
 		} else {
@@ -63,28 +63,27 @@ public class MiscellaneousDataHackerController extends AbstractController {
 
 		return result;
 	}
-
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int miscellaneousRecordId) {
+	public ModelAndView edit(@RequestParam final int educationRecordId) {
 		ModelAndView result;
-		final MiscellaneousDataForm form;
+		final EducationDataForm form;
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
-		final Boolean exist = this.miscellaneousDataService.exist(miscellaneousRecordId);
+		final Boolean exist = this.educationDataService.exist(educationRecordId);
 
-		if (!(miscellaneousRecordId != 0 && exist)) {
+		if (!(educationRecordId != 0 && exist)) {
 			result = new ModelAndView("misc/notExist");
 			result.addObject("banner", banner);
 		} else {
 
-			form = this.miscellaneousDataService.creteForm(miscellaneousRecordId);
+			form = this.educationDataService.creteForm(educationRecordId);
 
-			final Boolean security = this.miscellaneousDataService.security(miscellaneousRecordId);
+			final Boolean security = this.educationDataService.security(educationRecordId);
 
-			final Curriculum c = this.curriculumService.findByMiscellaneousDataId(miscellaneousRecordId);
+			final Curriculum c = this.curriculumService.findByEducationDataId(educationRecordId);
 
-			if (c != null && c.getNoCopy() && security)
+			if (c != null && security && c.getNoCopy())
 				result = this.createEditModelAndView(form);
 			else
 				result = new ModelAndView("redirect:/welcome/index.do");
@@ -95,21 +94,21 @@ public class MiscellaneousDataHackerController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@ModelAttribute("miscellaneousData") final MiscellaneousDataForm form, final BindingResult binding) {
+	public ModelAndView save(@ModelAttribute("educationData") final EducationDataForm form, final BindingResult binding) {
 		ModelAndView result;
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
-		final MiscellaneousData miscellaneousReconstruct = this.miscellaneousDataService.reconstruct(form, binding);
+		final EducationData educationReconstruct = this.educationDataService.reconstruct(form, binding);
 
 		final Boolean existCurriculum = this.curriculumService.exist(form.getCurriculumId());
 
-		final Boolean existData = this.miscellaneousDataService.exist(form.getId());
+		final Boolean existData = this.educationDataService.exist(form.getId());
 
 		if ((form.getId() == 0 && existCurriculum) || (form.getId() != 0 && existData && existCurriculum)) {
 
 			final Boolean securityCurriculum = this.curriculumService.security(form.getCurriculumId());
-			final Boolean securityData = this.miscellaneousDataService.security(form.getId(), form.getCurriculumId());
+			final Boolean securityData = this.educationDataService.security(form.getId(), form.getCurriculumId());
 
 			final Curriculum c = this.curriculumService.findOne(form.getCurriculumId());
 
@@ -120,14 +119,14 @@ public class MiscellaneousDataHackerController extends AbstractController {
 				else
 					try {
 						if (form.getId() == 0) {
-							final MiscellaneousData e = this.miscellaneousDataService.save(miscellaneousReconstruct);
-							c.getMiscellaneousDatas().add(e);
+							final EducationData e = this.educationDataService.save(educationReconstruct);
+							c.getEducationDatas().add(e);
 							this.curriculumService.save(c);
 
 						} else
-							this.miscellaneousDataService.save(miscellaneousReconstruct);
+							this.educationDataService.save(educationReconstruct);
 
-						result = new ModelAndView("redirect:/curriculum/hacker/display.do?curriculumId=" + form.getCurriculumId());
+						result = new ModelAndView("redirect:/curriculum/rookie/display.do?curriculumId=" + form.getCurriculumId());
 
 					} catch (final Throwable oops) {
 						result = this.createEditModelAndView(form, "curriculum.commit.error");
@@ -143,21 +142,21 @@ public class MiscellaneousDataHackerController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
-	public ModelAndView delete(@ModelAttribute("miscellaneousData") final MiscellaneousDataForm form, final BindingResult binding) {
+	public ModelAndView delete(@ModelAttribute("educationData") final EducationDataForm form, final BindingResult binding) {
 		ModelAndView result;
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
-		final MiscellaneousData miscellanousReconstruct = this.miscellaneousDataService.reconstruct(form, binding);
+		final EducationData educationReconstruct = this.educationDataService.reconstruct(form, binding);
 
 		final Boolean existCurriculum = this.curriculumService.exist(form.getCurriculumId());
 
-		final Boolean existData = this.miscellaneousDataService.exist(form.getId());
+		final Boolean existData = this.educationDataService.exist(form.getId());
 
 		if (form.getId() != 0 && existData && existCurriculum) {
 
 			final Boolean securityCurriculum = this.curriculumService.security(form.getCurriculumId());
-			final Boolean securityData = this.miscellaneousDataService.security(form.getId(), form.getCurriculumId());
+			final Boolean securityData = this.educationDataService.security(form.getId(), form.getCurriculumId());
 
 			final Curriculum c = this.curriculumService.findOne(form.getCurriculumId());
 
@@ -168,11 +167,11 @@ public class MiscellaneousDataHackerController extends AbstractController {
 				else
 					try {
 
-						c.getMiscellaneousDatas().remove(miscellanousReconstruct);
+						c.getEducationDatas().remove(educationReconstruct);
 						this.curriculumService.save(c);
-						this.miscellaneousDataService.delete(miscellanousReconstruct);
+						this.educationDataService.delete(educationReconstruct);
 
-						result = new ModelAndView("redirect:/curriculum/hacker/display.do?curriculumId=" + form.getCurriculumId());
+						result = new ModelAndView("redirect:/curriculum/rookie/display.do?curriculumId=" + form.getCurriculumId());
 
 					} catch (final Throwable oops) {
 						result = this.createEditModelAndView(form, "curriculum.commit.error");
@@ -189,21 +188,21 @@ public class MiscellaneousDataHackerController extends AbstractController {
 
 	// Ancillary methods
 
-	protected ModelAndView createEditModelAndView(final MiscellaneousDataForm miscellaneousData) {
+	protected ModelAndView createEditModelAndView(final EducationDataForm educationData) {
 		ModelAndView result;
 
-		result = this.createEditModelAndView(miscellaneousData, null);
+		result = this.createEditModelAndView(educationData, null);
 
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndView(final MiscellaneousDataForm miscellaneousData, final String messageCode) {
+	protected ModelAndView createEditModelAndView(final EducationDataForm educationData, final String messageCode) {
 		ModelAndView result;
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
-		result = new ModelAndView("curriculum/editMiscellaneousData");
-		result.addObject("miscellaneousData", miscellaneousData);
+		result = new ModelAndView("curriculum/editEducationData");
+		result.addObject("educationData", educationData);
 		result.addObject("banner", banner);
 		result.addObject("messageError", messageCode);
 

@@ -9,7 +9,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags" %>
 
-<form:form action="application/hacker/edit.do" modelAttribute="application">
+<form:form action="application/rookie/edit.do" modelAttribute="application">
 	
 	<form:hidden path="id" />
 	<form:hidden path="version" />
@@ -28,7 +28,7 @@
 	
 	<acme:submit name="save" code="application.save" />
 	
-	<acme:cancel code="application.cancel" url="application/hacker/list.do" />
+	<acme:cancel code="application.cancel" url="application/rookie/list.do" />
 
 
 </form:form>  

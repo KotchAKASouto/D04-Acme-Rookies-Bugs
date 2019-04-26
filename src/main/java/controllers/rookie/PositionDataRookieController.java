@@ -1,5 +1,5 @@
 
-package controllers.hacker;
+package controllers.rookie;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,15 +12,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.ConfigurationService;
 import services.CurriculumService;
-import services.EducationDataService;
+import services.PositionDataService;
 import controllers.AbstractController;
 import domain.Curriculum;
-import domain.EducationData;
-import forms.EducationDataForm;
+import domain.PositionData;
+import forms.PositionDataForm;
 
 @Controller
-@RequestMapping("/educationData/hacker")
-public class EducationDataHackerController extends AbstractController {
+@RequestMapping("/positionData/rookie")
+public class PositionDataRookieController extends AbstractController {
 
 	// Services ---------------------------------------------------
 
@@ -28,7 +28,7 @@ public class EducationDataHackerController extends AbstractController {
 	private CurriculumService		curriculumService;
 
 	@Autowired
-	private EducationDataService	educationDataService;
+	private PositionDataService		positionDataService;
 
 	@Autowired
 	private ConfigurationService	configurationService;
@@ -37,7 +37,7 @@ public class EducationDataHackerController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create(@RequestParam final int curriculumId) {
 		ModelAndView result;
-		EducationDataForm educationData;
+		PositionDataForm positionData;
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
@@ -48,12 +48,12 @@ public class EducationDataHackerController extends AbstractController {
 
 			final Curriculum c = this.curriculumService.findOne(curriculumId);
 
-			if (security && c.getNoCopy()) {
-				educationData = new EducationDataForm();
+			if (c.getNoCopy() && security) {
+				positionData = new PositionDataForm();
 
-				educationData.setCurriculumId(curriculumId);
+				positionData.setCurriculumId(curriculumId);
 
-				result = this.createEditModelAndView(educationData);
+				result = this.createEditModelAndView(positionData);
 			} else
 				result = new ModelAndView("redirect:/welcome/index.do");
 		} else {
@@ -63,27 +63,28 @@ public class EducationDataHackerController extends AbstractController {
 
 		return result;
 	}
+
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int educationRecordId) {
+	public ModelAndView edit(@RequestParam final int positionRecordId) {
 		ModelAndView result;
-		final EducationDataForm form;
+		final PositionDataForm form;
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
-		final Boolean exist = this.educationDataService.exist(educationRecordId);
+		final Boolean exist = this.positionDataService.exist(positionRecordId);
 
-		if (!(educationRecordId != 0 && exist)) {
+		if (!(positionRecordId != 0 && exist)) {
 			result = new ModelAndView("misc/notExist");
 			result.addObject("banner", banner);
 		} else {
 
-			form = this.educationDataService.creteForm(educationRecordId);
+			form = this.positionDataService.creteForm(positionRecordId);
 
-			final Boolean security = this.educationDataService.security(educationRecordId);
+			final Boolean security = this.positionDataService.security(positionRecordId);
 
-			final Curriculum c = this.curriculumService.findByEducationDataId(educationRecordId);
+			final Curriculum c = this.curriculumService.findByPositionDataId(positionRecordId);
 
-			if (c != null && security && c.getNoCopy())
+			if (c != null && c.getNoCopy() && security)
 				result = this.createEditModelAndView(form);
 			else
 				result = new ModelAndView("redirect:/welcome/index.do");
@@ -94,39 +95,39 @@ public class EducationDataHackerController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@ModelAttribute("educationData") final EducationDataForm form, final BindingResult binding) {
+	public ModelAndView save(@ModelAttribute("positionData") final PositionDataForm form, final BindingResult binding) {
 		ModelAndView result;
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
-		final EducationData educationReconstruct = this.educationDataService.reconstruct(form, binding);
+		final PositionData positionReconstruct = this.positionDataService.reconstruct(form, binding);
 
 		final Boolean existCurriculum = this.curriculumService.exist(form.getCurriculumId());
 
-		final Boolean existData = this.educationDataService.exist(form.getId());
+		final Boolean existData = this.positionDataService.exist(form.getId());
 
 		if ((form.getId() == 0 && existCurriculum) || (form.getId() != 0 && existData && existCurriculum)) {
 
 			final Boolean securityCurriculum = this.curriculumService.security(form.getCurriculumId());
-			final Boolean securityData = this.educationDataService.security(form.getId(), form.getCurriculumId());
+			final Boolean securityData = this.positionDataService.security(form.getId(), form.getCurriculumId());
 
 			final Curriculum c = this.curriculumService.findOne(form.getCurriculumId());
 
-			if (c.getNoCopy() && ((securityCurriculum && securityData) || (form.getId() != 0 && securityData))) {
+			if (c.getNoCopy() && ((form.getId() == 0 && securityCurriculum) || (form.getId() != 0 && securityData))) {
 
 				if (binding.hasErrors())
 					result = this.createEditModelAndView(form);
 				else
 					try {
 						if (form.getId() == 0) {
-							final EducationData e = this.educationDataService.save(educationReconstruct);
-							c.getEducationDatas().add(e);
+							final PositionData p = this.positionDataService.save(positionReconstruct);
+							c.getPositionDatas().add(p);
 							this.curriculumService.save(c);
 
 						} else
-							this.educationDataService.save(educationReconstruct);
+							this.positionDataService.save(positionReconstruct);
 
-						result = new ModelAndView("redirect:/curriculum/hacker/display.do?curriculumId=" + form.getCurriculumId());
+						result = new ModelAndView("redirect:/curriculum/rookie/display.do?curriculumId=" + form.getCurriculumId());
 
 					} catch (final Throwable oops) {
 						result = this.createEditModelAndView(form, "curriculum.commit.error");
@@ -142,21 +143,21 @@ public class EducationDataHackerController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
-	public ModelAndView delete(@ModelAttribute("educationData") final EducationDataForm form, final BindingResult binding) {
+	public ModelAndView delete(@ModelAttribute("positionData") final PositionDataForm form, final BindingResult binding) {
 		ModelAndView result;
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
-		final EducationData educationReconstruct = this.educationDataService.reconstruct(form, binding);
+		final PositionData positionReconstruct = this.positionDataService.reconstruct(form, binding);
 
 		final Boolean existCurriculum = this.curriculumService.exist(form.getCurriculumId());
 
-		final Boolean existData = this.educationDataService.exist(form.getId());
+		final Boolean existData = this.positionDataService.exist(form.getId());
 
 		if (form.getId() != 0 && existData && existCurriculum) {
 
 			final Boolean securityCurriculum = this.curriculumService.security(form.getCurriculumId());
-			final Boolean securityData = this.educationDataService.security(form.getId(), form.getCurriculumId());
+			final Boolean securityData = this.positionDataService.security(form.getId(), form.getCurriculumId());
 
 			final Curriculum c = this.curriculumService.findOne(form.getCurriculumId());
 
@@ -167,11 +168,11 @@ public class EducationDataHackerController extends AbstractController {
 				else
 					try {
 
-						c.getEducationDatas().remove(educationReconstruct);
+						c.getPositionDatas().remove(positionReconstruct);
 						this.curriculumService.save(c);
-						this.educationDataService.delete(educationReconstruct);
+						this.positionDataService.delete(positionReconstruct);
 
-						result = new ModelAndView("redirect:/curriculum/hacker/display.do?curriculumId=" + form.getCurriculumId());
+						result = new ModelAndView("redirect:/curriculum/rookie/display.do?curriculumId=" + form.getCurriculumId());
 
 					} catch (final Throwable oops) {
 						result = this.createEditModelAndView(form, "curriculum.commit.error");
@@ -188,21 +189,21 @@ public class EducationDataHackerController extends AbstractController {
 
 	// Ancillary methods
 
-	protected ModelAndView createEditModelAndView(final EducationDataForm educationData) {
+	protected ModelAndView createEditModelAndView(final PositionDataForm positionData) {
 		ModelAndView result;
 
-		result = this.createEditModelAndView(educationData, null);
+		result = this.createEditModelAndView(positionData, null);
 
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndView(final EducationDataForm educationData, final String messageCode) {
+	protected ModelAndView createEditModelAndView(final PositionDataForm positionData, final String messageCode) {
 		ModelAndView result;
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
-		result = new ModelAndView("curriculum/editEducationData");
-		result.addObject("educationData", educationData);
+		result = new ModelAndView("curriculum/editPositionData");
+		result.addObject("positionData", positionData);
 		result.addObject("banner", banner);
 		result.addObject("messageError", messageCode);
 

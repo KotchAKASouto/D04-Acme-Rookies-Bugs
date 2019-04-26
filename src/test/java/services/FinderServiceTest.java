@@ -12,7 +12,7 @@ import org.springframework.util.Assert;
 
 import utilities.AbstractTest;
 import domain.Finder;
-import domain.Hacker;
+import domain.Rookie;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
@@ -26,7 +26,7 @@ public class FinderServiceTest extends AbstractTest {
 	private FinderService	finderService;
 
 	@Autowired
-	private HackerService	hackerService;
+	private RookieService	rookieService;
 
 
 	/*
@@ -39,7 +39,7 @@ public class FinderServiceTest extends AbstractTest {
 
 	/*
 	 * ACME.HACKERRANK
-	 * a)(Level C) Requirement 17.2: An actor who is authenticated as a hacker must be able to:
+	 * a)(Level C) Requirement 17.2: An actor who is authenticated as a rookie must be able to:
 	 * Manage his or her finder, which involves updating the search criteria, listing its contents,
 	 * and clearing it.
 	 * 
@@ -48,17 +48,17 @@ public class FinderServiceTest extends AbstractTest {
 	 * 
 	 * c) Sentence coverage
 	 * -save(): 87,3%
-	 * -findFinderByHacker(): 100%
+	 * -findFinderByRookie(): 100%
 	 * d) Data coverage
 	 */
 	@Test
 	public void driverFinder() {
 		final Object testingData[][] = {
 			{
-				"PC", "hacker1", 0, null
+				"PC", "rookie1", 0, null
 			},//1. All fine filter
 			{
-				"PC", "hacker1", 1, IllegalArgumentException.class
+				"PC", "rookie1", 1, IllegalArgumentException.class
 			},//2. The number of the positions finded is wrong
 
 		};
@@ -75,9 +75,9 @@ public class FinderServiceTest extends AbstractTest {
 		try {
 			this.authenticate(username);
 
-			final Hacker hacker = this.hackerService.findByPrincipal();
+			final Rookie rookie = this.rookieService.findByPrincipal();
 
-			final Finder finder = this.finderService.findFinderByHacker(hacker.getId());
+			final Finder finder = this.finderService.findFinderByRookie(rookie.getId());
 
 			finder.setKeyWord(keyword);
 

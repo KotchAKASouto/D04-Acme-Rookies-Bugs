@@ -1,4 +1,3 @@
-
 package repositories;
 
 import java.util.Collection;
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import domain.Administrator;
 import domain.Company;
-import domain.Hacker;
+import domain.Rookie;
 import domain.Position;
 
 @Repository
@@ -40,24 +39,24 @@ public interface AdministratorRepository extends JpaRepository<Administrator, In
 	Double stdOfPositionsPerCompany();
 	
 	@Query(nativeQuery= true, value= "select avg(count) from (select count(*) as Count"
-									+ " from application a join hacker h on (h.id = a.hacker)"
-									+ " group by hacker) as counts")
-	Double avgOfApplicationsPerHacker();
+									+ " from application a join rookie h on (h.id = a.rookie)"
+									+ " group by rookie) as counts")
+	Double avgOfApplicationsPerRookie();
 	
 	@Query(nativeQuery= true, value= "select max(count) from (select count(*) as Count"
-									+ " from application a join hacker h on (h.id = a.hacker)"
-									+ " group by hacker) as counts")
-	Integer maxApplicationsOfHacker();
+									+ " from application a join rookie h on (h.id = a.rookie)"
+									+ " group by rookie) as counts")
+	Integer maxApplicationsOfRookie();
 	
 	@Query(nativeQuery= true, value= "select min(count) from (select count(*) as Count"
-									+ " from application a join hacker h on (h.id = a.hacker)"
-									+ " group by hacker) as counts")
-	Integer minApplicationsOfHacker();
+									+ " from application a join rookie h on (h.id = a.rookie)"
+									+ " group by rookie) as counts")
+	Integer minApplicationsOfRookie();
 	
 	@Query(nativeQuery= true, value= "select std(count) from (select count(*) as Count"
-									+ " from application a join hacker h on (h.id = a.hacker)"
-									+ " group by hacker) as counts")
-	Double stdOfApplicationsPerHacker();
+									+ " from application a join rookie h on (h.id = a.rookie)"
+									+ " group by rookie) as counts")
+	Double stdOfApplicationsPerRookie();
 	
 	@Query(nativeQuery = true, value= "select c.name  as Count from `position` p "
 										+ "join company c on (c.id = p.company) group by company "
@@ -65,9 +64,9 @@ public interface AdministratorRepository extends JpaRepository<Administrator, In
 	List<String> topCompaniesWithMorePositions();
 	
 	@Query(nativeQuery = true, value= "select h.name  as Count from application a "
-										+ "join hacker h on (h.id = a.hacker) group by hacker "
+										+ "join rookie h on (h.id = a.rookie) group by rookie "
 										+ "ORDER BY COUNT(*) DESC limit 3")
-	List<String> topHackerWithMoreApplications();
+	List<String> topRookieWithMoreApplications();
 	
 	@Query(nativeQuery = true, value= "select avg(p.offered_salary) from `position` p")
 	Double avgSalaries();
@@ -88,24 +87,24 @@ public interface AdministratorRepository extends JpaRepository<Administrator, In
 	int findBestPosition();
 	
 	@Query(nativeQuery = true, value= "select min(count) from (select count(*) as Count " + 
-									"from curriculum c join hacker h on (h.id = c.hacker) " + 
-			 						"group by hacker) as counts")
-	Integer minNumberOfCurriculaPerHacker();
+									"from curriculum c join rookie h on (h.id = c.rookie) " + 
+			 						"group by rookie) as counts")
+	Integer minNumberOfCurriculaPerRookie();
 	
 	@Query(nativeQuery = true, value= "select max(count) from (select count(*) as Count " + 
-				"from curriculum c join hacker h on (h.id = c.hacker) " + 
-				"group by hacker) as counts")
-	Integer maxNumberOfCurriculaPerHacker();
+				"from curriculum c join rookie h on (h.id = c.rookie) " + 
+				"group by rookie) as counts")
+	Integer maxNumberOfCurriculaPerRookie();
 	
 	@Query(nativeQuery = true, value= "select avg(count) from (select count(*) as Count " + 
-				"from curriculum c join hacker h on (h.id = c.hacker)" + 
-					"group by hacker) as counts")
-	Double avgNumberOfCurriculaPerHacker();
+				"from curriculum c join rookie h on (h.id = c.rookie)" + 
+					"group by rookie) as counts")
+	Double avgNumberOfCurriculaPerRookie();
 	
 	@Query(nativeQuery = true, value= "select std(count) from (select count(*) as Count " + 
-				"from curriculum c join hacker h on (h.id = c.hacker) " + 
-				"group by hacker) as counts")
-	Double stdNumberOfCurriculaPerHacker();
+				"from curriculum c join rookie h on (h.id = c.rookie) " + 
+				"group by rookie) as counts")
+	Double stdNumberOfCurriculaPerRookie();
 	
 	@Query(nativeQuery = true, value= "select min(count) from (" + 
 				" select f.id, count(fp.finder) as Count from finder f" + 

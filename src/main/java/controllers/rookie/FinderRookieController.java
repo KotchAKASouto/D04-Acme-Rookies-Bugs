@@ -1,5 +1,5 @@
 
-package controllers.hacker;
+package controllers.rookie;
 
 import java.util.Date;
 
@@ -14,19 +14,19 @@ import org.springframework.web.servlet.ModelAndView;
 import services.ActorService;
 import services.ConfigurationService;
 import services.FinderService;
-import services.HackerService;
+import services.RookieService;
 import controllers.AbstractController;
 import domain.Actor;
 import domain.Finder;
 
 @Controller
-@RequestMapping("/finder/hacker")
-public class FinderHackerController extends AbstractController {
+@RequestMapping("/finder/rookie")
+public class FinderRookieController extends AbstractController {
 
 	// Services ---------------------------------------------------
 
 	@Autowired
-	HackerService					hackerService;
+	RookieService					rookieService;
 
 	@Autowired
 	private FinderService			finderService;
@@ -44,7 +44,7 @@ public class FinderHackerController extends AbstractController {
 		final Finder finder;
 
 		final Actor actor = this.actorService.findByPrincipal();
-		finder = this.finderService.findFinderByHacker(actor.getId());
+		finder = this.finderService.findFinderByRookie(actor.getId());
 
 		final Date currentTime = new Date(System.currentTimeMillis() - 1000);
 		final Interval interval = new Interval(finder.getLastUpdate().getTime(), currentTime.getTime());
@@ -60,8 +60,8 @@ public class FinderHackerController extends AbstractController {
 		result = new ModelAndView("position/list");
 		result.addObject("positions", finder.getPositions());
 		result.addObject("finder", finder);
-		result.addObject("requestURI", "finder/hacker/find.do");
-		result.addObject("requestAction", "finder/hacker/find.do");
+		result.addObject("requestURI", "finder/rookie/find.do");
+		result.addObject("requestAction", "finder/rookie/find.do");
 		result.addObject("banner", banner);
 		result.addObject("pagesize", pagesize);
 		result.addObject("AmILogged", true);

@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import services.ApplicationService;
 import services.CompanyService;
 import services.ConfigurationService;
-import services.HackerService;
+import services.RookieService;
 import domain.Application;
 import domain.Company;
 
@@ -28,7 +28,7 @@ public class ApplicationCompanyController {
 	private ApplicationService		applicationService;
 
 	@Autowired
-	private HackerService			hackerService;
+	private RookieService			rookieService;
 
 	@Autowired
 	private CompanyService			companyService;

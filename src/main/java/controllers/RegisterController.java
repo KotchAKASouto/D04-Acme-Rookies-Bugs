@@ -13,11 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 import security.Credentials;
 import services.CompanyService;
 import services.ConfigurationService;
-import services.HackerService;
+import services.RookieService;
 import domain.Company;
-import domain.Hacker;
+import domain.Rookie;
 import forms.RegisterCompanyForm;
-import forms.RegisterHackerForm;
+import forms.RegisterRookieForm;
 
 @Controller
 @RequestMapping("/register")
@@ -29,7 +29,7 @@ public class RegisterController extends AbstractController {
 	private CompanyService			companyService;
 
 	@Autowired
-	private HackerService			hackerService;
+	private RookieService			rookieService;
 
 	@Autowired
 	private ConfigurationService	configurationService;
@@ -98,7 +98,7 @@ public class RegisterController extends AbstractController {
 	@RequestMapping(value = "/createHacker", method = RequestMethod.GET)
 	public ModelAndView createHacker() {
 		final ModelAndView result;
-		final RegisterHackerForm hacker = new RegisterHackerForm();
+		final RegisterRookieForm hacker = new RegisterRookieForm();
 
 		result = this.createEditModelAndViewHacker(hacker);
 
@@ -106,11 +106,11 @@ public class RegisterController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/saveHacker", method = RequestMethod.POST, params = "save")
-	public ModelAndView saveHacker(@ModelAttribute("hacker") final RegisterHackerForm form, final BindingResult binding) {
+	public ModelAndView saveHacker(@ModelAttribute("hacker") final RegisterRookieForm form, final BindingResult binding) {
 		ModelAndView result;
-		final Hacker hacker;
+		final Rookie rookie;
 
-		hacker = this.hackerService.reconstruct(form, binding);
+		rookie = this.rookieService.reconstruct(form, binding);
 
 		if (binding.hasErrors())
 			result = this.createEditModelAndViewHacker(form);
@@ -118,10 +118,10 @@ public class RegisterController extends AbstractController {
 			try {
 				Assert.isTrue(form.getCheckbox());
 				Assert.isTrue(form.checkPassword());
-				this.hackerService.save(hacker);
+				this.rookieService.save(rookie);
 				final Credentials credentials = new Credentials();
-				credentials.setJ_username(hacker.getUserAccount().getUsername());
-				credentials.setPassword(hacker.getUserAccount().getPassword());
+				credentials.setJ_username(rookie.getUserAccount().getUsername());
+				credentials.setPassword(rookie.getUserAccount().getPassword());
 				result = new ModelAndView("redirect:/security/login.do");
 				result.addObject("credentials", credentials);
 			} catch (final Throwable oops) {
@@ -129,7 +129,7 @@ public class RegisterController extends AbstractController {
 			}
 		return result;
 	}
-	protected ModelAndView createEditModelAndViewHacker(final RegisterHackerForm hacker) {
+	protected ModelAndView createEditModelAndViewHacker(final RegisterRookieForm hacker) {
 		ModelAndView result;
 
 		result = this.createEditModelAndViewHacker(hacker, null);
@@ -137,7 +137,7 @@ public class RegisterController extends AbstractController {
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndViewHacker(final RegisterHackerForm hacker, final String messageCode) {
+	protected ModelAndView createEditModelAndViewHacker(final RegisterRookieForm hacker, final String messageCode) {
 		ModelAndView result;
 
 		final String banner = this.configurationService.findConfiguration().getBanner();

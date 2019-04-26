@@ -1,5 +1,5 @@
 
-package controllers.hacker;
+package controllers.rookie;
 
 import java.util.Collection;
 import java.util.Date;
@@ -19,16 +19,16 @@ import services.ApplicationService;
 import services.CompanyService;
 import services.ConfigurationService;
 import services.CurriculumService;
-import services.HackerService;
+import services.RookieService;
 import services.PositionService;
 import domain.Application;
 import domain.Curriculum;
-import domain.Hacker;
+import domain.Rookie;
 import forms.ApplicationForm;
 
 @Controller
-@RequestMapping("/application/hacker")
-public class ApplicationHackerController {
+@RequestMapping("/application/rookie")
+public class ApplicationRookieController {
 
 	// Services ---------------------------------------------------
 
@@ -36,7 +36,7 @@ public class ApplicationHackerController {
 	private ApplicationService		applicationService;
 
 	@Autowired
-	private HackerService			hackerService;
+	private RookieService			rookieService;
 
 	@Autowired
 	private CompanyService			companyService;
@@ -62,7 +62,7 @@ public class ApplicationHackerController {
 
 		if (exist) {
 
-			final Boolean security = this.applicationService.securityHacker(applicationId);
+			final Boolean security = this.applicationService.securityRookie(applicationId);
 
 			if (security) {
 
@@ -73,7 +73,7 @@ public class ApplicationHackerController {
 				result.addObject("banner", banner);
 
 			} else
-				result = new ModelAndView("redirect:/application/hacker/list.do");
+				result = new ModelAndView("redirect:/application/rookie/list.do");
 		} else {
 			result = new ModelAndView("misc/notExist");
 			result.addObject("banner", banner);
@@ -90,12 +90,12 @@ public class ApplicationHackerController {
 		Collection<Application> applicationSubmitted;
 		Collection<Application> applicationPending;
 
-		final Hacker hacker = this.hackerService.findByPrincipal();
+		final Rookie rookie = this.rookieService.findByPrincipal();
 
-		applicationAccepted = this.applicationService.findAllAcceptedByHacker(hacker.getId());
-		applicationRejected = this.applicationService.findAllRejectedByHacker(hacker.getId());
-		applicationSubmitted = this.applicationService.findAllSubmittedByHacker(hacker.getId());
-		applicationPending = this.applicationService.findAllPendingByHacker(hacker.getId());
+		applicationAccepted = this.applicationService.findAllAcceptedByRookie(rookie.getId());
+		applicationRejected = this.applicationService.findAllRejectedByRookie(rookie.getId());
+		applicationSubmitted = this.applicationService.findAllSubmittedByRookie(rookie.getId());
+		applicationPending = this.applicationService.findAllPendingByRookie(rookie.getId());
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
@@ -105,7 +105,7 @@ public class ApplicationHackerController {
 		result.addObject("applicationSubmitted", applicationSubmitted);
 		result.addObject("applicationPending", applicationPending);
 		result.addObject("banner", banner);
-		result.addObject("requestURI", "application/hacker/list.do");
+		result.addObject("requestURI", "application/rookie/list.do");
 
 		return result;
 	}
@@ -115,16 +115,16 @@ public class ApplicationHackerController {
 		final ModelAndView result;
 		Collection<Application> applicationObsoletes;
 
-		final Hacker hacker = this.hackerService.findByPrincipal();
+		final Rookie rookie = this.rookieService.findByPrincipal();
 
-		applicationObsoletes = this.applicationService.findAllDeadLinePastByHacker(hacker.getId());
+		applicationObsoletes = this.applicationService.findAllDeadLinePastByRookie(rookie.getId());
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
 		result = new ModelAndView("application/listObsoletes");
 		result.addObject("applicationObsoletes", applicationObsoletes);
 		result.addObject("banner", banner);
-		result.addObject("requestURI", "application/hacker/listObsoletes.do");
+		result.addObject("requestURI", "application/rookie/listObsoletes.do");
 
 		return result;
 	}
@@ -165,7 +165,7 @@ public class ApplicationHackerController {
 
 		if (exist) {
 
-			security = this.applicationService.securityHacker(applicationId);
+			security = this.applicationService.securityRookie(applicationId);
 			final Application application = this.applicationService.findOne(applicationId);
 
 			final Date now = new Date(System.currentTimeMillis() - 1000);
@@ -193,7 +193,7 @@ public class ApplicationHackerController {
 		ModelAndView result;
 		Application application = null;
 
-		final Boolean security = this.applicationService.securityHacker(applicationForm.getId());
+		final Boolean security = this.applicationService.securityRookie(applicationForm.getId());
 		final Boolean exist = this.positionService.exist(applicationForm.getPosition());
 
 		if (security && exist)
@@ -215,7 +215,7 @@ public class ApplicationHackerController {
 					application.setCurriculum(copy);
 
 					this.applicationService.save(application);
-					result = new ModelAndView("redirect:/application/hacker/list.do");
+					result = new ModelAndView("redirect:/application/rookie/list.do");
 				} catch (final Throwable oops) {
 					result = this.createEditModelAndView(applicationForm, "application.commit.error");
 
@@ -241,7 +241,7 @@ public class ApplicationHackerController {
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
-		final Collection<Curriculum> curriculums = this.curriculumService.findByHackerId(this.hackerService.findByPrincipal().getId());
+		final Collection<Curriculum> curriculums = this.curriculumService.findByRookieId(this.rookieService.findByPrincipal().getId());
 
 		final Map<Integer, String> curriculumsMap = new HashMap<>();
 

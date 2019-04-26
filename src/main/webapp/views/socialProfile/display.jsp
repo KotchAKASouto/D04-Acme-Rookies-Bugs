@@ -18,4 +18,4 @@
 
 <acme:display code="socialProfile.link" property="${socialProfile.link}" />
 
-<acme:button name="back" code="socialProfile.back" onclick="javascript: relativeRedir('socialProfile/administrator,company,hacker/list.do');" />
+<acme:button name="back" code="socialProfile.back" onclick="javascript: relativeRedir('socialProfile/administrator,company,rookie/list.do');" />

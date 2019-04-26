@@ -84,7 +84,7 @@ public class Finder extends DomainEntity {
 	// Relationships ----------------------------------------------------------
 
 	private Collection<Position>	positions;
-	private Hacker					hacker;
+	private Rookie					rookie;
 
 
 	@ManyToMany
@@ -99,12 +99,12 @@ public class Finder extends DomainEntity {
 
 	@OneToOne(optional = false)
 	@Valid
-	public Hacker getHacker() {
-		return this.hacker;
+	public Rookie getRookie() {
+		return this.rookie;
 	}
 
-	public void setHacker(final Hacker hacker) {
-		this.hacker = hacker;
+	public void setRookie(final Rookie rookie) {
+		this.rookie = rookie;
 	}
 
 }

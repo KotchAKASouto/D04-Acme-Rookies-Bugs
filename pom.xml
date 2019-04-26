@@ -12,8 +12,8 @@
 	<!-- Artifact identification and properties -->
 
 	<groupId>Acme.com</groupId>
-	<artifactId>Acme-hackerRank</artifactId>
-	<version>1.0</version>
+	<artifactId>Acme-Rookies</artifactId>
+	<version>0.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<properties>
@@ -22,8 +22,8 @@
 
 	<!-- Indexing information -->
 
-	<name>Acme hackerRank</name>
-	<url>http://www.acme-hackerRank.com</url>
+	<name>Acme Rookies</name>
+	<url>http://www.acme-rookies.com</url>
 	<description>Users can use this system to solve</description>
 
 	<!-- Build commands -->

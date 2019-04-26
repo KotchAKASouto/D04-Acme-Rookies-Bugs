@@ -68,10 +68,10 @@ public class UserAccountService {
 
 	}
 
-	public UserAccount createHacker() {
+	public UserAccount createRookie() {
 
 		final Authority authority = new Authority();
-		authority.setAuthority(Authority.HACKER);
+		authority.setAuthority(Authority.ROOKIE);
 		final List<Authority> list = new ArrayList<Authority>();
 		list.add(authority);
 

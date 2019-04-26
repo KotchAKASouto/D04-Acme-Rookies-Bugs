@@ -23,7 +23,7 @@
 	
 	<display:column>
 		<security:authorize access="hasRole('HACKER')">
-			<a href="application/hacker/display.do?applicationId=${row.id}"><spring:message code="application.display"/></a>
+			<a href="application/rookie/display.do?applicationId=${row.id}"><spring:message code="application.display"/></a>
 		</security:authorize>
 		<security:authorize access="hasRole('COMPANY')">
 			<a href="application/company/display.do?applicationId=${row.id}"><spring:message code="application.display"/></a>

@@ -12,10 +12,10 @@
 	
 	<acme:column property="ticker" titleKey="curriculum.ticker" value= "${row.ticker}"/>
 	
-	<acme:url href="curriculum/hacker/display.do?curriculumId=${row.id }" code="curriculum.display" />
+	<acme:url href="curriculum/rookie/display.do?curriculumId=${row.id }" code="curriculum.display" />
 
 </display:table>
 
-<a href="curriculum/hacker/create.do"><spring:message code="curriculum.create"/></a>
+<a href="curriculum/rookie/create.do"><spring:message code="curriculum.create"/></a>
 
 <acme:button name="back" code="curriculum.back" onclick="javascript: relativeRedir('welcome/index.do');" />

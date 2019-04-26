@@ -17,7 +17,7 @@ import security.UserAccountService;
 import domain.Actor;
 import domain.Administrator;
 import domain.Company;
-import domain.Hacker;
+import domain.Rookie;
 
 @Service
 @Transactional
@@ -51,7 +51,7 @@ public class ActorService {
 	private PositionService			positionService;
 
 	@Autowired
-	private HackerService			hackerService;
+	private RookieService			rookieService;
 
 	@Autowired
 	private MessageService			messageService;
@@ -173,12 +173,12 @@ public class ActorService {
 		final Authority authority1 = new Authority();
 		authority1.setAuthority(Authority.COMPANY);
 		final Authority authority2 = new Authority();
-		authority2.setAuthority(Authority.HACKER);
+		authority2.setAuthority(Authority.ROOKIE);
 		final Authority authority3 = new Authority();
 		authority3.setAuthority(Authority.ADMIN);
 
 		if (LoginService.getPrincipal().getAuthorities().contains(authority1))
-			res = "hacker";
+			res = "rookie";
 		else if (LoginService.getPrincipal().getAuthorities().contains(authority2))
 			res = "company";
 		else if (LoginService.getPrincipal().getAuthorities().contains(authority3))
@@ -197,18 +197,18 @@ public class ActorService {
 		final Authority authCompany = new Authority();
 		authCompany.setAuthority(Authority.COMPANY);
 
-		final Authority authHacker = new Authority();
-		authHacker.setAuthority(Authority.HACKER);
+		final Authority authRookie = new Authority();
+		authRookie.setAuthority(Authority.ROOKIE);
 
 		if (authorities.contains(authAdmin)) {
 			final Administrator administrator = this.administratorService.findByPrincipal();
 			administrator.setSpammer(true);
 			this.administratorService.save(administrator);
 
-		} else if (authorities.contains(authHacker)) {
-			final Hacker hacker = this.hackerService.findByPrincipal();
-			hacker.setSpammer(true);
-			this.hackerService.save(hacker);
+		} else if (authorities.contains(authRookie)) {
+			final Rookie rookie = this.rookieService.findByPrincipal();
+			rookie.setSpammer(true);
+			this.rookieService.save(rookie);
 
 		} else if (authorities.contains(authCompany)) {
 			final Company company = this.companyService.findByPrincipal();
@@ -229,8 +229,8 @@ public class ActorService {
 		final Authority authAdmin = new Authority();
 		authAdmin.setAuthority(Authority.ADMIN);
 
-		final Authority authHacker = new Authority();
-		authHacker.setAuthority(Authority.HACKER);
+		final Authority authRookie = new Authority();
+		authRookie.setAuthority(Authority.ROOKIE);
 
 		final Authority authCompany = new Authority();
 		authCompany.setAuthority(Authority.COMPANY);
@@ -241,9 +241,9 @@ public class ActorService {
 			userAccount.setIsNotBanned(!userAccount.getIsNotBanned());
 			this.userAccountService.save(userAccount);
 
-		} else if (authorities.contains(authHacker)) {
-			final Hacker hacker = this.hackerService.findOne(actor.getId());
-			final UserAccount userAccount = hacker.getUserAccount();
+		} else if (authorities.contains(authRookie)) {
+			final Rookie rookie = this.rookieService.findOne(actor.getId());
+			final UserAccount userAccount = rookie.getUserAccount();
 			userAccount.setIsNotBanned(!userAccount.getIsNotBanned());
 			this.userAccountService.save(userAccount);
 
@@ -289,8 +289,8 @@ public class ActorService {
 		final Authority company = new Authority();
 		company.setAuthority(Authority.COMPANY);
 
-		final Authority hacker = new Authority();
-		hacker.setAuthority(Authority.HACKER);
+		final Authority rookie = new Authority();
+		rookie.setAuthority(Authority.ROOKIE);
 
 		final Actor actor = this.actorRepository.findOne(actorId);
 
@@ -304,7 +304,7 @@ public class ActorService {
 
 			this.positionService.deleteAll(actorId);
 
-		} else if (actor.getUserAccount().getAuthorities().contains(hacker)) {
+		} else if (actor.getUserAccount().getAuthorities().contains(rookie)) {
 
 			this.finderService.deleteFinderActor(actorId);
 

@@ -9,9 +9,9 @@
 	<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 	<%@ taglib prefix="acme" tagdir="/WEB-INF/tags" %>
 
-<h3><spring:message code="actor.hackers" /></h3>
+<h3><spring:message code="actor.rookies" /></h3>
 	
-	<display:table pagesize="5" name="hackers" id="row" 
+	<display:table pagesize="5" name="rookies" id="row" 
 requestURI="${requestURI }" >
 
 	<acme:column property="name" titleKey="actor.name" value= "${row.name}: "/>

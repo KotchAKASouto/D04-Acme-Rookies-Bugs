@@ -16,7 +16,7 @@ import security.Authority;
 import domain.Actor;
 import domain.Application;
 import domain.Finder;
-import domain.Hacker;
+import domain.Rookie;
 import domain.Message;
 import domain.Position;
 import forms.MessageForm;
@@ -42,7 +42,7 @@ public class MessageService {
 	private Validator				validator;
 
 	@Autowired
-	private HackerService			hackerService;
+	private RookieService			rookieService;
 
 	@Autowired
 	private PositionService			positionService;
@@ -331,7 +331,7 @@ public class MessageService {
 
 		final Message message = this.create3();
 
-		message.setRecipient(application.getHacker());
+		message.setRecipient(application.getRookie());
 		message.setSubject("Application/Solicitud");
 		message.setBody("One of your applications about the position " + application.getPosition().getTicker() + " has been changed" + "\n" + "Una de sus solicitudes sobre la posición" + application.getPosition().getTicker() + " ha sido modificada");
 
@@ -343,11 +343,11 @@ public class MessageService {
 
 	public void containsNewPosition(final Position position) {
 
-		final Collection<Hacker> hackers = this.hackerService.findAll();
+		final Collection<Rookie> rookies = this.rookieService.findAll();
 
-		for (final Hacker hacker : hackers) {
+		for (final Rookie rookie : rookies) {
 
-			final Finder finder = this.finderService.findFinderByHacker(hacker.getId());
+			final Finder finder = this.finderService.findFinderByRookie(rookie.getId());
 
 			if (!finder.getKeyWord().equals("") || !finder.getMaximumDeadline().equals("") || finder.getMaximumSalary() != null || finder.getMinimumSalary() != null) {
 
@@ -357,7 +357,7 @@ public class MessageService {
 
 					final Message message = this.create3();
 
-					message.setRecipient(hacker);
+					message.setRecipient(rookie);
 					message.setSubject("New position matches yor finder/Nueva posición se ajusta a su buscador");
 					message.setBody("The position created by " + position.getCompany().getName() + " may interest you/ La posición creada por " + position.getCompany().getName() + "puede interesarte.");
 					message.setTags("NOTIFICATION");

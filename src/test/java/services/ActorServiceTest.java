@@ -109,7 +109,7 @@ public class ActorServiceTest extends AbstractTest {
 		final Object testingData[][] = {
 
 			{
-				"hacker1", null
+				"rookie1", null
 			}, //1. All fine
 			{
 				"administrator1", IllegalArgumentException.class

@@ -25,11 +25,11 @@ import services.ActorService;
 import services.AdministratorService;
 import services.CompanyService;
 import services.ConfigurationService;
-import services.HackerService;
+import services.RookieService;
 import domain.Actor;
 import domain.Administrator;
 import domain.Company;
-import domain.Hacker;
+import domain.Rookie;
 
 @Controller
 @RequestMapping("/profile")
@@ -42,7 +42,7 @@ public class ProfileController extends AbstractController {
 	private CompanyService			companyService;
 
 	@Autowired
-	private HackerService			hackerService;
+	private RookieService			rookieService;
 
 	@Autowired
 	private AdministratorService	administratorService;
@@ -83,7 +83,7 @@ public class ProfileController extends AbstractController {
 		authority1.setAuthority(Authority.COMPANY);
 
 		final Authority authority2 = new Authority();
-		authority2.setAuthority(Authority.HACKER);
+		authority2.setAuthority(Authority.ROOKIE);
 
 		final Authority authority3 = new Authority();
 		authority3.setAuthority(Authority.ADMIN);
@@ -163,46 +163,46 @@ public class ProfileController extends AbstractController {
 		return result;
 	}
 
-	//--------------------------HACKER------------------------------
+	//--------------------------ROOKIE------------------------------
 
 	@RequestMapping(value = "/editHacker", method = RequestMethod.POST, params = "save")
-	public ModelAndView saveMember(@ModelAttribute("hacker") final Hacker hacker, final BindingResult binding) {
+	public ModelAndView saveMember(@ModelAttribute("hacker") final Rookie rookie, final BindingResult binding) {
 		ModelAndView result;
 
-		final Hacker hackerReconstruct = this.hackerService.reconstruct(hacker, binding);
+		final Rookie rookieReconstruct = this.rookieService.reconstruct(rookie, binding);
 
 		if (binding.hasErrors())
-			result = this.createEditModelAndViewHacker(hackerReconstruct);
+			result = this.createEditModelAndViewRookie(rookieReconstruct);
 		else
 			try {
-				this.hackerService.save(hackerReconstruct);
+				this.rookieService.save(rookieReconstruct);
 				final Credentials credentials = new Credentials();
-				credentials.setJ_username(hackerReconstruct.getUserAccount().getUsername());
-				credentials.setPassword(hackerReconstruct.getUserAccount().getPassword());
+				credentials.setJ_username(rookieReconstruct.getUserAccount().getUsername());
+				credentials.setPassword(rookieReconstruct.getUserAccount().getPassword());
 				result = new ModelAndView("redirect:/profile/displayPrincipal.do");
 				result.addObject("credentials", credentials);
 			} catch (final Throwable oops) {
-				result = this.createEditModelAndViewHacker(hackerReconstruct, "actor.commit.error");
+				result = this.createEditModelAndViewRookie(rookieReconstruct, "actor.commit.error");
 			}
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndViewHacker(final Hacker hacker) {
+	protected ModelAndView createEditModelAndViewRookie(final Rookie rookie) {
 		ModelAndView result;
 
-		result = this.createEditModelAndViewHacker(hacker, null);
+		result = this.createEditModelAndViewRookie(rookie, null);
 
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndViewHacker(final Hacker hacker, final String messageCode) {
+	protected ModelAndView createEditModelAndViewRookie(final Rookie rookie, final String messageCode) {
 		ModelAndView result;
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
 		result = new ModelAndView("actor/edit");
 
-		result.addObject("hacker", hacker);
+		result.addObject("hacker", rookie);
 		result.addObject("authority", "hacker");
 		result.addObject("actionURI", "editHacker.do");
 		result.addObject("banner", banner);

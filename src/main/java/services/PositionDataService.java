@@ -15,7 +15,7 @@ import repositories.PositionDataRepository;
 import security.Authority;
 import domain.Actor;
 import domain.Curriculum;
-import domain.Hacker;
+import domain.Rookie;
 import domain.PositionData;
 import forms.PositionDataForm;
 
@@ -36,7 +36,7 @@ public class PositionDataService {
 	private CurriculumService		curriculumService;
 
 	@Autowired
-	private HackerService			hackerService;
+	private RookieService			rookieService;
 
 	@Autowired
 	private Validator				validator;
@@ -49,7 +49,7 @@ public class PositionDataService {
 		final Actor actor = this.actorService.findByPrincipal();
 		Assert.notNull(actor);
 		final Authority authority = new Authority();
-		authority.setAuthority(Authority.HACKER);
+		authority.setAuthority(Authority.ROOKIE);
 		Assert.isTrue((actor.getUserAccount().getAuthorities().contains(authority)));
 
 		PositionData result;
@@ -175,9 +175,9 @@ public class PositionDataService {
 
 		Boolean result = false;
 
-		final Hacker hacker = this.hackerService.findByPrincipal();
+		final Rookie rookie = this.rookieService.findByPrincipal();
 
-		final Collection<Curriculum> curricula = this.curriculumService.findByHackerId(hacker.getId());
+		final Collection<Curriculum> curricula = this.curriculumService.findByRookieId(rookie.getId());
 
 		final PositionData position = this.findOne(positionRecordId);
 

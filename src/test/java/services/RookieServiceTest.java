@@ -12,18 +12,18 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import utilities.AbstractTest;
 import domain.CreditCard;
-import domain.Hacker;
+import domain.Rookie;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
 	"classpath:spring/junit.xml"
 })
 @Transactional
-public class HackerServiceTest extends AbstractTest {
+public class RookieServiceTest extends AbstractTest {
 
 	//The SUT----------------------------------------------------
 	@Autowired
-	private HackerService	hackerService;
+	private RookieService	rookieService;
 
 
 	/*
@@ -36,7 +36,7 @@ public class HackerServiceTest extends AbstractTest {
 
 	/*
 	 * ACME.HACKERRANK
-	 * a)(Level C) Requirement 7.1: An actor who is not authenticated must be able to: Register to the system as a hacker.
+	 * a)(Level C) Requirement 7.1: An actor who is not authenticated must be able to: Register to the system as a rookie.
 	 * 
 	 * b) Negative cases:
 	 * 2. The email pattern is wrong
@@ -45,7 +45,7 @@ public class HackerServiceTest extends AbstractTest {
 	 * -create(): 100%
 	 * -save(): 50%
 	 * d) Data coverage
-	 * -Hacker: 0%
+	 * -Rookie: 0%
 	 */
 	@Test
 	public void driverRegisterCompany() {
@@ -73,11 +73,11 @@ public class HackerServiceTest extends AbstractTest {
 		caught = null;
 		try {
 
-			final Hacker hacker = this.hackerService.create();
+			final Rookie rookie = this.rookieService.create();
 
-			hacker.setName(name);
-			hacker.setSurnames(surnames);
-			hacker.setVat(vat);
+			rookie.setName(name);
+			rookie.setSurnames(surnames);
+			rookie.setVat(vat);
 
 			final CreditCard creditCard = new CreditCard();
 			creditCard.setHolderName(holderName);
@@ -87,19 +87,19 @@ public class HackerServiceTest extends AbstractTest {
 			creditCard.setMake(make);
 			creditCard.setNumber(number);
 
-			hacker.setCreditCard(creditCard);
-			hacker.setPhoto(photo);
-			hacker.setEmail(email);
-			hacker.setPhone(phone);
-			hacker.setAddress(address);
+			rookie.setCreditCard(creditCard);
+			rookie.setPhoto(photo);
+			rookie.setEmail(email);
+			rookie.setPhone(phone);
+			rookie.setAddress(address);
 
-			hacker.getUserAccount().setUsername(username);
-			hacker.getUserAccount().setPassword(password);
+			rookie.getUserAccount().setUsername(username);
+			rookie.getUserAccount().setPassword(password);
 
 			this.startTransaction();
 
-			this.hackerService.save(hacker);
-			this.hackerService.flush();
+			this.rookieService.save(rookie);
+			this.rookieService.flush();
 
 		} catch (final Throwable oops) {
 			caught = oops.getClass();
@@ -120,16 +120,16 @@ public class HackerServiceTest extends AbstractTest {
 	 * c) Sentence coverage
 	 * -save():49,1%
 	 * d) Data coverage
-	 * -Hacker: 0%
+	 * -Rookie: 0%
 	 */
 	@Test
 	public void driverEditCompany() {
 		final Object testingData[][] = {
 			{
-				"name1", "surnames", 12456780, "https://google.com", "email1@gmail.com", "672195205", "address1", "hacker1", "functionalTest", "VISA", "377964663288126", "12", "2020", "123", "hacker1", null
+				"name1", "surnames", 12456780, "https://google.com", "email1@gmail.com", "672195205", "address1", "rookie1", "functionalTest", "VISA", "377964663288126", "12", "2020", "123", "rookie1", null
 			},//1. All fine
 			{
-				"name1", "surnames", 12456780, "https://google.com", "email1gmail.com", "672195205", "address1", "hacker1", "functionalTest", "VISA", "377964663288126", "12", "2020", "123", "hacker1", ConstraintViolationException.class
+				"name1", "surnames", 12456780, "https://google.com", "email1gmail.com", "672195205", "address1", "rookie1", "functionalTest", "VISA", "377964663288126", "12", "2020", "123", "rookie1", ConstraintViolationException.class
 			},//2. The email pattern is wrong
 
 		};
@@ -140,7 +140,7 @@ public class HackerServiceTest extends AbstractTest {
 				(Class<?>) testingData[i][15]);
 	}
 	protected void templateEditCompany(final String name, final String surnames, final Integer vat, final String photo, final String email, final String phone, final String address, final String username, final String holderName, final String make,
-		final String number, final String expMonth, final String expYear, final String cvv, final String hackerToEdit, final Class<?> expected) {
+		final String number, final String expMonth, final String expYear, final String cvv, final String rookieToEdit, final Class<?> expected) {
 
 		Class<?> caught;
 
@@ -148,13 +148,13 @@ public class HackerServiceTest extends AbstractTest {
 		try {
 			this.startTransaction();
 			this.authenticate(username);
-			final Hacker hacker = this.hackerService.findOne(super.getEntityId(hackerToEdit));
+			final Rookie rookie = this.rookieService.findOne(super.getEntityId(rookieToEdit));
 
-			hacker.setName(name);
-			hacker.setSurnames(surnames);
-			hacker.setVat(vat);
+			rookie.setName(name);
+			rookie.setSurnames(surnames);
+			rookie.setVat(vat);
 
-			final CreditCard creditCard = hacker.getCreditCard();
+			final CreditCard creditCard = rookie.getCreditCard();
 
 			creditCard.setCvv(new Integer(cvv));
 			creditCard.setExpMonth(new Integer(expMonth));
@@ -163,13 +163,13 @@ public class HackerServiceTest extends AbstractTest {
 			creditCard.setMake(make);
 			creditCard.setNumber(number);
 
-			hacker.setPhoto(photo);
-			hacker.setEmail(email);
-			hacker.setPhone(phone);
-			hacker.setAddress(address);
+			rookie.setPhoto(photo);
+			rookie.setEmail(email);
+			rookie.setPhone(phone);
+			rookie.setAddress(address);
 
-			this.hackerService.save(hacker);
-			this.hackerService.flush();
+			this.rookieService.save(rookie);
+			this.rookieService.flush();
 
 		} catch (final Throwable oops) {
 			caught = oops.getClass();
@@ -182,13 +182,13 @@ public class HackerServiceTest extends AbstractTest {
 	}
 
 	/*
-	 * -------Coverage HackerService-------
+	 * -------Coverage RookieService-------
 	 * 
 	 * ----TOTAL SENTENCE COVERAGE:
-	 * HackerService = 60,7%
+	 * RookieService = 60,7%
 	 * 
 	 * ----TOTAL DATA COVERAGE:
-	 * Hacker = 0%
+	 * Rookie = 0%
 	 */
 
 }
