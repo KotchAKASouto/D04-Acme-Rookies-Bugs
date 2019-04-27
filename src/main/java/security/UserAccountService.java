@@ -97,6 +97,36 @@ public class UserAccountService {
 		return userAccount;
 
 	}
+	
+	public UserAccount createAuditor() {
+
+		final Authority authority = new Authority();
+		authority.setAuthority(Authority.AUDITOR);
+		final List<Authority> list = new ArrayList<Authority>();
+		list.add(authority);
+
+		final UserAccount userAccount = new UserAccount();
+		userAccount.setAuthorities(list);
+		userAccount.setIsNotBanned(true);
+
+		return userAccount;
+
+	}
+	
+	public UserAccount createProvider() {
+
+		final Authority authority = new Authority();
+		authority.setAuthority(Authority.PROVIDER);
+		final List<Authority> list = new ArrayList<Authority>();
+		list.add(authority);
+
+		final UserAccount userAccount = new UserAccount();
+		userAccount.setAuthorities(list);
+		userAccount.setIsNotBanned(true);
+
+		return userAccount;
+
+	}
 
 	public Collection<UserAccount> findAll() {
 

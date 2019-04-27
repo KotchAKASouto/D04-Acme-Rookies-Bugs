@@ -1623,7 +1623,7 @@
 	<bean id="sponsorship4" class="domain.Sponsorship">
 		<property name="provider" ref="provider2" />
 		<property name="creditCard" ref="creditCardSponsorship4" />
-		<property name="banner" value="https://imgur.com/gallery/pIfdoIW" />
+		<property name="banner" value="https://imgur.com/gallery/5e8rx" />
 		<property name="target" value="http://www.target.com" />
 		<property name="position" ref="position3" />
 	</bean>

@@ -23,12 +23,16 @@ import security.Authority;
 import security.Credentials;
 import services.ActorService;
 import services.AdministratorService;
+import services.AuditorService;
 import services.CompanyService;
 import services.ConfigurationService;
+import services.ProviderService;
 import services.RookieService;
 import domain.Actor;
 import domain.Administrator;
+import domain.Auditor;
 import domain.Company;
+import domain.Provider;
 import domain.Rookie;
 
 @Controller
@@ -43,6 +47,12 @@ public class ProfileController extends AbstractController {
 
 	@Autowired
 	private RookieService			rookieService;
+	
+	@Autowired
+	private AuditorService			auditorService;
+	
+	@Autowired
+	private ProviderService			providerService;
 
 	@Autowired
 	private AdministratorService	administratorService;
@@ -64,6 +74,7 @@ public class ProfileController extends AbstractController {
 		result = new ModelAndView("actor/display");
 		result.addObject("actor", actor);
 		result.addObject("banner", banner);
+		result.addObject("laguageURI", "profile/displayPrincipal.do");
 		result.addObject("admin", false);
 
 		return result;
@@ -87,6 +98,12 @@ public class ProfileController extends AbstractController {
 
 		final Authority authority3 = new Authority();
 		authority3.setAuthority(Authority.ADMIN);
+		
+		final Authority authority4 = new Authority();
+		authority3.setAuthority(Authority.AUDITOR);
+		
+		final Authority authority5 = new Authority();
+		authority3.setAuthority(Authority.PROVIDER);
 
 		String auth = null;
 		String action = null;
@@ -95,11 +112,17 @@ public class ProfileController extends AbstractController {
 			action = "editCompany.do";
 
 		} else if (actor.getUserAccount().getAuthorities().contains(authority2)) {
-			auth = "hacker";
-			action = "editHacker.do";
+			auth = "rookie";
+			action = "editRookie.do";
 		} else if (actor.getUserAccount().getAuthorities().contains(authority3)) {
 			auth = "administrator";
 			action = "editAdministrator.do";
+		}else if (actor.getUserAccount().getAuthorities().contains(authority4)) {
+			auth = "auditor";
+			action = "editAuditor.do";
+		}else if (actor.getUserAccount().getAuthorities().contains(authority5)) {
+			auth = "provider";
+			action = "editProvider.do";
 		}
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
@@ -109,6 +132,7 @@ public class ProfileController extends AbstractController {
 		result.addObject(auth, actor);
 		result.addObject("authority", auth);
 		result.addObject("banner", banner);
+		result.addObject("laguageURI", "profile/edit.do");
 		result.addObject("defaultCountry", defaultCountry);
 
 		return result;
@@ -116,7 +140,7 @@ public class ProfileController extends AbstractController {
 
 	//---------------------COMPANY---------------------
 	@RequestMapping(value = "/editCompany", method = RequestMethod.POST, params = "save")
-	public ModelAndView saveMember(@ModelAttribute("company") final Company company, final BindingResult binding) {
+	public ModelAndView saveCompany(@ModelAttribute("company") final Company company, final BindingResult binding) {
 		ModelAndView result;
 
 		final Company companyReconstruct = this.companyService.reconstruct(company, binding);
@@ -156,6 +180,7 @@ public class ProfileController extends AbstractController {
 		result.addObject("authority", "company");
 		result.addObject("actionURI", "editCompany.do");
 		result.addObject("banner", banner);
+		result.addObject("laguageURI", "profile/edit.do");
 		result.addObject("messageError", messageCode);
 		final String countryCode = this.configurationService.findConfiguration().getCountryCode();
 		result.addObject("defaultCountry", countryCode);
@@ -165,8 +190,8 @@ public class ProfileController extends AbstractController {
 
 	//--------------------------ROOKIE------------------------------
 
-	@RequestMapping(value = "/editHacker", method = RequestMethod.POST, params = "save")
-	public ModelAndView saveMember(@ModelAttribute("hacker") final Rookie rookie, final BindingResult binding) {
+	@RequestMapping(value = "/editRookie", method = RequestMethod.POST, params = "save")
+	public ModelAndView saveRookie(@ModelAttribute("rookie") final Rookie rookie, final BindingResult binding) {
 		ModelAndView result;
 
 		final Rookie rookieReconstruct = this.rookieService.reconstruct(rookie, binding);
@@ -202,10 +227,11 @@ public class ProfileController extends AbstractController {
 
 		result = new ModelAndView("actor/edit");
 
-		result.addObject("hacker", rookie);
-		result.addObject("authority", "hacker");
-		result.addObject("actionURI", "editHacker.do");
+		result.addObject("rookie", rookie);
+		result.addObject("authority", "rookie");
+		result.addObject("actionURI", "editRookie.do");
 		result.addObject("banner", banner);
+		result.addObject("laguageURI", "profile/edit.do");
 		result.addObject("messageError", messageCode);
 		final String countryCode = this.configurationService.findConfiguration().getCountryCode();
 		result.addObject("defaultCountry", countryCode);
@@ -256,11 +282,114 @@ public class ProfileController extends AbstractController {
 		result.addObject("authority", "administrator");
 		result.addObject("actionURI", "editAdministrator.do");
 		result.addObject("banner", banner);
+		result.addObject("laguageURI", "profile/edit.do");
 		result.addObject("messageError", messageCode);
 		final String countryCode = this.configurationService.findConfiguration().getCountryCode();
 		result.addObject("defaultCountry", countryCode);
 
 		return result;
 	}
+	
+	//--------------------------Auditor------------------------------
+
+		@RequestMapping(value = "/editAuditor", method = RequestMethod.POST, params = "save")
+		public ModelAndView saveAuditor(@ModelAttribute("auditor") final Auditor auditor, final BindingResult binding) {
+			ModelAndView result;
+
+			final Auditor auditorReconstruct = this.auditorService.reconstruct(auditor, binding);
+
+			if (binding.hasErrors())
+				result = this.createEditModelAndViewAuditor(auditorReconstruct);
+			else
+				try {
+					this.auditorService.save(auditorReconstruct);
+					final Credentials credentials = new Credentials();
+					credentials.setJ_username(auditorReconstruct.getUserAccount().getUsername());
+					credentials.setPassword(auditorReconstruct.getUserAccount().getPassword());
+					result = new ModelAndView("redirect:/profile/displayPrincipal.do");
+					result.addObject("credentials", credentials);
+				} catch (final Throwable oops) {
+					result = this.createEditModelAndViewAuditor(auditorReconstruct, "actor.commit.error");
+				}
+			return result;
+		}
+
+		protected ModelAndView createEditModelAndViewAuditor(final Auditor auditor) {
+			ModelAndView result;
+
+			result = this.createEditModelAndViewAuditor(auditor, null);
+
+			return result;
+		}
+
+		protected ModelAndView createEditModelAndViewAuditor(final Auditor auditor, final String messageCode) {
+			ModelAndView result;
+
+			final String banner = this.configurationService.findConfiguration().getBanner();
+
+			result = new ModelAndView("actor/edit");
+
+			result.addObject("auditor", auditor);
+			result.addObject("authority", "auditor");
+			result.addObject("actionURI", "editAuditor.do");
+			result.addObject("banner", banner);
+			result.addObject("laguageURI", "profile/edit.do");
+			result.addObject("messageError", messageCode);
+			final String countryCode = this.configurationService.findConfiguration().getCountryCode();
+			result.addObject("defaultCountry", countryCode);
+
+			return result;
+		}
+		
+		//--------------------------Provider------------------------------
+
+				@RequestMapping(value = "/editProvider", method = RequestMethod.POST, params = "save")
+				public ModelAndView saveProvider(@ModelAttribute("provider") final Provider provider, final BindingResult binding) {
+					ModelAndView result;
+
+					final Provider providerReconstruct = this.providerService.reconstruct(provider, binding);
+
+					if (binding.hasErrors())
+						result = this.createEditModelAndViewProvider(providerReconstruct);
+					else
+						try {
+							this.providerService.save(providerReconstruct);
+							final Credentials credentials = new Credentials();
+							credentials.setJ_username(providerReconstruct.getUserAccount().getUsername());
+							credentials.setPassword(providerReconstruct.getUserAccount().getPassword());
+							result = new ModelAndView("redirect:/profile/displayPrincipal.do");
+							result.addObject("credentials", credentials);
+						} catch (final Throwable oops) {
+							result = this.createEditModelAndViewProvider(providerReconstruct, "actor.commit.error");
+						}
+					return result;
+				}
+
+				protected ModelAndView createEditModelAndViewProvider(final Provider provider) {
+					ModelAndView result;
+
+					result = this.createEditModelAndViewProvider(provider, null);
+
+					return result;
+				}
+
+				protected ModelAndView createEditModelAndViewProvider(final Provider provider, final String messageCode) {
+					ModelAndView result;
+
+					final String banner = this.configurationService.findConfiguration().getBanner();
+
+					result = new ModelAndView("actor/edit");
+
+					result.addObject("provider", provider);
+					result.addObject("authority", "provider");
+					result.addObject("actionURI", "editProvider.do");
+					result.addObject("banner", banner);
+					result.addObject("laguageURI", "profile/edit.do");
+					result.addObject("messageError", messageCode);
+					final String countryCode = this.configurationService.findConfiguration().getCountryCode();
+					result.addObject("defaultCountry", countryCode);
+
+					return result;
+				}
 
 }

@@ -8,17 +8,18 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 import repositories.ProviderRepository;
+import domain.Provider;
 
 @Component
 @Transactional
-public class StringToProviderConverter implements Converter<String, ProviderRepository>{
+public class StringToProviderConverter implements Converter<String, Provider>{
 	
 	@Autowired
 	private ProviderRepository	providerRepository;
 	
 	@Override
-	public ProviderRepository convert(final String text) {
-		ProviderRepository result;
+	public Provider convert(final String text) {
+		Provider result;
 		final int id;
 
 		try {

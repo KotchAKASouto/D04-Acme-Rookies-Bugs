@@ -13,10 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 import security.Credentials;
 import services.CompanyService;
 import services.ConfigurationService;
+import services.ProviderService;
 import services.RookieService;
 import domain.Company;
+import domain.Provider;
 import domain.Rookie;
 import forms.RegisterCompanyForm;
+import forms.RegisterProviderForm;
 import forms.RegisterRookieForm;
 
 @Controller
@@ -30,7 +33,10 @@ public class RegisterController extends AbstractController {
 
 	@Autowired
 	private RookieService			rookieService;
-
+	
+	@Autowired
+	private ProviderService			providerService;
+	
 	@Autowired
 	private ConfigurationService	configurationService;
 
@@ -86,6 +92,7 @@ public class RegisterController extends AbstractController {
 		result = new ModelAndView("security/signUpCompany");
 		result.addObject("company", company);
 		result.addObject("banner", banner);
+		result.addObject("laguageURI", "register/createCompany.do");
 		result.addObject("messageError", messageCode);
 		final String countryCode = this.configurationService.findConfiguration().getCountryCode();
 		result.addObject("defaultCountry", countryCode);
@@ -93,27 +100,27 @@ public class RegisterController extends AbstractController {
 		return result;
 	}
 
-	//Registrar Hacker
+	//Registrar Rookie
 
-	@RequestMapping(value = "/createHacker", method = RequestMethod.GET)
-	public ModelAndView createHacker() {
+	@RequestMapping(value = "/createRookie", method = RequestMethod.GET)
+	public ModelAndView createRookie() {
 		final ModelAndView result;
-		final RegisterRookieForm hacker = new RegisterRookieForm();
+		final RegisterRookieForm rookie = new RegisterRookieForm();
 
-		result = this.createEditModelAndViewHacker(hacker);
+		result = this.createEditModelAndViewRookie(rookie);
 
 		return result;
 	}
 
-	@RequestMapping(value = "/saveHacker", method = RequestMethod.POST, params = "save")
-	public ModelAndView saveHacker(@ModelAttribute("hacker") final RegisterRookieForm form, final BindingResult binding) {
+	@RequestMapping(value = "/saveRookie", method = RequestMethod.POST, params = "save")
+	public ModelAndView saveRookie(@ModelAttribute("rookie") final RegisterRookieForm form, final BindingResult binding) {
 		ModelAndView result;
 		final Rookie rookie;
 
 		rookie = this.rookieService.reconstruct(form, binding);
 
 		if (binding.hasErrors())
-			result = this.createEditModelAndViewHacker(form);
+			result = this.createEditModelAndViewRookie(form);
 		else
 			try {
 				Assert.isTrue(form.getCheckbox());
@@ -125,25 +132,25 @@ public class RegisterController extends AbstractController {
 				result = new ModelAndView("redirect:/security/login.do");
 				result.addObject("credentials", credentials);
 			} catch (final Throwable oops) {
-				result = this.createEditModelAndViewHacker(form, "hacker.commit.error");
+				result = this.createEditModelAndViewRookie(form, "rookie.commit.error");
 			}
 		return result;
 	}
-	protected ModelAndView createEditModelAndViewHacker(final RegisterRookieForm hacker) {
+	protected ModelAndView createEditModelAndViewRookie(final RegisterRookieForm rookie) {
 		ModelAndView result;
 
-		result = this.createEditModelAndViewHacker(hacker, null);
+		result = this.createEditModelAndViewRookie(rookie, null);
 
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndViewHacker(final RegisterRookieForm hacker, final String messageCode) {
+	protected ModelAndView createEditModelAndViewRookie(final RegisterRookieForm rookie, final String messageCode) {
 		ModelAndView result;
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
-		result = new ModelAndView("security/signUpHacker");
-		result.addObject("hacker", hacker);
+		result = new ModelAndView("security/signUpRookie");
+		result.addObject("rookie", rookie);
 		result.addObject("banner", banner);
 		result.addObject("messageError", messageCode);
 		final String countryCode = this.configurationService.findConfiguration().getCountryCode();
@@ -151,5 +158,65 @@ public class RegisterController extends AbstractController {
 
 		return result;
 	}
+	
+	
+	//Registrar Provider
+
+		@RequestMapping(value = "/createProvider", method = RequestMethod.GET)
+		public ModelAndView createProvider() {
+			final ModelAndView result;
+			final RegisterProviderForm provider = new RegisterProviderForm();
+
+			result = this.createEditModelAndViewProvider(provider);
+
+			return result;
+		}
+
+		@RequestMapping(value = "/saveProvider", method = RequestMethod.POST, params = "save")
+		public ModelAndView saveProvider(@ModelAttribute("provider") final RegisterProviderForm form, final BindingResult binding) {
+			ModelAndView result;
+			final Provider provider;
+
+			provider = this.providerService.reconstruct(form, binding);
+
+			if (binding.hasErrors())
+				result = this.createEditModelAndViewProvider(form);
+			else
+				try {
+					Assert.isTrue(form.getCheckbox());
+					Assert.isTrue(form.checkPassword());
+					this.providerService.save(provider);
+					final Credentials credentials = new Credentials();
+					credentials.setJ_username(provider.getUserAccount().getUsername());
+					credentials.setPassword(provider.getUserAccount().getPassword());
+					result = new ModelAndView("redirect:/security/login.do");
+					result.addObject("credentials", credentials);
+				} catch (final Throwable oops) {
+					result = this.createEditModelAndViewProvider(form, "provider.commit.error");
+				}
+			return result;
+		}
+		protected ModelAndView createEditModelAndViewProvider(final RegisterProviderForm provider) {
+			ModelAndView result;
+
+			result = this.createEditModelAndViewProvider(provider, null);
+
+			return result;
+		}
+
+		protected ModelAndView createEditModelAndViewProvider(final RegisterProviderForm provider, final String messageCode) {
+			ModelAndView result;
+
+			final String banner = this.configurationService.findConfiguration().getBanner();
+
+			result = new ModelAndView("security/signUpProvider");
+			result.addObject("provider", provider);
+			result.addObject("banner", banner);
+			result.addObject("messageError", messageCode);
+			final String countryCode = this.configurationService.findConfiguration().getCountryCode();
+			result.addObject("defaultCountry", countryCode);
+
+			return result;
+		}
 
 }
