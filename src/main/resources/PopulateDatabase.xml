@@ -1180,6 +1180,139 @@
 		<property name="creditCard" ref="creditCardRookie14" />
 	</bean>
 
+	<!-- Auditors -->
+	
+	<bean id="auditor1" class="domain.Auditor">
+		<property name="name" value="Ángel" />
+		<property name="surnames" value="Calzado" />
+		<property name="vat" value="24" />
+		<property name="photo"
+			value="https://placeimg.com/23/23/any" />
+		<property name="email" value="angelcalzadollamas@example.net" />
+		<property name="phone" value="+34 3333" />
+		<property name="address" value="Blanca Paloma" />
+		<property name="userAccount" ref="userAccountAuditor1" />
+		<property name="creditCard" ref="creditCardRookie13" />
+	</bean>
+	<bean id="userAccountAuditor1" class="security.UserAccount">
+		<property name="username" value="auditor1" />
+		<property name="password"
+			value="175d2e7a63f386554a4dd66e865c3e14" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="AUDITOR" />
+				</bean>
+			</list>
+		</property>
+		<property name="isNotBanned" value="true" />
+	</bean>
+	<bean id="creditCardAuditor1" class="domain.CreditCard">
+		<property name="holderName" value="auditor1" />
+		<property name="make" value="VISA" />
+		<property name="number" value="1111222233334444" />
+		<property name="expMonth" value="10" />
+		<property name="expYear" value="2024" />
+		<property name="cvv" value="182" />
+	</bean>
+	
+	<bean id="auditor2" class="domain.Auditor">
+		<property name="name" value="Santiago" />
+		<property name="surnames" value="Borge" />
+		<property name="vat" value="25" />
+		<property name="photo"
+			value="https://placeimg.com/23/23/any" />
+		<property name="email" value="santiagoporshe@example.net" />
+		<property name="phone" value="+34 3233" />
+		<property name="address" value="Alcalá" />
+		<property name="userAccount" ref="userAccountAuditor2" />
+		<property name="creditCard" ref="creditCardAuditor2" />
+	</bean>
+	<bean id="userAccountAuditor2" class="security.UserAccount">
+		<property name="username" value="auditor2" />
+		<property name="password"
+			value="04dd94ba3212ac52ad3a1f4cbfb52d4f" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="AUDITOR" />
+				</bean>
+			</list>
+		</property>
+		<property name="isNotBanned" value="true" />
+	</bean>
+	<bean id="creditCardAuditor2" class="domain.CreditCard">
+		<property name="holderName" value="auditor2" />
+		<property name="make" value="VISA" />
+		<property name="number" value="1111222233334444" />
+		<property name="expMonth" value="10" />
+		<property name="expYear" value="2024" />
+		<property name="cvv" value="155" />
+	</bean>
+	
+	<bean id="auditor3" class="domain.Auditor">
+		<property name="name" value="Souto" />
+		<property name="surnames" value="kotch" />
+		<property name="vat" value="26" />
+		<property name="photo"
+			value="https://placeimg.com/23/23/any" />
+		<property name="email" value="kotchakasouto@example.net" />
+		<property name="phone" value="+34 3233" />
+		<property name="address" value="Alcampo" />
+		<property name="userAccount" ref="userAccountAuditor3" />
+		<property name="creditCard" ref="creditCardAuditor3" />
+	</bean>
+	<bean id="userAccountAuditor3" class="security.UserAccount">
+		<property name="username" value="auditor3" />
+		<property name="password"
+			value="fc2073dbe4f65dfd71e46602f8e6a5f3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="AUDITOR" />
+				</bean>
+			</list>
+		</property>
+		<property name="isNotBanned" value="true" />
+	</bean>
+	<bean id="creditCardAuditor3" class="domain.CreditCard">
+		<property name="holderName" value="auditor3" />
+		<property name="make" value="VISA" />
+		<property name="number" value="1111222233334444" />
+		<property name="expMonth" value="11" />
+		<property name="expYear" value="2024" />
+		<property name="cvv" value="225" />
+	</bean>
+	
+	<!-- Audits -->
+	
+	<bean id="audit1" class="domain.Audit">
+		<property name="moment" value="2019/01/01" />
+		<property name="text" value="Yo seré el auditor de esta position" />
+		<property name="score" value="8.0" />
+		<property name="finalMode" value="true" />
+		<property name="auditor" ref="auditor1" />
+		<property name="position" ref="position1" />
+	</bean>
+	
+	<bean id="audit2" class="domain.Audit">
+		<property name="moment" value="2019/01/01" />
+		<property name="text" value="Yo puede que sea el auditor de esta position" />
+		<property name="score" value="2.0" />
+		<property name="finalMode" value="false" />
+		<property name="auditor" ref="auditor1" />
+		<property name="position" ref="position3" />
+	</bean>
+	
+	<bean id="audit3" class="domain.Audit">
+		<property name="moment" value="2019/01/01" />
+		<property name="text" value="Bien, vamos a auditar" />
+		<property name="score" value="5.0" />
+		<property name="finalMode" value="true" />
+		<property name="auditor" ref="auditor2" />
+		<property name="position" ref="position7" />
+	</bean>
+
 	<!-- Social profiles -->
 	<bean id="socialProfile1" class="domain.SocialProfile">
 		<property name="nick" value="Company1" />
@@ -1444,8 +1577,44 @@
 		<property name="skills" value="Security" />
 		<property name="technologies" value="C++" />
 		<property name="offeredSalary" value="1158" />
-		<property name="finalMode" value="false" />
+		<property name="finalMode" value="true" />
 		<property name="company" ref="company3" />
+	</bean>
+	<bean id="problem5" class="domain.Problem">
+		<property name="title" value="Fix router" />
+		<property name="statement"
+			value="Basically fails" />
+		<property name="hint" value="red led turn on" />
+		<property name="attachments">
+			<list>
+				<value>https://www.miller.com</value>
+			</list>
+		</property>
+		<property name="finalMode" value="true" />
+		<property name="company" ref="company3" />
+		<property name="positions">
+			<list>
+				<ref bean="position7" />
+			</list>
+		</property>
+	</bean>
+	<bean id="problem6" class="domain.Problem">
+		<property name="title" value="Problem with dp" />
+		<property name="statement"
+			value="something happens with JPA" />
+		<property name="hint" value="See the log" />
+		<property name="attachments">
+			<list>
+				<value>https://www.hibernate.com</value>
+			</list>
+		</property>
+		<property name="finalMode" value="true" />
+		<property name="company" ref="company3" />
+		<property name="positions">
+			<list>
+				<ref bean="position7" />
+			</list>
+		</property>
 	</bean>
 	<bean id="position8" class="domain.Position">
 		<property name="ticker" value="Trev-8907" />
@@ -1486,7 +1655,7 @@
 		<property name="finalMode" value="true" />
 		<property name="company" ref="company7" />
 	</bean>
-	<bean id="problem5" class="domain.Problem">
+	<bean id="problem7" class="domain.Problem">
 		<property name="title" value="Problem with payment system" />
 		<property name="statement"
 			value="Popular listen happy short response save painting however treatment pick toward bank specific tonight and place pay remember design consumer." />
@@ -1504,7 +1673,7 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="problem6" class="domain.Problem">
+	<bean id="problem8" class="domain.Problem">
 		<property name="title" value="Mobile app" />
 		<property name="statement"
 			value="Growth system service risk economic understand scientist clearly how tell money." />
@@ -1538,7 +1707,7 @@
 		<property name="finalMode" value="true" />
 		<property name="company" ref="company8" />
 	</bean>
-	<bean id="problem7" class="domain.Problem">
+	<bean id="problem9" class="domain.Problem">
 		<property name="title" value="Fix Database" />
 		<property name="statement"
 			value="Season record office car return hit glass while culture hope help why lawyer summer loss spring war spend." />
@@ -1556,7 +1725,7 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="problem8" class="domain.Problem">
+	<bean id="problem10" class="domain.Problem">
 		<property name="title" value="Mobile app" />
 		<property name="statement"
 			value="For end house argue fight program agent rather summer find write condition go class treat choose she window without industry." />
@@ -1626,7 +1795,7 @@
 		<property name="finalMode" value="true" />
 		<property name="company" ref="company9" />
 	</bean>
-	<bean id="problem9" class="domain.Problem">
+	<bean id="problem13" class="domain.Problem">
 		<property name="title" value="Web app" />
 		<property name="statement"
 			value="Expert dog chance admit positive sure threat part ability ahead." />
@@ -1644,7 +1813,7 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="problem10" class="domain.Problem">
+	<bean id="problem12" class="domain.Problem">
 		<property name="title" value="Problem with payment system" />
 		<property name="statement"
 			value="Himself sister design traditional again poor make study throughout explain prepare." />
@@ -1682,7 +1851,7 @@
 		<property name="finalMode" value="false" />
 	</bean>
 	
-	<bean id="problem12" class="domain.Problem">
+	<bean id="problem14" class="domain.Problem">
 		<property name="title" value="Error 500" />
 		<property name="statement"
 			value="not found request" />

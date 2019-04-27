@@ -11,17 +11,19 @@ import org.hibernate.validator.constraints.SafeHtml;
 @Access(AccessType.PROPERTY)
 public class Provider extends Actor{
 	
-	private String make;
+
+	private String mak;
 
 	@NotBlank
 	@SafeHtml
-	public String getMake() {
-		return make;
+	public String getMak() {
+		return mak;
 	}
 
-	public void setMake(String make) {
-		this.make = make;
+	public void setMak(String mak) {
+		this.mak = mak;
 	}
+	
 	
 	
 

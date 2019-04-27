@@ -15,6 +15,7 @@ import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.SafeHtml;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -30,6 +31,7 @@ public class Audit extends DomainEntity{
 	
 	@NotNull
 	@Past
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getMoment() {
 		return moment;
 	}
