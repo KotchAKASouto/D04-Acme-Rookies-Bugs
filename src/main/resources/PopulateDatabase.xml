@@ -1193,6 +1193,7 @@
 		<property name="address" value="Blanca Paloma" />
 		<property name="userAccount" ref="userAccountAuditor1" />
 		<property name="creditCard" ref="creditCardRookie13" />
+		<property name="position" ref="position1" />
 	</bean>
 	<bean id="userAccountAuditor1" class="security.UserAccount">
 		<property name="username" value="auditor1" />
@@ -1227,6 +1228,7 @@
 		<property name="address" value="Alcalá" />
 		<property name="userAccount" ref="userAccountAuditor2" />
 		<property name="creditCard" ref="creditCardAuditor2" />
+		<property name="position" ref="position3" />
 	</bean>
 	<bean id="userAccountAuditor2" class="security.UserAccount">
 		<property name="username" value="auditor2" />
@@ -1284,6 +1286,370 @@
 		<property name="cvv" value="225" />
 	</bean>
 	
+	<bean id="auditor4" class="domain.Auditor">
+		<property name="name" value="Raul" />
+		<property name="surnames" value="Navarro" />
+		<property name="vat" value="27" />
+		<property name="photo"
+			value="https://placeimg.com/any" />
+		<property name="email" value="raunavcru@example.net" />
+		<property name="phone" value="+34 32ff33" />
+		<property name="address" value="mobile" />
+		<property name="userAccount" ref="userAccountAuditor4" />
+		<property name="creditCard" ref="creditCardAuditor4" />
+		<property name="position" ref="position7" />
+	</bean>
+	<bean id="userAccountAuditor4" class="security.UserAccount">
+		<property name="username" value="auditor4" />
+		<property name="password"
+			value="6cc8affcba51a854192a33af68c08f49" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="AUDITOR" />
+				</bean>
+			</list>
+		</property>
+		<property name="isNotBanned" value="true" />
+	</bean>
+	<bean id="creditCardAuditor4" class="domain.CreditCard">
+		<property name="holderName" value="auditor4" />
+		<property name="make" value="VISA" />
+		<property name="number" value="1111222233334444" />
+		<property name="expMonth" value="10" />
+		<property name="expYear" value="2034" />
+		<property name="cvv" value="226" />
+	</bean>
+	
+	
+	<bean id="auditor5" class="domain.Auditor">
+		<property name="name" value="Alberto" />
+		<property name="surnames" value="Ríos" />
+		<property name="vat" value="28" />
+		<property name="photo"
+			value="https://placeimg.com/any" />
+		<property name="email" value="albriozea@example.net" />
+		<property name="phone" value="+34 323333" />
+		<property name="address" value="Tomares" />
+		<property name="userAccount" ref="userAccountAuditor5" />
+		<property name="creditCard" ref="creditCardAuditor5" />
+	</bean>
+	<bean id="userAccountAuditor5" class="security.UserAccount">
+		<property name="username" value="auditor5" />
+		<property name="password"
+			value="3775bf00262284e83013c9cea5f41431" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="AUDITOR" />
+				</bean>
+			</list>
+		</property>
+		<property name="isNotBanned" value="true" />
+	</bean>
+	<bean id="creditCardAuditor5" class="domain.CreditCard">
+		<property name="holderName" value="auditor5" />
+		<property name="make" value="VISA" />
+		<property name="number" value="1111222233334444" />
+		<property name="expMonth" value="10" />
+		<property name="expYear" value="2034" />
+		<property name="cvv" value="276" />
+	</bean>
+	
+	<!-- Providers -->
+	
+	<bean id="provider1" class="domain.Provider">
+		<property name="name" value="Juanfrin" />
+		<property name="surnames" value="Palma" />
+		<property name="vat" value="29" />
+		<property name="photo"
+			value="https://placeimg.com/any" />
+		<property name="email" value="juafripal@example.net" />
+		<property name="phone" value="+34 33" />
+		<property name="address" value="Moron" />
+		<property name="userAccount" ref="userAccountProvider1" />
+		<property name="creditCard" ref="creditCardProvider1" />
+		<property name="providerMake" value="GreatTools" />
+	</bean>
+	<bean id="userAccountProvider1" class="security.UserAccount">
+		<property name="username" value="provider1" />
+		<property name="password"
+			value="cdb82d56473901641525fbbd1d5dab56" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PROVIDER" />
+				</bean>
+			</list>
+		</property>
+		<property name="isNotBanned" value="true" />
+	</bean>
+	<bean id="creditCardProvider1" class="domain.CreditCard">
+		<property name="holderName" value="provider1" />
+		<property name="make" value="VISA" />
+		<property name="number" value="1111222233334444" />
+		<property name="expMonth" value="09" />
+		<property name="expYear" value="2020" />
+		<property name="cvv" value="676" />
+	</bean>
+	
+	<bean id="provider2" class="domain.Provider">
+		<property name="name" value="Iván" />
+		<property name="surnames" value="Núñez" />
+		<property name="vat" value="30" />
+		<property name="photo"
+			value="https://ewrimg.com/any" />
+		<property name="email" value="ivanumar@example.net" />
+		<property name="phone" value="+34 3243" />
+		<property name="address" value="Sor Gregoria Teresa" />
+		<property name="userAccount" ref="userAccountProvider2" />
+		<property name="creditCard" ref="creditCardProvider2" />
+		<property name="providerMake" value="GoodishMaterials" />
+	</bean>
+	<bean id="userAccountProvider2" class="security.UserAccount">
+		<property name="username" value="provider2" />
+		<property name="password"
+			value="ebfc815ee2cc6a16225105bb7b3e1e53" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PROVIDER" />
+				</bean>
+			</list>
+		</property>
+		<property name="isNotBanned" value="true" />
+	</bean>
+	<bean id="creditCardProvider2" class="domain.CreditCard">
+		<property name="holderName" value="provider2" />
+		<property name="make" value="VISA" />
+		<property name="number" value="1111222233334444" />
+		<property name="expMonth" value="09" />
+		<property name="expYear" value="2020" />
+		<property name="cvv" value="606" />
+	</bean>
+	
+	<bean id="provider3" class="domain.Provider">
+		<property name="name" value="Javi" />
+		<property name="surnames" value="Palma" />
+		<property name="vat" value="31" />
+		<property name="photo"
+			value="https://ewrimg.com/any" />
+		<property name="email" value="javpalort@example.net" />
+		<property name="phone" value="+34 33243" />
+		<property name="address" value="Viapol" />
+		<property name="userAccount" ref="userAccountProvider3" />
+		<property name="creditCard" ref="creditCardProvider3" />
+		<property name="providerMake" value="KB9" />
+	</bean>
+	<bean id="userAccountProvider3" class="security.UserAccount">
+		<property name="username" value="provider3" />
+		<property name="password"
+			value="a575bf1b9ca7d068cef7bbc8fa7f43e1" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PROVIDER" />
+				</bean>
+			</list>
+		</property>
+		<property name="isNotBanned" value="true" />
+	</bean>
+	<bean id="creditCardProvider3" class="domain.CreditCard">
+		<property name="holderName" value="provider3" />
+		<property name="make" value="VISA" />
+		<property name="number" value="1111222233334444" />
+		<property name="expMonth" value="10" />
+		<property name="expYear" value="2020" />
+		<property name="cvv" value="616" />
+	</bean>
+	
+	<bean id="provider4" class="domain.Provider">
+		<property name="name" value="Alvaro" />
+		<property name="surnames" value="Morillo" />
+		<property name="vat" value="32" />
+		<property name="photo"
+			value="https://www.tierras.com/any" />
+		<property name="email" value="alvmor@example.net" />
+		<property name="phone" value="+34 213243" />
+		<property name="address" value="Marchena" />
+		<property name="userAccount" ref="userAccountProvider4" />
+		<property name="creditCard" ref="creditCardProvider4" />
+		<property name="providerMake" value="Soberbio" />
+	</bean>
+	<bean id="userAccountProvider4" class="security.UserAccount">
+		<property name="username" value="provider4" />
+		<property name="password"
+			value="5d35a7d891c4aae477f56ebf807fbd0a" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PROVIDER" />
+				</bean>
+			</list>
+		</property>
+		<property name="isNotBanned" value="true" />
+	</bean>
+	<bean id="creditCardProvider4" class="domain.CreditCard">
+		<property name="holderName" value="provider4" />
+		<property name="make" value="VISA" />
+		<property name="number" value="1111222233334444" />
+		<property name="expMonth" value="07" />
+		<property name="expYear" value="2020" />
+		<property name="cvv" value="555" />
+	</bean>
+	
+	<bean id="provider5" class="domain.Provider">
+		<property name="name" value="Darío" />
+		<property name="surnames" value="Martín" />
+		<property name="vat" value="33" />
+		<property name="photo"
+			value="https://www.goiko.com/any" />
+		<property name="email" value="dario@example.net" />
+		<property name="phone" value="+34 21243" />
+		<property name="address" value="retiro" />
+		<property name="userAccount" ref="userAccountProvider5" />
+		<property name="creditCard" ref="creditCardProvider5" />
+		<property name="providerMake" value="goiko" />
+	</bean>
+	<bean id="userAccountProvider5" class="security.UserAccount">
+		<property name="username" value="provider5" />
+		<property name="password"
+			value="bd19ee25be71cfc77f532c4b26b4a54e" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PROVIDER" />
+				</bean>
+			</list>
+		</property>
+		<property name="isNotBanned" value="true" />
+	</bean>
+	<bean id="creditCardProvider5" class="domain.CreditCard">
+		<property name="holderName" value="provider5" />
+		<property name="make" value="VISA" />
+		<property name="number" value="1111222233334444" />
+		<property name="expMonth" value="10" />
+		<property name="expYear" value="2020" />
+		<property name="cvv" value="355" />
+	</bean>
+	
+	<bean id="provider6" class="domain.Provider">
+		<property name="name" value="Ángel" />
+		<property name="surnames" value="Mármol,Fernández" />
+		<property name="vat" value="34" />
+		<property name="photo"
+			value="https://www.startrek.com/any" />
+		<property name="email" value="angel@example.net" />
+		<property name="phone" value="+34 211243" />
+		<property name="address" value="ayto" />
+		<property name="userAccount" ref="userAccountProvider6" />
+		<property name="creditCard" ref="creditCardProvider6" />
+		<property name="providerMake" value="John Smith" />
+	</bean>
+	<bean id="userAccountProvider6" class="security.UserAccount">
+		<property name="username" value="provider6" />
+		<property name="password"
+			value="85202849e05dc23e4b80f2af8be3650c" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PROVIDER" />
+				</bean>
+			</list>
+		</property>
+		<property name="isNotBanned" value="true" />
+	</bean>
+	<bean id="creditCardProvider6" class="domain.CreditCard">
+		<property name="holderName" value="provider6" />
+		<property name="make" value="VISA" />
+		<property name="number" value="1111222233334444" />
+		<property name="expMonth" value="10" />
+		<property name="expYear" value="2020" />
+		<property name="cvv" value="355" />
+	</bean>
+	
+	<!-- Sponsorships -->
+	<bean id="sponsorship1" class="domain.Sponsorship">
+		<property name="provider" ref="provider1" />
+		<property name="creditCard" ref="creditCardSponsorship1" />
+		<property name="banner" value="https://imgur.com/gallery/CJ5yubF" />
+		<property name="target" value="http://www.target.com" />
+		<property name="position" ref="position1" />
+	</bean>
+	
+	<bean id="creditCardSponsorship1" class="domain.CreditCard">
+		<property name="holderName" value="provider1" />
+		<property name="make" value="VISA" />
+		<property name="number" value="1111222233334444" />
+		<property name="expMonth" value="10" />
+		<property name="expYear" value="2020" />
+		<property name="cvv" value="355" />
+	</bean>
+	
+	<bean id="sponsorship2" class="domain.Sponsorship">
+		<property name="provider" ref="provider1" />
+		<property name="creditCard" ref="creditCardSponsorship2" />
+		<property name="banner" value="https://imgur.com/gallery/RBIkQq3" />
+		<property name="target" value="http://www.target.com" />
+		<property name="position" ref="position1" />
+	</bean>
+	
+	<bean id="creditCardSponsorship2" class="domain.CreditCard">
+		<property name="holderName" value="provider1" />
+		<property name="make" value="VISA" />
+		<property name="number" value="1111222233334444" />
+		<property name="expMonth" value="10" />
+		<property name="expYear" value="2020" />
+		<property name="cvv" value="355" />
+	</bean>
+	
+	<bean id="sponsorship3" class="domain.Sponsorship">
+		<property name="provider" ref="provider2" />
+		<property name="creditCard" ref="creditCardSponsorship3" />
+		<property name="banner" value="https://imgur.com/gallery/hHZW5wL" />
+		<property name="target" value="http://www.target.com" />
+		<property name="position" ref="position3" />
+	</bean>
+	
+	<bean id="creditCardSponsorship3" class="domain.CreditCard">
+		<property name="holderName" value="provider3" />
+		<property name="make" value="VISA" />
+		<property name="number" value="1111222233334444" />
+		<property name="expMonth" value="10" />
+		<property name="expYear" value="2020" />
+		<property name="cvv" value="355" />
+	</bean>
+	
+	<bean id="sponsorship4" class="domain.Sponsorship">
+		<property name="provider" ref="provider2" />
+		<property name="creditCard" ref="creditCardSponsorship4" />
+		<property name="banner" value="https://imgur.com/gallery/pIfdoIW" />
+		<property name="target" value="http://www.target.com" />
+		<property name="position" ref="position3" />
+	</bean>
+	
+	<bean id="creditCardSponsorship4" class="domain.CreditCard">
+		<property name="holderName" value="provider4" />
+		<property name="make" value="VISA" />
+		<property name="number" value="1111222233334444" />
+		<property name="expMonth" value="10" />
+		<property name="expYear" value="2020" />
+		<property name="cvv" value="355" />
+	</bean>
+	
+	<!-- Items -->
+	
+	<bean id="item1" class="domain.Item">
+		<property name="name" value="zapatillas" />
+		<property name="description" value="zapatillas de fútbol" />
+		<property name="link" value="http://www.nike.es" />
+		<property name="pictures">
+			<list>
+			</list>
+		</property>
+		<property name="provider" ref="provider1" />
+	</bean>
+	
 	<!-- Audits -->
 	
 	<bean id="audit1" class="domain.Audit">
@@ -1296,23 +1662,58 @@
 	</bean>
 	
 	<bean id="audit2" class="domain.Audit">
-		<property name="moment" value="2019/01/01" />
-		<property name="text" value="Yo puede que sea el auditor de esta position" />
-		<property name="score" value="2.0" />
+		<property name="moment" value="2019/02/01" />
+		<property name="text" value="nada que decir de momento" />
+		<property name="score" value="0.0" />
 		<property name="finalMode" value="false" />
 		<property name="auditor" ref="auditor1" />
-		<property name="position" ref="position3" />
+		<property name="position" ref="position1" />
 	</bean>
 	
 	<bean id="audit3" class="domain.Audit">
+		<property name="moment" value="2019/01/01" />
+		<property name="text" value="Yo puede que sea el auditor de esta position" />
+		<property name="score" value="0.0" />
+		<property name="finalMode" value="false" />
+		<property name="auditor" ref="auditor1" />
+		<property name="position" ref="position1" />
+	</bean>
+	
+	<bean id="audit4" class="domain.Audit">
 		<property name="moment" value="2019/01/01" />
 		<property name="text" value="Bien, vamos a auditar" />
 		<property name="score" value="5.0" />
 		<property name="finalMode" value="true" />
 		<property name="auditor" ref="auditor2" />
+		<property name="position" ref="position3" />
+	</bean>
+	
+	<bean id="audit5" class="domain.Audit">
+		<property name="moment" value="2019/01/01" />
+		<property name="text" value="This is a new audit" />
+		<property name="score" value="0.0" />
+		<property name="finalMode" value="false" />
+		<property name="auditor" ref="auditor2" />
+		<property name="position" ref="position3" />
+	</bean>
+	
+	<bean id="audit6" class="domain.Audit">
+		<property name="moment" value="2019/03/20" />
+		<property name="text" value="Ready!" />
+		<property name="score" value="10.0" />
+		<property name="finalMode" value="true" />
+		<property name="auditor" ref="auditor4" />
 		<property name="position" ref="position7" />
 	</bean>
 
+	<bean id="audit7" class="domain.Audit">
+		<property name="moment" value="2019/03/20" />
+		<property name="text" value="Not Ready" />
+		<property name="score" value="0.0" />
+		<property name="finalMode" value="false" />
+		<property name="auditor" ref="auditor4" />
+		<property name="position" ref="position7" />
+	</bean>
 	<!-- Social profiles -->
 	<bean id="socialProfile1" class="domain.SocialProfile">
 		<property name="nick" value="Company1" />
@@ -1411,7 +1812,6 @@
 		<property name="actor" ref="rookie13" />
 	</bean>
 
-	<!-- Positions & Problems -->
 	<bean id="position1" class="domain.Position">
 		<property name="ticker" value="Russ-1629" />
 		<property name="title" value="position1" />
@@ -1568,7 +1968,7 @@
 		<property name="company" ref="company3" />
 	</bean>
 	<bean id="position7" class="domain.Position">
-		<property name="ticker" value="Wall-9170" />
+		<property name="ticker" value="Wall-8170" />
 		<property name="title" value="position7" />
 		<property name="description"
 			value="Food big society second sense wind institution risk yes serve region style amount yeah fine take." />

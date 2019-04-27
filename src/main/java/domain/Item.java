@@ -54,7 +54,6 @@ public class Item extends DomainEntity{
 		this.link = link;
 	}
 	
-	@NotEmpty
 	@ElementCollection
 	public Collection<String> getPictures() {
 		return pictures;

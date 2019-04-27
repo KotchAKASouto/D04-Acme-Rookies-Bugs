@@ -76,7 +76,7 @@ public class Audit extends DomainEntity{
 	}
 	
 	@Valid
-	@OneToOne(optional=false)
+	@ManyToOne(optional=false)
 	public Position getPosition() {
 		return position;
 	}
