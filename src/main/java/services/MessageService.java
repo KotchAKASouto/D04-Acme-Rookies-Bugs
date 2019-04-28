@@ -15,10 +15,11 @@ import repositories.MessageRepository;
 import security.Authority;
 import domain.Actor;
 import domain.Application;
+import domain.Configuration;
 import domain.Finder;
-import domain.Rookie;
 import domain.Message;
 import domain.Position;
+import domain.Rookie;
 import forms.MessageForm;
 
 @Service
@@ -338,6 +339,30 @@ public class MessageService {
 		message.setTags("NOTIFICATION");
 
 		this.save2(message);
+
+	}
+
+	public void notificationRebranding() {
+
+		final Message message = this.create3();
+
+		message.setSubject("Rebranding/Rediseño de identidad");
+		message.setBody("From now on, Acme-HackerRank will be called Acme-Rookies/A partir de ahora, Acme-HackerRank será llamado Acme-Rookies");
+		message.setTags("NOTIFICATION");
+
+		final Collection<Actor> actors = this.actorService.findAll();
+
+		for (final Actor a : actors) {
+
+			message.setRecipient(a);
+
+			this.save2(message);
+
+		}
+
+		final Configuration c = this.configurationService.findConfiguration();
+		c.setRebrandingNotification(true);
+		this.configurationService.save(c);
 
 	}
 

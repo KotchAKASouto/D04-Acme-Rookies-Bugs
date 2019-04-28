@@ -8,6 +8,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags" %>
 
+<security:authorize access="hasRole('ADMIN')">
+	<jstl:if test="${not rebrandingNotification}">
+		<a href="message/actor/rebrandingNotification.do"><spring:message code="message.rebrandingNotification"/></a>
+	</jstl:if>	
+</security:authorize> 
 
 <h3><spring:message code="message.list" /></h3>
 

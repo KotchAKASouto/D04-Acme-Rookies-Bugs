@@ -28,6 +28,10 @@
 	
 	<acme:textbox code="configuration.welcomeMessage" path="welcomeMessage" obligatory="true"/>
 	
+	<acme:textbox code="configuration.vatTax" path="vatTax"/>
+	
+	<acme:textbox code="configuration.fare" path="fare"/>
+	
 	<acme:submit name="save" code="configuration.save" />
 	
 	<acme:cancel code="configuration.cancel" url="welcome/index.do" />

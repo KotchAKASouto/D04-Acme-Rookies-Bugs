@@ -21,16 +21,32 @@
 		<fieldset>
 			
 			<jstl:if test="${empty actor.spammer}">
-				<spring:message code="actor.spammer" />:<spring:message code="actor.status.na" />
+				<spring:message code="actor.spammer" />: <spring:message code="actor.status.na" />
 			</jstl:if>
 			
 			<jstl:if test="${not empty actor.spammer and !row.spammer}">
-				<spring:message code="actor.spammer" />:<spring:message code="actor.status.notSpammer" />
+				<spring:message code="actor.spammer" />: <spring:message code="actor.status.notSpammer" />
 			</jstl:if>
 			
 			<jstl:if test="${not empty actor.spammer and actor.spammer}">
-				<spring:message code="actor.spammer" />:<spring:message code="actor.status.spammer" />
+				<spring:message code="actor.spammer" />: <spring:message code="actor.status.spammer" />
 			</jstl:if>
+			
+			<br/>
+			
+			 <jstl:if test="${isCompany}">
+				<jstl:if test="${empty actor.score}">
+					<spring:message code="actor.score" />: <spring:message code="actor.status.na" />
+				</jstl:if>
+				
+				<jstl:if test="${not empty actor.score}">
+					<spring:message code="actor.score" />: <jstl:out value="${actor.score}"/>
+				</jstl:if>
+				
+			</jstl:if>	
+				
+				
+			
 		</fieldset>
 		
 		<br/>

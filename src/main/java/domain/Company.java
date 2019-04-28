@@ -13,6 +13,7 @@ import org.hibernate.validator.constraints.SafeHtml;
 public class Company extends Actor {
 
 	private String	commercialName;
+	private Double	score;
 
 
 	@SafeHtml
@@ -24,4 +25,13 @@ public class Company extends Actor {
 	public void setCommercialName(final String commercialName) {
 		this.commercialName = commercialName;
 	}
+
+	public Double getScore() {
+		return this.score;
+	}
+
+	public void setScore(final Double score) {
+		this.score = score;
+	}
+
 }

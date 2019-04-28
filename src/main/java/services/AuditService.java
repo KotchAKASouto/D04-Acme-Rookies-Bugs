@@ -174,4 +174,10 @@ public class AuditService {
 		this.auditRepository.flush();
 	}
 
+	public Collection<Audit> findByPositionId(final int positionId) {
+
+		final Collection<Audit> res = this.auditRepository.findByPositionId(positionId);
+
+		return res;
+	}
 }

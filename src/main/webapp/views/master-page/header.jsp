@@ -26,6 +26,7 @@
 					<li class="arrow"></li>
 					<li><a href="configuration/administrator/edit.do"><spring:message code="master.page.configuration" /></a></li>
 					<li><a href="broadcast/administrator/create.do"><spring:message code="master.page.broadcast" /></a></li>	
+					<li><a href="actor/administrator/score/list.do"><spring:message code="master.page.score" /></a></li>
 					<li><a href="actor/administrator/spammer/list.do"><spring:message code="master.page.spammer" /></a></li>
 					<li><a href="actor/administrator/profile/list.do"><spring:message code="master.page.profiles" /></a></li>
 					<li><a href="administrator/create.do"><spring:message code="master.page.signUpAdmin" /></a></li>
@@ -86,6 +87,8 @@
 		<security:authorize access="permitAll()">
 			<li><a href="company/list.do"><spring:message code="master.page.company.list" /></a></li>
 			<li><a href="position/list.do"><spring:message code="master.page.position.list" /></a></li>
+			<li><a href="provider/list.do"><spring:message code="master.page.provider.list" /></a></li>
+			<li><a href="item/list.do"><spring:message code="master.page.item.list" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="isAuthenticated()">
