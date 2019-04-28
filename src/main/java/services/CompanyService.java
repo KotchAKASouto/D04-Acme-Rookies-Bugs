@@ -19,7 +19,9 @@ import security.LoginService;
 import security.UserAccount;
 import security.UserAccountService;
 import domain.Actor;
+import domain.Audit;
 import domain.Company;
+import domain.Position;
 import forms.RegisterCompanyForm;
 
 @Service
@@ -33,6 +35,12 @@ public class CompanyService {
 	// Suporting services
 	@Autowired
 	private ActorService		actorService;
+
+	@Autowired
+	private PositionService		positionService;
+
+	@Autowired
+	private AuditService		auditService;
 
 	@Autowired
 	private UserAccountService	userAccountService;
@@ -197,6 +205,59 @@ public class CompanyService {
 
 	}
 
+	public void calculateScore() {
+
+		final Collection<Company> companies = this.findAll();
+
+		if (!companies.isEmpty())
+			for (final Company c : companies) {
+
+				final Double score = this.score(c.getId());
+
+				c.setScore(score);
+				this.companyRepository.save(c);
+			}
+
+	}
+
+	protected Double score(final int companyId) {
+
+		Double res = null;
+
+		final Collection<Position> positions = this.positionService.findPositionsByCompanyId(companyId);
+
+		if (!positions.isEmpty()) {
+
+			Double sumScore = 0.0;
+			Double total = 0.0;
+
+			for (final Position p : positions) {
+
+				final Collection<Audit> audits = this.auditService.findByPositionId(p.getId());
+
+				if (!audits.isEmpty())
+					for (final Audit a : audits) {
+
+						sumScore = sumScore + a.getScore();
+
+						total = total + a.getScore() * 10;
+
+					}
+
+			}
+
+			if (total == 0.0)
+				res = null;
+			else if (sumScore == 0.0)
+				res = 0.0;
+			else
+				res = sumScore / total;
+
+		}
+
+		return res;
+
+	}
 	public void flush() {
 
 		this.companyRepository.flush();
