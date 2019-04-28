@@ -258,6 +258,7 @@ public class CompanyService {
 		return res;
 
 	}
+
 	public void flush() {
 
 		this.companyRepository.flush();

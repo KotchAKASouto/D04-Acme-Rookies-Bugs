@@ -162,6 +162,9 @@ public class AdministratorController extends AbstractController {
 		final Boolean exist = this.actorService.existActor(actorId);
 
 		if (exist) {
+
+			final Boolean company = this.actorService.isCompany(actorId);
+
 			actor = this.actorService.findOne(actorId);
 			Assert.notNull(actor);
 
@@ -172,6 +175,12 @@ public class AdministratorController extends AbstractController {
 			result.addObject("principal", principal);
 			result.addObject("banner", banner);
 			result.addObject("admin", true);
+
+			if (company)
+				result.addObject("isCompany", true);
+			else
+				result.addObject("isCompany", false);
+
 		} else
 			result = new ModelAndView("misc/notExist");
 
