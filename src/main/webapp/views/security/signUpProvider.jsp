@@ -15,7 +15,7 @@
 	
 	<acme:textbox code="actor.surnames" path="surnames" obligatory="true"/>
 	
-	<acme:textbox code="actor.providerMake" path="providerMake" obligatory="true"/>
+	<acme:textbox code="provider.providerMake" path="providerMake" obligatory="true"/>
 	
 	<acme:textbox code="actor.vat" path="vat" obligatory="true"/>
 	

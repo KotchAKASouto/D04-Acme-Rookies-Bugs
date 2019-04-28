@@ -8,7 +8,7 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags" %>
 
-<form:form action="register/saveAuditor.do" modelAttribute="auditor">
+<form:form action="administrator/editAuditor.do" modelAttribute="auditor">
 	
 	
 	<acme:textbox code="actor.name" path="name" obligatory="true"/>

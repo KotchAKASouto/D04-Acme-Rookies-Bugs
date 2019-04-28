@@ -47,10 +47,10 @@ public class ProfileController extends AbstractController {
 
 	@Autowired
 	private RookieService			rookieService;
-	
+
 	@Autowired
 	private AuditorService			auditorService;
-	
+
 	@Autowired
 	private ProviderService			providerService;
 
@@ -98,12 +98,12 @@ public class ProfileController extends AbstractController {
 
 		final Authority authority3 = new Authority();
 		authority3.setAuthority(Authority.ADMIN);
-		
+
 		final Authority authority4 = new Authority();
-		authority3.setAuthority(Authority.AUDITOR);
-		
+		authority4.setAuthority(Authority.AUDITOR);
+
 		final Authority authority5 = new Authority();
-		authority3.setAuthority(Authority.PROVIDER);
+		authority5.setAuthority(Authority.PROVIDER);
 
 		String auth = null;
 		String action = null;
@@ -117,10 +117,10 @@ public class ProfileController extends AbstractController {
 		} else if (actor.getUserAccount().getAuthorities().contains(authority3)) {
 			auth = "administrator";
 			action = "editAdministrator.do";
-		}else if (actor.getUserAccount().getAuthorities().contains(authority4)) {
+		} else if (actor.getUserAccount().getAuthorities().contains(authority4)) {
 			auth = "auditor";
 			action = "editAuditor.do";
-		}else if (actor.getUserAccount().getAuthorities().contains(authority5)) {
+		} else if (actor.getUserAccount().getAuthorities().contains(authority5)) {
 			auth = "provider";
 			action = "editProvider.do";
 		}
@@ -289,107 +289,106 @@ public class ProfileController extends AbstractController {
 
 		return result;
 	}
-	
+
 	//--------------------------Auditor------------------------------
 
-		@RequestMapping(value = "/editAuditor", method = RequestMethod.POST, params = "save")
-		public ModelAndView saveAuditor(@ModelAttribute("auditor") final Auditor auditor, final BindingResult binding) {
-			ModelAndView result;
+	@RequestMapping(value = "/editAuditor", method = RequestMethod.POST, params = "save")
+	public ModelAndView saveAuditor(@ModelAttribute("auditor") final Auditor auditor, final BindingResult binding) {
+		ModelAndView result;
 
-			final Auditor auditorReconstruct = this.auditorService.reconstruct(auditor, binding);
+		final Auditor auditorReconstruct = this.auditorService.reconstruct(auditor, binding);
 
-			if (binding.hasErrors())
-				result = this.createEditModelAndViewAuditor(auditorReconstruct);
-			else
-				try {
-					this.auditorService.save(auditorReconstruct);
-					final Credentials credentials = new Credentials();
-					credentials.setJ_username(auditorReconstruct.getUserAccount().getUsername());
-					credentials.setPassword(auditorReconstruct.getUserAccount().getPassword());
-					result = new ModelAndView("redirect:/profile/displayPrincipal.do");
-					result.addObject("credentials", credentials);
-				} catch (final Throwable oops) {
-					result = this.createEditModelAndViewAuditor(auditorReconstruct, "actor.commit.error");
-				}
-			return result;
-		}
+		if (binding.hasErrors())
+			result = this.createEditModelAndViewAuditor(auditorReconstruct);
+		else
+			try {
+				this.auditorService.save(auditorReconstruct);
+				final Credentials credentials = new Credentials();
+				credentials.setJ_username(auditorReconstruct.getUserAccount().getUsername());
+				credentials.setPassword(auditorReconstruct.getUserAccount().getPassword());
+				result = new ModelAndView("redirect:/profile/displayPrincipal.do");
+				result.addObject("credentials", credentials);
+			} catch (final Throwable oops) {
+				result = this.createEditModelAndViewAuditor(auditorReconstruct, "actor.commit.error");
+			}
+		return result;
+	}
 
-		protected ModelAndView createEditModelAndViewAuditor(final Auditor auditor) {
-			ModelAndView result;
+	protected ModelAndView createEditModelAndViewAuditor(final Auditor auditor) {
+		ModelAndView result;
 
-			result = this.createEditModelAndViewAuditor(auditor, null);
+		result = this.createEditModelAndViewAuditor(auditor, null);
 
-			return result;
-		}
+		return result;
+	}
 
-		protected ModelAndView createEditModelAndViewAuditor(final Auditor auditor, final String messageCode) {
-			ModelAndView result;
+	protected ModelAndView createEditModelAndViewAuditor(final Auditor auditor, final String messageCode) {
+		ModelAndView result;
 
-			final String banner = this.configurationService.findConfiguration().getBanner();
+		final String banner = this.configurationService.findConfiguration().getBanner();
 
-			result = new ModelAndView("actor/edit");
+		result = new ModelAndView("actor/edit");
 
-			result.addObject("auditor", auditor);
-			result.addObject("authority", "auditor");
-			result.addObject("actionURI", "editAuditor.do");
-			result.addObject("banner", banner);
-			result.addObject("laguageURI", "profile/edit.do");
-			result.addObject("messageError", messageCode);
-			final String countryCode = this.configurationService.findConfiguration().getCountryCode();
-			result.addObject("defaultCountry", countryCode);
+		result.addObject("auditor", auditor);
+		result.addObject("authority", "auditor");
+		result.addObject("actionURI", "editAuditor.do");
+		result.addObject("banner", banner);
+		result.addObject("laguageURI", "profile/edit.do");
+		result.addObject("messageError", messageCode);
+		final String countryCode = this.configurationService.findConfiguration().getCountryCode();
+		result.addObject("defaultCountry", countryCode);
 
-			return result;
-		}
-		
-		//--------------------------Provider------------------------------
+		return result;
+	}
 
-				@RequestMapping(value = "/editProvider", method = RequestMethod.POST, params = "save")
-				public ModelAndView saveProvider(@ModelAttribute("provider") final Provider provider, final BindingResult binding) {
-					ModelAndView result;
+	//--------------------------Provider------------------------------
 
-					final Provider providerReconstruct = this.providerService.reconstruct(provider, binding);
+	@RequestMapping(value = "/editProvider", method = RequestMethod.POST, params = "save")
+	public ModelAndView saveProvider(@ModelAttribute("provider") final Provider provider, final BindingResult binding) {
+		ModelAndView result;
 
-					if (binding.hasErrors())
-						result = this.createEditModelAndViewProvider(providerReconstruct);
-					else
-						try {
-							this.providerService.save(providerReconstruct);
-							final Credentials credentials = new Credentials();
-							credentials.setJ_username(providerReconstruct.getUserAccount().getUsername());
-							credentials.setPassword(providerReconstruct.getUserAccount().getPassword());
-							result = new ModelAndView("redirect:/profile/displayPrincipal.do");
-							result.addObject("credentials", credentials);
-						} catch (final Throwable oops) {
-							result = this.createEditModelAndViewProvider(providerReconstruct, "actor.commit.error");
-						}
-					return result;
-				}
+		final Provider providerReconstruct = this.providerService.reconstruct(provider, binding);
 
-				protected ModelAndView createEditModelAndViewProvider(final Provider provider) {
-					ModelAndView result;
+		if (binding.hasErrors())
+			result = this.createEditModelAndViewProvider(providerReconstruct);
+		else
+			try {
+				this.providerService.save(providerReconstruct);
+				final Credentials credentials = new Credentials();
+				credentials.setJ_username(providerReconstruct.getUserAccount().getUsername());
+				credentials.setPassword(providerReconstruct.getUserAccount().getPassword());
+				result = new ModelAndView("redirect:/profile/displayPrincipal.do");
+				result.addObject("credentials", credentials);
+			} catch (final Throwable oops) {
+				result = this.createEditModelAndViewProvider(providerReconstruct, "actor.commit.error");
+			}
+		return result;
+	}
 
-					result = this.createEditModelAndViewProvider(provider, null);
+	protected ModelAndView createEditModelAndViewProvider(final Provider provider) {
+		ModelAndView result;
 
-					return result;
-				}
+		result = this.createEditModelAndViewProvider(provider, null);
 
-				protected ModelAndView createEditModelAndViewProvider(final Provider provider, final String messageCode) {
-					ModelAndView result;
+		return result;
+	}
 
-					final String banner = this.configurationService.findConfiguration().getBanner();
+	protected ModelAndView createEditModelAndViewProvider(final Provider provider, final String messageCode) {
+		ModelAndView result;
 
-					result = new ModelAndView("actor/edit");
+		final String banner = this.configurationService.findConfiguration().getBanner();
 
-					result.addObject("provider", provider);
-					result.addObject("authority", "provider");
-					result.addObject("actionURI", "editProvider.do");
-					result.addObject("banner", banner);
-					result.addObject("laguageURI", "profile/edit.do");
-					result.addObject("messageError", messageCode);
-					final String countryCode = this.configurationService.findConfiguration().getCountryCode();
-					result.addObject("defaultCountry", countryCode);
+		result = new ModelAndView("actor/edit");
 
-					return result;
-				}
+		result.addObject("provider", provider);
+		result.addObject("authority", "provider");
+		result.addObject("actionURI", "editProvider.do");
+		result.addObject("banner", banner);
+		result.addObject("messageError", messageCode);
+		final String countryCode = this.configurationService.findConfiguration().getCountryCode();
+		result.addObject("defaultCountry", countryCode);
+
+		return result;
+	}
 
 }

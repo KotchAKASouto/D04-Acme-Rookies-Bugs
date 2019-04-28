@@ -29,6 +29,7 @@
 					<li><a href="actor/administrator/spammer/list.do"><spring:message code="master.page.spammer" /></a></li>
 					<li><a href="actor/administrator/profile/list.do"><spring:message code="master.page.profiles" /></a></li>
 					<li><a href="administrator/create.do"><spring:message code="master.page.signUpAdmin" /></a></li>
+					<li><a href="administrator/createAuditor.do"><spring:message code="master.page.signUpAuditor" /></a></li>
 					<li><a href="administrator/dashboard.do"><spring:message code="master.page.dashboard" /></a></li>
 				</ul>
 			</li>
@@ -68,6 +69,7 @@
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
 			<li><a href="register/createCompany.do"><spring:message code="master.page.company.signup" /></a></li>
 			<li><a href="register/createRookie.do"><spring:message code="master.page.rookie.signup" /></a></li>
+			<li><a href="register/createProvider.do"><spring:message code="master.page.provider.signup" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="permitAll()">
@@ -98,6 +100,6 @@
 </div>
 
 <div>
-	<a href="${languageURI}?language=en">en</a> | <a href="${languageURI}?language=es">es</a>
+	<a href="?language=en">en</a> | <a href="?language=es">es</a>
 </div>
 

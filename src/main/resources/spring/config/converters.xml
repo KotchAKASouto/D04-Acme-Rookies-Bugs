@@ -82,8 +82,8 @@
 		<bean class="converters.ProviderToStringConverter"/>
 		<bean class="converters.StringToProviderConverter"/>
 		
-		<bean class="converters.SponsopshipToStringConverter"/>
-		<bean class="converters.StringToSponsopshipConverter"/>
+		<bean class="converters.SponsorshipToStringConverter"/>
+		<bean class="converters.StringToSponsorshipConverter"/>
 		
 		<bean class="converters.ItemToStringConverter"/>
 		<bean class="converters.StringToItemConverter"/>

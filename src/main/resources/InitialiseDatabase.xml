@@ -74,7 +74,7 @@
 		<property name="countryCode" value="+34" />
 		<property name="finderTime" value="1" />
 		<property name="finderResult" value="10" />
-		<property name="welcomeMessageEs" value="¡Bienvenidos a Acme Rookie ! ¡Somos el mercado de trabajo favorito de los profesionales de las TICs!" />
+		<property name="welcomeMessageEs" value="¡Bienvenidos a Acme Rookies ! ¡Somos el mercado de trabajo favorito de los profesionales de las TICs!" />
 		<property name="banner" value="https://i.imgur.com/7b8lu4b.png" />
 		<property name="welcomeMessage" value="Welcome to Acme Rookie! We're IT hacker's favourite job marketplace!" />
 	</bean>	
