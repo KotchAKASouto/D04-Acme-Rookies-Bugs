@@ -12,6 +12,17 @@
 
 	<acme:column property="userAccount.username" titleKey="actor.username" value= "${row.userAccount.username}: "/>
 	
+	<jstl:if test="${score}">
+		<display:column titleKey="actor.score"> 
+			<jstl:if test="${empty row.score}">
+				<spring:message code="actor.status.na" />
+			</jstl:if>
+			<jstl:if test="${not empty row.score}">
+				<jstl:out value="${row.score}"/>
+			</jstl:if>
+		</display:column>
+	</jstl:if>
+	
 	<jstl:if test="${spam}">
 		<display:column titleKey="actor.spammer"> 
 			<jstl:if test="${empty row.spammer}">
@@ -65,6 +76,10 @@
 	</jstl:if>
 	
 </display:table>
+
+<jstl:if test="${score}">
+		<a href="actor/administrator/score/calculate.do"><spring:message code="actor.calculate"/></a>
+</jstl:if>
 
 <jstl:if test="${spam}">
 		<a href="actor/administrator/spammer/calculate.do"><spring:message code="actor.find"/></a>

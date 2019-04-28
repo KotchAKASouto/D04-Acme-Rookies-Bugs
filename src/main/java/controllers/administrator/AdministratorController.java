@@ -13,9 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.ActorService;
 import services.AdministratorService;
+import services.CompanyService;
 import services.ConfigurationService;
 import controllers.AbstractController;
 import domain.Actor;
+import domain.Company;
 
 @Controller
 @RequestMapping("/actor/administrator")
@@ -32,8 +34,33 @@ public class AdministratorController extends AbstractController {
 	@Autowired
 	private AdministratorService	administratorService;
 
+	@Autowired
+	private CompanyService			companyService;
+
 
 	//Methods
+
+	@RequestMapping(value = "/score/list", method = RequestMethod.GET)
+	public ModelAndView listScore() {
+
+		final ModelAndView result;
+		final Collection<Company> actors;
+
+		actors = this.companyService.findAll();
+
+		final String banner = this.configurationService.findConfiguration().getBanner();
+
+		result = new ModelAndView("administrator/listActor");
+		result.addObject("score", true);
+		result.addObject("spam", false);
+		result.addObject("profile", false);
+		result.addObject("actors", actors);
+		result.addObject("requestURI", "actor/administrator/score/list.do");
+		result.addObject("banner", banner);
+
+		return result;
+
+	}
 
 	@RequestMapping(value = "/spammer/list", method = RequestMethod.GET)
 	public ModelAndView listSpammer() {
@@ -46,6 +73,7 @@ public class AdministratorController extends AbstractController {
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
 		result = new ModelAndView("administrator/listActor");
+		result.addObject("score", false);
 		result.addObject("spam", true);
 		result.addObject("profile", false);
 		result.addObject("actors", actors);
@@ -54,6 +82,16 @@ public class AdministratorController extends AbstractController {
 
 		return result;
 
+	}
+
+	@RequestMapping(value = "/score/calculate", method = RequestMethod.GET)
+	public ModelAndView calculate() {
+		ModelAndView result;
+
+		this.companyService.calculateScore();
+		result = new ModelAndView("redirect:/actor/administrator/score/list.do");
+
+		return result;
 	}
 
 	@RequestMapping(value = "/spammer/calculate", method = RequestMethod.GET)
@@ -104,6 +142,7 @@ public class AdministratorController extends AbstractController {
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
 		result = new ModelAndView("administrator/listActor");
+		result.addObject("score", false);
 		result.addObject("spam", false);
 		result.addObject("admin", true);
 		result.addObject("actors", actors);
