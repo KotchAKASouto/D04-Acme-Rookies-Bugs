@@ -1591,7 +1591,7 @@
 		<property name="creditCard" ref="creditCardSponsorship2" />
 		<property name="banner" value="https://imgur.com/gallery/RBIkQq3" />
 		<property name="target" value="http://www.target.com" />
-		<property name="position" ref="position1" />
+		<property name="position" ref="position2" />
 	</bean>
 	
 	<bean id="creditCardSponsorship2" class="domain.CreditCard">

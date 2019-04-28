@@ -9,7 +9,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags" %>
 
-<form:form action="sponsorship/sponsor/edit.do" modelAttribute="sponsorship">
+<form:form action="sponsorship/provider/edit.do" modelAttribute="sponsorship">
 	
 	<form:hidden path="id" />
 	<form:hidden path="version" />

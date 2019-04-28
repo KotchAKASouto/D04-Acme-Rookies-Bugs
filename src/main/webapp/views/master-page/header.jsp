@@ -65,6 +65,18 @@
 			</li>
 		</security:authorize>
 		
+		<security:authorize access="hasRole('PROVIDER')">
+			<li><a class="fNiv"><spring:message	code="master.page.provider" /></a>
+				<ul>
+					<li class="arrow"></li>
+
+						<li><a href="sponsorship/provider/list.do"><spring:message code="master.page.sponsorship" /></a></li>
+						
+
+				</ul>
+			</li>
+		</security:authorize>
+		
 		
 		<security:authorize access="isAnonymous()">
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>

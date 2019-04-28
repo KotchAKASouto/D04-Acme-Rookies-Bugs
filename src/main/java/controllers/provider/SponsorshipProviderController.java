@@ -96,7 +96,7 @@ public class SponsorshipProviderController {
 	}
 
 	//Create------------------------------------------------------------------
-	@RequestMapping(value = "/provider", method = RequestMethod.GET)
+	@RequestMapping(value = "/sponsor", method = RequestMethod.GET)
 	public ModelAndView create(@RequestParam final int positionId) {
 		final ModelAndView result;
 		final String banner = this.configurationService.findConfiguration().getBanner();

@@ -79,6 +79,14 @@
 		</display:column>
 	</security:authorize> 
 	
+	<security:authorize access="hasRole('PROVIDER')">
+		<display:column>
+			<jstl:if test="${row.deadline > now}">
+				<a href="sponsorship/provider/sponsor.do?positionId=${row.id }"> <spring:message code="position.sponsorship"/></a>
+			</jstl:if>
+		</display:column>
+	</security:authorize> 
+	
 	<jstl:if test="${requestURI == 'position/list.do'}">
 		<acme:url href="company/display.do?positionId=${row.id }" code="position.company.display"/>
 	</jstl:if>

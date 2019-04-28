@@ -116,9 +116,13 @@ public class SponsorshipService {
 
 		final Sponsorship result = new Sponsorship();
 
-		result.setBanner(sponsorship.getBanner());
+		if (!sponsorship.getBanner().equals(""))
+			result.setBanner(sponsorship.getBanner());
+
+		if (!sponsorship.getTarget().equals(""))
+			result.setTarget(sponsorship.getTarget());
+
 		result.setCreditCard(sponsorship.getCreditCard());
-		result.setTarget(sponsorship.getTarget());
 
 		if (sponsorship.getId() == 0) {
 
