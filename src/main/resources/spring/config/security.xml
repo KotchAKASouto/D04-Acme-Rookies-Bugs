@@ -150,6 +150,7 @@
 		<security:intercept-url pattern="/actor/administrator/profile/displayActor.do" access="hasRole('ADMIN')" /> 
 		<security:intercept-url pattern="/actor/administrator/profile/deleteProfile.do" access="hasRole('ADMIN')" />
 		<security:intercept-url pattern="/profile/editAdministrator.do" access="hasRole('ADMIN')" />
+		<security:intercept-url pattern="/message/actor/rebrandingNotification.do" access="hasRole('ADMIN')" />
 		
 		<!-- Rookie: Finder -->
 		<security:intercept-url pattern="/finder/rookie/find.do" access="hasRole('ROOKIE')" />
