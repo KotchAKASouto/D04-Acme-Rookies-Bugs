@@ -2865,5 +2865,8 @@
 			value="https://i.imgur.com/7b8lu4b.png" />
 		<property name="welcomeMessage"
 			value="Welcome to Acme Rookie! We're IT rookie's favourite job marketplace!" />
+		<property name="vatTax" value="0.21" />
+		<property name="rebrandingNotification" value="false" />
+			
 	</bean>
 </beans>
