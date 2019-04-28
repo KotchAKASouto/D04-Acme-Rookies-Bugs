@@ -21,7 +21,7 @@ public class AuditService {
 
 	public Collection<Audit> findByPositionId(final int positionId) {
 
-		final Collection<Audit> res = this.findByPositionId(positionId);
+		final Collection<Audit> res = this.auditRepository.findByPositionId(positionId);
 
 		return res;
 	}
