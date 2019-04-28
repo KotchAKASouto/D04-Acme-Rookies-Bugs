@@ -93,10 +93,6 @@ public class SponsorshipService {
 		Assert.isTrue(sponsorship.getCreditCard().getExpYear() - 1900 >= now.getYear());
 		Assert.isTrue(sponsorship.getCreditCard().getExpMonth() - 1 >= now.getMonth() || sponsorship.getCreditCard().getExpYear() - 1900 > now.getYear());
 
-		final Collection<String> makes = this.configurationService.findConfiguration().getMakes();
-
-		Assert.isTrue(makes.contains(sponsorship.getCreditCard().getMake()));
-
 		final Sponsorship result = this.sponsorshipRepository.save(sponsorship);
 
 		return result;
@@ -160,6 +156,13 @@ public class SponsorshipService {
 				this.sponsorshipRepository.delete(s);
 	}
 
+	public Collection<Sponsorship> findAllByProviderId(final int actorId) {
+
+		final Collection<Sponsorship> sponsorships = this.sponsorshipRepository.findAllByProviderId(actorId);
+
+		return sponsorships;
+	}
+
 	public SponsorshipForm editForm(final Sponsorship sponsorship) {
 
 		final SponsorshipForm result = new SponsorshipForm();
@@ -218,6 +221,12 @@ public class SponsorshipService {
 	public void flush() {
 
 		this.sponsorshipRepository.flush();
+
+	}
+
+	public Integer findSponsorshipByPositionAndProviderId(final int positionId, final int id) {
+
+		return this.sponsorshipRepository.findSponsorshipByPositionAndProviderId(positionId, id);
 
 	}
 
