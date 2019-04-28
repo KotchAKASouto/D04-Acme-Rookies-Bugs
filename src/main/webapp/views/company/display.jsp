@@ -11,6 +11,19 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags" %>
 
+<fieldset>
+
+	<jstl:if test="${empty company.score}">
+		<spring:message code="company.score" />: <spring:message code="company.status.na" />
+	</jstl:if>
+	
+	<jstl:if test="${not empty company.score}">
+		<spring:message code="company.score" />: <jstl:out value="${company.score}"/>
+	</jstl:if>
+
+</fieldset>
+		
+<br/>	
 
 <acme:display code="company.commercialName" property="${company.commercialName }" />
 
