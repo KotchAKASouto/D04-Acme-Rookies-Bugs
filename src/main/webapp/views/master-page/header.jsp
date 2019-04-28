@@ -64,6 +64,17 @@
 			</li>
 		</security:authorize>
 		
+		<security:authorize access="hasRole('AUDITOR')">
+			<li><a class="fNiv"><spring:message	code="master.page.auditor" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="position/auditor/listPosition.do"><spring:message code="master.page.auditor.position.list" /></a></li>
+					<li><a href="audit/auditor/list.do"><spring:message code="master.page.auditor.auditList" /></a></li>
+					
+				</ul>
+			</li>
+		</security:authorize>
+		
 		
 		<security:authorize access="isAnonymous()">
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>

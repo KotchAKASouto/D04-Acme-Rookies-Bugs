@@ -1,3 +1,4 @@
+
 package services;
 
 import java.util.Collection;
@@ -11,200 +12,197 @@ import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 
-import domain.Actor;
-import domain.Auditor;
-import domain.Finder;
-import domain.Auditor;
-import domain.Auditor;
-import forms.RegisterAuditorForm;
-
-
 import repositories.AuditorRepository;
 import security.Authority;
 import security.LoginService;
 import security.UserAccount;
 import security.UserAccountService;
+import domain.Actor;
+import domain.Auditor;
+import forms.RegisterAuditorForm;
 
 @Service
 @Transactional
 public class AuditorService {
 
 	// Managed Repository ------------------------
-		@Autowired
-		private AuditorRepository	auditorRepository;
-	
+	@Autowired
+	private AuditorRepository	auditorRepository;
+
 	// Suporting services
-		@Autowired
-		private ActorService		actorService;
-		
-		@Autowired
-		private UserAccountService	userAccountService;
-		
-		@Autowired
-		private Validator			validator;
-		
-		public Auditor create() {
+	@Autowired
+	private ActorService		actorService;
 
-			Auditor result;
-			result = new Auditor();
+	@Autowired
+	private UserAccountService	userAccountService;
 
-			final UserAccount userAccount = this.userAccountService.createAuditor();
-			result.setUserAccount(userAccount);
+	@Autowired
+	private Validator			validator;
 
-			result.setSpammer(null);
-			result.setPosition(null);
 
-			return result;
+	public Auditor create() {
 
-		}
-		
-		public Collection<Auditor> findAll() {
+		Auditor result;
+		result = new Auditor();
 
-			Collection<Auditor> result;
-			result = this.auditorRepository.findAll();
-			Assert.notNull(result);
-			return result;
-		}
+		final UserAccount userAccount = this.userAccountService.createAuditor();
+		result.setUserAccount(userAccount);
 
-		public Auditor findOne(final int auditorId) {
+		result.setSpammer(null);
+		result.setPosition(null);
 
-			Assert.notNull(auditorId);
-			Auditor result;
-			result = this.auditorRepository.findOne(auditorId);
-			return result;
-		}
-		
-		public Auditor save(final Auditor auditor) {
-			Assert.notNull(auditor);
-			Auditor result;
-			final Authority admin = new Authority();
-			admin.setAuthority(Authority.ADMIN);
-			
-			final Actor actor = this.actorService.findByPrincipal();
-			Assert.notNull(actor);
+		return result;
 
-			if (auditor.getId() != 0) {
-				
+	}
 
-				
+	public Collection<Auditor> findAll() {
 
-				Assert.isTrue(actor.getId() == auditor.getId() || actor.getUserAccount().getAuthorities().contains(admin));
+		Collection<Auditor> result;
+		result = this.auditorRepository.findAll();
+		Assert.notNull(result);
+		return result;
+	}
 
-				final Date now = new Date(System.currentTimeMillis() - 1000);
+	public Auditor findOne(final int auditorId) {
 
-				Assert.isTrue(auditor.getCreditCard().getExpYear() - 1900 >= now.getYear());
-				Assert.isTrue(auditor.getCreditCard().getExpMonth() - 1 >= now.getMonth() || auditor.getCreditCard().getExpYear() - 1900 > now.getYear());
+		Assert.notNull(auditorId);
+		Auditor result;
+		result = this.auditorRepository.findOne(auditorId);
+		return result;
+	}
 
-				this.actorService.checkEmail(auditor.getEmail(), false);
-				this.actorService.checkPhone(auditor.getPhone());
+	public Auditor save(final Auditor auditor) {
+		Assert.notNull(auditor);
+		Auditor result;
+		final Authority admin = new Authority();
+		admin.setAuthority(Authority.ADMIN);
 
-				final String phone = this.actorService.checkPhone(auditor.getPhone());
-				auditor.setPhone(phone);
+		final Actor actor = this.actorService.findByPrincipal();
+		Assert.notNull(actor);
 
-				result = this.auditorRepository.save(auditor);
+		if (auditor.getId() != 0) {
 
-			} else {
-				
-				Assert.isTrue(actor.getUserAccount().getAuthorities().contains(admin));
+			Assert.isTrue(actor.getId() == auditor.getId() || actor.getUserAccount().getAuthorities().contains(admin));
 
-				String pass = auditor.getUserAccount().getPassword();
+			final Date now = new Date(System.currentTimeMillis() - 1000);
 
-				final Md5PasswordEncoder code = new Md5PasswordEncoder();
+			Assert.isTrue(auditor.getCreditCard().getExpYear() - 1900 >= now.getYear());
+			Assert.isTrue(auditor.getCreditCard().getExpMonth() - 1 >= now.getMonth() || auditor.getCreditCard().getExpYear() - 1900 > now.getYear());
 
-				pass = code.encodePassword(pass, null);
+			this.actorService.checkEmail(auditor.getEmail(), false);
+			this.actorService.checkPhone(auditor.getPhone());
 
-				final UserAccount userAccount = auditor.getUserAccount();
-				userAccount.setPassword(pass);
+			final String phone = this.actorService.checkPhone(auditor.getPhone());
+			auditor.setPhone(phone);
 
-				auditor.setUserAccount(userAccount);
+			result = this.auditorRepository.save(auditor);
 
-				final Date now = new Date(System.currentTimeMillis() - 1000);
+		} else {
 
-				Assert.isTrue(auditor.getCreditCard().getExpYear() - 1900 >= now.getYear());
-				Assert.isTrue(auditor.getCreditCard().getExpMonth() - 1 >= now.getMonth() || auditor.getCreditCard().getExpYear() - 1900 > now.getYear());
+			Assert.isTrue(actor.getUserAccount().getAuthorities().contains(admin));
 
-				this.actorService.checkEmail(auditor.getEmail(), false);
-				this.actorService.checkPhone(auditor.getPhone());
+			String pass = auditor.getUserAccount().getPassword();
 
-				final String phone = this.actorService.checkPhone(auditor.getPhone());
-				auditor.setPhone(phone);
+			final Md5PasswordEncoder code = new Md5PasswordEncoder();
 
-				result = this.auditorRepository.save(auditor);
+			pass = code.encodePassword(pass, null);
 
-				
+			final UserAccount userAccount = auditor.getUserAccount();
+			userAccount.setPassword(pass);
 
-			}
-			return result;
+			auditor.setUserAccount(userAccount);
+
+			final Date now = new Date(System.currentTimeMillis() - 1000);
+
+			Assert.isTrue(auditor.getCreditCard().getExpYear() - 1900 >= now.getYear());
+			Assert.isTrue(auditor.getCreditCard().getExpMonth() - 1 >= now.getMonth() || auditor.getCreditCard().getExpYear() - 1900 > now.getYear());
+
+			this.actorService.checkEmail(auditor.getEmail(), false);
+			this.actorService.checkPhone(auditor.getPhone());
+
+			final String phone = this.actorService.checkPhone(auditor.getPhone());
+			auditor.setPhone(phone);
+
+			result = this.auditorRepository.save(auditor);
 
 		}
-		
-		public Auditor findByPrincipal() {
-			Auditor auditor;
-			UserAccount userAccount;
+		return result;
 
-			userAccount = LoginService.getPrincipal();
-			Assert.notNull(userAccount);
-			auditor = this.findByUserAccount(userAccount);
-			Assert.notNull(auditor);
+	}
 
-			return auditor;
+	public Auditor findByPrincipal() {
+		Auditor auditor;
+		UserAccount userAccount;
+
+		userAccount = LoginService.getPrincipal();
+		Assert.notNull(userAccount);
+		auditor = this.findByUserAccount(userAccount);
+		Assert.notNull(auditor);
+
+		return auditor;
+	}
+
+	public Auditor findByUserAccount(final UserAccount userAccount) {
+		Assert.notNull(userAccount);
+
+		Auditor result;
+
+		result = this.auditorRepository.findByUserAccountId(userAccount.getId());
+
+		return result;
+	}
+
+	//Recontruct para registrar Auditor
+	public Auditor reconstruct(final RegisterAuditorForm form, final BindingResult binding) {
+
+		this.validator.validate(form, binding);
+
+		final Auditor auditor = this.create();
+
+		auditor.setName(form.getName());
+		auditor.setSurnames(form.getSurnames());
+		auditor.setVat(form.getVat());
+		auditor.setPhoto(form.getPhoto());
+		auditor.setEmail(form.getEmail());
+		auditor.setPhone(form.getPhone());
+		auditor.setAddress(form.getAddress());
+		auditor.setCreditCard(form.getCreditCard());
+		auditor.getUserAccount().setUsername(form.getUsername());
+		auditor.getUserAccount().setPassword(form.getPassword());
+
+		return auditor;
+
+	}
+
+	//Reconstruct para editar Auditor
+
+	public Auditor reconstruct(final Auditor auditor, final BindingResult binding) {
+
+		final Auditor result;
+
+		final Auditor auditorBBDD = this.findOne(auditor.getId());
+
+		if (auditorBBDD != null) {
+
+			auditor.setUserAccount(auditorBBDD.getUserAccount());
+			auditor.setSpammer(auditorBBDD.getSpammer());
+			auditor.setPosition(auditorBBDD.getPosition());
+
+			this.validator.validate(auditor, binding);
+
 		}
+		result = auditor;
+		return result;
 
-		public Auditor findByUserAccount(final UserAccount userAccount) {
-			Assert.notNull(userAccount);
+	}
 
-			Auditor result;
+	public Auditor findAuditorByPositionId(final int positionId) {
+		final Auditor result = this.auditorRepository.findAuditorByPositionId(positionId);
 
-			result = this.auditorRepository.findByUserAccountId(userAccount.getId());
+		return result;
+	}
 
-			return result;
-		}
-		
-		//Recontruct para registrar Auditor
-		public Auditor reconstruct(final RegisterAuditorForm form, final BindingResult binding) {
-
-			this.validator.validate(form, binding);
-
-			final Auditor auditor = this.create();
-
-			auditor.setName(form.getName());
-			auditor.setSurnames(form.getSurnames());
-			auditor.setVat(form.getVat());
-			auditor.setPhoto(form.getPhoto());
-			auditor.setEmail(form.getEmail());
-			auditor.setPhone(form.getPhone());
-			auditor.setAddress(form.getAddress());
-			auditor.setCreditCard(form.getCreditCard());
-			auditor.getUserAccount().setUsername(form.getUsername());
-			auditor.getUserAccount().setPassword(form.getPassword());
-
-			return auditor;
-
-		}
-
-		//Reconstruct para editar Auditor
-
-		public Auditor reconstruct(final Auditor auditor, final BindingResult binding) {
-
-			final Auditor result;
-
-			final Auditor auditorBBDD = this.findOne(auditor.getId());
-
-			if (auditorBBDD != null) {
-
-				auditor.setUserAccount(auditorBBDD.getUserAccount());
-				auditor.setSpammer(auditorBBDD.getSpammer());
-				auditor.setPosition(auditorBBDD.getPosition());
-
-				this.validator.validate(auditor, binding);
-
-			}
-			result = auditor;
-			return result;
-
-		}
-
-		public void flush() {
-			this.auditorRepository.flush();
-		}
+	public void flush() {
+		this.auditorRepository.flush();
+	}
 }

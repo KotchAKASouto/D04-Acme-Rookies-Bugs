@@ -243,6 +243,13 @@ public class PositionService {
 
 		return positions;
 	}
+
+	public Collection<Position> positionsNotAssignedAnyAuditor() {
+		final Collection<Position> position = this.positionRepository.positionsNotAssignedAnyAuditor();
+
+		return position;
+	}
+
 	public Boolean positionCompanySecurity(final int positionId) {
 		Boolean res = false;
 		Assert.notNull(positionId);

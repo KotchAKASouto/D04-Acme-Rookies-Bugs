@@ -1,3 +1,4 @@
+
 package domain;
 
 import java.util.Date;
@@ -6,7 +7,6 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -19,71 +19,70 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
-public class Audit extends DomainEntity{
+public class Audit extends DomainEntity {
 
-	private Date moment;
-	private String text;
-	private Double score;
-	private Boolean finalMode;
+	private Date		moment;
+	private String		text;
+	private Double		score;
+	private Boolean		finalMode;
 	//relationships
-	private Auditor auditor;
-	private Position position;
-	
+	private Auditor		auditor;
+	private Position	position;
+
+
 	@NotNull
 	@Past
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getMoment() {
-		return moment;
+		return this.moment;
 	}
-	public void setMoment(Date moment) {
+	public void setMoment(final Date moment) {
 		this.moment = moment;
 	}
-	
+
 	@NotBlank
 	@SafeHtml
 	public String getText() {
-		return text;
+		return this.text;
 	}
-	public void setText(String text) {
+	public void setText(final String text) {
 		this.text = text;
 	}
-	
-	
+
 	@Min(0)
 	@Max(10)
+	@NotNull
 	public Double getScore() {
-		return score;
+		return this.score;
 	}
-	public void setScore(Double score) {
+	public void setScore(final Double score) {
 		this.score = score;
 	}
-	
+
 	@NotNull
 	public Boolean getFinalMode() {
-		return finalMode;
+		return this.finalMode;
 	}
-	public void setFinalMode(Boolean finalMode) {
+	public void setFinalMode(final Boolean finalMode) {
 		this.finalMode = finalMode;
 	}
-	
+
 	@Valid
-	@ManyToOne(optional=false)
+	@ManyToOne(optional = false)
 	public Auditor getAuditor() {
-		return auditor;
+		return this.auditor;
 	}
-	public void setAuditor(Auditor auditor) {
+	public void setAuditor(final Auditor auditor) {
 		this.auditor = auditor;
 	}
-	
+
 	@Valid
-	@ManyToOne(optional=false)
+	@ManyToOne(optional = false)
 	public Position getPosition() {
-		return position;
+		return this.position;
 	}
-	public void setPosition(Position position) {
+	public void setPosition(final Position position) {
 		this.position = position;
 	}
-	
-	
-	
+
 }
