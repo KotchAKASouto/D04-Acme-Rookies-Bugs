@@ -240,7 +240,7 @@ public class CompanyService {
 
 						sumScore = sumScore + a.getScore();
 
-						total = total + a.getScore() * 10;
+						total = total + 10;
 
 					}
 
