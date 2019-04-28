@@ -43,6 +43,7 @@ public class MessageActorController extends AbstractController {
 		final Actor actor = this.actorService.findByPrincipal();
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
+		final Boolean rebrandingNotification = this.configurationService.findConfiguration().getRebrandingNotification();
 
 		messages = this.messageService.AllmessagePerActor(actor.getId());
 		messagesDELETE = this.messageService.AllmessageDELETEPerActor(actor.getId());
@@ -56,13 +57,13 @@ public class MessageActorController extends AbstractController {
 		result.addObject("messages", messages);
 		result.addObject("messagesDELETE", messagesDELETE);
 		result.addObject("messagesSYSTEM", messagesSYSTEM);
+		result.addObject("rebrandingNotification", rebrandingNotification);
 		result.addObject("banner", banner);
 
 		result.addObject("requestURI", "message/actor/list.do");
 
 		return result;
 	}
-
 	@RequestMapping(value = "/display", method = RequestMethod.GET)
 	public ModelAndView display(@RequestParam final int messageId) {
 		ModelAndView result;
@@ -177,6 +178,23 @@ public class MessageActorController extends AbstractController {
 			result = new ModelAndView("misc/notExist");
 			result.addObject("banner", banner);
 		}
+
+		return result;
+	}
+
+	@RequestMapping(value = "/rebrandingNotification", method = RequestMethod.GET)
+	public ModelAndView rebrandingNotification() {
+
+		ModelAndView result;
+
+		final Boolean rebrandingNotification = this.configurationService.findConfiguration().getRebrandingNotification();
+
+		if (!rebrandingNotification) {
+			this.messageService.notificationRebranding();
+
+			result = new ModelAndView("redirect:/message/actor/list.do");
+		} else
+			result = new ModelAndView("redirect:/welcome/index.do");
 
 		return result;
 	}
