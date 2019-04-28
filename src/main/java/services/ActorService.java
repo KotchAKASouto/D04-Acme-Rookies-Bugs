@@ -314,6 +314,22 @@ public class ActorService {
 		this.actorRepository.delete(actor);
 
 	}
+
+	public Boolean isCompany(final int actorId) {
+
+		Boolean res = false;
+
+		final Authority auth = new Authority();
+		auth.setAuthority(Authority.COMPANY);
+
+		final Actor actor = this.findOne(actorId);
+
+		if (actor.getUserAccount().getAuthorities().contains(auth))
+			res = true;
+
+		return res;
+
+	}
 	public void flush() {
 		this.actorRepository.flush();
 	}

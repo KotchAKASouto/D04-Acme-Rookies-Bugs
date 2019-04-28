@@ -71,11 +71,18 @@ public class ProfileController extends AbstractController {
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
+		final Boolean company = this.actorService.isCompany(actor.getId());
+
 		result = new ModelAndView("actor/display");
 		result.addObject("actor", actor);
 		result.addObject("banner", banner);
 		result.addObject("laguageURI", "profile/displayPrincipal.do");
 		result.addObject("admin", false);
+
+		if (company)
+			result.addObject("isCompany", true);
+		else
+			result.addObject("isCompany", false);
 
 		return result;
 
