@@ -30,6 +30,8 @@
 	<acme:column property="technologies" titleKey="position.technologies" value= "${row.technologies}: "/>
 	
 	<acme:column property="offeredSalary" titleKey="position.offeredSalary" value= "${row.offeredSalary}: "/>
+	
+	<acme:url href="/audit/listByPosition.do?positionId=${row.id }" code="position.audits" />
 
 	<security:authorize access="hasRole('AUDITOR')">
 		<jstl:if test="${assigned==false}">

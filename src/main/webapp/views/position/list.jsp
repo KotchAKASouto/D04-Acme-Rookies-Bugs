@@ -61,6 +61,8 @@
 	<acme:column property="technologies" titleKey="position.technologies" value= "${row.technologies}: "/>
 	
 	<acme:column property="offeredSalary" titleKey="position.offeredSalary" value= "${row.offeredSalary}: "/>
+	
+	
 		
 	<security:authorize access="hasRole('COMPANY')">
 		<jstl:if test="${AmInCompanyController}">
@@ -69,6 +71,8 @@
 		<acme:url href="position/company/display.do?positionId=${row.id }" code="position.display"/>
 		</jstl:if>
 	</security:authorize>
+	
+	<acme:url href="/audit/listByPosition.do?positionId=${row.id }" code="position.audits" />
 	
 	<security:authorize access="hasRole('AUDITOR')">
 		<jstl:if test="${assigned==false}">
