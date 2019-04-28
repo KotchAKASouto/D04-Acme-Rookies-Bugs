@@ -58,6 +58,10 @@
 		<security:intercept-url pattern="/company/display.do" access="permitAll" />
 		<security:intercept-url pattern="/position/listByCompany.do" access="permitAll" />
 		<security:intercept-url pattern="/position/listByFilter.do" access="permitAll" />
+		<security:intercept-url pattern="/provider/list.do" access="permitAll" />
+		<security:intercept-url pattern="/item/list.do" access="permitAll" />
+		<security:intercept-url pattern="/provider/display.do" access="permitAll" />
+		<security:intercept-url pattern="/item/listByProvider.do" access="permitAll" />
 
 
 

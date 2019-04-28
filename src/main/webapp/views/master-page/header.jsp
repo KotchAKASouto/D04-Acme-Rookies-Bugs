@@ -76,6 +76,8 @@
 		<security:authorize access="permitAll()">
 			<li><a href="company/list.do"><spring:message code="master.page.company.list" /></a></li>
 			<li><a href="position/list.do"><spring:message code="master.page.position.list" /></a></li>
+			<li><a href="provider/list.do"><spring:message code="master.page.provider.list" /></a></li>
+			<li><a href="item/list.do"><spring:message code="master.page.item.list" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="isAuthenticated()">
