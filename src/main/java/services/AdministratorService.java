@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,28 +32,27 @@ public class AdministratorService {
 
 	// Managed Repository ------------------------
 	@Autowired
-	private AdministratorRepository	administratorRepository;
+	private AdministratorRepository administratorRepository;
 
 	// Suporting services ------------------------
 
 	@Autowired
-	private ActorService			actorService;
+	private ActorService actorService;
 
 	@Autowired
-	private UserAccountService		userAccountService;
+	private UserAccountService userAccountService;
 
 	@Autowired
-	private PositionService			positionService;
+	private PositionService positionService;
 
 	@Autowired
-	private Validator				validator;
+	private Validator validator;
 
 	@Autowired
-	private ConfigurationService	configurationService;
+	private ConfigurationService configurationService;
 
 	@Autowired
-	private MessageService			messageService;
-
+	private MessageService messageService;
 
 	// Simple CRUD methods -----------------------
 
@@ -73,6 +73,7 @@ public class AdministratorService {
 		return result;
 
 	}
+
 	public Collection<Administrator> findAll() {
 
 		Collection<Administrator> result;
@@ -106,7 +107,8 @@ public class AdministratorService {
 			final Date now = new Date(System.currentTimeMillis() - 1000);
 
 			Assert.isTrue(administrator.getCreditCard().getExpYear() - 1900 >= now.getYear());
-			Assert.isTrue(administrator.getCreditCard().getExpMonth() - 1 >= now.getMonth() || administrator.getCreditCard().getExpYear() - 1900 > now.getYear());
+			Assert.isTrue(administrator.getCreditCard().getExpMonth() - 1 >= now.getMonth()
+					|| administrator.getCreditCard().getExpYear() - 1900 > now.getYear());
 
 			this.actorService.checkEmail(administrator.getEmail(), true);
 			this.actorService.checkPhone(administrator.getPhone());
@@ -132,7 +134,8 @@ public class AdministratorService {
 			final Date now = new Date(System.currentTimeMillis() - 1000);
 
 			Assert.isTrue(administrator.getCreditCard().getExpYear() - 1900 >= now.getYear());
-			Assert.isTrue(administrator.getCreditCard().getExpMonth() - 1 >= now.getMonth() || administrator.getCreditCard().getExpYear() - 1900 > now.getYear());
+			Assert.isTrue(administrator.getCreditCard().getExpMonth() - 1 >= now.getMonth()
+					|| administrator.getCreditCard().getExpYear() - 1900 > now.getYear());
 
 			final String phone = this.actorService.checkPhone(administrator.getPhone());
 
@@ -141,6 +144,7 @@ public class AdministratorService {
 		}
 		return result;
 	}
+
 	public Administrator reconstruct(final RegisterAdministratorForm form, final BindingResult binding) {
 
 		final Administrator admin = this.create();
@@ -265,7 +269,7 @@ public class AdministratorService {
 		}
 	}
 
-	// Dashboard 
+	// Dashboard
 
 	public Double avgOfPositionsPerCompany() {
 		return this.administratorRepository.avgOfPositionsPerCompany();
@@ -301,7 +305,7 @@ public class AdministratorService {
 
 	public List<String> topCompaniesWithMorePositions() {
 		final List<String> result = this.administratorRepository.topCompaniesWithMorePositions();
-		
+
 		if (result.size() == 0) {
 			result.add(" N/A ");
 		}
@@ -311,26 +315,26 @@ public class AdministratorService {
 
 	public List<String> topRookiesWithMoreApplications() {
 		final List<String> result = this.administratorRepository.topRookieWithMoreApplications();
-		
+
 		if (result.size() == 0) {
 			result.add(" N/A ");
 		}
-		
+
 		return result;
 	}
 
 	public Double avgSalaries() {
 		return this.administratorRepository.avgSalaries();
 	}
-	
+
 	public Integer minSalary() {
 		return this.administratorRepository.minSalary();
 	}
-	
+
 	public Integer maxSalary() {
 		return this.administratorRepository.maxSalary();
 	}
-	
+
 	public Double stdSalaries() {
 		return this.administratorRepository.stdSalaries();
 	}
@@ -338,40 +342,40 @@ public class AdministratorService {
 	public Position findBestPosition() {
 
 		Position result = null;
-		
+
 		try {
-		final int id = this.administratorRepository.findBestPosition();
-		 result = this.positionService.findOne(id);
+			final int id = this.administratorRepository.findBestPosition();
+			result = this.positionService.findOne(id);
 		} catch (Exception e) {
 			return null;
 		}
-		
+
 		return result;
 	}
 
 	public Position findWorstPosition() {
 		Position result = null;
 		try {
-		final int id = this.administratorRepository.findWorstPosition();
-		result = this.positionService.findOne(id);
+			final int id = this.administratorRepository.findWorstPosition();
+			result = this.positionService.findOne(id);
 		} catch (Exception e) {
 			return null;
 		}
 		return result;
 	}
-	
+
 	public Integer minNumberOfCurriculaPerRookie() {
 		return this.administratorRepository.minNumberOfCurriculaPerRookie();
 	}
-	
+
 	public Integer maxNumberOfCurriculaPerRookie() {
 		return this.administratorRepository.maxNumberOfCurriculaPerRookie();
 	}
-	
+
 	public Double avgNumberOfCurriculaPerRookie() {
 		return this.administratorRepository.avgNumberOfCurriculaPerRookie();
 	}
-	
+
 	public Double stdNumberOfCurriculaPerRookie() {
 		return this.administratorRepository.stdNumberOfCurriculaPerRookie();
 	}
@@ -379,21 +383,119 @@ public class AdministratorService {
 	public Integer minNumberOfResultsInFinders() {
 		return this.administratorRepository.minNumberOfResultsInFinders();
 	}
-	
+
 	public Integer maxNumberOfResultsInFinders() {
 		return this.administratorRepository.maxNumberOfResultsInFinders();
 	}
-	
+
 	public Double avgNumberOfResultsInFinders() {
 		return this.administratorRepository.avgNumberOfResultsInFinders();
 	}
-	
+
 	public Double stdNumberOfResultsInFinders() {
 		return this.administratorRepository.stdNumberOfCurriculaPerRookie();
 	}
-	
+
 	public Double ratioEmptyNotEmptyFinders() {
 		return this.administratorRepository.ratioEmptyNotEmptyFinders();
 	}
-	
+
+	// --------- Acme-Rookie ----------
+
+	public Double avgScorePositions() {
+		return this.administratorRepository.avgScorePositions();
+	}
+
+	public Double minScorePositions() {
+		return this.administratorRepository.minScorePositions();
+	}
+
+	public Double maxScorePositions() {
+		return this.administratorRepository.maxScorePositions();
+	}
+
+	public Double stdScorePositions() {
+		return this.administratorRepository.stdScorePositions();
+	}
+
+	public Double avgScoreCompany() {
+		return this.administratorRepository.avgScoreCompany();
+	}
+
+	public Double minScoreCompany() {
+		return this.administratorRepository.minScoreCompany();
+	}
+
+	public Double maxScoreCompany() {
+		return this.administratorRepository.maxScoreCompany();
+	}
+
+	public Double stdScoreCompany() {
+		return this.administratorRepository.stdScoreCompany();
+	}
+
+	public List<String> topScoreCompany() {
+		return this.administratorRepository.topScoreCompany();
+	}
+
+	public Double avgSalaryTopCompany() {
+		return this.administratorRepository.avgSalaryTopCompany();
+	}
+
+	public Double minItemPerProvider() {
+		return this.administratorRepository.minItemPerProvider();
+	}
+
+	public Double maxItemPerProvider() {
+		return this.administratorRepository.maxItemPerProvider();
+	}
+
+	public Double avgItemPerProvider() {
+		return this.administratorRepository.avgItemPerProvider();
+	}
+
+	public Double stdItemPerProvider() {
+		return this.administratorRepository.stdItemPerProvider();
+	}
+
+	public List<String> top5Provider() {
+		return this.administratorRepository.top5Provider();
+	}
+
+	public Double avgSponsorshipPerProvider() {
+		return this.administratorRepository.avgSponsorshipPerProvider();
+	}
+
+	public Double minSponsorshipPerProvider() {
+		return this.administratorRepository.minSponsorshipPerProvider();
+	}
+
+	public Double maxSponsorshipPerProvider() {
+		return this.administratorRepository.maxSponsorshipPerProvider();
+	}
+
+	public Double stdSponsorshipPerProvider() {
+		return this.administratorRepository.stdSponsorshipPerProvider();
+	}
+
+	public Double avgSponsorshipPerPosition() {
+		return this.administratorRepository.avgSponsorshipPerPosition();
+	}
+
+	public Double minSponsorshipPerPosition() {
+		return this.administratorRepository.minSponsorshipPerPosition();
+	}
+
+	public Double maxSponsorshipPerPosition() {
+		return this.administratorRepository.maxSponsorshipPerPosition();
+	}
+
+	public Double stdSponsorshipPerPosition() {
+		return this.administratorRepository.stdSponsorshipPerPosition();
+	}
+
+	public List<String> superiorProviders() {
+		return this.administratorRepository.superiorProviders();
+	}
+
 }

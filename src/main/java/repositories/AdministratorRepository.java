@@ -141,6 +141,80 @@ public interface AdministratorRepository extends JpaRepository<Administrator, In
 				"group by f.id " + 
 				") as counts")
 	Double ratioEmptyNotEmptyFinders();
+	
+	// --------- Acme-Rookie ----------
+	
+	@Query(nativeQuery = true, value = "select avg(score) from audit")
+	Double avgScorePositions();
+	
+	@Query(nativeQuery = true, value = "select min(score) from audit")
+	Double minScorePositions();
+	
+	@Query(nativeQuery = true, value = "select max(score) from audit")
+	Double maxScorePositions();
+	
+	@Query(nativeQuery = true, value = "select std(score) from audit")
+	Double stdScorePositions();
+	
+	@Query(nativeQuery = true, value = "select avg(score) from company")
+	Double avgScoreCompany();
+	
+	@Query(nativeQuery = true, value = "select min(score) from company")
+	Double minScoreCompany();
+	
+	@Query(nativeQuery = true, value = "select max(score) from company")
+	Double maxScoreCompany();
+	
+	@Query(nativeQuery = true, value = "select std(score) from company")
+	Double stdScoreCompany();
 		
+	@Query(nativeQuery = true, value = "select commercial_name from company where score >= 0 order by score desc limit 3")
+	List<String> topScoreCompany();
+	
+	@Query(nativeQuery = true, value = "select avg(p.offered_salary) from `position` p join (select commercial_name, id from company where score >= 0 order by score desc limit 3) c on (c.id = p.company)")
+	Double avgSalaryTopCompany();
+	
+	@Query(nativeQuery = true, value = "select min(count) from (select p.id, count(i.id) as Count from item i right join provider p on (p.id = i.provider) group by p.id) as counts")
+	Double minItemPerProvider();
+	
+	@Query(nativeQuery = true, value = "select max(count) from (select p.id, count(i.id) as Count from item i right join provider p on (p.id = i.provider) group by p.id) as counts")
+	Double maxItemPerProvider();
+	
+	@Query(nativeQuery = true, value = "select avg(count) from (select p.id, count(i.id) as Count from item i right join provider p on (p.id = i.provider) group by p.id) as counts")
+	Double avgItemPerProvider();
+	
+	@Query(nativeQuery = true, value = "select std(count) from (select p.id, count(i.id) as Count from item i right join provider p on (p.id = i.provider) group by p.id) as counts")
+	Double stdItemPerProvider();
+	
+	@Query(nativeQuery = true, value = "select p.provider_make from (select p.provider_make, count(i.id) as Counting from item i right join provider p on (p.id = i.provider) group by p.id) p order by Counting desc limit 5")
+	List<String> top5Provider();
+	
+	@Query(nativeQuery = true, value = "select avg(count) from (select p.id, count(s.id) as Count from sponsorship s right join provider p on (p.id = s.provider) group by p.id) as counts")
+	Double avgSponsorshipPerProvider();
+	
+	@Query(nativeQuery = true, value = "select min(count) from (select p.id, count(s.id) as Count from sponsorship s right join provider p on (p.id = s.provider) group by p.id) as counts")
+	Double minSponsorshipPerProvider();
+	
+	@Query(nativeQuery = true, value = "select max(count) from (select p.id, count(s.id) as Count from sponsorship s right join provider p on (p.id = s.provider) group by p.id) as counts")
+	Double maxSponsorshipPerProvider();
+	
+	@Query(nativeQuery = true, value = "select std(count) from (select p.id, count(s.id) as Count from sponsorship s right join provider p on (p.id = s.provider) group by p.id) as counts")
+	Double stdSponsorshipPerProvider();
+	
+	@Query(nativeQuery = true, value = "select avg(count) from (select p.id, count(s.id) as Count from sponsorship s right join position p on (p.id = s.`position`) group by p.id) as counts")
+	Double avgSponsorshipPerPosition();
+	
+	@Query(nativeQuery = true, value = "select min(count) from (select p.id, count(s.id) as Count from sponsorship s right join position p on (p.id = s.`position`) group by p.id) as counts")
+	Double minSponsorshipPerPosition();
+	
+	@Query(nativeQuery = true, value = "select max(count) from (select p.id, count(s.id) as Count from sponsorship s right join position p on (p.id = s.`position`) group by p.id) as counts")
+	Double maxSponsorshipPerPosition();
+	
+	@Query(nativeQuery = true, value = "select std(count) from (select p.id, count(s.id) as Count from sponsorship s right join position p on (p.id = s.`position`) group by p.id) as counts")
+	Double stdSponsorshipPerPosition();
+	
+	@Query(nativeQuery = true, value = "select name from (select p.holder_name as name, count(s.id) as Count from sponsorship s right join provider p on (p.id = s.provider) group by p.id) as counts where Count > (select avg(count) * 0.1 + avg(count) from (select p.id, count(s.id) as Count from sponsorship s right join provider p on (p.id = s.provider) group by p.id) as counts)")
+	List<String> superiorProviders();
+	
 	
 }
