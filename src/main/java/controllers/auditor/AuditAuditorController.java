@@ -101,16 +101,16 @@ public class AuditAuditorController extends AbstractController {
 		ModelAndView result;
 		Boolean security;
 
-		final Audit auditFind = this.auditService.findOne(auditId);
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
-		if (auditFind == null) {
+		if (this.auditService.findOne(auditId) == null) {
 			result = new ModelAndView("misc/notExist");
 			result.addObject("banner", banner);
-		} else if (auditFind.getFinalMode() == true) {
+		} else if (this.auditService.findOne(auditId).getFinalMode() == true) {
 			result = new ModelAndView("redirect:/welcome/index.do");
 			result.addObject("banner", banner);
 		} else {
+			final Audit auditFind = this.auditService.findOne(auditId);
 			security = this.auditService.auditAuditorSecurity(auditId);
 
 			if (security && auditFind.getAuditor().getPosition() == auditFind.getPosition())
@@ -147,7 +147,6 @@ public class AuditAuditorController extends AbstractController {
 	}
 	//Delete--------------------------------------------------------------------------------
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
-	//PONER URL
 	public ModelAndView delete(Audit audit, final BindingResult binding) {
 		ModelAndView result;
 
@@ -175,25 +174,24 @@ public class AuditAuditorController extends AbstractController {
 
 	//Display------------------------------------------------------------------------------
 	@RequestMapping(value = "/display", method = RequestMethod.GET)
-	//PONER URL
 	public ModelAndView display(@RequestParam final int auditId) {
 		ModelAndView result;
 		Boolean security;
 
-		final Audit auditFind = this.auditService.findOne(auditId);
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
 		if (this.auditorService.findByPrincipal().getPosition() == null) {
-			result = new ModelAndView("misc/noPosition"); //Crear vista
+			result = new ModelAndView("misc/noPosition");
 			result.addObject("banner", banner);
 
-		} else if (auditFind == null) {
+		} else if (this.auditService.findOne(auditId) == null) {
 			result = new ModelAndView("misc/notExist");
 			result.addObject("banner", banner);
 		} else {
 			security = this.auditService.auditAuditorSecurity(auditId);
 
 			if (security) {
+				final Audit auditFind = this.auditService.findOne(auditId);
 				result = new ModelAndView("audit/display");
 				result.addObject("audit", auditFind);
 				result.addObject("banner", banner);

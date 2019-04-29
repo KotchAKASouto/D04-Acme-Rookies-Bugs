@@ -33,7 +33,7 @@
 	
 	<acme:column property="finalMode" titleKey="position.finalMode" value="${row.finalMode }" />
 	
-	<acme:url href="/audit/listByPosition.do?positionId=${row.id }" code="position.audits" />
+	<acme:url href="audit/listByPosition.do?positionId=${row.id }" code="position.audits" />
 	
 	<security:authorize access="hasRole('COMPANY')">
 	<acme:url href="problem/company/addPositionPost.do?positionId=${row.id }&problemId=${problemId }" code="position.add" />

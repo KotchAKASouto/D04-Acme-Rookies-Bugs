@@ -6,7 +6,6 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -67,24 +66,27 @@ public class PositionAuditorController extends AbstractController {
 	@RequestMapping(value = "/select", method = RequestMethod.GET)
 	public ModelAndView select(@RequestParam final int positionId) {
 		ModelAndView result;
-		final Position position = this.positionService.findOne(positionId);
-		Assert.notNull(position);
+
 		final Auditor auditor = this.auditorService.findByPrincipal();
+		final String banner = this.configurationService.findConfiguration().getBanner();
 
-		final Auditor auditorOwner = this.auditorService.findAuditorByPositionId(positionId);
-
-		if (auditor.getPosition() != null || auditorOwner != null || position.getFinalMode() == false)
+		if (this.positionService.findOne(positionId) == null) {
+			result = new ModelAndView("misc/notExist");
+			result.addObject("banner", banner);
+		} else if (auditor.getPosition() != null || this.auditorService.findAuditorByPositionId(positionId) != null || this.positionService.findOne(positionId).getFinalMode() == false)
 			result = new ModelAndView("redirect:listPosition.do");
 		else
 			try {
+				final Position position = this.positionService.findOne(positionId);
 				auditor.setPosition(position);
 				this.auditorService.save(auditor);
 				result = new ModelAndView("redirect:listPosition.do");
 			} catch (final Throwable oops) {
 				result = new ModelAndView("misc/error");
-				final String banner = this.configurationService.findConfiguration().getBanner();
+
 				result.addObject("banner", banner);
 			}
+
 		return result;
 
 	}

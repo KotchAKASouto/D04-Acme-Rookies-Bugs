@@ -37,10 +37,11 @@ public class AuditController extends AbstractController {
 		audits = this.auditService.findAuditsByPositionId(positionId);
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
+		final String uri = "audit/listByPosition.do?positionId=" + positionId;
 
 		result = new ModelAndView("audit/list");
 		result.addObject("audits", audits);
-		result.addObject("requestURI", "audit/list.do");
+		result.addObject("requestURI", uri);
 		result.addObject("pagesize", 5);
 		result.addObject("banner", banner);
 		result.addObject("language", LocaleContextHolder.getLocale().getLanguage());

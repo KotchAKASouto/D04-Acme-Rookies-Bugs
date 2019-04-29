@@ -67,7 +67,6 @@ public class AuditService {
 	public Audit findOne(final int auditId) {
 		Audit audit;
 		audit = this.auditRepository.findOne(auditId);
-		Assert.notNull(audit);
 		return audit;
 	}
 

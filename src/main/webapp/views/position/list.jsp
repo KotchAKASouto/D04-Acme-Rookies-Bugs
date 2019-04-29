@@ -72,7 +72,7 @@
 		</jstl:if>
 	</security:authorize>
 	
-	<acme:url href="/audit/listByPosition.do?positionId=${row.id }" code="position.audits" />
+	<acme:url href="audit/listByPosition.do?positionId=${row.id }" code="position.audits" />
 	
 	<security:authorize access="hasRole('AUDITOR')">
 		<jstl:if test="${assigned==false}">
