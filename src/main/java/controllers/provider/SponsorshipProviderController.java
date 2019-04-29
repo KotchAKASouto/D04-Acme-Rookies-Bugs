@@ -170,6 +170,44 @@ public class SponsorshipProviderController {
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@ModelAttribute(value = "sponsorship") final SponsorshipForm sponsorshipform, final BindingResult binding) {
 		ModelAndView result;
+		Sponsorship sponsorship = null;
+
+		try {
+
+			sponsorship = this.sponsorshipService.reconstruct(sponsorshipform, binding);
+
+		} catch (final Exception e) {
+
+		}
+		Boolean security = false;
+
+		if (sponsorship != null && sponsorship.getId() == 0)
+			security = true;
+		else if (sponsorship != null && sponsorship.getId() != 0)
+			security = this.sponsorshipService.sponsorshipSponsorSecurity(sponsorship.getId());
+
+		if (security) {
+
+			if (binding.hasErrors())
+				result = this.createEditModelAndView(sponsorshipform, null);
+			else
+				try {
+					this.sponsorshipService.save(sponsorship);
+					result = new ModelAndView("redirect:/sponsorship/provider/list.do");
+				} catch (final Throwable oops) {
+					result = this.createEditModelAndView(sponsorshipform, "sponsorship.commit.error");
+
+				}
+
+		} else
+			result = new ModelAndView("redirect:/welcome/index.do");
+
+		return result;
+	}
+
+	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
+	public ModelAndView delete(@ModelAttribute(value = "sponsorship") final SponsorshipForm sponsorshipform, final BindingResult binding) {
+		ModelAndView result;
 
 		final Sponsorship sponsorship = this.sponsorshipService.reconstruct(sponsorshipform, binding);
 		Boolean security;
@@ -185,7 +223,7 @@ public class SponsorshipProviderController {
 				result = this.createEditModelAndView(sponsorshipform, null);
 			else
 				try {
-					this.sponsorshipService.save(sponsorship);
+					this.sponsorshipService.delete(sponsorship);
 					result = new ModelAndView("redirect:/sponsorship/provider/list.do");
 				} catch (final Throwable oops) {
 					result = this.createEditModelAndView(sponsorshipform, "sponsorship.commit.error");

@@ -34,6 +34,8 @@
 	
 	<acme:submit name="save" code="sponsorship.save" />
 	
+	<acme:submit name="delete" code="sponsorship.delete" />
+	
 	<acme:cancel code="sponsorship.cancel" url="sponsorship/provider/list.do" />
 
 
