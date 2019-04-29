@@ -34,7 +34,9 @@
 	
 	<acme:submit name="save" code="sponsorship.save" />
 	
+	<jstl:if test="${sponsorship.id!=0 }">
 	<acme:submit name="delete" code="sponsorship.delete" />
+	</jstl:if>
 	
 	<acme:cancel code="sponsorship.cancel" url="sponsorship/provider/list.do" />
 

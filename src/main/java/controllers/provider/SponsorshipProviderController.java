@@ -108,8 +108,7 @@ public class SponsorshipProviderController {
 			result = new ModelAndView("misc/notExist");
 			result.addObject("banner", banner);
 
-		} else {
-
+		} else if (position.getFinalMode() == true) {
 			final Integer sponsorshipId = this.sponsorshipService.findSponsorshipByPositionAndProviderId(positionId, this.providerService.findByPrincipal().getId());
 
 			if (sponsorshipId != null) {
@@ -128,7 +127,10 @@ public class SponsorshipProviderController {
 				result.addObject("banner", banner);
 
 			}
+		} else {
+			result = new ModelAndView("redirect:/welcome/index.do");
 
+			result.addObject("banner", banner);
 		}
 
 		return result;
@@ -159,10 +161,11 @@ public class SponsorshipProviderController {
 				sponsorshipForm = this.sponsorshipService.editForm(sponsorship);
 				result = this.createEditModelAndView(sponsorshipForm, null);
 
-			} else
+			} else {
 				result = new ModelAndView("redirect:/welcome/index.do");
 
-			result.addObject("banner", banner);
+				result.addObject("banner", banner);
+			}
 		}
 		return result;
 	}
