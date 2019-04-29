@@ -70,6 +70,9 @@
 		<security:intercept-url pattern="/item/provider/edit.do" access="hasRole('PROVIDER')" />
 		<security:intercept-url pattern="/item/provider/create.do" access="hasRole('PROVIDER')" />
 		<security:intercept-url pattern="/item/provider/delete.do" access="hasRole('PROVIDER')" />
+		<security:intercept-url pattern="/item/provider/listProvider.do" access="hasRole('PROVIDER')" />
+
+
 
 		<security:intercept-url pattern="/audit/listByPosition.do" access="permitAll" />
 

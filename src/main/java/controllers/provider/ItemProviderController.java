@@ -34,7 +34,7 @@ public class ItemProviderController extends AbstractController {
 	private ConfigurationService	configurationService;
 
 
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	@RequestMapping(value = "/listProvider", method = RequestMethod.GET)
 	public ModelAndView list() {
 		final ModelAndView result;
 		final String banner = this.configurationService.findConfiguration().getBanner();
@@ -52,9 +52,9 @@ public class ItemProviderController extends AbstractController {
 
 			items = this.itemService.findItemsByProviderId(id);
 
-			result = new ModelAndView("item/list");
+			result = new ModelAndView("item/listProvider");
 			result.addObject("items", items);
-			result.addObject("requestURI", "item/provider/list.do");
+			result.addObject("requestURI", "item/provider/listProvider.do");
 			result.addObject("pagesize", 5);
 			result.addObject("banner", banner);
 			result.addObject("language", LocaleContextHolder.getLocale().getLanguage());
