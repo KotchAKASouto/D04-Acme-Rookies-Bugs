@@ -111,6 +111,25 @@ public class AuditService {
 
 	}
 
+	public void deleteAdmin(final Audit audit) {
+		final Actor actor = this.actorService.findByPrincipal();
+		Assert.notNull(actor);
+
+		final Authority admin = new Authority();
+		admin.setAuthority(Authority.ADMIN);
+		Assert.isTrue(actor.getUserAccount().getAuthorities().contains(admin));
+
+		this.auditRepository.delete(audit);
+	}
+
+	public void deleteAll(final int auditorId) {
+
+		final Collection<Audit> audits = this.findAuditsByAuditorId(auditorId);
+		if (!audits.isEmpty())
+			for (final Audit a : audits)
+				this.auditRepository.delete(a);
+	}
+
 	//Other bussiness methods
 
 	public Audit reconstruct(final Audit audit, final BindingResult binding) {

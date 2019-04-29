@@ -130,6 +130,14 @@ public class AuditorService {
 
 	}
 
+	public Auditor saveAdmin(final Auditor auditor) {
+
+		final Auditor result = this.auditorRepository.save(auditor);
+
+		return result;
+
+	}
+
 	public Auditor findByPrincipal() {
 		Auditor auditor;
 		UserAccount userAccount;
