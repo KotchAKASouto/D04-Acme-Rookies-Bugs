@@ -181,11 +181,11 @@ public class ItemProviderController extends AbstractController {
 
 				this.itemService.delete(item);
 
-				result = new ModelAndView("redirect:/item/provider/list.do");
+				result = new ModelAndView("redirect:/item/provider/listProvider.do");
 				result.addObject("banner", banner);
 
 			} else
-				result = new ModelAndView("redirect:/item/provider/list.do");
+				result = new ModelAndView("redirect:/item/provider/listProvider.do");
 		} else {
 
 			result = new ModelAndView("misc/notExist");

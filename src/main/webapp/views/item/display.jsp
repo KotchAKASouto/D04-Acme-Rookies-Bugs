@@ -24,4 +24,4 @@
 
 <acme:button name="delete" code="item.delete" onclick="javascript: relativeRedir('item/provider/delete.do?itemId=${item.id}');" />
 
-<acme:button name="back" code="item.back" onclick="javascript: relativeRedir('item/provider/list.do');" />
+<acme:button name="back" code="item.back" onclick="javascript: relativeRedir('item/provider/listProvider.do');" />

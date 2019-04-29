@@ -344,6 +344,14 @@ public class MessageService {
 
 	public void notificationRebranding() {
 
+		final Authority admin = new Authority();
+		admin.setAuthority(Authority.ADMIN);
+
+		final Actor actor = this.actorService.findByPrincipal();
+		Assert.notNull(actor);
+
+		Assert.isTrue(actor.getUserAccount().getAuthorities().contains(admin));
+
 		final Message message = this.create3();
 
 		message.setSubject("Rebranding/Rediseño de identidad");
