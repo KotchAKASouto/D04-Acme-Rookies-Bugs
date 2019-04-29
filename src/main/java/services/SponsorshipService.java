@@ -54,7 +54,7 @@ public class SponsorshipService {
 
 		final Position position = this.positionService.findOne(positionId);
 
-		Assert.isTrue(position != null);
+		Assert.isTrue(position != null && position.getFinalMode());
 
 		sponsorshipForm.setPositionId(positionId);
 
