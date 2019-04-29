@@ -1,5 +1,5 @@
 
-package controllers.rookie;
+package controllers.provider;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -15,22 +15,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import services.MessageService;
-import services.RookieService;
+import services.ProviderService;
 import services.SocialProfileService;
 import controllers.AbstractController;
 import domain.Message;
-import domain.Rookie;
+import domain.Provider;
 import domain.SocialProfile;
 
 @Controller
-@RequestMapping("/data/rookie")
-public class DownloadDataRookieController extends AbstractController {
+@RequestMapping("/data/provider")
+public class DowloadDataProviderControler extends AbstractController {
 
 	@Autowired
-	private RookieService			rookieService;
+	private ProviderService			providerService;
 
 	@Autowired
 	private SocialProfileService	socialProfileService;
+
 	@Autowired
 	private MessageService			messageService;
 
@@ -41,15 +42,15 @@ public class DownloadDataRookieController extends AbstractController {
 		final String language = LocaleContextHolder.getLocale().getLanguage();
 
 		if (language == "en") {
-			String myString = "Below these lines you can find all the data we have at Acme-Rookie:\r\n";
+			String myString = "Below these lines you can find all the data we have at Acme-Rookies:\r\n";
 
-			final Rookie c = this.rookieService.findByPrincipal();
-			final Collection<SocialProfile> sc = this.socialProfileService.findAllByActor(c.getId());
-			final Collection<Message> msgs = this.messageService.messagePerActor(c.getId());
+			final Provider p = this.providerService.findByPrincipal();
+			final Collection<SocialProfile> sc = this.socialProfileService.findAllByActor(p.getId());
+			final Collection<Message> msgs = this.messageService.messagePerActor(p.getId());
 
 			myString += "\r\n\r\n";
 
-			myString += c.getName() + " " + c.getSurnames() + " " + c.getAddress() + " " + c.getEmail() + " " + c.getPhone() + " " + c.getPhoto() + " \r\n";
+			myString += p.getName() + p.getSurnames() + " " + p.getProviderMake() + " " + p.getAddress() + " " + p.getEmail() + " " + p.getPhone() + " " + p.getPhoto() + " \r\n";
 			myString += "\r\n\r\n";
 			myString += "Social Profiles:\r\n";
 			for (final SocialProfile s : sc)
@@ -62,22 +63,22 @@ public class DownloadDataRookieController extends AbstractController {
 			myString += "\r\n\r\n";
 
 			response.setContentType("text/plain");
-			response.setHeader("Content-Disposition", "attachment;filename=my_data_as_rookie.txt");
+			response.setHeader("Content-Disposition", "attachment;filename=my_data_as_provider.txt");
 			final ServletOutputStream out = response.getOutputStream();
 			out.println(myString);
 			out.flush();
 			out.close();
 
 		} else {
-			String myString = "Debajo de estas lineas puedes encontrar todos los datos que tenemos de ti en Acme-Rookie:\r\n";
+			String myString = "Debajo de estas lineas puedes encontrar todos los datos que tenemos de ti en Acme-Rookies:\r\n";
 
-			final Rookie c = this.rookieService.findByPrincipal();
-			final Collection<SocialProfile> sc = this.socialProfileService.findAllByActor(c.getId());
-			final Collection<Message> msgs = this.messageService.messagePerActor(c.getId());
+			final Provider p = this.providerService.findByPrincipal();
+			final Collection<SocialProfile> sc = this.socialProfileService.findAllByActor(p.getId());
+			final Collection<Message> msgs = this.messageService.messagePerActor(p.getId());
 
 			myString += "\r\n\r\n";
 
-			myString += c.getName() + " " + c.getSurnames() + " " + c.getAddress() + " " + c.getEmail() + " " + c.getPhone() + " " + c.getPhoto() + " \r\n";
+			myString += p.getName() + " " + p.getSurnames() + " " + p.getProviderMake() + " " + p.getAddress() + " " + p.getEmail() + " " + p.getPhone() + " " + p.getPhoto() + " \r\n";
 			myString += "\r\n\r\n";
 			myString += "Perfiles Sociales:\r\n";
 			for (final SocialProfile s : sc)
@@ -90,7 +91,7 @@ public class DownloadDataRookieController extends AbstractController {
 			myString += "\r\n\r\n";
 
 			response.setContentType("text/plain");
-			response.setHeader("Content-Disposition", "attachment;filename=mis_datos_como_rookie.txt");
+			response.setHeader("Content-Disposition", "attachment;filename=mis_datos_como_proveedor.txt");
 			final ServletOutputStream out = response.getOutputStream();
 			out.println(myString);
 			out.flush();

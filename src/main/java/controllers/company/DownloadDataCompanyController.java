@@ -31,6 +31,7 @@ public class DownloadDataCompanyController extends AbstractController {
 
 	@Autowired
 	private SocialProfileService	socialProfileService;
+
 	@Autowired
 	private MessageService			messageService;
 
@@ -41,7 +42,7 @@ public class DownloadDataCompanyController extends AbstractController {
 		final String language = LocaleContextHolder.getLocale().getLanguage();
 
 		if (language == "en") {
-			String myString = "Below these lines you can find all the data we have at Acme-Parade:\r\n";
+			String myString = "Below these lines you can find all the data we have at Acme-Rookies:\r\n";
 
 			final Company c = this.companyService.findByPrincipal();
 			final Collection<SocialProfile> sc = this.socialProfileService.findAllByActor(c.getId());
@@ -69,7 +70,7 @@ public class DownloadDataCompanyController extends AbstractController {
 			out.close();
 
 		} else {
-			String myString = "Debajo de estas lineas puedes encontrar todos los datos que tenemos de ti en Acme-Parade:\r\n";
+			String myString = "Debajo de estas lineas puedes encontrar todos los datos que tenemos de ti en Acme-Rookies:\r\n";
 
 			final Company c = this.companyService.findByPrincipal();
 			final Collection<SocialProfile> sc = this.socialProfileService.findAllByActor(c.getId());
