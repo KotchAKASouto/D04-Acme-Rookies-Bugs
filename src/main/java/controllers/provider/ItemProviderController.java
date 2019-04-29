@@ -151,7 +151,7 @@ public class ItemProviderController extends AbstractController {
 		else
 			try {
 				this.itemService.save(item);
-				result = new ModelAndView("redirect:list.do");
+				result = new ModelAndView("redirect:/item/provider/listProvider.do");
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(item, "item.commit.error");
 
@@ -185,7 +185,7 @@ public class ItemProviderController extends AbstractController {
 				result.addObject("banner", banner);
 
 			} else
-				result = new ModelAndView("redirect:/item/provider/listProvider.do");
+				result = new ModelAndView("redirect:/welcome/index.do");
 		} else {
 
 			result = new ModelAndView("misc/notExist");
