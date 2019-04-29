@@ -213,6 +213,7 @@ public class ItemProviderController extends AbstractController {
 		result.addObject("item", item);
 		result.addObject("messageError", messageCode);
 		result.addObject("banner", banner);
+		result.addObject("enlace", "item/provider/edit.do");
 
 		return result;
 	}

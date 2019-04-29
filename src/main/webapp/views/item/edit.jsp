@@ -13,7 +13,7 @@
 	
 	<form:hidden path="id" />
 	<form:hidden path="version" />
-	<form:hidden path="provider" />
+	
 	
 	<acme:textbox code="item.name" path="name" obligatory="true"/>
 
