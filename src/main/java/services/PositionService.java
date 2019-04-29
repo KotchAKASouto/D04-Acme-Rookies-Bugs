@@ -20,10 +20,13 @@ import repositories.PositionRepository;
 import security.Authority;
 import domain.Actor;
 import domain.Application;
+import domain.Audit;
+import domain.Auditor;
 import domain.Company;
 import domain.Finder;
 import domain.Position;
 import domain.Problem;
+import domain.Sponsorship;
 
 @Service
 @Transactional
@@ -54,7 +57,16 @@ public class PositionService {
 	private RookieService		rookieService;
 
 	@Autowired
+	private SponsorshipService	sponsorshipService;
+
+	@Autowired
 	private MessageService		messageService;
+
+	@Autowired
+	private AuditService		auditService;
+
+	@Autowired
+	private AuditorService		auditorService;
 
 	@Autowired
 	private Validator			validator;
@@ -178,6 +190,20 @@ public class PositionService {
 				if (!apps.isEmpty())
 					for (final Application a : apps)
 						this.applicationService.delete(a);
+
+				final Collection<Audit> audits = this.auditService.findAuditsByPositionId(p.getId());
+				if (!audits.isEmpty())
+					for (final Audit au : audits)
+						this.auditService.deleteAdmin(au);
+
+				final Collection<Sponsorship> sponsorships = this.sponsorshipService.findAllByPositionId(p.getId());
+				if (!sponsorships.isEmpty())
+					for (final Sponsorship s : sponsorships)
+						this.sponsorshipService.delete(s);
+
+				final Auditor auditor = this.auditorService.findAuditorByPositionId(p.getId());
+				auditor.setPosition(null);
+				this.auditorService.saveAdmin(auditor);
 
 				this.positionRepository.delete(p);
 			}

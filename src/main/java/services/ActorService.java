@@ -50,6 +50,9 @@ public class ActorService {
 	private AuditorService			auditorService;
 
 	@Autowired
+	private AuditService			auditService;
+
+	@Autowired
 	private CurriculumService		curriculumService;
 
 	@Autowired
@@ -63,6 +66,9 @@ public class ActorService {
 
 	@Autowired
 	private MessageService			messageService;
+
+	@Autowired
+	private SponsorshipService		sponsorshipService;
 
 	@Autowired
 	private SocialProfileService	socialProfileService;
@@ -316,6 +322,12 @@ public class ActorService {
 		final Authority rookie = new Authority();
 		rookie.setAuthority(Authority.ROOKIE);
 
+		final Authority auditor = new Authority();
+		rookie.setAuthority(Authority.AUDITOR);
+
+		final Authority provider = new Authority();
+		rookie.setAuthority(Authority.PROVIDER);
+
 		final Actor actor = this.actorRepository.findOne(actorId);
 
 		this.messageService.deleteAll(actorId);
@@ -333,12 +345,15 @@ public class ActorService {
 			this.finderService.deleteFinderActor(actorId);
 
 			this.curriculumService.deleteAll(actorId);
-		}
+
+		} else if (actor.getUserAccount().getAuthorities().contains(auditor))
+			this.auditService.deleteAll(actorId);
+		else if (actor.getUserAccount().getAuthorities().contains(provider))
+			this.sponsorshipService.deleteAll(actorId);
 
 		this.actorRepository.delete(actor);
 
 	}
-
 	public Boolean isCompany(final int actorId) {
 
 		Boolean res = false;

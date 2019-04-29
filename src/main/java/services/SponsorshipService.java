@@ -151,6 +151,13 @@ public class SponsorshipService {
 		return result;
 	}
 
+	public void delete(final Sponsorship s) {
+
+		Assert.notNull(s);
+
+		this.sponsorshipRepository.delete(s);
+	}
+
 	public void deleteAll(final int actorId) {
 
 		final Collection<Sponsorship> sponsorships = this.findAllByProviderId(actorId);
@@ -232,6 +239,13 @@ public class SponsorshipService {
 
 		return this.sponsorshipRepository.findSponsorshipByPositionAndProviderId(positionId, id);
 
+	}
+
+	public Collection<Sponsorship> findAllByPositionId(final int positionId) {
+
+		final Collection<Sponsorship> result = this.sponsorshipRepository.findAllByPositionId(positionId);
+
+		return result;
 	}
 
 }
