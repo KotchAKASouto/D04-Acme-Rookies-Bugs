@@ -83,7 +83,8 @@
 					<li class="arrow"></li>
 
 					<li><a href="sponsorship/provider/list.do"><spring:message code="master.page.sponsorship" /></a></li>
-						
+					<li><a href="item/provider/listProvider.do"><spring:message code="master.page.itemsProvider" /></a></li>
+					
 				</ul>
 			</li>
 		</security:authorize>
