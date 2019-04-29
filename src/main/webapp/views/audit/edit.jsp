@@ -28,7 +28,7 @@
 
 	<acme:cancel code="audit.cancel" url="audit/auditor/list.do" />
 	
-	<jstl:if test="${problem.id != 0}">
+	<jstl:if test="${audit.id != 0}">
 		<acme:delete code="audit.delete" />
 	</jstl:if>	
 	
