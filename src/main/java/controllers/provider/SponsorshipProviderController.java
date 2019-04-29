@@ -211,13 +211,19 @@ public class SponsorshipProviderController {
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
 	public ModelAndView delete(@ModelAttribute(value = "sponsorship") final SponsorshipForm sponsorshipform, final BindingResult binding) {
 		ModelAndView result;
+		Sponsorship sponsorship = null;
+		try {
 
-		final Sponsorship sponsorship = this.sponsorshipService.reconstruct(sponsorshipform, binding);
-		Boolean security;
+			sponsorship = this.sponsorshipService.reconstruct(sponsorshipform, binding);
 
-		if (sponsorship.getId() == 0)
+		} catch (final Exception e) {
+
+		}
+		Boolean security = false;
+
+		if (sponsorship != null && sponsorship.getId() == 0)
 			security = true;
-		else
+		else if (sponsorship != null && sponsorship.getId() != 0)
 			security = this.sponsorshipService.sponsorshipSponsorSecurity(sponsorship.getId());
 
 		if (security) {
@@ -238,7 +244,6 @@ public class SponsorshipProviderController {
 
 		return result;
 	}
-
 	//Other business methods---------------------------------------------------------------------------------------------
 	protected ModelAndView createEditModelAndView(final SponsorshipForm sponsorship, final String messageCode) {
 		final ModelAndView result;
