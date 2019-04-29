@@ -27,6 +27,11 @@
 		<put-attribute name="body" value="/views/item/display.jsp" />
 	</definition>
 	
+	<definition name="item/edit" extends="master.page">	
+		<put-attribute name="title" value="Item: Editar" />
+		<put-attribute name="body" value="/views/item/edit.jsp" />
+	</definition>
+	
 
 	
 	

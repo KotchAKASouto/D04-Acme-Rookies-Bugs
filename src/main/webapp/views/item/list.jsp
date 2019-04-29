@@ -24,12 +24,28 @@
 	<jstl:out value="${row.pictures}"></jstl:out><br>
 	</display:column>
 	
+	<security:authorize access="hasRole('PROVIDER')">
+	
+		<display:column>
+				<a href="item/provider/display.do?itemId=${row.id}"><spring:message code = "item.display"/></a>
+		</display:column>
+			
+		<display:column>	
+		<a href="item/provider/edit.do?itemId=${row.id}"><spring:message code = "item.edit"/></a>		
+		</display:column>	
+	</security:authorize>	
+	
 	<jstl:if test="${requestURI == 'item/list.do'}">
 		<acme:url href="provider/display.do?itemId=${row.id }" code="item.provider.display"/>
 	</jstl:if>
 
 </display:table>
 
+	<security:authorize access="hasRole('PROVIDER')">
+
+	<acme:button name="create" code="item.create" onclick="javascript: relativeRedir('item/provider/create.do');"/>
+	
+	</security:authorize>
 	
 	<acme:button name="back" code="item.back" onclick="javascript: relativeRedir('welcome/index.do');" />
 	
