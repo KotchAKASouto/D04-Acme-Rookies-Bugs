@@ -16,7 +16,9 @@ import security.UserAccount;
 import security.UserAccountService;
 import domain.Actor;
 import domain.Administrator;
+import domain.Auditor;
 import domain.Company;
+import domain.Provider;
 import domain.Rookie;
 
 @Service
@@ -40,6 +42,12 @@ public class ActorService {
 
 	@Autowired
 	private CompanyService			companyService;
+
+	@Autowired
+	private ProviderService			providerService;
+
+	@Autowired
+	private AuditorService			auditorService;
 
 	@Autowired
 	private CurriculumService		curriculumService;
@@ -235,6 +243,12 @@ public class ActorService {
 		final Authority authCompany = new Authority();
 		authCompany.setAuthority(Authority.COMPANY);
 
+		final Authority authProvider = new Authority();
+		authProvider.setAuthority(Authority.PROVIDER);
+
+		final Authority authAuditor = new Authority();
+		authProvider.setAuthority(Authority.AUDITOR);
+
 		if (authorities.contains(authAdmin)) {
 			final Administrator administrator = this.administratorService.findOne(actor.getId());
 			final UserAccount userAccount = administrator.getUserAccount();
@@ -253,9 +267,19 @@ public class ActorService {
 			userAccount.setIsNotBanned(!userAccount.getIsNotBanned());
 			this.userAccountService.save(userAccount);
 
+		} else if (authorities.contains(authProvider)) {
+			final Provider provider = this.providerService.findOne(actor.getId());
+			final UserAccount userAccount = provider.getUserAccount();
+			userAccount.setIsNotBanned(!userAccount.getIsNotBanned());
+			this.userAccountService.save(userAccount);
+		} else if (authorities.contains(authAuditor)) {
+			final Auditor auditor = this.auditorService.findOne(actor.getId());
+			final UserAccount userAccount = auditor.getUserAccount();
+			userAccount.setIsNotBanned(!userAccount.getIsNotBanned());
+			this.userAccountService.save(userAccount);
 		}
-	}
 
+	}
 	public Boolean existActor(final int actorId) {
 		Boolean res = false;
 
