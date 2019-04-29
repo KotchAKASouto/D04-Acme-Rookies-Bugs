@@ -30,7 +30,7 @@
 	
 	<acme:submit name="save" code="item.save" />
 	
-	<acme:cancel code="item.cancel" url="item/provider/list.do" />
+	<acme:cancel code="item.cancel" url="item/provider/listProvider.do" />
 
 
 </form:form>  
