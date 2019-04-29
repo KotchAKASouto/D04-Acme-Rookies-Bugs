@@ -23,7 +23,7 @@
 	<display:column titleKey="item.pictures">
 	<jstl:out value="${row.pictures}"></jstl:out><br>
 	</display:column>
-	
+
 	<security:authorize access="hasRole('PROVIDER')">
 	
 		<display:column>

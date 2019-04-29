@@ -20,8 +20,9 @@
 	<acme:textarea code="item.description" path="description" obligatory="true"/>
 	
 	<acme:textbox code="item.link" path="link" obligatory="true" />
+		
+	<acme:textbox path="pictures" size="100" code="item.pictures" obligatory="false" placeholder="http(s)://www.___.__,http(s)://www.___.__,..."/>
 	
-	<acme:textbox code="item.pictures" path="pictures"/>
 	
 	
 	

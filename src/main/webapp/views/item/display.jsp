@@ -18,7 +18,8 @@
 	
 <acme:display code="item.link" property="${item.link} "/>
 	
-<acme:display code="item.pictures" property="${item.pictures} "/>
+<spring:message code="item.pictures" />: <jstl:out value="${item.pictures }"/><br>
+
 
 
 <acme:button name="delete" code="item.delete" onclick="javascript: relativeRedir('item/provider/delete.do?itemId=${item.id}');" />

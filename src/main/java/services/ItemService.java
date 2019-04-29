@@ -79,6 +79,8 @@ public class ItemService {
 
 		Item result;
 
+		this.checkPictures(item.getPictures());
+
 		result = this.itemRepository.save(item);
 
 		return result;
@@ -165,6 +167,15 @@ public class ItemService {
 
 	public void flush() {
 		this.itemRepository.flush();
+	}
+
+	public void checkPictures(final Collection<String> pictures) {
+
+		for (final String url : pictures) {
+			final boolean checkUrl = url.matches("^http(s*)://(?:[a-zA-Z0-9-]+[\\.\\:])+[a-zA-Z0-9/]+$");
+			Assert.isTrue(checkUrl);
+
+		}
 	}
 
 }
