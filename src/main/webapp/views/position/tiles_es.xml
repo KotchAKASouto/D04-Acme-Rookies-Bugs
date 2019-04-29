@@ -36,5 +36,4 @@
 		<put-attribute name="body" value="/views/position/listAdd.jsp" />
 	</definition>
 	
-	
 </tiles-definitions>

@@ -1,3 +1,4 @@
+
 package domain;
 
 import javax.persistence.Access;
@@ -12,63 +13,70 @@ import org.hibernate.validator.constraints.URL;
 
 @Entity
 @Access(AccessType.PROPERTY)
-public class Sponsorship extends DomainEntity{
+public class Sponsorship extends DomainEntity {
 
-	private	CreditCard	creditCard;
+	private CreditCard	creditCard;
 	private String		banner;
-	private String 		target;
+	private String		target;
+	private Double		cost;
 	//relationships
 	private Provider	provider;
 	private Position	position;
-	
-	
+
+
 	@NotNull
 	@Valid
 	public CreditCard getCreditCard() {
-		return creditCard;
+		return this.creditCard;
 	}
-	public void setCreditCard(CreditCard creditCard) {
+	public void setCreditCard(final CreditCard creditCard) {
 		this.creditCard = creditCard;
 	}
-	
+
 	@NotNull
 	@URL
 	@SafeHtml
 	public String getBanner() {
-		return banner;
+		return this.banner;
 	}
-	public void setBanner(String banner) {
+	public void setBanner(final String banner) {
 		this.banner = banner;
 	}
-	
+
 	@NotNull
 	@URL
 	@SafeHtml
 	public String getTarget() {
-		return target;
+		return this.target;
 	}
-	public void setTarget(String target) {
+	public void setTarget(final String target) {
 		this.target = target;
 	}
-	
+
 	@Valid
-	@ManyToOne(optional=false)
+	@ManyToOne(optional = false)
 	public Provider getProvider() {
-		return provider;
+		return this.provider;
 	}
-	public void setProvider(Provider provider) {
+	public void setProvider(final Provider provider) {
 		this.provider = provider;
 	}
-	
+
 	@Valid
-	@ManyToOne(optional=false)
+	@ManyToOne(optional = false)
 	public Position getPosition() {
-		return position;
+		return this.position;
 	}
-	public void setPosition(Position position) {
+	public void setPosition(final Position position) {
 		this.position = position;
 	}
-	
-	
-	
+
+	public Double getCost() {
+		return this.cost;
+	}
+
+	public void setCost(final Double cost) {
+		this.cost = cost;
+	}
+
 }

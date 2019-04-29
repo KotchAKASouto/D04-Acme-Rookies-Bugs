@@ -12,6 +12,10 @@ import domain.Audit;
 @Repository
 public interface AuditRepository extends JpaRepository<Audit, Integer> {
 
-	@Query("select a from Audit a where a.position.id = ?1")
-	Collection<Audit> findByPositionId(int positionId);
+	@Query("select p from Audit p where p.position.id = ?1")
+	Collection<Audit> findAuditsByPositionId(int positionId);
+
+	@Query("select p from Audit p where p.auditor.id = ?1")
+	Collection<Audit> findAuditsByAuditorId(int auditorId);
+
 }

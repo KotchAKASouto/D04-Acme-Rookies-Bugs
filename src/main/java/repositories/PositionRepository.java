@@ -37,4 +37,7 @@ public interface PositionRepository extends JpaRepository<Position, Integer> {
 	@Query("select max(p.offeredSalary) from Position p")
 	Double maxOfferedSalaryPosition();
 
+	@Query("select p from Position p where (select count(a) from Auditor a where a.position.id=p.id)=0 and (p.finalMode=true)")
+	Collection<Position> positionsNotAssignedAnyAuditor();
+
 }

@@ -30,5 +30,15 @@
 		<put-attribute name="title" value="Invalid URL" />
 		<put-attribute name="body" value="/views/misc/notExist.jsp" />
 	</definition>
+	
+	<definition name="misc/error" extends="master.page">
+		<put-attribute name="title" value="Oh no!" />
+		<put-attribute name="body" value="/views/misc/error.jsp" />
+	</definition>
+	
+		<definition name="misc/noPosition" extends="master.page">
+		<put-attribute name="title" value="Position not registered" />
+		<put-attribute name="body" value="/views/misc/noPosition.jsp" />
+	</definition>
 
 </tiles-definitions>

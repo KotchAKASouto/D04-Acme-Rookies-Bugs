@@ -61,6 +61,8 @@
 	<acme:column property="technologies" titleKey="position.technologies" value= "${row.technologies}: "/>
 	
 	<acme:column property="offeredSalary" titleKey="position.offeredSalary" value= "${row.offeredSalary}: "/>
+	
+	
 		
 	<security:authorize access="hasRole('COMPANY')">
 		<jstl:if test="${AmInCompanyController}">
@@ -68,13 +70,28 @@
 		
 		<acme:url href="position/company/display.do?positionId=${row.id }" code="position.display"/>
 		</jstl:if>
-	</security:authorize> 
+	</security:authorize>
 	
+	<acme:url href="audit/listByPosition.do?positionId=${row.id }" code="position.audits" />
+	
+	<security:authorize access="hasRole('AUDITOR')">
+		<jstl:if test="${assigned==false}">
+			<acme:url href="position/auditor/select.do?positionId=${row.id }" code="position.select" />
+		</jstl:if>
+	</security:authorize> 
 	
 	<security:authorize access="hasRole('HACKER')">
 		<display:column>
 			<jstl:if test="${row.deadline > now}">
 				<a href="application/rookie/create.do?positionId=${row.id }"> <spring:message code="position.application"/></a>
+			</jstl:if>
+		</display:column>
+	</security:authorize> 
+	
+	<security:authorize access="hasRole('PROVIDER')">
+		<display:column>
+			<jstl:if test="${row.deadline > now}">
+				<a href="sponsorship/provider/sponsor.do?positionId=${row.id }"> <spring:message code="position.sponsorship"/></a>
 			</jstl:if>
 		</display:column>
 	</security:authorize> 

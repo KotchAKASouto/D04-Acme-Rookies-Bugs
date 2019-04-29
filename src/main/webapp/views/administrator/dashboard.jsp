@@ -1,3 +1,4 @@
+
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <%@taglib prefix="jstl"	uri="http://java.sun.com/jsp/jstl/core"%>
@@ -94,6 +95,83 @@
 <br/>
 </fieldset>
 <br/>
+
+<fieldset>
+<legend><spring:message code="dashboard.statspositionscore" /></legend>
+<p><spring:message code="dashboard.avg" />: ${avgSP}</p>
+<p><spring:message code="dashboard.min" />: ${minSP}</p>
+<p><spring:message code="dashboard.max" />: ${maxSP}</p>
+<p><spring:message code="dashboard.std" />: ${stdSP}</p>
+<br/>
+</fieldset>
+<br/>
+
+<fieldset>
+<legend><spring:message code="dashboard.scorecompanies" /></legend>
+<p><spring:message code="dashboard.avg" />: ${avgSC}</p>
+<p><spring:message code="dashboard.min" />: ${minSC}</p>
+<p><spring:message code="dashboard.max" />: ${maxSC}</p>
+<p><spring:message code="dashboard.std" />: ${stdSC}</p>
+<br/>
+</fieldset>
+<br/>
+
+<p><spring:message code="dashboard.topauditscorecompanies" /></p>
+
+<display:table name="topSC" id="row">
+</display:table>
+<br/>
+
+<fieldset>
+<legend><spring:message code="dashboard.avgtopsalaries" /></legend>
+<p><spring:message code="dashboard.avg" />: ${avgTC}</p>
+<br/>
+</fieldset>
+<br/>
+
+<fieldset>
+<legend><spring:message code="dashboard.itemprovider" /></legend>
+<p><spring:message code="dashboard.avg" />: ${avgSa}</p>
+<p><spring:message code="dashboard.min" />: ${minSa}</p>
+<p><spring:message code="dashboard.max" />: ${maxSa}</p>
+<p><spring:message code="dashboard.std" />: ${stdSa}</p>
+<br/>
+</fieldset>
+<br/>
+
+<p><spring:message code="dashboard.topproviders" /></p>
+
+<display:table name="topP" id="row">
+</display:table>
+<br/>
+
+<fieldset>
+<legend><spring:message code="dashboard.sponsorprovider" /></legend>
+<p><spring:message code="dashboard.avg" />: ${avgSPr}</p>
+<p><spring:message code="dashboard.min" />: ${minSPr}</p>
+<p><spring:message code="dashboard.max" />: ${maxSPr}</p>
+<p><spring:message code="dashboard.std" />: ${stdSPr}</p>
+<br/>
+</fieldset>
+<br/>
+
+<fieldset>
+<legend><spring:message code="dashboard.sponsorposition" /></legend>
+<p><spring:message code="dashboard.avg" />: ${avgSPo}</p>
+<p><spring:message code="dashboard.min" />: ${minSPo}</p>
+<p><spring:message code="dashboard.max" />: ${maxSPo}</p>
+<p><spring:message code="dashboard.std" />: ${stdSPo}</p>
+<br/>
+</fieldset>
+<br/>
+
+<p><spring:message code="dashboard.superiorproviders" /></p>
+
+<display:table name="supP" id="row">
+</display:table>
+<br/>
+
+
 
 <acme:button name="back" code="back" onclick="javascript: relativeRedir('welcome/index.do');" />
 
