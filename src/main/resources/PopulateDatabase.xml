@@ -1591,7 +1591,7 @@
 		<property name="creditCard" ref="creditCardSponsorship2" />
 		<property name="banner" value="https://imgur.com/gallery/RBIkQq3" />
 		<property name="target" value="http://www.target.com" />
-		<property name="position" ref="position2" />
+		<property name="position" ref="position3" />
 	</bean>
 	
 	<bean id="creditCardSponsorship2" class="domain.CreditCard">
@@ -1608,7 +1608,7 @@
 		<property name="creditCard" ref="creditCardSponsorship3" />
 		<property name="banner" value="https://imgur.com/gallery/hHZW5wL" />
 		<property name="target" value="http://www.target.com" />
-		<property name="position" ref="position3" />
+		<property name="position" ref="position7" />
 	</bean>
 	
 	<bean id="creditCardSponsorship3" class="domain.CreditCard">
@@ -1625,7 +1625,7 @@
 		<property name="creditCard" ref="creditCardSponsorship4" />
 		<property name="banner" value="https://imgur.com/gallery/5e8rx" />
 		<property name="target" value="http://www.target.com" />
-		<property name="position" ref="position3" />
+		<property name="position" ref="position10" />
 	</bean>
 	
 	<bean id="creditCardSponsorship4" class="domain.CreditCard">
