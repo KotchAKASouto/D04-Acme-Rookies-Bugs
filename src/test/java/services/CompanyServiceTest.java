@@ -50,6 +50,7 @@ public class CompanyServiceTest extends AbstractTest {
 	 * d) Data coverage
 	 * -Company: 0%
 	 */
+
 	@Test
 	public void driverRegisterCompany() {
 		final Object testingData[][] = {
@@ -242,10 +243,65 @@ public class CompanyServiceTest extends AbstractTest {
 	}
 
 	/*
+	 * ACME.ROOKIES
+	 * a)(Level C) Requirement 4.3: An actor who is authenticated as an administrator must be able to: Launch a process to compute an audit score for every company.
+	 * 
+	 * b) Negative cases:
+	 * 2. Invalid authority
+	 * 
+	 * c) Sentence coverage
+	 * -score(): 95,4%
+	 * -calculateScore(): 100%%
+	 * -findAll(): 100%
+	 * 
+	 * d) Data coverage
+	 * -Company = 0%
+	 */
+
+	@Test
+	public void driverCalculateScore() {
+		final Object testingData[][] = {
+			{
+				"admin", null
+			},//1. All fine
+			{
+				"company1", IllegalArgumentException.class
+			},//2. Invalid authority
+		};
+
+		for (int i = 0; i < testingData.length; i++)
+			this.templateCalculateSocre((String) testingData[i][0], (Class<?>) testingData[i][1]);
+	}
+
+	protected void templateCalculateSocre(final String username, final Class<?> expected) {
+		Class<?> caught;
+
+		caught = null;
+		try {
+
+			this.startTransaction();
+
+			this.authenticate(username);
+
+			this.companyService.calculateScore();
+			this.companyService.flush();
+
+		} catch (final Throwable oops) {
+			caught = oops.getClass();
+		}
+
+		this.unauthenticate();
+
+		this.rollbackTransaction();
+		super.checkExceptions(expected, caught);
+
+	}
+
+	/*
 	 * -------Coverage CompanyService-------
 	 * 
 	 * ----TOTAL SENTENCE COVERAGE:
-	 * CompanyService = 60,9%
+	 * CompanyService = 71,2%
 	 * 
 	 * ----TOTAL DATA COVERAGE:
 	 * Company = 0%

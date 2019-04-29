@@ -207,6 +207,14 @@ public class CompanyService {
 
 	public void calculateScore() {
 
+		final Authority admin = new Authority();
+		admin.setAuthority(Authority.ADMIN);
+
+		final Actor actor = this.actorService.findByPrincipal();
+		Assert.notNull(actor);
+
+		Assert.isTrue(actor.getUserAccount().getAuthorities().contains(admin));
+
 		final Collection<Company> companies = this.findAll();
 
 		if (!companies.isEmpty())
