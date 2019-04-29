@@ -35,11 +35,13 @@ public class ItemProviderController extends AbstractController {
 
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ModelAndView list(@RequestParam final int providerId) {
+	public ModelAndView list() {
 		final ModelAndView result;
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
-		final Provider notFound = this.providerService.findOne(providerId);
+		final int id = this.providerService.findByPrincipal().getId();
+
+		final Provider notFound = this.providerService.findOne(id);
 
 		if (notFound == null) {
 			result = new ModelAndView("misc/notExist");
@@ -48,11 +50,11 @@ public class ItemProviderController extends AbstractController {
 
 			final Collection<Item> items;
 
-			items = this.itemService.findItemsByProviderId(providerId);
+			items = this.itemService.findItemsByProviderId(id);
 
 			result = new ModelAndView("item/list");
 			result.addObject("items", items);
-			result.addObject("requestURI", "item/listByProvider.do");
+			result.addObject("requestURI", "item/provider/list.do");
 			result.addObject("pagesize", 5);
 			result.addObject("banner", banner);
 			result.addObject("language", LocaleContextHolder.getLocale().getLanguage());
@@ -159,29 +161,37 @@ public class ItemProviderController extends AbstractController {
 	}
 
 	//Delete--------------------------------------------------------------------
-	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
-	public ModelAndView delete(Item item, final BindingResult binding) {
-		ModelAndView result;
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public ModelAndView delete(@RequestParam final int itemId) {
 
+		ModelAndView result;
+		final Item item;
+		Boolean security = false;
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
-		if (item.getId() != 0 && this.itemService.findOne(item.getId()) == null) {
+		final Boolean existItem = this.itemService.existId(itemId);
+
+		if (existItem) {
+
+			security = this.itemService.securityItem(itemId);
+
+			if (security) {
+
+				item = this.itemService.findOne(itemId);
+
+				this.itemService.delete(item);
+
+				result = new ModelAndView("redirect:/item/provider/list.do");
+				result.addObject("banner", banner);
+
+			} else
+				result = new ModelAndView("redirect:/item/provider/list.do");
+		} else {
+
 			result = new ModelAndView("misc/notExist");
 			result.addObject("banner", banner);
-		} else {
-			item = this.itemService.findOne(item.getId());
-			final Boolean security = this.itemService.securityItem(item.getId());
-
-			if (security)
-				try {
-					this.itemService.delete(item);
-					result = new ModelAndView("redirect:list.do");
-				} catch (final Throwable oops) {
-					result = this.createEditModelAndView(item, "item.commit.error");
-				}
-			else
-				result = new ModelAndView("redirect:/welcome/index.do");
 		}
+
 		return result;
 	}
 

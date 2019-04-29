@@ -31,7 +31,6 @@
 		<put-attribute name="body" value="/views/item/edit.jsp" />
 	</definition>
 	
-
 	
 	
 </tiles-definitions>
