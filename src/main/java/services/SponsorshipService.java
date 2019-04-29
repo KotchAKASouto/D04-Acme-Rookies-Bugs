@@ -13,6 +13,7 @@ import org.springframework.validation.Validator;
 
 import repositories.SponsorshipRepository;
 import security.Authority;
+import domain.Actor;
 import domain.Position;
 import domain.Provider;
 import domain.Sponsorship;
@@ -93,6 +94,8 @@ public class SponsorshipService {
 		Assert.isTrue(sponsorship.getCreditCard().getExpYear() - 1900 >= now.getYear());
 		Assert.isTrue(sponsorship.getCreditCard().getExpMonth() - 1 >= now.getMonth() || sponsorship.getCreditCard().getExpYear() - 1900 > now.getYear());
 
+		Assert.isTrue(sponsorship.getPosition().getFinalMode());
+
 		final Sponsorship result = this.sponsorshipRepository.save(sponsorship);
 
 		return result;
@@ -151,11 +154,19 @@ public class SponsorshipService {
 		return result;
 	}
 
-	public void delete(final Sponsorship s) {
+	public void delete(final Sponsorship sponsorship) {
 
-		Assert.notNull(s);
+		Assert.notNull(sponsorship);
 
-		this.sponsorshipRepository.delete(s);
+		final Actor actor = this.actorService.findByPrincipal();
+		Assert.notNull(actor);
+
+		final Authority comp = new Authority();
+		comp.setAuthority(Authority.PROVIDER);
+		Assert.isTrue(actor.getUserAccount().getAuthorities().contains(comp));
+		Assert.isTrue(actor.getId() == sponsorship.getProvider().getId());
+
+		this.sponsorshipRepository.delete(sponsorship);
 	}
 
 	public void deleteAll(final int actorId) {
@@ -247,5 +258,4 @@ public class SponsorshipService {
 
 		return result;
 	}
-
 }
