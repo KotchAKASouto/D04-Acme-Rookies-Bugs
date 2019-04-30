@@ -121,10 +121,82 @@ public class AuditorServiceTest extends AbstractTest {
 	}
 
 	/*
+	 * ACME.HACKERRANK
+	 * a)(Level C) Requirement 8.2: An actor who is authenticated must be able to: Edit his/her personal data.
+	 * 
+	 * b) Negative cases:
+	 * 2. The expiration year of the credit card is past
+	 * 
+	 * c) Sentence coverage
+	 * -findOne():100%
+	 * -save():84.8%
+	 * d) Data coverage
+	 */
+	@Test
+	public void driverEditAuditor() {
+		final Object testingData[][] = {
+			{
+				"name1", "surnames", 1234654580, "https://google.com", "email1@gmail.com", "672195205", "address1", "auditor1", "functionalTest", "VISA", "377964663288126", "12", "2020", "123", "auditor1", null
+			},//1. All fine
+			{
+				"name1", "surnames", 1234654580, "https://google.com", "email1gmail.com", "672195205", "address1", "auditor1", "functionalTest", "VISA", "377964663288126", "12", "2018", "123", "auditor1", ConstraintViolationException.class
+			},//2. The expiration year of the credit card is past
+
+		};
+
+		for (int i = 0; i < testingData.length; i++)
+			this.templateEditAuditor((String) testingData[i][0], (String) testingData[i][1], (Integer) testingData[i][2], (String) testingData[i][3], (String) testingData[i][4], (String) testingData[i][5], (String) testingData[i][6],
+				(String) testingData[i][7], (String) testingData[i][8], (String) testingData[i][9], (String) testingData[i][10], (String) testingData[i][11], (String) testingData[i][12], (String) testingData[i][13], (String) testingData[i][14],
+				(Class<?>) testingData[i][15]);
+	}
+
+	protected void templateEditAuditor(final String name, final String surnames, final Integer vat, final String photo, final String email, final String phone, final String address, final String username, final String holderName, final String make,
+		final String number, final String expMonth, final String expYear, final String cvv, final String auditorToEdit, final Class<?> expected) {
+
+		Class<?> caught;
+
+		caught = null;
+		try {
+			this.startTransaction();
+			this.authenticate(username);
+			final Auditor auditor = this.auditorService.findOne(super.getEntityId(auditorToEdit));
+
+			auditor.setName(name);
+			auditor.setSurnames(surnames);
+			auditor.setVat(vat);
+
+			final CreditCard creditCard = auditor.getCreditCard();
+
+			creditCard.setCvv(new Integer(cvv));
+			creditCard.setExpMonth(new Integer(expMonth));
+			creditCard.setExpYear(new Integer(expYear));
+			creditCard.setHolderName(holderName);
+			creditCard.setMake(make);
+			creditCard.setNumber(number);
+
+			auditor.setPhoto(photo);
+			auditor.setEmail(email);
+			auditor.setPhone(phone);
+			auditor.setAddress(address);
+
+			this.auditorService.save(auditor);
+			this.auditorService.flush();
+
+		} catch (final Throwable oops) {
+			caught = oops.getClass();
+
+		}
+		this.unauthenticate();
+		this.rollbackTransaction();
+		super.checkExceptions(expected, caught);
+
+	}
+
+	/*
 	 * -------Coverage AuditorService-------
 	 * 
 	 * ----TOTAL SENTENCE COVERAGE:
-	 * AuditorService: 36%
+	 * AuditorService: 57.2%
 	 * 
 	 * ----TOTAL DATA COVERAGE:
 	 * Auditor = 9,09091%

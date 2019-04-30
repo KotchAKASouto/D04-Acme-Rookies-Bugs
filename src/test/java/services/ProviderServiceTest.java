@@ -4,6 +4,7 @@ package services;
 import java.util.Collection;
 
 import javax.transaction.Transactional;
+import javax.validation.ConstraintViolationException;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -168,9 +169,82 @@ public class ProviderServiceTest extends AbstractTest {
 	}
 
 	/*
+	 * ACME.HACKERRANK
+	 * a)(Level C) Requirement 8.2: An actor who is authenticated must be able to: Edit his/her personal data.
+	 * 
+	 * b) Negative cases:
+	 * 2. The expiration year of the credit card is past
+	 * 
+	 * c) Sentence coverage
+	 * -findOne():100%
+	 * -save():83.8%
+	 * d) Data coverage
+	 */
+	@Test
+	public void driverEditProvider() {
+		final Object testingData[][] = {
+			{
+				"pm1", "name1", "surnames", 1234654580, "https://google.com", "email1@gmail.com", "672195205", "address1", "provider1", "functionalTest", "VISA", "377964663288126", "12", "2020", "123", "provider1", null
+			},//1. All fine
+			{
+				"pm1", "name1", "surnames", 1234654580, "https://google.com", "email1gmail.com", "672195205", "address1", "provider1", "functionalTest", "VISA", "377964663288126", "12", "2018", "123", "provider1", ConstraintViolationException.class
+			},//2. The expiration year of the credit card is past
+
+		};
+
+		for (int i = 0; i < testingData.length; i++)
+			this.templateEditProvider((String) testingData[i][0], (String) testingData[i][1], (String) testingData[i][2], (Integer) testingData[i][3], (String) testingData[i][4], (String) testingData[i][5], (String) testingData[i][6],
+				(String) testingData[i][7], (String) testingData[i][8], (String) testingData[i][9], (String) testingData[i][10], (String) testingData[i][11], (String) testingData[i][12], (String) testingData[i][13], (String) testingData[i][14],
+				(String) testingData[i][15], (Class<?>) testingData[i][16]);
+	}
+
+	protected void templateEditProvider(final String providerMake, final String name, final String surnames, final Integer vat, final String photo, final String email, final String phone, final String address, final String username,
+		final String holderName, final String make, final String number, final String expMonth, final String expYear, final String cvv, final String providerToEdit, final Class<?> expected) {
+
+		Class<?> caught;
+
+		caught = null;
+		try {
+			this.startTransaction();
+			this.authenticate(username);
+			final Provider provider = this.providerService.findOne(super.getEntityId(providerToEdit));
+
+			provider.setProviderMake(providerMake);
+			provider.setName(name);
+			provider.setSurnames(surnames);
+			provider.setVat(vat);
+
+			final CreditCard creditCard = provider.getCreditCard();
+
+			creditCard.setCvv(new Integer(cvv));
+			creditCard.setExpMonth(new Integer(expMonth));
+			creditCard.setExpYear(new Integer(expYear));
+			creditCard.setHolderName(holderName);
+			creditCard.setMake(make);
+			creditCard.setNumber(number);
+
+			provider.setPhoto(photo);
+			provider.setEmail(email);
+			provider.setPhone(phone);
+			provider.setAddress(address);
+
+			this.providerService.save(provider);
+			this.providerService.flush();
+
+		} catch (final Throwable oops) {
+			caught = oops.getClass();
+
+		}
+		this.unauthenticate();
+		this.rollbackTransaction();
+		super.checkExceptions(expected, caught);
+
+	}
+
+	/*
 	 * -------Coverage PositionService
 	 * ----TOTAL SENTENCE COVERAGE:
-	 * ProviderService = 33.2%
+	 * ProviderService = 60.9%
 	 * 
 	 * ----TOTAL DATA COVERAGE:
 	 * Provider = 6.6667%
