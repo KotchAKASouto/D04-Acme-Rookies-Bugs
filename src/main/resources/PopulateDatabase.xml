@@ -1193,8 +1193,13 @@
 		<property name="address" value="Blanca Paloma" />
 		<property name="userAccount" ref="userAccountAuditor1" />
 		<property name="creditCard" ref="creditCardRookie13" />
-		<property name="position" ref="position1" />
+		<property name="positions">
+			<list>
+				<ref bean="position1" />
+			</list>
+		</property>
 	</bean>
+	
 	<bean id="userAccountAuditor1" class="security.UserAccount">
 		<property name="username" value="auditor1" />
 		<property name="password"
@@ -1228,7 +1233,11 @@
 		<property name="address" value="Alcalá" />
 		<property name="userAccount" ref="userAccountAuditor2" />
 		<property name="creditCard" ref="creditCardAuditor2" />
-		<property name="position" ref="position3" />
+		<property name="positions">
+			<list>
+				<ref bean="position3" />
+			</list>
+		</property>
 	</bean>
 	<bean id="userAccountAuditor2" class="security.UserAccount">
 		<property name="username" value="auditor2" />
@@ -1263,6 +1272,10 @@
 		<property name="address" value="Alcampo" />
 		<property name="userAccount" ref="userAccountAuditor3" />
 		<property name="creditCard" ref="creditCardAuditor3" />
+		<property name="positions">
+			<list>
+			</list>
+		</property>
 	</bean>
 	<bean id="userAccountAuditor3" class="security.UserAccount">
 		<property name="username" value="auditor3" />
@@ -1297,7 +1310,11 @@
 		<property name="address" value="mobile" />
 		<property name="userAccount" ref="userAccountAuditor4" />
 		<property name="creditCard" ref="creditCardAuditor4" />
-		<property name="position" ref="position7" />
+		<property name="positions">
+			<list>
+				<ref bean="position7" />
+			</list>
+		</property>
 	</bean>
 	<bean id="userAccountAuditor4" class="security.UserAccount">
 		<property name="username" value="auditor4" />
@@ -1333,6 +1350,10 @@
 		<property name="address" value="Tomares" />
 		<property name="userAccount" ref="userAccountAuditor5" />
 		<property name="creditCard" ref="creditCardAuditor5" />
+		<property name="positions">
+			<list>
+			</list>
+		</property>
 	</bean>
 	<bean id="userAccountAuditor5" class="security.UserAccount">
 		<property name="username" value="auditor5" />

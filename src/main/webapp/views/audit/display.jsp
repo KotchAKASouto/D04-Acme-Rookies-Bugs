@@ -28,7 +28,7 @@
 	<acme:button name="edit" code="audit.edit" onclick="javascript: relativeRedir('audit/auditor/edit.do?auditId=${audit.id }');" />
 </jstl:if>
 
-<acme:button name="back" code="audit.back" onclick="javascript: relativeRedir('audit/auditor/list.do');" />
+<acme:button name="back" code="audit.back" onclick="javascript: relativeRedir('welcome/index.do');" />
 
 </security:authorize>
 

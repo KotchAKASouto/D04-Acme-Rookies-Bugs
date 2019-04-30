@@ -16,6 +16,7 @@ import security.Authority;
 import domain.Actor;
 import domain.Audit;
 import domain.Auditor;
+import domain.Position;
 
 @Service
 @Transactional
@@ -38,7 +39,7 @@ public class AuditService {
 
 	// Simple CRUD methods -----------------------
 
-	public Audit create() {
+	public Audit create(final Position position) {
 		final Actor actor = this.actorService.findByPrincipal();
 		Assert.notNull(actor);
 		final Authority authority = new Authority();
@@ -49,7 +50,8 @@ public class AuditService {
 
 		result.setFinalMode(false);
 		result.setAuditor(this.auditorService.findByPrincipal());
-		result.setPosition(this.auditorService.findByPrincipal().getPosition());
+		Assert.isTrue(this.auditorService.findByPrincipal().getPositions().contains(position));
+		result.setPosition(position);
 
 		final Date currentMoment = new Date(System.currentTimeMillis() - 1000);
 		result.setMoment(currentMoment);
@@ -81,7 +83,7 @@ public class AuditService {
 		Assert.isTrue((actor.getUserAccount().getAuthorities().contains(authority)));
 		Assert.isTrue(actor.getId() == audit.getAuditor().getId());
 
-		Assert.isTrue(audit.getAuditor().getPosition() == audit.getPosition());
+		Assert.isTrue(audit.getAuditor().getPositions().contains(audit.getPosition()));
 
 		Audit result;
 
@@ -104,7 +106,7 @@ public class AuditService {
 		comp.setAuthority(Authority.AUDITOR);
 		Assert.isTrue(actor.getUserAccount().getAuthorities().contains(comp));
 		Assert.isTrue(actor.getId() == audit.getAuditor().getId());
-		Assert.isTrue(audit.getAuditor().getPosition() == audit.getPosition());
+		Assert.isTrue(audit.getAuditor().getPositions().contains(audit.getPosition()));
 
 		Assert.isTrue(audit.getFinalMode() == false);
 		this.auditRepository.delete(audit);
@@ -132,10 +134,10 @@ public class AuditService {
 
 	//Other bussiness methods
 
-	public Audit reconstruct(final Audit audit, final BindingResult binding) {
+	public Audit reconstruct(final Audit audit, final Position position, final BindingResult binding) {
 
 		Audit result = audit;
-		final Audit auditNew = this.create();
+		final Audit auditNew = this.create(position);
 
 		if (audit.getId() == 0 || audit == null) {
 
@@ -188,7 +190,7 @@ public class AuditService {
 
 		final Auditor login = this.auditorService.findByPrincipal();
 
-		if (login.equals(owner) && audit.getPosition() == login.getPosition())
+		if (login.equals(owner) && login.getPositions().contains(audit.getPosition()))
 			res = true;
 
 		return res;

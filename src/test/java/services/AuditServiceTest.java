@@ -26,6 +26,9 @@ public class AuditServiceTest extends AbstractTest {
 	@Autowired
 	private AuditService	auditService;
 
+	@Autowired
+	private PositionService	positionService;
+
 
 	/*
 	 * ----CALCULATE COVERAGE----
@@ -54,19 +57,19 @@ public class AuditServiceTest extends AbstractTest {
 	public void driverCreateAudit() {
 		final Object testingData[][] = {
 			{
-				"text1", 2.0, true, "auditor1", null
+				"text1", 2.0, true, "auditor1", "position1", null
 			},//1. All fine
 			{
-				"text1", 2.0, true, "hacker1", IllegalArgumentException.class
+				"text1", 2.0, true, "hacker1", "position1", IllegalArgumentException.class
 			},//2. Hacker is trying to create an audit
 
 		};
 
 		for (int i = 0; i < testingData.length; i++)
-			this.templateCreateAudit((String) testingData[i][0], (Double) testingData[i][1], (Boolean) testingData[i][2], (String) testingData[i][3], (Class<?>) testingData[i][4]);
+			this.templateCreateAudit((String) testingData[i][0], (Double) testingData[i][1], (Boolean) testingData[i][2], (String) testingData[i][3], (String) testingData[i][4], (Class<?>) testingData[i][5]);
 	}
 
-	protected void templateCreateAudit(final String text, final Double score, final Boolean finalMode, final String username, final Class<?> expected) {
+	protected void templateCreateAudit(final String text, final Double score, final Boolean finalMode, final String username, final String position, final Class<?> expected) {
 		Class<?> caught;
 
 		caught = null;
@@ -74,7 +77,7 @@ public class AuditServiceTest extends AbstractTest {
 			this.startTransaction();
 			this.authenticate(username);
 
-			final Audit audit = this.auditService.create();
+			final Audit audit = this.auditService.create(this.positionService.findOne(super.getEntityId(position)));
 
 			audit.setText(text);
 			audit.setScore(score);

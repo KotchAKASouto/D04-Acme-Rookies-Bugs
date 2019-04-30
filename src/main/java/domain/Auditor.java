@@ -1,28 +1,28 @@
+
 package domain;
+
+import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-
+import javax.persistence.ManyToMany;
 
 @Entity
 @Access(AccessType.PROPERTY)
-public class Auditor extends Actor{
-	
+public class Auditor extends Actor {
+
 	//relationships
-	private Position	position;
+	private Collection<Position>	positions;
 
-	
-	@OneToOne(optional=true)
-	public Position getPosition() {
-		return position;
+
+	@ManyToMany
+	public Collection<Position> getPositions() {
+		return this.positions;
 	}
 
-	public void setPosition(Position position) {
-		this.position = position;
+	public void setPositions(final Collection<Position> positions) {
+		this.positions = positions;
 	}
-	
-	
 
 }

@@ -22,6 +22,9 @@ public interface PositionRepository extends JpaRepository<Position, Integer> {
 	@Query("select p from Position p where p.finalMode = true and p.deadline > ?1")
 	Collection<Position> findPositionsFinalModeTrue(Date localDate);
 
+	@Query("select p from Position p where p.finalMode = true")
+	Collection<Position> findPositionsFinalModeTrueWithoutDeadline();
+
 	@Query("select p from Position p where p.company.id = ?1 and p.finalMode = true and p.deadline > ?2")
 	Collection<Position> findPositionsByCompanyIdAndFinalModeTrue(int companyId, Date localDate);
 
@@ -37,7 +40,7 @@ public interface PositionRepository extends JpaRepository<Position, Integer> {
 	@Query("select max(p.offeredSalary) from Position p")
 	Double maxOfferedSalaryPosition();
 
-	@Query("select p from Position p where (select count(a) from Auditor a where a.position.id=p.id)=0 and (p.finalMode=true)")
-	Collection<Position> positionsNotAssignedAnyAuditor();
+	//	@Query("select p from Position p where (select count(a) from Auditor a where a.position.id=p.id)=0 and (p.finalMode=true)")
+	//	Collection<Position> positionsNotAssignedAnyAuditor();
 
 }

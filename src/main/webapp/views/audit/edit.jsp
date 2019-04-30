@@ -17,6 +17,7 @@
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 	
+	<form:hidden path="position" />
 	
 	<acme:textarea path="text" code="audit.text" obligatory="true"/>
 	
