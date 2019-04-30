@@ -11,3 +11,4 @@ target/Acme-HandyWorker-1.0
 !messages.properties
 ._*
 .classpath
+*.DS_STORE
