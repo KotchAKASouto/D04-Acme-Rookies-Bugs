@@ -43,7 +43,7 @@
 <fieldset>
 <h3><spring:message code="curriculum.positionData" /></h3>
 
-<display:table name="curriculum.positionDatas" pagesize="5" id="row1">
+<display:table name="curriculum.positionDatas" pagesize="5" id="row1" requestURI="${requestUri}">
 
 	<acme:column property="title" titleKey="curriculum.title" value= "${row1.title} "/>
 	
@@ -78,7 +78,7 @@
 <fieldset>
 <h3><spring:message code="curriculum.educationData" /></h3>
 
-<display:table name="curriculum.educationDatas" pagesize="5" id="row2">
+<display:table name="curriculum.educationDatas" pagesize="5" id="row2" requestURI="${requestUri}">
 
 	<acme:column property="degree" titleKey="curriculum.degree" value= "${row2.degree} "/>
 	
@@ -114,7 +114,7 @@
 <fieldset>
 <h3><spring:message code="curriculum.miscellaneousData" /></h3>
 
-<display:table name="curriculum.miscellaneousDatas" pagesize="5" id="row3">
+<display:table name="curriculum.miscellaneousDatas" pagesize="5" id="row3" requestURI="${requestUri}">
 
 	<acme:column property="text" titleKey="curriculum.text" value= "${row3.text} "/>
 
