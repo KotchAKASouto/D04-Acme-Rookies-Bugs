@@ -286,6 +286,102 @@ public class ItemServiceTest extends AbstractTest {
 	}
 
 	/*
+	 * ACME.ROOKIES
+	 * a)(Level B) Requirement 9.2: An actor who is not authenticated must be able to: Browse the list of items
+	 * 
+	 * 
+	 * b) Negative cases:
+	 * 2. The number of items is incorrect
+	 * 
+	 * c) Sentence coverage
+	 * -findAll()=100%
+	 * 
+	 * d) Data coverage
+	 * -Item: 0%
+	 */
+	@Test
+	public void driverListAllItems() {
+		final Object testingData[][] = {
+			{
+				1, null
+			},//1. All fine
+			{
+				0, IllegalArgumentException.class
+			},//2. The number of items is incorrect
+
+		};
+
+		for (int i = 0; i < testingData.length; i++)
+			this.templateListAllItems((Integer) testingData[i][0], (Class<?>) testingData[i][1]);
+	}
+	protected void templateListAllItems(final Integer number, final Class<?> expected) {
+		Class<?> caught;
+
+		caught = null;
+		try {
+			this.startTransaction();
+
+			final Collection<Item> items = this.itemService.findAll();
+
+			Assert.isTrue(items.size() == number);
+		} catch (final Throwable oops) {
+			caught = oops.getClass();
+
+		}
+		this.rollbackTransaction();
+		super.checkExceptions(expected, caught);
+
+	}
+
+	/*
+	 * ACME.ROOKIES
+	 * a)(Level B) Requirement 9.2: An actor who is not authenticated must be able to: Navigate to the item of a provider
+	 * 
+	 * 
+	 * b) Negative cases:
+	 * 2. The number of items is incorrect
+	 * 
+	 * c) Sentence coverage
+	 * -findItemsByProviderId()=100%
+	 * 
+	 * d) Data coverage
+	 * -Item: 0%
+	 */
+	@Test
+	public void driverItemsOfProvider() {
+		final Object testingData[][] = {
+			{
+				"provider1", 1, null
+			},//1. All fine
+			{
+				"provider1", 0, IllegalArgumentException.class
+			},//2. The number of items is incorrect
+
+		};
+
+		for (int i = 0; i < testingData.length; i++)
+			this.templateItemsOfProvider((String) testingData[i][0], (Integer) testingData[i][1], (Class<?>) testingData[i][2]);
+	}
+	protected void templateItemsOfProvider(final String provider, final Integer number, final Class<?> expected) {
+		Class<?> caught;
+
+		caught = null;
+		try {
+			this.startTransaction();
+
+			final Collection<Item> items = this.itemService.findItemsByProviderId(super.getEntityId(provider));
+
+			Assert.isTrue(items.size() == number);
+		} catch (final Throwable oops) {
+			caught = oops.getClass();
+
+		}
+		this.rollbackTransaction();
+		super.checkExceptions(expected, caught);
+
+	}
+
+	/*
 	 * -------Coverage ItemService
 	 * ----TOTAL SENTENCE COVERAGE:
 	 * ItemService = %
