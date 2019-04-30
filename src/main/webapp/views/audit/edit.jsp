@@ -18,7 +18,7 @@
 	<form:hidden path="version" />
 	
 	
-	<acme:textbox path="text" code="audit.text" obligatory="true"/>
+	<acme:textarea path="text" code="audit.text" obligatory="true"/>
 	
 	<acme:textbox path="score" code="audit.score" obligatory="true" placeholder="0.0"/>
 	

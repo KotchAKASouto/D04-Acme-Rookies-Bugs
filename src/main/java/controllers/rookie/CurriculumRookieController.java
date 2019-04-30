@@ -14,12 +14,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.ConfigurationService;
 import services.CurriculumService;
-import services.RookieService;
 import services.PersonalDataService;
+import services.RookieService;
 import controllers.AbstractController;
 import domain.Curriculum;
-import domain.Rookie;
 import domain.PersonalData;
+import domain.Rookie;
 import forms.CreateCurriculumForm;
 
 @Controller

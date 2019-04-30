@@ -66,7 +66,7 @@ public class ActorController extends AbstractController {
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
 		result = new ModelAndView("actor/list");
-		result.addObject("hackers", rookies);
+		result.addObject("rookies", rookies);
 		result.addObject("companies", companies);
 		result.addObject("administrators", administrators);
 		result.addObject("banner", banner);

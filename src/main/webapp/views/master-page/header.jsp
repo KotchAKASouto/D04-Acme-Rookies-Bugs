@@ -113,7 +113,7 @@
 				<ul>
 					<li><a href="profile/displayPrincipal.do"><spring:message code="master.page.profile" /></a></li>
 					<li><a href="message/actor/list.do"><spring:message code="master.page.message" /> </a></li>
-					<security:authorize access="hasRole('HACKER')">
+					<security:authorize access="hasRole('ROOKIE')">
 					<li><a href="data/rookie/get.do"><spring:message code="master.page.get.data" /> </a></li>	
 					</security:authorize>
 					<security:authorize access="hasRole('COMPANY')">
