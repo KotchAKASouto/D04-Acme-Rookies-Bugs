@@ -447,9 +447,58 @@ public class PositionServiceTest extends AbstractTest {
 	}
 
 	/*
+	 * ACME.ROOKIES
+	 * a)(Level C) Requirement 3.1: An actor who is authenticated as an auditor must be able to: Self-assign a position to audit
+	 * List of Positions not assigned to any Auditor
+	 * 
+	 * b) Negative cases:
+	 * 2. The number of positions is incorrect
+	 * 
+	 * c) Sentence coverage
+	 * -positionsNotAssignedAnyAuditor():100%
+	 * 
+	 * d) Data coverage
+	 * -Position: 0%
+	 */
+	@Test
+	public void driverListPositionsNotAssignedAnyAuditor() {
+		final Object testingData[][] = {
+			{
+				3, null
+			},//1. All fine
+			{
+				1, IllegalArgumentException.class
+			},//2. The number of positions is incorrect
+
+		};
+
+		for (int i = 0; i < testingData.length; i++)
+			this.templateListPositionsNotAssignedAnyAuditor((Integer) testingData[i][0], (Class<?>) testingData[i][1]);
+	}
+
+	protected void templateListPositionsNotAssignedAnyAuditor(final Integer number, final Class<?> expected) {
+		Class<?> caught;
+
+		caught = null;
+		try {
+			this.startTransaction();
+
+			final Collection<Position> positions = this.positionService.positionsNotAssignedAnyAuditor();
+			final Integer tamaño = positions.size();
+			Assert.isTrue(tamaño == number);
+		} catch (final Throwable oops) {
+			caught = oops.getClass();
+
+		}
+		this.rollbackTransaction();
+		super.checkExceptions(expected, caught);
+
+	}
+
+	/*
 	 * -------Coverage PositionService
 	 * ----TOTAL SENTENCE COVERAGE:
-	 * PositionService = 54%
+	 * PositionService = 49,7%
 	 * 
 	 * ----TOTAL DATA COVERAGE:
 	 * Position = 0%
