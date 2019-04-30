@@ -85,6 +85,22 @@ public class ProviderServiceTest extends AbstractTest {
 
 	}
 
+	/*
+	 * ACME.ROOKIES
+	 * a)(Level B) Requirement 9.3: An actor who is not authenticated must be able to: Register to the system as a provider
+	 * 
+	 * 
+	 * b) Negative cases:
+	 * 2. The email format isn't correct
+	 * 
+	 * c) Sentence coverage
+	 * -Create() = 100%
+	 * -save() =43.9%
+	 * 
+	 * d) Data coverage
+	 * -Provider: 6.6667%
+	 */
+
 	@Test
 	public void driverRegisterprovider() {
 		final Object testingData[][] = {
@@ -154,10 +170,10 @@ public class ProviderServiceTest extends AbstractTest {
 	/*
 	 * -------Coverage PositionService
 	 * ----TOTAL SENTENCE COVERAGE:
-	 * ProviderService =
+	 * ProviderService = 33.2%
 	 * 
 	 * ----TOTAL DATA COVERAGE:
-	 * Provider = 0%
+	 * Provider = 6.6667%
 	 */
 
 }
