@@ -113,7 +113,7 @@ public class MiscellaneousDataRookieController extends AbstractController {
 
 			final Curriculum c = this.curriculumService.findOne(form.getCurriculumId());
 
-			if (c.getNoCopy() && ((securityCurriculum && securityData) || (form.getId() != 0 && securityData))) {
+			if (c.getNoCopy() && ((securityCurriculum && securityData) || (form.getId() != 0 && securityData && securityCurriculum))) {
 
 				if (binding.hasErrors())
 					result = this.createEditModelAndView(form);
