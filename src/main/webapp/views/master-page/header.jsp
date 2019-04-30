@@ -50,7 +50,7 @@
 			</li>
 		</security:authorize>
 		
-		<security:authorize access="hasRole('HACKER')">
+		<security:authorize access="hasRole('ROOKIE')">
 			<li><a class="fNiv"><spring:message	code="master.page.rookie" /></a>
 				<ul>
 					<li class="arrow"></li>

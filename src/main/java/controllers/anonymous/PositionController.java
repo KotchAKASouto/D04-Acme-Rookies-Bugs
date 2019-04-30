@@ -56,6 +56,7 @@ public class PositionController extends AbstractController {
 			result.addObject("banner", banner);
 			result.addObject("language", LocaleContextHolder.getLocale().getLanguage());
 			result.addObject("autoridad", "");
+			result.addObject("AmInCompanyController", false);
 
 			final FilterForm filterForm = new FilterForm();
 			result.addObject("filterForm", filterForm);
@@ -80,6 +81,7 @@ public class PositionController extends AbstractController {
 		result.addObject("banner", banner);
 		result.addObject("language", LocaleContextHolder.getLocale().getLanguage());
 		result.addObject("autoridad", "");
+		result.addObject("AmInCompanyController", false);
 
 		final FilterForm filterForm = new FilterForm();
 		result.addObject("filterForm", filterForm);
@@ -88,7 +90,7 @@ public class PositionController extends AbstractController {
 
 	}
 
-	@RequestMapping(value = "/listByFilter", method = RequestMethod.POST)
+	@RequestMapping(value = "/listByFilter", method = RequestMethod.GET)
 	public ModelAndView listByFilter(final String keyword, final String companyName) {
 		final ModelAndView result;
 		final String banner = this.configurationService.findConfiguration().getBanner();
@@ -100,10 +102,37 @@ public class PositionController extends AbstractController {
 		result.addObject("banner", banner);
 		result.addObject("language", LocaleContextHolder.getLocale().getLanguage());
 		result.addObject("autoridad", "");
+		result.addObject("AmInCompanyController", false);
+		result.addObject("pagesize", 5);
+		result.addObject("requestURI", "position/listByFilter.do");
+		result.addObject("keyword", keyword);
+		result.addObject("companyName", companyName);
 
 		final FilterForm filterForm = new FilterForm();
 		result.addObject("filterForm", filterForm);
 
+		return result;
+	}
+
+	@RequestMapping(value = "/display", method = RequestMethod.GET)
+	public ModelAndView display(@RequestParam final int positionId) {
+		ModelAndView result;
+
+		final Position position = this.positionService.findOne(positionId);
+		final String banner = this.configurationService.findConfiguration().getBanner();
+
+		if (position == null) {
+			result = new ModelAndView("misc/notExist");
+			result.addObject("banner", banner);
+		} else {
+
+			result = new ModelAndView("position/display");
+			result.addObject("position", position);
+			result.addObject("banner", banner);
+			//Esto es para reutilizar vista de position/list en el create
+			result.addObject("AmInCompanyController", false);
+
+		}
 		return result;
 	}
 }

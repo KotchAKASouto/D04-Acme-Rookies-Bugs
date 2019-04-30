@@ -64,6 +64,8 @@
 		<security:intercept-url pattern="/item/list.do" access="permitAll" />
 		<security:intercept-url pattern="/provider/display.do" access="permitAll" />
 		<security:intercept-url pattern="/item/listByProvider.do" access="permitAll" />
+		<security:intercept-url pattern="/position/display.do" access="permitAll" />
+		
 
 		<!-- Provider: Item -->
 

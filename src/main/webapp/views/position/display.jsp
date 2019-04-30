@@ -29,12 +29,17 @@
 <acme:display code="position.offeredSalary" property="${position.offeredSalary}" />
 
 <security:authorize access="hasRole('COMPANY')">
-<jstl:if test="${!position.finalMode }">
+<jstl:if test="${!position.finalMode && security}">
 	<acme:button name="edit" code="position.edit" onclick="javascript: relativeRedir('position/company/edit.do?positionId=${position.id }');" />
 </jstl:if>
 </security:authorize>
 
+<jstl:if test="${AmInCompanyController }">
 <acme:button name="back" code="position.back" onclick="javascript: relativeRedir('position/company/list.do');" />
+</jstl:if>
+<jstl:if test="${!AmInCompanyController }">
+<acme:button name="back" code="position.back" onclick="javascript: relativeRedir('position/list.do');" />
+</jstl:if>
 
 
 

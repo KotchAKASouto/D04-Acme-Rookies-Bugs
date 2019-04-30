@@ -19,8 +19,8 @@ import services.ApplicationService;
 import services.CompanyService;
 import services.ConfigurationService;
 import services.CurriculumService;
-import services.RookieService;
 import services.PositionService;
+import services.RookieService;
 import domain.Application;
 import domain.Curriculum;
 import domain.Rookie;
@@ -210,9 +210,10 @@ public class ApplicationRookieController {
 
 					final Curriculum curriculum = application.getCurriculum();
 
-					final Curriculum copy = this.curriculumService.copyCurriculum(curriculum);
-
-					application.setCurriculum(copy);
+					if (application.getId() == 0) {
+						final Curriculum copy = this.curriculumService.copyCurriculum(curriculum);
+						application.setCurriculum(copy);
+					}
 
 					this.applicationService.save(application);
 					result = new ModelAndView("redirect:/application/rookie/list.do");

@@ -20,7 +20,7 @@
 	
 	<acme:column property="submitMoment" titleKey="application.submitMoment" value= "${row.submitMoment}: "/>
 	
-	<security:authorize access="hasRole('HACKER')">
+	<security:authorize access="hasRole('ROOKIE')">
 	
 	<acme:url href="curriculum/rookie/display.do?curriculumId=${row.curriculum.id}" code = "application.curriculum" />
 	
@@ -56,7 +56,7 @@
 	
 	<acme:column property="submitMoment" titleKey="application.submitMoment" value= "${row2.submitMoment}: "/>
 	
-	<security:authorize access="hasRole('HACKER')">
+	<security:authorize access="hasRole('ROOKIE')">
 	
 	<acme:url href="curriculum/rookie/display.do?curriculumId=${row2.curriculum.id}" code = "application.curriculum" />
 	
@@ -92,7 +92,7 @@
 	
 	<acme:column property="submitMoment" titleKey="application.submitMoment" value= "${row3.submitMoment}: "/>
 	
-	<security:authorize access="hasRole('HACKER')">
+	<security:authorize access="hasRole('ROOKIE')">
 	
 	<acme:url href="curriculum/rookie/display.do?curriculumId=${row3.curriculum.id}" code = "application.curriculum" />
 	
@@ -140,7 +140,7 @@
 	
 	<acme:column property="submitMoment" titleKey="application.submitMoment" value= "${row4.submitMoment}: "/>
 	
-	<security:authorize access="hasRole('HACKER')">
+	<security:authorize access="hasRole('ROOKIE')">
 	
 	<acme:url href="curriculum/rookie/display.do?curriculumId=${row4.curriculum.id}" code = "application.curriculum" />
 	
