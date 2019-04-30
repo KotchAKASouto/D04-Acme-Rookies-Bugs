@@ -174,6 +174,12 @@ public class AuditService {
 		return audits;
 	}
 
+	public Collection<Audit> findFinalAuditsByPositionId(final int positionId) {
+		final Collection<Audit> audits = this.auditRepository.findFinalAuditsByPositionId(positionId);
+
+		return audits;
+	}
+
 	public Boolean auditAuditorSecurity(final int auditId) {
 		Boolean res = false;
 		final Audit audit = this.findOne(auditId);

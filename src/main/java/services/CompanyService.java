@@ -241,7 +241,7 @@ public class CompanyService {
 
 			for (final Position p : positions) {
 
-				final Collection<Audit> audits = this.auditService.findAuditsByPositionId(p.getId());
+				final Collection<Audit> audits = this.auditService.findFinalAuditsByPositionId(p.getId());
 
 				if (!audits.isEmpty())
 					for (final Audit a : audits) {
