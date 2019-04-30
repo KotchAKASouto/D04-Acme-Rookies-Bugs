@@ -2,6 +2,7 @@
 package services;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 import javax.transaction.Transactional;
 import javax.validation.ConstraintViolationException;
@@ -45,7 +46,7 @@ public class ItemServiceTest extends AbstractTest {
 	 * 
 	 * 
 	 * c) Sentence coverage
-	 * -findOne(): %
+	 * -findOne(): 100%
 	 * d) Data coverage
 	 */
 
@@ -97,17 +98,17 @@ public class ItemServiceTest extends AbstractTest {
 	 * a)(Level B) Requirement 10.1: An actor who is authenticated as a provider must be able to: Manage his or her catalogue of items, which includes listing, showing, CREATING, updating, and deleting them.
 	 * 
 	 * b) Negative cases:
-	 * 2. Somebody not authenticated tries to create a social profile
-	 * 3. nick = blank
-	 * 4. nick = not safe html
-	 * 5. socialName = blank
-	 * 6. socialName = not safe html
+	 * 2. name = blank
+	 * 3. name = not safe html
+	 * 4. description = blank
+	 * 5. description = not safe html
 	 * 
 	 * c) Sentence coverage
-	 * -create(): %
-	 * -save(): %
-	 * -findAll(): %
+	 * -create(): 100%
+	 * -save(): 100%
+	 * -findAll(): 100%
 	 * d) Data coverage
+	 * -Item: 50%
 	 */
 
 	@Test
@@ -115,50 +116,52 @@ public class ItemServiceTest extends AbstractTest {
 		final Object testingData[][] = {
 
 			{
-				"provider1", "name1", "description1", "https://www.youtube.com", null
+				"provider1", "name1", "description1", "https://www.youtube.com", "https://www.picture.com", null
 			//1. All right
 			}, {
-				null, "name1", "description1", "https://www.youtube.com", IllegalArgumentException.class
-			//2. Somebody not authenticated tries to create a social profile
+				"provider1", "", "description1", "https://www.youtube.com", "https://www.picture.com", ConstraintViolationException.class
+
+			//2. name = blank
 			}, {
-				"provider1", "", "description1", "https://www.youtube.com", ConstraintViolationException.class
-			//3. name = blank
+				"provider1", "<script>alert('hola')</script>", "description1", "https://www.youtube.com", "https://www.picture.com", ConstraintViolationException.class
+			//3. name = not safe html
 			}, {
-				"provider1", "<script>alert('hola')</script>", "description1", "https://www.youtube.com", ConstraintViolationException.class
-			//4. name = not safe html
+				"provider1", "name1", "", "https://www.youtube.com", "https://www.picture.com", ConstraintViolationException.class
+			//4. description = blank
 			}, {
-				"provider1", "name1", "", "https://www.youtube.com", ConstraintViolationException.class
-			//5. description = blank
-			}, {
-				"provider1", "name1", "<script>alert('hola')</script>", "https://www.youtube.com", ConstraintViolationException.class
-			//6. description = not safe html
+				"provider1", "name1", "<script>alert('hola')</script>", "https://www.youtube.com", "https://www.picture.com", ConstraintViolationException.class
+			//5. description = not safe html
 			}
 
 		};
 
 		for (int i = 0; i < testingData.length; i++)
-			this.templateCreateItem((String) testingData[i][0], (String) testingData[i][1], (String) testingData[i][2], (String) testingData[i][3], (Class<?>) testingData[i][4]);
+			this.templateCreateItem((String) testingData[i][0], (String) testingData[i][1], (String) testingData[i][2], (String) testingData[i][3], (String) testingData[i][4], (Class<?>) testingData[i][5]);
 
 	}
-	protected void templateCreateItem(final String provider, final String name, final String description, final String link, final Class<?> expected) {
+	protected void templateCreateItem(final String provider, final String name, final String description, final String link, final String picture, final Class<?> expected) {
 
 		Class<?> caught;
 
 		caught = null;
 		try {
-			if (provider != null)
+			if (provider != null) {
 				super.authenticate(provider);
 
-			final Item item = this.itemService.create();
-			item.setName(name);
-			item.setLink(link);
-			item.setDescription(description);
+				final Item item = this.itemService.create();
+				item.setName(name);
+				item.setLink(link);
+				item.setDescription(description);
+				final Collection<String> pictures = new HashSet<String>();
+				pictures.add(picture);
+				item.setPictures(pictures);
 
-			final Item saved = this.itemService.save(item);
-			this.itemService.flush();
+				final Item saved = this.itemService.save(item);
+				this.itemService.flush();
 
-			final Collection<Item> items = this.itemService.findAll();
-			Assert.isTrue(items.contains(saved));
+				final Collection<Item> items = this.itemService.findAll();
+				Assert.isTrue(items.contains(saved));
+			}
 
 		} catch (final Throwable oops) {
 			caught = oops.getClass();
@@ -177,10 +180,11 @@ public class ItemServiceTest extends AbstractTest {
 	 * 2. Item doesn't belong Provider
 	 * 
 	 * c) Sentence coverage
-	 * -save(): %
-	 * -findAll(): %
-	 * -findOne(): %
+	 * -save(): 100%
+	 * -findAll(): 100%
+	 * -findOne(): 100%
 	 * d) Data coverage
+	 * -Item: 0%
 	 */
 
 	@Test
@@ -237,10 +241,11 @@ public class ItemServiceTest extends AbstractTest {
 	 * 2. Item doesn't belong Provider
 	 * 
 	 * c) Sentence coverage
-	 * -delete(): %
-	 * -findAll(): %
-	 * -findOne(): %
+	 * -delete(): 96%
+	 * -findAll(): 100%
+	 * -findOne(): 100%
 	 * d) Data coverage
+	 * -Item: 0%
 	 */
 
 	@Test
@@ -384,9 +389,9 @@ public class ItemServiceTest extends AbstractTest {
 	/*
 	 * -------Coverage ItemService
 	 * ----TOTAL SENTENCE COVERAGE:
-	 * ItemService = %
+	 * ItemService = 57.9%
 	 * 
 	 * ----TOTAL DATA COVERAGE:
-	 * Item = 0%
+	 * Item = 50%
 	 */
 }
