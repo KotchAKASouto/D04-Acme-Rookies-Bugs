@@ -10,18 +10,18 @@
 <jsp:useBean id="now" class="java.util.Date" />
 
 <jstl:if test="${!AmILogged }">
-<form:form action="position/listByFilter.do" modelAttribute="filterForm">
+<form action="position/listByFilter.do" method="get">
 
-<spring:message code="filter.keyword" />: <form:input path="keyword"/>
-<spring:message code="company.commercialName"/>: <form:input path="companyName" />
+<spring:message code="filter.keyword" />: <input type="text" id="keyword" name="keyword" path="keyword"/>
+<spring:message code="company.commercialName"/>: <input type="text" id="companyName" name="companyName" path="companyName" />
 
 <acme:submit name="search" code="filter.search"/>
 
-</form:form>
+</form>
 </jstl:if>
 
 <jstl:if test="${AmInFinder }">
-<security:authorize access="hasRole('HACKER')">
+<security:authorize access="hasRole('ROOKIE')">
 <form:form action="${requestAction }" modelAttribute="finder"> 
 
 	<form:hidden path="id"/>
@@ -41,7 +41,7 @@
 </security:authorize>
 </jstl:if>
 
-<display:table name="positions" id="row" requestURI="${requestURI }" pagesize="${pagesize }">
+<display:table name="positions" id="row" requestURI="${requestURI }" pagesize="${pagesize }" size="100">
 	
 	
 	<acme:column property="ticker" titleKey="position.ticker" value= "${row.ticker}: "/>
@@ -62,15 +62,19 @@
 	
 	<acme:column property="offeredSalary" titleKey="position.offeredSalary" value= "${row.offeredSalary}: "/>
 	
-	
-		
 	<security:authorize access="hasRole('COMPANY')">
-		<jstl:if test="${AmInCompanyController}">
+		<jstl:if test="${AmInCompanyController }" >
 		<acme:column property="finalMode" titleKey="position.finalMode" value="${row.finalMode }" />
-		
-		<acme:url href="position/company/display.do?positionId=${row.id }" code="position.display"/>
 		</jstl:if>
 	</security:authorize>
+	
+	<jstl:if test="${AmInCompanyController }">
+	<acme:url href="position/company/display.do?positionId=${row.id }" code="position.display"/>
+	</jstl:if>
+	<jstl:if test="${!AmInCompanyController }">
+	<acme:url href="position/display.do?positionId=${row.id }" code="position.display"/>
+	</jstl:if>
+	
 	
 	<acme:url href="audit/listByPosition.do?positionId=${row.id }" code="position.audits" />
 	
@@ -80,7 +84,7 @@
 		</jstl:if>
 	</security:authorize> 
 	
-	<security:authorize access="hasRole('HACKER')">
+	<security:authorize access="hasRole('ROOKIE')">
 		<display:column>
 			<jstl:if test="${row.deadline > now}">
 				<a href="application/rookie/create.do?positionId=${row.id }"> <spring:message code="position.application"/></a>

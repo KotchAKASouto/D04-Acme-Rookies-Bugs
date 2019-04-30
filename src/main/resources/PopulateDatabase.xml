@@ -1886,7 +1886,7 @@
 		<property name="technologies" value="Ruby" />
 		<property name="offeredSalary" value="4455" />
 		<property name="finalMode" value="true" />
-		<property name="company" ref="company2" />
+		<property name="company" ref="company3" />
 	</bean>
 	<bean id="problem3" class="domain.Problem">
 		<property name="title" value="Fix Database" />
@@ -1901,7 +1901,7 @@
 			</list>
 		</property>
 		<property name="finalMode" value="true" />
-		<property name="company" ref="company2" />
+		<property name="company" ref="company3" />
 		<property name="positions">
 			<list>
 				<ref bean="position3" />
@@ -1921,7 +1921,7 @@
 			</list>
 		</property>
 		<property name="finalMode" value="true" />
-		<property name="company" ref="company2" />
+		<property name="company" ref="company3" />
 		<property name="positions">
 			<list>
 				<ref bean="position3" />
@@ -1972,7 +1972,7 @@
 		<property name="title" value="position7" />
 		<property name="description"
 			value="Food big society second sense wind institution risk yes serve region style amount yeah fine take." />
-		<property name="deadline" value="06/11/2019" />
+		<property name="deadline" value="2019/01/01" />
 		<property name="profile" value="Engineer" />
 		<property name="skills" value="Security" />
 		<property name="technologies" value="C++" />
@@ -2271,10 +2271,10 @@
 
 	<!-- Applications -->
 	<bean id="application1" class="domain.Application">
-		<property name="moment" value="2019/01/10" />
+		<property name="moment" value="2018/01/01" />
 		<property name="status" value="SUBMITTED" />
 		<property name="answer" value="www.github.com/Acme-rookie" />
-		<property name="position" ref="position1" />
+		<property name="position" ref="position7" />
 		<property name="submitMoment" value="2019/03/30" />
 		<property name="curriculum" ref="curriculumCopy1" />
 		<property name="rookie" ref="rookie1" />

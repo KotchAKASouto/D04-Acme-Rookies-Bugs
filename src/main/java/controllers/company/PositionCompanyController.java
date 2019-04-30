@@ -167,7 +167,6 @@ public class PositionCompanyController extends AbstractController {
 	@RequestMapping(value = "/display", method = RequestMethod.GET)
 	public ModelAndView display(@RequestParam final int positionId) {
 		ModelAndView result;
-		Boolean security;
 
 		final Position position = this.positionService.findOne(positionId);
 		final String banner = this.configurationService.findConfiguration().getBanner();
@@ -176,14 +175,13 @@ public class PositionCompanyController extends AbstractController {
 			result = new ModelAndView("misc/notExist");
 			result.addObject("banner", banner);
 		} else {
-			security = this.positionService.positionCompanySecurity(positionId);
 
-			if (security) {
-				result = new ModelAndView("position/display");
-				result.addObject("position", position);
-				result.addObject("banner", banner);
-			} else
-				result = new ModelAndView("redirect:/welcome/index.do");
+			result = new ModelAndView("position/display");
+			result.addObject("position", position);
+			result.addObject("banner", banner);
+			//Esto es para reutilizar vista de position/list en el create
+			result.addObject("AmInCompanyController", true);
+
 		}
 		return result;
 	}
@@ -199,6 +197,9 @@ public class PositionCompanyController extends AbstractController {
 		result.addObject("messageError", messageCode);
 		result.addObject("banner", banner);
 		result.addObject("language", LocaleContextHolder.getLocale().getLanguage());
+
+		final Boolean security = this.positionService.positionCompanySecurity(position.getId());
+		result.addObject("security", security);
 
 		return result;
 	}

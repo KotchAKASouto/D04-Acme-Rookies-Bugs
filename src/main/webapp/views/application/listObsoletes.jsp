@@ -22,7 +22,7 @@
 	<acme:column property="curriculum.personalData.statement" titleKey="application.curriculum" value= "${row.curriculum.personalData.statement}: "/>
 	
 	<display:column>
-		<security:authorize access="hasRole('HACKER')">
+		<security:authorize access="hasRole('ROOKIE')">
 			<a href="application/rookie/display.do?applicationId=${row.id}"><spring:message code="application.display"/></a>
 		</security:authorize>
 		<security:authorize access="hasRole('COMPANY')">
