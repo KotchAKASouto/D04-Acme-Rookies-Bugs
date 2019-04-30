@@ -329,7 +329,7 @@ public class SponsorshipServiceTest extends AbstractTest {
 	}
 
 	/*
-	 * ACME-PARADE
+	 * ACME-ROOKIES
 	 * a)(Level A) Requirement 15: Every time a position with sponsorships is displayed, a random sponsorship must be selected and its banner must be shown as little intrusively as possible.
 	 * 
 	 * b) Negative cases:
