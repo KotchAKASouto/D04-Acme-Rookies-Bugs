@@ -15,6 +15,9 @@ public interface AuditRepository extends JpaRepository<Audit, Integer> {
 	@Query("select p from Audit p where p.position.id = ?1")
 	Collection<Audit> findAuditsByPositionId(int positionId);
 
+	@Query("select p from Audit p where p.finalMode = true and p.position.id = ?1")
+	Collection<Audit> findFinalAuditsByPositionId(int positionId);
+
 	@Query("select p from Audit p where p.auditor.id = ?1")
 	Collection<Audit> findAuditsByAuditorId(int auditorId);
 

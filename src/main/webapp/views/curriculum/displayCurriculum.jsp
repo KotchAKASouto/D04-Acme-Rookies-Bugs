@@ -43,15 +43,17 @@
 <fieldset>
 <h3><spring:message code="curriculum.positionData" /></h3>
 
-<display:table name="curriculum.positionDatas" pagesize="5" id="row1">
+<display:table name="curriculum.positionDatas" pagesize="5" id="row1" requestURI="${requestUri}">
 
 	<acme:column property="title" titleKey="curriculum.title" value= "${row1.title} "/>
 	
 	<acme:column property="description" titleKey="curriculum.description" value= "${row1.description} "/>
 	
-	<acme:column property="startDate" titleKey="curriculum.startDate" value= "${row1.startDate} "/>
+	<acme:dateFormat titleKey="curriculum.startDate" pattern="yyyy/MM/dd" value="${row1.startDate}"/>
 	
-	<acme:column property="endDate" titleKey="curriculum.endDate" value= "${row1.endDate} "/>
+	<acme:dateFormat titleKey="curriculum.endDate" pattern="yyyy/MM/dd" value="${row1.endDate}"/>
+	
+
 	
 	<security:authorize access="hasRole('ROOKIE')">
 		<jstl:if test="${curriculum.noCopy}">
@@ -76,7 +78,7 @@
 <fieldset>
 <h3><spring:message code="curriculum.educationData" /></h3>
 
-<display:table name="curriculum.educationDatas" pagesize="5" id="row2">
+<display:table name="curriculum.educationDatas" pagesize="5" id="row2" requestURI="${requestUri}">
 
 	<acme:column property="degree" titleKey="curriculum.degree" value= "${row2.degree} "/>
 	
@@ -84,9 +86,9 @@
 	
 	<acme:column property="mark" titleKey="curriculum.mark" value= "${row2.mark} "/>
 	
-	<acme:column property="startDate" titleKey="curriculum.startDate" value= "${row2.startDate} "/>
+	<acme:dateFormat titleKey="curriculum.startDate" pattern="yyyy/MM/dd" value="${row2.startDate}"/>
 	
-	<acme:column property="endDate" titleKey="curriculum.endDate" value= "${row2.endDate} "/>
+	<acme:dateFormat titleKey="curriculum.endDate" pattern="yyyy/MM/dd" value="${row2.endDate}"/>
 	
 	<security:authorize access="hasRole('ROOKIE')">
 		<jstl:if test="${curriculum.noCopy}">
@@ -112,7 +114,7 @@
 <fieldset>
 <h3><spring:message code="curriculum.miscellaneousData" /></h3>
 
-<display:table name="curriculum.miscellaneousDatas" pagesize="5" id="row3">
+<display:table name="curriculum.miscellaneousDatas" pagesize="5" id="row3" requestURI="${requestUri}">
 
 	<acme:column property="text" titleKey="curriculum.text" value= "${row3.text} "/>
 

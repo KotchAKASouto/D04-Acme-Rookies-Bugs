@@ -40,35 +40,16 @@ public class SponsorshipServiceTest extends AbstractTest {
 
 
 	/*
-	 * ----CALCULATE SENTENCE COVERAGE----
-	 * To calculate the sentence coverage, we have to look at each "service's method"
-	 * we are testing and we have to analyse its composition (if, for, ...) and Asserts.
-	 * Then, we calculate the number of total cases which our code can execute. The equation will be:
+	 * ----CALCULATE COVERAGE----
+	 * The previous delivery, we calculate it manually. In this one instead we are using the plugin called EclEmma,
+	 * with which we can automatically calculate the percentage.
 	 * 
-	 * (nº passed cases / nº total cases)*100 = coverage(%)
-	 * 
-	 * In the end of the class, we conclude with the total coverage of the service's methods
-	 * which means the service's coverage.
-	 * 
-	 * 
-	 * ----CALCULATE DATA COVERAGE----
-	 * To calculate the data coverage, we have look at
-	 * each object's attributes, we analyse in each one of them
-	 * the domain's restrictions and the business rules
-	 * about the attribute. If we have tested all types of cases
-	 * in a attribute, that is called "proven attribute".
-	 * 
-	 * (nº proven attributes/ nº total attributes)*100 = coverage(%)
-	 * 
-	 * ----Note:
-	 * It's clear that if we have tested all cases about a method in a test
-	 * and now It have already had a 100% of coverage, we don't have to
-	 * mention its coverage in other test.
+	 * Each of the test have their result just before them, and the coverage of the complete test is shown at the end of the document.
 	 */
 
 	/*
-	 * ACME-PARADE
-	 * a)(Level A) Requirement 16.1: Sponsor manage his/her sponsorships: Edit
+	 * ACME-ROOKIES
+	 * a)(Level A) Requirement 13.1: Providers manage his/her sponsorships: Edit
 	 * 
 	 * b) Negative cases:
 	 * 2. Wrong user, same authority
@@ -91,8 +72,8 @@ public class SponsorshipServiceTest extends AbstractTest {
 	 * -findOne() = 100%
 	 * 
 	 * d) Data coverage
-	 * -Sponsorship: 2 passed cases / 6 total cases = 33,3%
-	 * -CreditCard: 4 passed cases / 6 total cases = 66,6%
+	 * -Sponsorship = 33,3%
+	 * -CreditCard = 66,6%
 	 */
 
 	@Test
@@ -220,8 +201,8 @@ public class SponsorshipServiceTest extends AbstractTest {
 	}
 
 	/*
-	 * ACME-PARADE
-	 * a)(Level A) Requirement 16.1: Sponsor manage his/her sponsorships : Create
+	 * ACME-ROOKIES
+	 * a)(Level A) Requirement 13.1: Providers manage his/her sponsorships : Create
 	 * 
 	 * b) Negative cases:
 	 * 2. Wrong authority
@@ -234,7 +215,7 @@ public class SponsorshipServiceTest extends AbstractTest {
 	 * -create() = 100%
 	 * 
 	 * d) Data coverage
-	 * -Sponsorship: 0 passed cases / 4 total cases = 0%
+	 * -Sponsorship = 0%
 	 */
 	@Test
 	public void driverCreateSponsorship() {
@@ -294,17 +275,17 @@ public class SponsorshipServiceTest extends AbstractTest {
 	}
 
 	/*
-	 * ACME-PARADE
-	 * a)(Level A) Requirement 16.1: Sponsor manage his/her sponsorships: List
+	 * ACME-ROOKIES
+	 * a)(Level A) Requirement 13.1: Providers manage his/her sponsorships : List
 	 * 
 	 * b) Negative cases:
 	 * 2. Incorrect results
 	 * 
 	 * c) Sentence coverage
-	 * -findAllBySponsorId(): 1 passed cases / 1 total cases = 100%
+	 * -findAllBySponsorId() = 100%
 	 * 
 	 * d) Data coverage
-	 * -Sponsorship: 0 passed cases / 4 total cases = 0%
+	 * -Sponsorship = 0%
 	 */
 
 	@Test
@@ -348,18 +329,18 @@ public class SponsorshipServiceTest extends AbstractTest {
 	}
 
 	/*
-	 * ACME-PARADE
-	 * a)(Level A) Requirement 20: Every time a parade with sponsorships is displayed, a random sponsorship must be selected and its banner must be shown as little intrusively as possible.
+	 * ACME-ROOKIES
+	 * a)(Level A) Requirement 15: Every time a position with sponsorships is displayed, a random sponsorship must be selected and its banner must be shown as little intrusively as possible.
 	 * 
 	 * b) Negative cases:
 	 * 2. Wrong return
 	 * 
 	 * c) Sentence coverage
-	 * -findOne(): 1 passed cases / 1 total cases = 100%
-	 * -ramdomSponsorship(): 5 passed cases / 6 total cases = 83.33333%
+	 * -findOne() = 100%
+	 * -ramdomSponsorship() = 74,7%
 	 * 
 	 * d) Data coverage
-	 * -Sponsorship: 0 passed cases / 4 total cases = 0%
+	 * -Sponsorship = 0%
 	 */
 
 	@Test
@@ -413,13 +394,7 @@ public class SponsorshipServiceTest extends AbstractTest {
 	 * -------Coverage SponsorshipService-------
 	 * 
 	 * ----TOTAL SENTENCE COVERAGE:
-	 * save() = 100%
-	 * create() = 100%
-	 * findAll() = 100%
-	 * list() = 100%
-	 * findOne() = 100%
-	 * ramdomSponsorship() = 83.33333%
-	 * deactivateExpiredCardSponsorships = 40 %
+	 * SponsorshipService = 47,3%
 	 * 
 	 * ----TOTAL DATA COVERAGE:
 	 * -Sponsorship: 33,3%
