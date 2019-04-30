@@ -274,7 +274,7 @@ public class ApplicationService {
 			res.setRookie(this.rookieService.findByPrincipal());
 			res.setMoment(now);
 
-			if (!res.getAnswer().isEmpty()) {
+			if (!res.getAnswer().trim().isEmpty()) {
 
 				res.setSubmitMoment(now);
 				res.setStatus("SUBMITTED");
