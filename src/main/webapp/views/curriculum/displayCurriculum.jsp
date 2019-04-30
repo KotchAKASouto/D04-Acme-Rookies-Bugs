@@ -49,9 +49,11 @@
 	
 	<acme:column property="description" titleKey="curriculum.description" value= "${row1.description} "/>
 	
-	<acme:column property="startDate" titleKey="curriculum.startDate" value= "${row1.startDate} "/>
+	<acme:dateFormat titleKey="curriculum.startDate" pattern="yyyy/MM/dd" value="${row1.startDate}"/>
 	
-	<acme:column property="endDate" titleKey="curriculum.endDate" value= "${row1.endDate} "/>
+	<acme:dateFormat titleKey="curriculum.endDate" pattern="yyyy/MM/dd" value="${row1.endDate}"/>
+	
+
 	
 	<security:authorize access="hasRole('ROOKIE')">
 		<jstl:if test="${curriculum.noCopy}">
@@ -84,9 +86,9 @@
 	
 	<acme:column property="mark" titleKey="curriculum.mark" value= "${row2.mark} "/>
 	
-	<acme:column property="startDate" titleKey="curriculum.startDate" value= "${row2.startDate} "/>
+	<acme:dateFormat titleKey="curriculum.startDate" pattern="yyyy/MM/dd" value="${row2.startDate}"/>
 	
-	<acme:column property="endDate" titleKey="curriculum.endDate" value= "${row2.endDate} "/>
+	<acme:dateFormat titleKey="curriculum.endDate" pattern="yyyy/MM/dd" value="${row2.endDate}"/>
 	
 	<security:authorize access="hasRole('ROOKIE')">
 		<jstl:if test="${curriculum.noCopy}">
