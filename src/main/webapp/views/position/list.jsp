@@ -12,8 +12,8 @@
 <jstl:if test="${!AmILogged }">
 <form action="position/listByFilter.do" method="get">
 
-<spring:message code="filter.keyword" />: <input type="text" id="keyword" name="keyword" path="keyword"/>
-<spring:message code="company.commercialName"/>: <input type="text" id="companyName" name="companyName" path="companyName" />
+<spring:message code="filter.keyword" />: <input type="text" id="keyword" name="keyword" />
+<spring:message code="company.commercialName"/>: <input type="text" id="companyName" name="companyName"  />
 
 <acme:submit name="search" code="filter.search"/>
 

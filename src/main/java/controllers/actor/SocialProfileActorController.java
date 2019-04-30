@@ -21,7 +21,7 @@ import domain.Actor;
 import domain.SocialProfile;
 
 @Controller
-@RequestMapping("/socialProfile/administrator,company,hacker")
+@RequestMapping("/socialProfile/administrator,company,rookie")
 public class SocialProfileActorController extends AbstractController {
 
 	@Autowired
@@ -51,7 +51,7 @@ public class SocialProfileActorController extends AbstractController {
 		result = new ModelAndView("socialProfile/list");
 		result.addObject("socialProfiles", socialProfiles);
 		result.addObject("banner", banner);
-		result.addObject("requestURI", "socialProfile/administrator,company,hacker/list.do");
+		result.addObject("requestURI", "socialProfile/administrator,company,rookie/list.do");
 
 		return result;
 
