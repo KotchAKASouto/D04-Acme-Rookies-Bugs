@@ -34,7 +34,7 @@ public class AuditController extends AbstractController {
 		final ModelAndView result;
 		final Collection<Audit> audits;
 
-		audits = this.auditService.findAuditsByPositionId(positionId);
+		audits = this.auditService.findFinalAuditsByPositionId(positionId);
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 		final String uri = "audit/listByPosition.do?positionId=" + positionId;

@@ -455,7 +455,7 @@ public class PositionServiceTest extends AbstractTest {
 	 * 2. The number of positions is incorrect
 	 * 
 	 * c) Sentence coverage
-	 * -positionsNotAssignedAnyAuditor():100%
+	 * -findPositionsFinalModeTrueWithoutDeadline():100%
 	 * 
 	 * d) Data coverage
 	 * -Position: 0%
@@ -464,7 +464,7 @@ public class PositionServiceTest extends AbstractTest {
 	public void driverListPositionsNotAssignedAnyAuditor() {
 		final Object testingData[][] = {
 			{
-				3, null
+				6, null
 			},//1. All fine
 			{
 				1, IllegalArgumentException.class
@@ -483,7 +483,8 @@ public class PositionServiceTest extends AbstractTest {
 		try {
 			this.startTransaction();
 
-			final Collection<Position> positions = this.positionService.positionsNotAssignedAnyAuditor();
+			final Collection<Position> positions = this.positionService.findPositionsFinalModeTrueWithoutDeadline();
+
 			final Integer tamaño = positions.size();
 			Assert.isTrue(tamaño == number);
 		} catch (final Throwable oops) {

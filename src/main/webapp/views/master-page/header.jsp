@@ -69,8 +69,9 @@
 			<li><a class="fNiv"><spring:message	code="master.page.auditor" /></a>
 				<ul>
 					<li class="arrow"></li>
-
+					
 					<li><a href="position/auditor/listPosition.do"><spring:message code="master.page.auditor.position.list" /></a></li>
+					<li><a href="position/auditor/listMyPosition.do"><spring:message code="master.page.auditor.myposition.list" /></a></li>
 					<li><a href="audit/auditor/list.do"><spring:message code="master.page.auditor.auditList" /></a></li>
 				
 				</ul>

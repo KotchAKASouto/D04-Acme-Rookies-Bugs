@@ -201,9 +201,13 @@ public class PositionService {
 					for (final Sponsorship s : sponsorships)
 						this.sponsorshipService.delete(s);
 
-				final Auditor auditor = this.auditorService.findAuditorByPositionId(p.getId());
-				auditor.setPosition(null);
-				this.auditorService.saveAdmin(auditor);
+				final Collection<Auditor> auditors = this.auditorService.findAuditorByPositionId(p.getId());
+				if (!auditors.isEmpty())
+					for (final Auditor auditor : auditors) {
+						final Collection<Position> auditorPositions = auditor.getPositions();
+						auditorPositions.remove(p);
+						this.auditorService.saveAdmin(auditor);
+					}
 
 				this.positionRepository.delete(p);
 			}
@@ -270,10 +274,11 @@ public class PositionService {
 		return positions;
 	}
 
-	public Collection<Position> positionsNotAssignedAnyAuditor() {
-		final Collection<Position> position = this.positionRepository.positionsNotAssignedAnyAuditor();
+	public Collection<Position> findPositionsFinalModeTrueWithoutDeadline() {
 
-		return position;
+		final Collection<Position> positions = this.positionRepository.findPositionsFinalModeTrueWithoutDeadline();
+
+		return positions;
 	}
 
 	public Boolean positionCompanySecurity(final int positionId) {

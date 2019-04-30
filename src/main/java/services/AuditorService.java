@@ -49,7 +49,7 @@ public class AuditorService {
 		result.setUserAccount(userAccount);
 
 		result.setSpammer(null);
-		result.setPosition(null);
+		result.setPositions(null);
 
 		return result;
 
@@ -194,7 +194,7 @@ public class AuditorService {
 
 			auditor.setUserAccount(auditorBBDD.getUserAccount());
 			auditor.setSpammer(auditorBBDD.getSpammer());
-			auditor.setPosition(auditorBBDD.getPosition());
+			auditor.setPositions(auditorBBDD.getPositions());
 
 			this.validator.validate(auditor, binding);
 
@@ -204,8 +204,8 @@ public class AuditorService {
 
 	}
 
-	public Auditor findAuditorByPositionId(final int positionId) {
-		final Auditor result = this.auditorRepository.findAuditorByPositionId(positionId);
+	public Collection<Auditor> findAuditorByPositionId(final int positionId) {
+		final Collection<Auditor> result = this.auditorRepository.findAuditorByPositionId(positionId);
 
 		return result;
 	}

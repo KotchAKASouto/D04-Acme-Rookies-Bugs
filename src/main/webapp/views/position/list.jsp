@@ -79,8 +79,12 @@
 	<acme:url href="audit/listByPosition.do?positionId=${row.id }" code="position.audits" />
 	
 	<security:authorize access="hasRole('AUDITOR')">
-		<jstl:if test="${assigned==false}">
+		<jstl:if test="${requestURI=='position/auditor/listPosition.do'}">
 			<acme:url href="position/auditor/select.do?positionId=${row.id }" code="position.select" />
+		</jstl:if>
+		
+		<jstl:if test="${requestURI=='position/auditor/listMyPosition.do'}">
+			<acme:url href="audit/auditor/create.do?positionId=${row.id }" code="position.audit" />
 		</jstl:if>
 	</security:authorize> 
 	

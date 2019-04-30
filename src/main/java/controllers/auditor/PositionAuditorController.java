@@ -1,7 +1,6 @@
 
 package controllers.auditor;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,32 +32,28 @@ public class PositionAuditorController extends AbstractController {
 	private PositionService			positionService;
 
 
+	//Lista de posiciones que puede asignarse un auditor
 	@RequestMapping(value = "/listPosition", method = RequestMethod.GET)
 	public ModelAndView list() {
 		final ModelAndView result;
 		Collection<Position> positions;
 		final Auditor auditor = this.auditorService.findByPrincipal();
 
-		Boolean assigned = false;
+		positions = this.positionService.findPositionsFinalModeTrueWithoutDeadline();
+		final Collection<Position> myPositions = auditor.getPositions();
 
-		if (auditor.getPosition() == null)
-			positions = this.positionService.positionsNotAssignedAnyAuditor();
-		else {
-			positions = new ArrayList<>();
-			positions.add(auditor.getPosition());
-			assigned = true;
-		}
+		positions.removeAll(myPositions);
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
 		result = new ModelAndView("position/list");
 		result.addObject("positions", positions);
 		result.addObject("banner", banner);
-		result.addObject("requestURI", "area/chapter/listAreas.do");
+		result.addObject("requestURI", "position/auditor/listPosition.do");
 		result.addObject("pagesize", 5);
-		result.addObject("assigned", assigned);
 		result.addObject("AmILogged", true);
 		result.addObject("AmInFinder", false);
+		result.addObject("AmInCompanyController", false);
 
 		return result;
 	}
@@ -70,17 +65,20 @@ public class PositionAuditorController extends AbstractController {
 		final Auditor auditor = this.auditorService.findByPrincipal();
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
+		final Collection<Position> positions = auditor.getPositions();
+
 		if (this.positionService.findOne(positionId) == null) {
 			result = new ModelAndView("misc/notExist");
 			result.addObject("banner", banner);
-		} else if (auditor.getPosition() != null || this.auditorService.findAuditorByPositionId(positionId) != null || this.positionService.findOne(positionId).getFinalMode() == false)
+		} else if (this.positionService.findOne(positionId).getFinalMode() == false || positions.contains(this.positionService.findOne(positionId)))
 			result = new ModelAndView("redirect:listPosition.do");
 		else
 			try {
 				final Position position = this.positionService.findOne(positionId);
-				auditor.setPosition(position);
+				positions.add(position);
+				auditor.setPositions(positions);
 				this.auditorService.save(auditor);
-				result = new ModelAndView("redirect:listPosition.do");
+				result = new ModelAndView("redirect:listMyPosition.do");
 			} catch (final Throwable oops) {
 				result = new ModelAndView("misc/error");
 
@@ -89,5 +87,27 @@ public class PositionAuditorController extends AbstractController {
 
 		return result;
 
+	}
+
+	//Lista de posiciones a las que puede auditar un auditor
+	@RequestMapping(value = "/listMyPosition", method = RequestMethod.GET)
+	public ModelAndView listMyPosition() {
+		final ModelAndView result;
+		Collection<Position> positions;
+		final Auditor auditor = this.auditorService.findByPrincipal();
+
+		positions = auditor.getPositions();
+
+		final String banner = this.configurationService.findConfiguration().getBanner();
+
+		result = new ModelAndView("position/list");
+		result.addObject("positions", positions);
+		result.addObject("banner", banner);
+		result.addObject("requestURI", "position/auditor/listMyPosition.do");
+		result.addObject("pagesize", 5);
+		result.addObject("AmILogged", true);
+		result.addObject("AmInFinder", false);
+
+		return result;
 	}
 }
