@@ -14,9 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 import services.CompanyService;
 import services.ConfigurationService;
 import services.PositionService;
+import services.SponsorshipService;
 import controllers.AbstractController;
 import domain.Company;
 import domain.Position;
+import domain.Sponsorship;
 import forms.FilterForm;
 
 @Controller
@@ -28,6 +30,9 @@ public class PositionController extends AbstractController {
 
 	@Autowired
 	private CompanyService			companyService;
+
+	@Autowired
+	private SponsorshipService		sponsorshipService;
 
 	@Autowired
 	private ConfigurationService	configurationService;
@@ -131,6 +136,20 @@ public class PositionController extends AbstractController {
 			result.addObject("banner", banner);
 			//Esto es para reutilizar vista de position/list en el create
 			result.addObject("AmInCompanyController", false);
+
+			try {
+				final Sponsorship s = this.sponsorshipService.ramdomSponsorship(positionId);
+
+				if (s != null) {
+					result.addObject("find", true);
+					result.addObject("bannerSponsorship", s.getBanner());
+				}
+
+				else
+					result.addObject("find", false);
+			} catch (final Throwable oops) {
+				result.addObject("find", false);
+			}
 
 		}
 		return result;

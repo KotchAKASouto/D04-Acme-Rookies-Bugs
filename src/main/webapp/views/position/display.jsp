@@ -41,5 +41,11 @@
 <acme:button name="back" code="position.back" onclick="javascript: relativeRedir('position/list.do');" />
 </jstl:if>
 
+<jstl:if test="${find}">
+	<fieldset>
+		<img src="${bannerSponsorship}" alt="Banner" width="200" height="100"/>
+	</fieldset>
+</jstl:if>
+
 
 
