@@ -11,9 +11,6 @@
 
 <form:form action="administrator/edit.do" modelAttribute="administrator">
 	
-	<form:hidden path="id"/>
-	<form:hidden path="version"/>
-	
 	<acme:textbox code="actor.name" path="name" obligatory="true"/>
 
 	<acme:textbox code="actor.surnames" path="surnames" obligatory="true"/>

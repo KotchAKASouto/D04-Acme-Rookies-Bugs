@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,27 +31,28 @@ public class AdministratorService {
 
 	// Managed Repository ------------------------
 	@Autowired
-	private AdministratorRepository administratorRepository;
+	private AdministratorRepository	administratorRepository;
 
 	// Suporting services ------------------------
 
 	@Autowired
-	private ActorService actorService;
+	private ActorService			actorService;
 
 	@Autowired
-	private UserAccountService userAccountService;
+	private UserAccountService		userAccountService;
 
 	@Autowired
-	private PositionService positionService;
+	private PositionService			positionService;
 
 	@Autowired
-	private Validator validator;
+	private Validator				validator;
 
 	@Autowired
-	private ConfigurationService configurationService;
+	private ConfigurationService	configurationService;
 
 	@Autowired
-	private MessageService messageService;
+	private MessageService			messageService;
+
 
 	// Simple CRUD methods -----------------------
 
@@ -107,8 +107,7 @@ public class AdministratorService {
 			final Date now = new Date(System.currentTimeMillis() - 1000);
 
 			Assert.isTrue(administrator.getCreditCard().getExpYear() - 1900 >= now.getYear());
-			Assert.isTrue(administrator.getCreditCard().getExpMonth() - 1 >= now.getMonth()
-					|| administrator.getCreditCard().getExpYear() - 1900 > now.getYear());
+			Assert.isTrue(administrator.getCreditCard().getExpMonth() - 1 >= now.getMonth() || administrator.getCreditCard().getExpYear() - 1900 > now.getYear());
 
 			this.actorService.checkEmail(administrator.getEmail(), true);
 			this.actorService.checkPhone(administrator.getPhone());
@@ -134,8 +133,7 @@ public class AdministratorService {
 			final Date now = new Date(System.currentTimeMillis() - 1000);
 
 			Assert.isTrue(administrator.getCreditCard().getExpYear() - 1900 >= now.getYear());
-			Assert.isTrue(administrator.getCreditCard().getExpMonth() - 1 >= now.getMonth()
-					|| administrator.getCreditCard().getExpYear() - 1900 > now.getYear());
+			Assert.isTrue(administrator.getCreditCard().getExpMonth() - 1 >= now.getMonth() || administrator.getCreditCard().getExpYear() - 1900 > now.getYear());
 
 			final String phone = this.actorService.checkPhone(administrator.getPhone());
 
@@ -151,8 +149,6 @@ public class AdministratorService {
 
 		this.validator.validate(form, binding);
 
-		admin.setId(form.getId());
-		admin.setVersion(form.getVersion());
 		admin.setName(form.getName());
 		admin.setSurnames(form.getSurnames());
 		admin.setVat(form.getVat());
@@ -306,9 +302,8 @@ public class AdministratorService {
 	public List<String> topCompaniesWithMorePositions() {
 		final List<String> result = this.administratorRepository.topCompaniesWithMorePositions();
 
-		if (result.size() == 0) {
+		if (result.size() == 0)
 			result.add(" N/A ");
-		}
 
 		return result;
 	}
@@ -316,9 +311,8 @@ public class AdministratorService {
 	public List<String> topRookiesWithMoreApplications() {
 		final List<String> result = this.administratorRepository.topRookieWithMoreApplications();
 
-		if (result.size() == 0) {
+		if (result.size() == 0)
 			result.add(" N/A ");
-		}
 
 		return result;
 	}
@@ -346,7 +340,7 @@ public class AdministratorService {
 		try {
 			final int id = this.administratorRepository.findBestPosition();
 			result = this.positionService.findOne(id);
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			return null;
 		}
 
@@ -358,7 +352,7 @@ public class AdministratorService {
 		try {
 			final int id = this.administratorRepository.findWorstPosition();
 			result = this.positionService.findOne(id);
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			return null;
 		}
 		return result;

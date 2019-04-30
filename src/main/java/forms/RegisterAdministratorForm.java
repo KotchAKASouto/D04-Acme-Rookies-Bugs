@@ -15,8 +15,6 @@ import domain.CreditCard;
 
 public class RegisterAdministratorForm {
 
-	private int			id;
-	private int			version;
 	private String		name;
 	private String		surnames;
 	private Integer		vat;
@@ -32,24 +30,6 @@ public class RegisterAdministratorForm {
 
 	private Boolean		checkbox;
 
-
-	@NotNull
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(final int id) {
-		this.id = id;
-	}
-
-	@NotNull
-	public int getVersion() {
-		return this.version;
-	}
-
-	public void setVersion(final int version) {
-		this.version = version;
-	}
 
 	@NotBlank
 	@SafeHtml
