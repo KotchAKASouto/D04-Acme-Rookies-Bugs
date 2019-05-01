@@ -56,7 +56,7 @@ public class SponsorshipProviderController {
 
 		result = new ModelAndView("sponsorship/list");
 		result.addObject("sponsorships", sponsorships);
-		result.addObject("requestURI", "sponsorships/provider/list.do");
+		result.addObject("requestURI", "sponsorship/provider/list.do");
 		result.addObject("pagesize", 5);
 		result.addObject("banner", banner);
 

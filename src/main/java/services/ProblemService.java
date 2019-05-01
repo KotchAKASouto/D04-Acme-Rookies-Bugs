@@ -2,6 +2,7 @@
 package services;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 
 import javax.transaction.Transactional;
@@ -85,7 +86,6 @@ public class ProblemService {
 		Assert.notNull(problem);
 		final Actor actor = this.actorService.findByPrincipal();
 		Assert.notNull(actor);
-
 		final Authority comp = new Authority();
 		comp.setAuthority(Authority.COMPANY);
 		Assert.isTrue(actor.getUserAccount().getAuthorities().contains(comp));
@@ -146,6 +146,8 @@ public class ProblemService {
 
 		Assert.notNull(problem);
 		Assert.notNull(position);
+		final Date currentMoment = new Date(System.currentTimeMillis() - 1000);
+		Assert.isTrue(position.getDeadline().after(currentMoment));
 		final Actor actor = this.actorService.findByPrincipal();
 		Assert.notNull(actor);
 

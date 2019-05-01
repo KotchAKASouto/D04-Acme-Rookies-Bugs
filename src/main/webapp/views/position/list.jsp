@@ -41,7 +41,7 @@
 </security:authorize>
 </jstl:if>
 
-<display:table name="positions" id="row" requestURI="${requestURI }" pagesize="${pagesize }" size="100">
+<display:table name="positions" id="row" requestURI="${requestURI }" pagesize="${pagesize }" >
 	
 	
 	<acme:column property="ticker" titleKey="position.ticker" value= "${row.ticker}: "/>
@@ -67,6 +67,7 @@
 		<acme:column property="finalMode" titleKey="position.finalMode" value="${row.finalMode }" />
 		</jstl:if>
 	</security:authorize>
+	
 	
 	<jstl:if test="${AmInCompanyController }">
 	<acme:url href="position/company/display.do?positionId=${row.id }" code="position.display"/>
@@ -104,7 +105,7 @@
 		</display:column>
 	</security:authorize> 
 	
-	<jstl:if test="${requestURI == 'position/list.do'}">
+	<jstl:if test="${requestURI == 'position/list.do' || requestURI == 'position/listByFilter.do'}">
 		<acme:url href="company/display.do?positionId=${row.id }" code="position.company.display"/>
 	</jstl:if>
 

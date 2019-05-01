@@ -39,11 +39,12 @@
 	
 	<acme:submit name="save" code="position.save" />	
 
-	<acme:cancel code="position.cancel" url="position/company/list.do" />
+	<acme:cancel code="position.cancel" url="position/company/list.do" /><br>
 	
 	<jstl:if test="${position.id != 0}">
-		<acme:delete code="position.delete" />
 		<h4><spring:message code="position.delete.explanation"/></h4>
+		<acme:delete code="position.delete" />
+		
 	</jstl:if>	
 	
 

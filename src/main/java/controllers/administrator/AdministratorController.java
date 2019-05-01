@@ -181,9 +181,11 @@ public class AdministratorController extends AbstractController {
 			else
 				result.addObject("isCompany", false);
 
-		} else
+		} else {
 			result = new ModelAndView("misc/notExist");
-
+			final String banner = this.configurationService.findConfiguration().getBanner();
+			result.addObject("banner", banner);
+		}
 		return result;
 
 	}
