@@ -43,8 +43,5 @@
 </display:table>
 
 </security:authorize> 
-	<jstl:if test="${messageError!=null }">
-	<div class="error"><spring:message code="${messageError }" /></div>
-	</jstl:if> 
 		
 	<acme:button name="back" code="position.back" onclick="javascript: relativeRedir('problem/company/list.do');" />

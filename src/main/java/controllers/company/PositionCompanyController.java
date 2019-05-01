@@ -186,6 +186,8 @@ public class PositionCompanyController extends AbstractController {
 			result.addObject("banner", banner);
 			//Esto es para reutilizar vista de position/list en el create
 			result.addObject("AmInCompanyController", true);
+			final Boolean security = this.positionService.positionCompanySecurity(position.getId());
+			result.addObject("security", security);
 
 			try {
 				final Sponsorship s = this.sponsorshipService.ramdomSponsorship(positionId);
@@ -216,9 +218,6 @@ public class PositionCompanyController extends AbstractController {
 		result.addObject("messageError", messageCode);
 		result.addObject("banner", banner);
 		result.addObject("language", LocaleContextHolder.getLocale().getLanguage());
-
-		final Boolean security = this.positionService.positionCompanySecurity(position.getId());
-		result.addObject("security", security);
 
 		return result;
 	}
