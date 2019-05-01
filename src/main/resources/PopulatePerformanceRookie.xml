@@ -21732,6 +21732,3274 @@
         <property name="userAccount" ref="userAccountAuditor200" />
         <property name="creditCard" ref="creditCardAuditor200" />
     </bean>
+    
+    <!-- 99 Admins -->
+    <bean id="userAccountAdmin1" class="security.UserAccount">
+        <property name="username" value="admin1" />
+        <property name="password" value="e00cf25ad42683b3df678c61f42c6bda" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin1" class="domain.CreditCard">
+        <property name="holderName" value="admin1" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator1" class="domain.Administrator">
+        <property name="name" value="administrator1" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100000" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin1" />
+        <property name="creditCard" ref="creditCardAdmin1" />
+    </bean>
+    
+    <bean id="userAccountAdmin2" class="security.UserAccount">
+        <property name="username" value="admin2" />
+        <property name="password" value="c84258e9c39059a89ab77d846ddab909" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin2" class="domain.CreditCard">
+        <property name="holderName" value="admin2" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator2" class="domain.Administrator">
+        <property name="name" value="administrator2" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100001" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin2" />
+        <property name="creditCard" ref="creditCardAdmin2" />
+    </bean>
+    
+    <bean id="userAccountAdmin3" class="security.UserAccount">
+        <property name="username" value="admin3" />
+        <property name="password" value="32cacb2f994f6b42183a1300d9a3e8d6" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin3" class="domain.CreditCard">
+        <property name="holderName" value="admin3" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator3" class="domain.Administrator">
+        <property name="name" value="administrator3" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100002" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin3" />
+        <property name="creditCard" ref="creditCardAdmin3" />
+    </bean>
+    
+    <bean id="userAccountAdmin4" class="security.UserAccount">
+        <property name="username" value="admin4" />
+        <property name="password" value="fc1ebc848e31e0a68e868432225e3c82" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin4" class="domain.CreditCard">
+        <property name="holderName" value="admin4" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator4" class="domain.Administrator">
+        <property name="name" value="administrator4" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100003" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin4" />
+        <property name="creditCard" ref="creditCardAdmin4" />
+    </bean>
+    
+    <bean id="userAccountAdmin5" class="security.UserAccount">
+        <property name="username" value="admin5" />
+        <property name="password" value="26a91342190d515231d7238b0c5438e1" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin5" class="domain.CreditCard">
+        <property name="holderName" value="admin5" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator5" class="domain.Administrator">
+        <property name="name" value="administrator5" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100004" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin5" />
+        <property name="creditCard" ref="creditCardAdmin5" />
+    </bean>
+    
+    <bean id="userAccountAdmin6" class="security.UserAccount">
+        <property name="username" value="admin6" />
+        <property name="password" value="c6b853d6a7cc7ec49172937f68f446c8" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin6" class="domain.CreditCard">
+        <property name="holderName" value="admin6" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator6" class="domain.Administrator">
+        <property name="name" value="administrator6" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100005" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin6" />
+        <property name="creditCard" ref="creditCardAdmin6" />
+    </bean>
+    
+    <bean id="userAccountAdmin7" class="security.UserAccount">
+        <property name="username" value="admin7" />
+        <property name="password" value="788073cefde4b240873e1f52f5371d7d" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin7" class="domain.CreditCard">
+        <property name="holderName" value="admin7" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator7" class="domain.Administrator">
+        <property name="name" value="administrator7" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100006" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin7" />
+        <property name="creditCard" ref="creditCardAdmin7" />
+    </bean>
+    
+    <bean id="userAccountAdmin8" class="security.UserAccount">
+        <property name="username" value="admin8" />
+        <property name="password" value="8762eb814817cc8dcbb3fb5c5fcd52e0" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin8" class="domain.CreditCard">
+        <property name="holderName" value="admin8" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator8" class="domain.Administrator">
+        <property name="name" value="administrator8" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100007" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin8" />
+        <property name="creditCard" ref="creditCardAdmin8" />
+    </bean>
+    
+    <bean id="userAccountAdmin9" class="security.UserAccount">
+        <property name="username" value="admin9" />
+        <property name="password" value="eed57216df3731106517ccaf5da2122d" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin9" class="domain.CreditCard">
+        <property name="holderName" value="admin9" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator9" class="domain.Administrator">
+        <property name="name" value="administrator9" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100008" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin9" />
+        <property name="creditCard" ref="creditCardAdmin9" />
+    </bean>
+    
+    <bean id="userAccountAdmin10" class="security.UserAccount">
+        <property name="username" value="admin10" />
+        <property name="password" value="4fbd41a36dac3cd79aa1041c9648ab89" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin10" class="domain.CreditCard">
+        <property name="holderName" value="admin10" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator10" class="domain.Administrator">
+        <property name="name" value="administrator10" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100009" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin10" />
+        <property name="creditCard" ref="creditCardAdmin10" />
+    </bean>
+    
+    <bean id="userAccountAdmin11" class="security.UserAccount">
+        <property name="username" value="admin11" />
+        <property name="password" value="e020590f0e18cd6053d7ae0e0a507609" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin11" class="domain.CreditCard">
+        <property name="holderName" value="admin11" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator11" class="domain.Administrator">
+        <property name="name" value="administrator11" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100010" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin11" />
+        <property name="creditCard" ref="creditCardAdmin11" />
+    </bean>
+    
+    <bean id="userAccountAdmin12" class="security.UserAccount">
+        <property name="username" value="admin12" />
+        <property name="password" value="1844156d4166d94387f1a4ad031ca5fa" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin12" class="domain.CreditCard">
+        <property name="holderName" value="admin12" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator12" class="domain.Administrator">
+        <property name="name" value="administrator12" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100011" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin12" />
+        <property name="creditCard" ref="creditCardAdmin12" />
+    </bean>
+    
+    <bean id="userAccountAdmin13" class="security.UserAccount">
+        <property name="username" value="admin13" />
+        <property name="password" value="588e57b852a16b297af73ae818065474" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin13" class="domain.CreditCard">
+        <property name="holderName" value="admin13" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator13" class="domain.Administrator">
+        <property name="name" value="administrator13" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100012" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin13" />
+        <property name="creditCard" ref="creditCardAdmin13" />
+    </bean>
+    
+    <bean id="userAccountAdmin14" class="security.UserAccount">
+        <property name="username" value="admin14" />
+        <property name="password" value="bdc8341bb7c06ca3a3e9ab7d39ecb789" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin14" class="domain.CreditCard">
+        <property name="holderName" value="admin14" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator14" class="domain.Administrator">
+        <property name="name" value="administrator14" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100013" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin14" />
+        <property name="creditCard" ref="creditCardAdmin14" />
+    </bean>
+    
+    <bean id="userAccountAdmin15" class="security.UserAccount">
+        <property name="username" value="admin15" />
+        <property name="password" value="b26c077af60ba02d12c8436110256029" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin15" class="domain.CreditCard">
+        <property name="holderName" value="admin15" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator15" class="domain.Administrator">
+        <property name="name" value="administrator15" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100014" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin15" />
+        <property name="creditCard" ref="creditCardAdmin15" />
+    </bean>
+    
+    <bean id="userAccountAdmin16" class="security.UserAccount">
+        <property name="username" value="admin16" />
+        <property name="password" value="9071e0ca7e4964a5cc69201ba2743650" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin16" class="domain.CreditCard">
+        <property name="holderName" value="admin16" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator16" class="domain.Administrator">
+        <property name="name" value="administrator16" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100015" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin16" />
+        <property name="creditCard" ref="creditCardAdmin16" />
+    </bean>
+    
+    <bean id="userAccountAdmin17" class="security.UserAccount">
+        <property name="username" value="admin17" />
+        <property name="password" value="d5133c970ad3a99c2248fed76970d06c" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin17" class="domain.CreditCard">
+        <property name="holderName" value="admin17" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator17" class="domain.Administrator">
+        <property name="name" value="administrator17" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100016" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin17" />
+        <property name="creditCard" ref="creditCardAdmin17" />
+    </bean>
+    
+    <bean id="userAccountAdmin18" class="security.UserAccount">
+        <property name="username" value="admin18" />
+        <property name="password" value="5007007bf0d84200644731d5d3bf9aff" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin18" class="domain.CreditCard">
+        <property name="holderName" value="admin18" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator18" class="domain.Administrator">
+        <property name="name" value="administrator18" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100017" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin18" />
+        <property name="creditCard" ref="creditCardAdmin18" />
+    </bean>
+    
+    <bean id="userAccountAdmin19" class="security.UserAccount">
+        <property name="username" value="admin19" />
+        <property name="password" value="fb82367ca705634db5ff2e896a7d0334" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin19" class="domain.CreditCard">
+        <property name="holderName" value="admin19" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator19" class="domain.Administrator">
+        <property name="name" value="administrator19" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100018" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin19" />
+        <property name="creditCard" ref="creditCardAdmin19" />
+    </bean>
+    
+    <bean id="userAccountAdmin20" class="security.UserAccount">
+        <property name="username" value="admin20" />
+        <property name="password" value="b29b1de827ef626d07210f0a2713f782" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin20" class="domain.CreditCard">
+        <property name="holderName" value="admin20" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator20" class="domain.Administrator">
+        <property name="name" value="administrator20" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100019" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin20" />
+        <property name="creditCard" ref="creditCardAdmin20" />
+    </bean>
+    
+    <bean id="userAccountAdmin21" class="security.UserAccount">
+        <property name="username" value="admin21" />
+        <property name="password" value="101d9fd14b31a93b06a10421f14dd023" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin21" class="domain.CreditCard">
+        <property name="holderName" value="admin21" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator21" class="domain.Administrator">
+        <property name="name" value="administrator21" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100020" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin21" />
+        <property name="creditCard" ref="creditCardAdmin21" />
+    </bean>
+    
+    <bean id="userAccountAdmin22" class="security.UserAccount">
+        <property name="username" value="admin22" />
+        <property name="password" value="1341215dbe9acab4361fd6417b2b11bc" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin22" class="domain.CreditCard">
+        <property name="holderName" value="admin22" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator22" class="domain.Administrator">
+        <property name="name" value="administrator22" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100021" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin22" />
+        <property name="creditCard" ref="creditCardAdmin22" />
+    </bean>
+    
+    <bean id="userAccountAdmin23" class="security.UserAccount">
+        <property name="username" value="admin23" />
+        <property name="password" value="c289ffe12a30c94530b7fc4e532e2f42" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin23" class="domain.CreditCard">
+        <property name="holderName" value="admin23" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator23" class="domain.Administrator">
+        <property name="name" value="administrator23" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100022" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin23" />
+        <property name="creditCard" ref="creditCardAdmin23" />
+    </bean>
+    
+    <bean id="userAccountAdmin24" class="security.UserAccount">
+        <property name="username" value="admin24" />
+        <property name="password" value="a577e0ad6296e88fb1898ecace3cd043" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin24" class="domain.CreditCard">
+        <property name="holderName" value="admin24" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator24" class="domain.Administrator">
+        <property name="name" value="administrator24" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100023" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin24" />
+        <property name="creditCard" ref="creditCardAdmin24" />
+    </bean>
+    
+    <bean id="userAccountAdmin25" class="security.UserAccount">
+        <property name="username" value="admin25" />
+        <property name="password" value="95db0357fafd0d349df4756a4966e969" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin25" class="domain.CreditCard">
+        <property name="holderName" value="admin25" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator25" class="domain.Administrator">
+        <property name="name" value="administrator25" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100024" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin25" />
+        <property name="creditCard" ref="creditCardAdmin25" />
+    </bean>
+    
+    <bean id="userAccountAdmin26" class="security.UserAccount">
+        <property name="username" value="admin26" />
+        <property name="password" value="418a17c2cdb1c7efd708e87162f8850c" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin26" class="domain.CreditCard">
+        <property name="holderName" value="admin26" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator26" class="domain.Administrator">
+        <property name="name" value="administrator26" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100025" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin26" />
+        <property name="creditCard" ref="creditCardAdmin26" />
+    </bean>
+    
+    <bean id="userAccountAdmin27" class="security.UserAccount">
+        <property name="username" value="admin27" />
+        <property name="password" value="f54dbca7c35255d2296c40d6766e63ad" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin27" class="domain.CreditCard">
+        <property name="holderName" value="admin27" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator27" class="domain.Administrator">
+        <property name="name" value="administrator27" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100026" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin27" />
+        <property name="creditCard" ref="creditCardAdmin27" />
+    </bean>
+    
+    <bean id="userAccountAdmin28" class="security.UserAccount">
+        <property name="username" value="admin28" />
+        <property name="password" value="e9e1bfd277ec61dc62e2e4f27e84c141" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin28" class="domain.CreditCard">
+        <property name="holderName" value="admin28" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator28" class="domain.Administrator">
+        <property name="name" value="administrator28" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100027" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin28" />
+        <property name="creditCard" ref="creditCardAdmin28" />
+    </bean>
+    
+    <bean id="userAccountAdmin29" class="security.UserAccount">
+        <property name="username" value="admin29" />
+        <property name="password" value="787e33d1fa592016673b276f39553b88" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin29" class="domain.CreditCard">
+        <property name="holderName" value="admin29" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator29" class="domain.Administrator">
+        <property name="name" value="administrator29" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100028" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin29" />
+        <property name="creditCard" ref="creditCardAdmin29" />
+    </bean>
+    
+    <bean id="userAccountAdmin30" class="security.UserAccount">
+        <property name="username" value="admin30" />
+        <property name="password" value="e6a0d43e6b902af6c0cb3e32de8ed69b" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin30" class="domain.CreditCard">
+        <property name="holderName" value="admin30" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator30" class="domain.Administrator">
+        <property name="name" value="administrator30" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100029" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin30" />
+        <property name="creditCard" ref="creditCardAdmin30" />
+    </bean>
+    
+    <bean id="userAccountAdmin31" class="security.UserAccount">
+        <property name="username" value="admin31" />
+        <property name="password" value="9dd56089270a59cb70de2bcfaa26c918" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin31" class="domain.CreditCard">
+        <property name="holderName" value="admin31" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator31" class="domain.Administrator">
+        <property name="name" value="administrator31" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100030" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin31" />
+        <property name="creditCard" ref="creditCardAdmin31" />
+    </bean>
+    
+    <bean id="userAccountAdmin32" class="security.UserAccount">
+        <property name="username" value="admin32" />
+        <property name="password" value="d993bcfdd033249281ee4a0e64d3cf26" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin32" class="domain.CreditCard">
+        <property name="holderName" value="admin32" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator32" class="domain.Administrator">
+        <property name="name" value="administrator32" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100031" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin32" />
+        <property name="creditCard" ref="creditCardAdmin32" />
+    </bean>
+    
+    <bean id="userAccountAdmin33" class="security.UserAccount">
+        <property name="username" value="admin33" />
+        <property name="password" value="f6a1921633481c17562904903c058f14" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin33" class="domain.CreditCard">
+        <property name="holderName" value="admin33" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator33" class="domain.Administrator">
+        <property name="name" value="administrator33" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100032" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin33" />
+        <property name="creditCard" ref="creditCardAdmin33" />
+    </bean>
+    
+    <bean id="userAccountAdmin34" class="security.UserAccount">
+        <property name="username" value="admin34" />
+        <property name="password" value="06d6d78ec1dd8f97a0475ecfd034c55c" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin34" class="domain.CreditCard">
+        <property name="holderName" value="admin34" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator34" class="domain.Administrator">
+        <property name="name" value="administrator34" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100033" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin34" />
+        <property name="creditCard" ref="creditCardAdmin34" />
+    </bean>
+    
+    <bean id="userAccountAdmin35" class="security.UserAccount">
+        <property name="username" value="admin35" />
+        <property name="password" value="da672ecfe8dd1291890fb2c6edc2fd05" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin35" class="domain.CreditCard">
+        <property name="holderName" value="admin35" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator35" class="domain.Administrator">
+        <property name="name" value="administrator35" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100034" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin35" />
+        <property name="creditCard" ref="creditCardAdmin35" />
+    </bean>
+    
+    <bean id="userAccountAdmin36" class="security.UserAccount">
+        <property name="username" value="admin36" />
+        <property name="password" value="cf36d4bbd662666be3c96ac64d49a0bd" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin36" class="domain.CreditCard">
+        <property name="holderName" value="admin36" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator36" class="domain.Administrator">
+        <property name="name" value="administrator36" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100035" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin36" />
+        <property name="creditCard" ref="creditCardAdmin36" />
+    </bean>
+    
+    <bean id="userAccountAdmin37" class="security.UserAccount">
+        <property name="username" value="admin37" />
+        <property name="password" value="7f58875aa30497c1fa54293c135ea200" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin37" class="domain.CreditCard">
+        <property name="holderName" value="admin37" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator37" class="domain.Administrator">
+        <property name="name" value="administrator37" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100036" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin37" />
+        <property name="creditCard" ref="creditCardAdmin37" />
+    </bean>
+    
+    <bean id="userAccountAdmin38" class="security.UserAccount">
+        <property name="username" value="admin38" />
+        <property name="password" value="ea6db1173951383825637cb4eea24bcd" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin38" class="domain.CreditCard">
+        <property name="holderName" value="admin38" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator38" class="domain.Administrator">
+        <property name="name" value="administrator38" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100037" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin38" />
+        <property name="creditCard" ref="creditCardAdmin38" />
+    </bean>
+    
+    <bean id="userAccountAdmin39" class="security.UserAccount">
+        <property name="username" value="admin39" />
+        <property name="password" value="ebf12aa4eed1154907af8ef3f35ec2bf" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin39" class="domain.CreditCard">
+        <property name="holderName" value="admin39" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator39" class="domain.Administrator">
+        <property name="name" value="administrator39" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100038" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin39" />
+        <property name="creditCard" ref="creditCardAdmin39" />
+    </bean>
+    
+    <bean id="userAccountAdmin40" class="security.UserAccount">
+        <property name="username" value="admin40" />
+        <property name="password" value="52798ecafb50f7ce17065a9ca0cd0614" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin40" class="domain.CreditCard">
+        <property name="holderName" value="admin40" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator40" class="domain.Administrator">
+        <property name="name" value="administrator40" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100039" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin40" />
+        <property name="creditCard" ref="creditCardAdmin40" />
+    </bean>
+    
+    <bean id="userAccountAdmin41" class="security.UserAccount">
+        <property name="username" value="admin41" />
+        <property name="password" value="611e37f02b9ffbf58472396c8bf85ba4" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin41" class="domain.CreditCard">
+        <property name="holderName" value="admin41" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator41" class="domain.Administrator">
+        <property name="name" value="administrator41" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100040" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin41" />
+        <property name="creditCard" ref="creditCardAdmin41" />
+    </bean>
+    
+    <bean id="userAccountAdmin42" class="security.UserAccount">
+        <property name="username" value="admin42" />
+        <property name="password" value="aa3e960242e3d555f456af478e6646f3" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin42" class="domain.CreditCard">
+        <property name="holderName" value="admin42" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator42" class="domain.Administrator">
+        <property name="name" value="administrator42" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100041" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin42" />
+        <property name="creditCard" ref="creditCardAdmin42" />
+    </bean>
+    
+    <bean id="userAccountAdmin43" class="security.UserAccount">
+        <property name="username" value="admin43" />
+        <property name="password" value="0ab3708aeb7a39a94fc7ad4e0bf77b52" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin43" class="domain.CreditCard">
+        <property name="holderName" value="admin43" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator43" class="domain.Administrator">
+        <property name="name" value="administrator43" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100042" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin43" />
+        <property name="creditCard" ref="creditCardAdmin43" />
+    </bean>
+    
+    <bean id="userAccountAdmin44" class="security.UserAccount">
+        <property name="username" value="admin44" />
+        <property name="password" value="46cf4fd4c165b7e35878cd4e2c913d77" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin44" class="domain.CreditCard">
+        <property name="holderName" value="admin44" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator44" class="domain.Administrator">
+        <property name="name" value="administrator44" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100043" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin44" />
+        <property name="creditCard" ref="creditCardAdmin44" />
+    </bean>
+    
+    <bean id="userAccountAdmin45" class="security.UserAccount">
+        <property name="username" value="admin45" />
+        <property name="password" value="9711a83e75f3d98d57c920e6d07ea8db" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin45" class="domain.CreditCard">
+        <property name="holderName" value="admin45" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator45" class="domain.Administrator">
+        <property name="name" value="administrator45" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100044" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin45" />
+        <property name="creditCard" ref="creditCardAdmin45" />
+    </bean>
+    
+    <bean id="userAccountAdmin46" class="security.UserAccount">
+        <property name="username" value="admin46" />
+        <property name="password" value="84178d9f413295fe8f0bdabbc3f647c4" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin46" class="domain.CreditCard">
+        <property name="holderName" value="admin46" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator46" class="domain.Administrator">
+        <property name="name" value="administrator46" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100045" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin46" />
+        <property name="creditCard" ref="creditCardAdmin46" />
+    </bean>
+    
+    <bean id="userAccountAdmin47" class="security.UserAccount">
+        <property name="username" value="admin47" />
+        <property name="password" value="3dcbd5e080b63ed9c631d35a5f95fc14" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin47" class="domain.CreditCard">
+        <property name="holderName" value="admin47" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator47" class="domain.Administrator">
+        <property name="name" value="administrator47" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100046" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin47" />
+        <property name="creditCard" ref="creditCardAdmin47" />
+    </bean>
+    
+    <bean id="userAccountAdmin48" class="security.UserAccount">
+        <property name="username" value="admin48" />
+        <property name="password" value="c23cc813361e0f1d723c4062217e08a9" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin48" class="domain.CreditCard">
+        <property name="holderName" value="admin48" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator48" class="domain.Administrator">
+        <property name="name" value="administrator48" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100047" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin48" />
+        <property name="creditCard" ref="creditCardAdmin48" />
+    </bean>
+    
+    <bean id="userAccountAdmin49" class="security.UserAccount">
+        <property name="username" value="admin49" />
+        <property name="password" value="83de90c19d52bf6ee5d854271c919a3f" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin49" class="domain.CreditCard">
+        <property name="holderName" value="admin49" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator49" class="domain.Administrator">
+        <property name="name" value="administrator49" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100048" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin49" />
+        <property name="creditCard" ref="creditCardAdmin49" />
+    </bean>
+    
+    <bean id="userAccountAdmin50" class="security.UserAccount">
+        <property name="username" value="admin50" />
+        <property name="password" value="b02326a7cd899f5f26f133f546281d3e" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin50" class="domain.CreditCard">
+        <property name="holderName" value="admin50" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator50" class="domain.Administrator">
+        <property name="name" value="administrator50" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100049" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin50" />
+        <property name="creditCard" ref="creditCardAdmin50" />
+    </bean>
+    
+    <bean id="userAccountAdmin51" class="security.UserAccount">
+        <property name="username" value="admin51" />
+        <property name="password" value="4dac610e147f8a51810487c05a441f87" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin51" class="domain.CreditCard">
+        <property name="holderName" value="admin51" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator51" class="domain.Administrator">
+        <property name="name" value="administrator51" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100050" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin51" />
+        <property name="creditCard" ref="creditCardAdmin51" />
+    </bean>
+    
+    <bean id="userAccountAdmin52" class="security.UserAccount">
+        <property name="username" value="admin52" />
+        <property name="password" value="4405a5ba1e4646d34dccbf9634de5da7" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin52" class="domain.CreditCard">
+        <property name="holderName" value="admin52" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator52" class="domain.Administrator">
+        <property name="name" value="administrator52" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100051" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin52" />
+        <property name="creditCard" ref="creditCardAdmin52" />
+    </bean>
+    
+    <bean id="userAccountAdmin53" class="security.UserAccount">
+        <property name="username" value="admin53" />
+        <property name="password" value="fe66ea07607e7b702da46dc71b46ece1" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin53" class="domain.CreditCard">
+        <property name="holderName" value="admin53" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator53" class="domain.Administrator">
+        <property name="name" value="administrator53" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100052" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin53" />
+        <property name="creditCard" ref="creditCardAdmin53" />
+    </bean>
+    
+    <bean id="userAccountAdmin54" class="security.UserAccount">
+        <property name="username" value="admin54" />
+        <property name="password" value="f477cadbba4dd929b442a2a8aab90068" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin54" class="domain.CreditCard">
+        <property name="holderName" value="admin54" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator54" class="domain.Administrator">
+        <property name="name" value="administrator54" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100053" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin54" />
+        <property name="creditCard" ref="creditCardAdmin54" />
+    </bean>
+    
+    <bean id="userAccountAdmin55" class="security.UserAccount">
+        <property name="username" value="admin55" />
+        <property name="password" value="96bdf41419df9e882108bf0e34ba55c2" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin55" class="domain.CreditCard">
+        <property name="holderName" value="admin55" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator55" class="domain.Administrator">
+        <property name="name" value="administrator55" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100054" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin55" />
+        <property name="creditCard" ref="creditCardAdmin55" />
+    </bean>
+    
+    <bean id="userAccountAdmin56" class="security.UserAccount">
+        <property name="username" value="admin56" />
+        <property name="password" value="b5186280b66ab24234ea7f969faf6b4f" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin56" class="domain.CreditCard">
+        <property name="holderName" value="admin56" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator56" class="domain.Administrator">
+        <property name="name" value="administrator56" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100055" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin56" />
+        <property name="creditCard" ref="creditCardAdmin56" />
+    </bean>
+    
+    <bean id="userAccountAdmin57" class="security.UserAccount">
+        <property name="username" value="admin57" />
+        <property name="password" value="2fa2407858e221170c25cb86956ad0e6" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin57" class="domain.CreditCard">
+        <property name="holderName" value="admin57" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator57" class="domain.Administrator">
+        <property name="name" value="administrator57" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100056" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin57" />
+        <property name="creditCard" ref="creditCardAdmin57" />
+    </bean>
+    
+    <bean id="userAccountAdmin58" class="security.UserAccount">
+        <property name="username" value="admin58" />
+        <property name="password" value="4f5668f6641d834de32ed39e71629e63" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin58" class="domain.CreditCard">
+        <property name="holderName" value="admin58" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator58" class="domain.Administrator">
+        <property name="name" value="administrator58" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100057" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin58" />
+        <property name="creditCard" ref="creditCardAdmin58" />
+    </bean>
+    
+    <bean id="userAccountAdmin59" class="security.UserAccount">
+        <property name="username" value="admin59" />
+        <property name="password" value="caf8f8c3ef97f25d784bb4c89f942426" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin59" class="domain.CreditCard">
+        <property name="holderName" value="admin59" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator59" class="domain.Administrator">
+        <property name="name" value="administrator59" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100058" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin59" />
+        <property name="creditCard" ref="creditCardAdmin59" />
+    </bean>
+    
+    <bean id="userAccountAdmin60" class="security.UserAccount">
+        <property name="username" value="admin60" />
+        <property name="password" value="237059b51df495be0779960a5f7e0cb6" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin60" class="domain.CreditCard">
+        <property name="holderName" value="admin60" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator60" class="domain.Administrator">
+        <property name="name" value="administrator60" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100059" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin60" />
+        <property name="creditCard" ref="creditCardAdmin60" />
+    </bean>
+    
+    <bean id="userAccountAdmin61" class="security.UserAccount">
+        <property name="username" value="admin61" />
+        <property name="password" value="85c742c99b9934eff5bae2d084b539eb" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin61" class="domain.CreditCard">
+        <property name="holderName" value="admin61" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator61" class="domain.Administrator">
+        <property name="name" value="administrator61" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100060" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin61" />
+        <property name="creditCard" ref="creditCardAdmin61" />
+    </bean>
+    
+    <bean id="userAccountAdmin62" class="security.UserAccount">
+        <property name="username" value="admin62" />
+        <property name="password" value="313f32255e1ff1f2f5f902a2f44de1a8" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin62" class="domain.CreditCard">
+        <property name="holderName" value="admin62" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator62" class="domain.Administrator">
+        <property name="name" value="administrator62" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100061" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin62" />
+        <property name="creditCard" ref="creditCardAdmin62" />
+    </bean>
+    
+    <bean id="userAccountAdmin63" class="security.UserAccount">
+        <property name="username" value="admin63" />
+        <property name="password" value="0510800f28088e2f9c2e6df7239a9987" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin63" class="domain.CreditCard">
+        <property name="holderName" value="admin63" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator63" class="domain.Administrator">
+        <property name="name" value="administrator63" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100062" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin63" />
+        <property name="creditCard" ref="creditCardAdmin63" />
+    </bean>
+    
+    <bean id="userAccountAdmin64" class="security.UserAccount">
+        <property name="username" value="admin64" />
+        <property name="password" value="07ceb63b933f435c39355529c311961d" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin64" class="domain.CreditCard">
+        <property name="holderName" value="admin64" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator64" class="domain.Administrator">
+        <property name="name" value="administrator64" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100063" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin64" />
+        <property name="creditCard" ref="creditCardAdmin64" />
+    </bean>
+    
+    <bean id="userAccountAdmin65" class="security.UserAccount">
+        <property name="username" value="admin65" />
+        <property name="password" value="1a7584b701972db896c85d8fd7ca3748" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin65" class="domain.CreditCard">
+        <property name="holderName" value="admin65" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator65" class="domain.Administrator">
+        <property name="name" value="administrator65" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100064" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin65" />
+        <property name="creditCard" ref="creditCardAdmin65" />
+    </bean>
+    
+    <bean id="userAccountAdmin66" class="security.UserAccount">
+        <property name="username" value="admin66" />
+        <property name="password" value="aca601cf435791fc6b35d8184c1539ed" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin66" class="domain.CreditCard">
+        <property name="holderName" value="admin66" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator66" class="domain.Administrator">
+        <property name="name" value="administrator66" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100065" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin66" />
+        <property name="creditCard" ref="creditCardAdmin66" />
+    </bean>
+    
+    <bean id="userAccountAdmin67" class="security.UserAccount">
+        <property name="username" value="admin67" />
+        <property name="password" value="b28c27a4912ceec95a6733fb3058f2ac" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin67" class="domain.CreditCard">
+        <property name="holderName" value="admin67" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator67" class="domain.Administrator">
+        <property name="name" value="administrator67" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100066" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin67" />
+        <property name="creditCard" ref="creditCardAdmin67" />
+    </bean>
+    
+    <bean id="userAccountAdmin68" class="security.UserAccount">
+        <property name="username" value="admin68" />
+        <property name="password" value="6ab4982aea57c805e6872de119b04603" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin68" class="domain.CreditCard">
+        <property name="holderName" value="admin68" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator68" class="domain.Administrator">
+        <property name="name" value="administrator68" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100067" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin68" />
+        <property name="creditCard" ref="creditCardAdmin68" />
+    </bean>
+    
+    <bean id="userAccountAdmin69" class="security.UserAccount">
+        <property name="username" value="admin69" />
+        <property name="password" value="a455187613f3a39ea5c6bd17f7856c2f" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin69" class="domain.CreditCard">
+        <property name="holderName" value="admin69" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator69" class="domain.Administrator">
+        <property name="name" value="administrator69" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100068" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin69" />
+        <property name="creditCard" ref="creditCardAdmin69" />
+    </bean>
+    
+    <bean id="userAccountAdmin70" class="security.UserAccount">
+        <property name="username" value="admin70" />
+        <property name="password" value="e8e7e0ab2302aa7347e37605873cd531" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin70" class="domain.CreditCard">
+        <property name="holderName" value="admin70" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator70" class="domain.Administrator">
+        <property name="name" value="administrator70" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100069" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin70" />
+        <property name="creditCard" ref="creditCardAdmin70" />
+    </bean>
+    
+    <bean id="userAccountAdmin71" class="security.UserAccount">
+        <property name="username" value="admin71" />
+        <property name="password" value="f487973e654a200c62c86b744e573193" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin71" class="domain.CreditCard">
+        <property name="holderName" value="admin71" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator71" class="domain.Administrator">
+        <property name="name" value="administrator71" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100070" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin71" />
+        <property name="creditCard" ref="creditCardAdmin71" />
+    </bean>
+    
+    <bean id="userAccountAdmin72" class="security.UserAccount">
+        <property name="username" value="admin72" />
+        <property name="password" value="733800c3a10534dbb6ddc4e4408e4260" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin72" class="domain.CreditCard">
+        <property name="holderName" value="admin72" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator72" class="domain.Administrator">
+        <property name="name" value="administrator72" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100071" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin72" />
+        <property name="creditCard" ref="creditCardAdmin72" />
+    </bean>
+    
+    <bean id="userAccountAdmin73" class="security.UserAccount">
+        <property name="username" value="admin73" />
+        <property name="password" value="dc34994310d13ee9e1e50100101c5afc" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin73" class="domain.CreditCard">
+        <property name="holderName" value="admin73" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator73" class="domain.Administrator">
+        <property name="name" value="administrator73" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100072" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin73" />
+        <property name="creditCard" ref="creditCardAdmin73" />
+    </bean>
+    
+    <bean id="userAccountAdmin74" class="security.UserAccount">
+        <property name="username" value="admin74" />
+        <property name="password" value="62b32b970271868ba82e832e010c66be" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin74" class="domain.CreditCard">
+        <property name="holderName" value="admin74" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator74" class="domain.Administrator">
+        <property name="name" value="administrator74" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100073" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin74" />
+        <property name="creditCard" ref="creditCardAdmin74" />
+    </bean>
+    
+    <bean id="userAccountAdmin75" class="security.UserAccount">
+        <property name="username" value="admin75" />
+        <property name="password" value="8f437deab7e27c0f92740c380c12b65f" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin75" class="domain.CreditCard">
+        <property name="holderName" value="admin75" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator75" class="domain.Administrator">
+        <property name="name" value="administrator75" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100074" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin75" />
+        <property name="creditCard" ref="creditCardAdmin75" />
+    </bean>
+    
+    <bean id="userAccountAdmin76" class="security.UserAccount">
+        <property name="username" value="admin76" />
+        <property name="password" value="197032cb4762e961e25ffd7de483e369" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin76" class="domain.CreditCard">
+        <property name="holderName" value="admin76" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator76" class="domain.Administrator">
+        <property name="name" value="administrator76" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100075" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin76" />
+        <property name="creditCard" ref="creditCardAdmin76" />
+    </bean>
+    
+    <bean id="userAccountAdmin77" class="security.UserAccount">
+        <property name="username" value="admin77" />
+        <property name="password" value="d3e9d6ee443cc1b1aa44ba7d3df1fd50" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin77" class="domain.CreditCard">
+        <property name="holderName" value="admin77" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator77" class="domain.Administrator">
+        <property name="name" value="administrator77" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100076" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin77" />
+        <property name="creditCard" ref="creditCardAdmin77" />
+    </bean>
+    
+    <bean id="userAccountAdmin78" class="security.UserAccount">
+        <property name="username" value="admin78" />
+        <property name="password" value="191b931343914d2fc7fc3fd3a9cbd6dd" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin78" class="domain.CreditCard">
+        <property name="holderName" value="admin78" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator78" class="domain.Administrator">
+        <property name="name" value="administrator78" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100077" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin78" />
+        <property name="creditCard" ref="creditCardAdmin78" />
+    </bean>
+    
+    <bean id="userAccountAdmin79" class="security.UserAccount">
+        <property name="username" value="admin79" />
+        <property name="password" value="09135a46a388d12e71de042b48ba481b" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin79" class="domain.CreditCard">
+        <property name="holderName" value="admin79" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator79" class="domain.Administrator">
+        <property name="name" value="administrator79" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100078" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin79" />
+        <property name="creditCard" ref="creditCardAdmin79" />
+    </bean>
+    
+    <bean id="userAccountAdmin80" class="security.UserAccount">
+        <property name="username" value="admin80" />
+        <property name="password" value="ea387b61b453f84e148742bd52a7af6d" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin80" class="domain.CreditCard">
+        <property name="holderName" value="admin80" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator80" class="domain.Administrator">
+        <property name="name" value="administrator80" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100079" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin80" />
+        <property name="creditCard" ref="creditCardAdmin80" />
+    </bean>
+    
+    <bean id="userAccountAdmin81" class="security.UserAccount">
+        <property name="username" value="admin81" />
+        <property name="password" value="1cfb3364f3c16b103ff93b5a7bd6bf39" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin81" class="domain.CreditCard">
+        <property name="holderName" value="admin81" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator81" class="domain.Administrator">
+        <property name="name" value="administrator81" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100080" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin81" />
+        <property name="creditCard" ref="creditCardAdmin81" />
+    </bean>
+    
+    <bean id="userAccountAdmin82" class="security.UserAccount">
+        <property name="username" value="admin82" />
+        <property name="password" value="d084477cf6f5e9396853ddd63b5b1405" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin82" class="domain.CreditCard">
+        <property name="holderName" value="admin82" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator82" class="domain.Administrator">
+        <property name="name" value="administrator82" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100081" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin82" />
+        <property name="creditCard" ref="creditCardAdmin82" />
+    </bean>
+    
+    <bean id="userAccountAdmin83" class="security.UserAccount">
+        <property name="username" value="admin83" />
+        <property name="password" value="7e210fb19ce9e74078e7f3ed221a634d" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin83" class="domain.CreditCard">
+        <property name="holderName" value="admin83" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator83" class="domain.Administrator">
+        <property name="name" value="administrator83" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100082" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin83" />
+        <property name="creditCard" ref="creditCardAdmin83" />
+    </bean>
+    
+    <bean id="userAccountAdmin84" class="security.UserAccount">
+        <property name="username" value="admin84" />
+        <property name="password" value="9eb75519973515f83dd5171b4ea1ceca" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin84" class="domain.CreditCard">
+        <property name="holderName" value="admin84" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator84" class="domain.Administrator">
+        <property name="name" value="administrator84" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100083" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin84" />
+        <property name="creditCard" ref="creditCardAdmin84" />
+    </bean>
+    
+    <bean id="userAccountAdmin85" class="security.UserAccount">
+        <property name="username" value="admin85" />
+        <property name="password" value="1cf89ed82cfdfad4a917b361d605778e" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin85" class="domain.CreditCard">
+        <property name="holderName" value="admin85" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator85" class="domain.Administrator">
+        <property name="name" value="administrator85" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100084" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin85" />
+        <property name="creditCard" ref="creditCardAdmin85" />
+    </bean>
+    
+    <bean id="userAccountAdmin86" class="security.UserAccount">
+        <property name="username" value="admin86" />
+        <property name="password" value="69ff75c29612db619c4c3854c2829816" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin86" class="domain.CreditCard">
+        <property name="holderName" value="admin86" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator86" class="domain.Administrator">
+        <property name="name" value="administrator86" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100085" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin86" />
+        <property name="creditCard" ref="creditCardAdmin86" />
+    </bean>
+    
+    <bean id="userAccountAdmin87" class="security.UserAccount">
+        <property name="username" value="admin87" />
+        <property name="password" value="5f4076f9c6b37f4232732dff7db62873" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin87" class="domain.CreditCard">
+        <property name="holderName" value="admin87" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator87" class="domain.Administrator">
+        <property name="name" value="administrator87" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100086" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin87" />
+        <property name="creditCard" ref="creditCardAdmin87" />
+    </bean>
+    
+    <bean id="userAccountAdmin88" class="security.UserAccount">
+        <property name="username" value="admin88" />
+        <property name="password" value="472a84ce7f8d3ee6b25253204092e262" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin88" class="domain.CreditCard">
+        <property name="holderName" value="admin88" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator88" class="domain.Administrator">
+        <property name="name" value="administrator88" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100087" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin88" />
+        <property name="creditCard" ref="creditCardAdmin88" />
+    </bean>
+    
+    <bean id="userAccountAdmin89" class="security.UserAccount">
+        <property name="username" value="admin89" />
+        <property name="password" value="957b91f30589d061cd42e5f7e08cb03e" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin89" class="domain.CreditCard">
+        <property name="holderName" value="admin89" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator89" class="domain.Administrator">
+        <property name="name" value="administrator89" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100088" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin89" />
+        <property name="creditCard" ref="creditCardAdmin89" />
+    </bean>
+    
+    <bean id="userAccountAdmin90" class="security.UserAccount">
+        <property name="username" value="admin90" />
+        <property name="password" value="5c33ac5a54d19c225ba33f333539dce9" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin90" class="domain.CreditCard">
+        <property name="holderName" value="admin90" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator90" class="domain.Administrator">
+        <property name="name" value="administrator90" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100089" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin90" />
+        <property name="creditCard" ref="creditCardAdmin90" />
+    </bean>
+    
+    <bean id="userAccountAdmin91" class="security.UserAccount">
+        <property name="username" value="admin91" />
+        <property name="password" value="32aab1730e778602b8383eaa62eeff37" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin91" class="domain.CreditCard">
+        <property name="holderName" value="admin91" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator91" class="domain.Administrator">
+        <property name="name" value="administrator91" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100090" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin91" />
+        <property name="creditCard" ref="creditCardAdmin91" />
+    </bean>
+    
+    <bean id="userAccountAdmin92" class="security.UserAccount">
+        <property name="username" value="admin92" />
+        <property name="password" value="b8dfd3aac39ce5e673eb02d6dc4cd7b0" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin92" class="domain.CreditCard">
+        <property name="holderName" value="admin92" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator92" class="domain.Administrator">
+        <property name="name" value="administrator92" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100091" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin92" />
+        <property name="creditCard" ref="creditCardAdmin92" />
+    </bean>
+    
+    <bean id="userAccountAdmin93" class="security.UserAccount">
+        <property name="username" value="admin93" />
+        <property name="password" value="a5fc07e5a4aeb84f12a6046f5facf41c" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin93" class="domain.CreditCard">
+        <property name="holderName" value="admin93" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator93" class="domain.Administrator">
+        <property name="name" value="administrator93" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100092" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin93" />
+        <property name="creditCard" ref="creditCardAdmin93" />
+    </bean>
+    
+    <bean id="userAccountAdmin94" class="security.UserAccount">
+        <property name="username" value="admin94" />
+        <property name="password" value="2f276632df95f2d6c6db7255a6e94e26" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin94" class="domain.CreditCard">
+        <property name="holderName" value="admin94" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator94" class="domain.Administrator">
+        <property name="name" value="administrator94" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100093" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin94" />
+        <property name="creditCard" ref="creditCardAdmin94" />
+    </bean>
+    
+    <bean id="userAccountAdmin95" class="security.UserAccount">
+        <property name="username" value="admin95" />
+        <property name="password" value="b400ff6500cc44c33994eda6e2e91d2f" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin95" class="domain.CreditCard">
+        <property name="holderName" value="admin95" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator95" class="domain.Administrator">
+        <property name="name" value="administrator95" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100094" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin95" />
+        <property name="creditCard" ref="creditCardAdmin95" />
+    </bean>
+    
+    <bean id="userAccountAdmin96" class="security.UserAccount">
+        <property name="username" value="admin96" />
+        <property name="password" value="6f554f9c7b17d0f7a4a8c8eb15b1766c" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin96" class="domain.CreditCard">
+        <property name="holderName" value="admin96" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator96" class="domain.Administrator">
+        <property name="name" value="administrator96" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100095" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin96" />
+        <property name="creditCard" ref="creditCardAdmin96" />
+    </bean>
+    
+    <bean id="userAccountAdmin97" class="security.UserAccount">
+        <property name="username" value="admin97" />
+        <property name="password" value="a576393831dbed836eb84cb4108e101f" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin97" class="domain.CreditCard">
+        <property name="holderName" value="admin97" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator97" class="domain.Administrator">
+        <property name="name" value="administrator97" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100096" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin97" />
+        <property name="creditCard" ref="creditCardAdmin97" />
+    </bean>
+    
+    <bean id="userAccountAdmin98" class="security.UserAccount">
+        <property name="username" value="admin98" />
+        <property name="password" value="f519b30831a505e2e5722d402cdc69dc" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin98" class="domain.CreditCard">
+        <property name="holderName" value="admin98" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator98" class="domain.Administrator">
+        <property name="name" value="administrator98" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100097" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin98" />
+        <property name="creditCard" ref="creditCardAdmin98" />
+    </bean>
+    
+    <bean id="userAccountAdmin99" class="security.UserAccount">
+        <property name="username" value="admin99" />
+        <property name="password" value="72f4f10a40c4be8fbf63b79cbf21abca" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+        <property name="isNotBanned" value="true" />
+    </bean>
+    
+    <bean id="creditCardAdmin99" class="domain.CreditCard">
+        <property name="holderName" value="admin99" />
+        <property name="make" value="Mastercard" />
+        <property name="number" value="5571841748494767" />
+        <property name="expMonth" value="05" />
+        <property name="expYear" value="2028" />
+        <property name="cvv" value="123" />
+    </bean>
+    
+    <bean id="administrator99" class="domain.Administrator">
+        <property name="name" value="administrator99" />
+        <property name="surnames" value="surname" />
+        <property name="vat" value="100098" />
+        <property name="email" value="indentifier@domain.com" />
+        <property name="photo" value="http://www.photo.com" />
+        <property name="address" value="address" />
+        <property name="userAccount" ref="userAccountAdmin99" />
+        <property name="creditCard" ref="creditCardAdmin99" />
+    </bean>
 
 	<!-- Configuration -->
 	<bean id="configuration" class="domain.Configuration">
