@@ -356,6 +356,30 @@
 		<property name="linkLinkedInProfile"
 			value="http://www.linkedin.com/" />
 	</bean>
+	<bean id="miscellaneousData15" class="domain.MiscellaneousData">
+		<property name="text" value="text1" />
+	</bean>
+	<bean id="miscellaneousData16" class="domain.MiscellaneousData">
+		<property name="text" value="text2" />
+	</bean>
+	<bean id="miscellaneousData17" class="domain.MiscellaneousData">
+		<property name="text" value="text3" />
+	</bean>
+	<bean id="miscellaneousData18" class="domain.MiscellaneousData">
+		<property name="text" value="text4" />
+	</bean>
+	<bean id="miscellaneousData19" class="domain.MiscellaneousData">
+		<property name="text" value="text5" />
+	</bean>
+	<bean id="miscellaneousData20" class="domain.MiscellaneousData">
+		<property name="text" value="text6" />
+	</bean>
+	<bean id="miscellaneousData21" class="domain.MiscellaneousData">
+		<property name="text" value="text7" />
+	</bean>
+	<bean id="miscellaneousData22" class="domain.MiscellaneousData">
+		<property name="text" value="text8" />
+	</bean>
 	
 	<bean id="personalData1Copy" class="domain.PersonalData">
 		<property name="fullName" value="Michael Yu" />
@@ -372,6 +396,18 @@
 		<property name="noCopy" value="true" />
 		<property name="personalData" ref="personalData1" />
 		<property name="rookie" ref="rookie1" />
+		<property name="miscellaneousDatas">
+			<list>
+				<ref bean="miscellaneousData15" />
+				<ref bean="miscellaneousData16" />
+				<ref bean="miscellaneousData17" />
+				<ref bean="miscellaneousData18" />
+				<ref bean="miscellaneousData19" />
+				<ref bean="miscellaneousData20" />
+				<ref bean="miscellaneousData21" />
+				<ref bean="miscellaneousData22" />
+			</list>
+		</property>
 	</bean>
 	<bean id="rookie1" class="domain.Rookie">
 		<property name="name" value="Michael" />
