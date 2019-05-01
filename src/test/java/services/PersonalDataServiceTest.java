@@ -53,13 +53,13 @@ public class PersonalDataServiceTest extends AbstractTest {
 	public void driverCreatePersonalData() {
 		final Object testingData[][] = {
 			{
-				"hacker1", "test", "test", "954920633", "http://github.com", "http://linkedIn.com", null
+				"rookie1", "test", "test", "954920633", "http://github.com", "http://linkedIn.com", null
 			},//1. All fine
 			{
-				"hacker1", "test", null, "954920633", "http://github.com", "http://linkedIn.com", ConstraintViolationException.class
+				"rookie1", "test", null, "954920633", "http://github.com", "http://linkedIn.com", ConstraintViolationException.class
 			},//2. Statement = null
 			{
-				"hacker1", "test", "		", "954920633", "http://github.com", "http://linkedIn.com", ConstraintViolationException.class
+				"rookie1", "test", "		", "954920633", "http://github.com", "http://linkedIn.com", ConstraintViolationException.class
 			},//3. Statement = blank
 		};
 

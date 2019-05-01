@@ -56,13 +56,13 @@ public class MiscellaneousDataServiceTest extends AbstractTest {
 	public void driverCreateMiscellanousData() {
 		final Object testingData[][] = {
 			{
-				"hacker1", "test", "http://test.com", null
+				"rookie1", "test", "http://test.com", null
 			},//1. All fine
 			{
-				"hacker1", null, "http://test.com", ConstraintViolationException.class
+				"rookie1", null, "http://test.com", ConstraintViolationException.class
 			},//2. Text = null
 			{
-				"hacker1", "		", "http://test.com", ConstraintViolationException.class
+				"rookie1", "		", "http://test.com", ConstraintViolationException.class
 			},//3. Text = blank
 		};
 
