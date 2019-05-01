@@ -192,7 +192,7 @@ public class PositionDataServiceTest extends AbstractTest {
 				"positionData14", null
 			},//1. All fine
 			{
-				"hacker1", IllegalArgumentException.class
+				"rookie1", IllegalArgumentException.class
 			},//2. Not Curriculum
 
 		};
