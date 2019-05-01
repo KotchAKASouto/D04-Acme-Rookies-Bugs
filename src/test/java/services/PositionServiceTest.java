@@ -461,7 +461,7 @@ public class PositionServiceTest extends AbstractTest {
 	 * -Position: 0%
 	 */
 	@Test
-	public void driverListPositionsNotAssignedAnyAuditor() {
+	public void driverListPositionsToAssign() {
 		final Object testingData[][] = {
 			{
 				6, null
@@ -473,10 +473,10 @@ public class PositionServiceTest extends AbstractTest {
 		};
 
 		for (int i = 0; i < testingData.length; i++)
-			this.templateListPositionsNotAssignedAnyAuditor((Integer) testingData[i][0], (Class<?>) testingData[i][1]);
+			this.templateListPositionsToAssign((Integer) testingData[i][0], (Class<?>) testingData[i][1]);
 	}
 
-	protected void templateListPositionsNotAssignedAnyAuditor(final Integer number, final Class<?> expected) {
+	protected void templateListPositionsToAssign(final Integer number, final Class<?> expected) {
 		Class<?> caught;
 
 		caught = null;

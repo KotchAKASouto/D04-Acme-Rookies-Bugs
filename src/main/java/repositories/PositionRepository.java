@@ -22,7 +22,7 @@ public interface PositionRepository extends JpaRepository<Position, Integer> {
 	@Query("select p from Position p where p.finalMode = true and p.deadline > ?1")
 	Collection<Position> findPositionsFinalModeTrue(Date localDate);
 
-	@Query("select p from Position p where (p.finalMode = true) and (p.deadline > CURRENT_TIMESTAMP)")
+	@Query("select p from Position p where p.finalMode = true")
 	Collection<Position> findPositionsFinalModeTrueWithoutDeadline();
 
 	@Query("select p from Position p where p.company.id = ?1 and p.finalMode = true and p.deadline > ?2")
