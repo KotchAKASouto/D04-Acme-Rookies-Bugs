@@ -135,7 +135,7 @@ public class ProblemService {
 	public void checkPictures(final Collection<String> attachments) {
 
 		for (final String url : attachments) {
-			final boolean checkUrl = url.matches("^http(s*)://(?:[a-zA-Z0-9-]+[\\.\\:])+[a-zA-Z0-9/]+$");
+			final boolean checkUrl = url.matches("^http(s*)://(?:[a-zA-Z0-9\\-\\/\\@\\#\\&]+[\\.\\:])+[a-zA-Z0-9\\-\\/\\@\\#\\&]+$");
 			Assert.isTrue(checkUrl);
 
 		}

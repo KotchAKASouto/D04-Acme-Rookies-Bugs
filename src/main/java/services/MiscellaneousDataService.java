@@ -14,8 +14,8 @@ import repositories.MiscellaneousDataRepository;
 import security.Authority;
 import domain.Actor;
 import domain.Curriculum;
-import domain.Rookie;
 import domain.MiscellaneousData;
+import domain.Rookie;
 import forms.MiscellaneousDataForm;
 
 @Service
@@ -116,7 +116,7 @@ public class MiscellaneousDataService {
 	public void checkPictures(final Collection<String> attachments) {
 
 		for (final String url : attachments) {
-			final boolean checkUrl = url.matches("^http(s*)://(?:[a-zA-Z0-9-]+[\\.\\:])+[a-zA-Z0-9/]+$");
+			final boolean checkUrl = url.matches("^http(s*)://(?:[a-zA-Z0-9\\-\\/\\@\\#\\&]+[\\.\\:])+[a-zA-Z0-9\\-\\/\\@\\#\\&]+$");
 			Assert.isTrue(checkUrl);
 
 		}
