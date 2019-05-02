@@ -62,7 +62,7 @@ public class PositionServiceTest extends AbstractTest {
 				"title", "description", "2019/12/12", "profile", "skills", "technologies", 12.0, "company1", null
 			},//1. All fine
 			{
-				"problemas varios", "problemas servicios web", "2019/09/12", "desarrollador javascript", "mecanografía rápida", "pc 8 gb ram", 500.0, "company2", null
+				"problemas varios", "problemas servicios web", "2019/09/12", "desarrollador javascript", "mecanografï¿½a rï¿½pida", "pc 8 gb ram", 500.0, "company2", null
 			},//2. All fine
 			{
 				"testing", "jmeter's problems", "2019/09/12", "jtester", "knowledge about http errors", "pc with jmeter", 1000.0, "company3", null
@@ -485,8 +485,8 @@ public class PositionServiceTest extends AbstractTest {
 
 			final Collection<Position> positions = this.positionService.findPositionsFinalModeTrueWithoutDeadline();
 
-			final Integer tamaño = positions.size();
-			Assert.isTrue(tamaño == number);
+			final Integer tamano = positions.size();
+			Assert.isTrue(tamano == number);
 		} catch (final Throwable oops) {
 			caught = oops.getClass();
 
