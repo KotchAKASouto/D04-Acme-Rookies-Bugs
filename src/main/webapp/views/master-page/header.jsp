@@ -119,7 +119,13 @@
 					</security:authorize>
 					<security:authorize access="hasRole('COMPANY')">
 					<li><a href="data/company/get.do"><spring:message code="master.page.get.data" /> </a></li>	
-					</security:authorize>				
+					</security:authorize>	
+					<security:authorize access="hasRole('PROVIDER')">
+					<li><a href="data/provider/get.do"><spring:message code="master.page.get.data" /> </a></li>	
+					</security:authorize>	
+					<security:authorize access="hasRole('AUDITOR')">
+					<li><a href="data/auditor/get.do"><spring:message code="master.page.get.data" /> </a></li>	
+					</security:authorize>			
 					<li><a href="j_spring_security_logout"><spring:message code="master.page.logout" /> </a></li>
 				</ul>
 			</li>
