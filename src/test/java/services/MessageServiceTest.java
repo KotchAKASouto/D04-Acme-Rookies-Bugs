@@ -54,14 +54,14 @@ public class MessageServiceTest extends AbstractTest {
 	public void driverExchangeMessage() {
 		final Object testingData[][] = {
 			{
-				"company1", "hacker1", "Body1", "Subject1", "Tag1", null
+				"company1", "rookie1", "Body1", "Subject1", "Tag1", null
 			},
 			//1.All right
 			{
-				"company1", "hacker1", "", "Subject1", "Tag1", ConstraintViolationException.class
+				"company1", "rookie1", "", "Subject1", "Tag1", ConstraintViolationException.class
 			},//2.Body blank
 			{
-				"company1", "hacker1", "Body1", "", "Tag1", ConstraintViolationException.class
+				"company1", "rookie1", "Body1", "", "Tag1", ConstraintViolationException.class
 			},//3.Subject blank
 
 		};
