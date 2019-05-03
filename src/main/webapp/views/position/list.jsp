@@ -50,8 +50,6 @@
 	
 	<acme:column property="title" titleKey="position.title" value= "${row.title} "/>
 	
-	<acme:column property="description" titleKey="position.description" value="${row.description }" />
-	
 	<acme:dateFormat titleKey="position.deadline" value="${row.deadline }" pattern="yyyy/MM/dd" />
 	
 	<acme:column property="profile" titleKey="position.profile" value= "${row.profile}: "/>

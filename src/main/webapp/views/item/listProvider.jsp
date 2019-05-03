@@ -16,8 +16,6 @@
 	
 	<acme:column property="name" titleKey="item.name" value= "${row.name}: "/>
 	
-	<acme:column property="description" titleKey="item.description" value= "${row.description}: "/>
-	
 	<acme:column property="link" titleKey="item.link" value= "${row.link} "/>
 	
 	<display:column titleKey="item.pictures">

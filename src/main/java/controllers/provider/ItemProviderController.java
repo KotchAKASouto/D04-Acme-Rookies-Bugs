@@ -153,8 +153,11 @@ public class ItemProviderController extends AbstractController {
 				this.itemService.save(item);
 				result = new ModelAndView("redirect:/item/provider/listProvider.do");
 			} catch (final Throwable oops) {
-				result = this.createEditModelAndView(item, "item.commit.error");
 
+				if (oops.getMessage() == "Invalid URL")
+					result = this.createEditModelAndView(item, "url.error");
+				else
+					result = this.createEditModelAndView(item, "item.commit.error");
 			}
 
 		return result;

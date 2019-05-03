@@ -133,8 +133,11 @@ public class ProblemCompanyController extends AbstractController {
 					this.problemService.save(problem);
 					result = new ModelAndView("redirect:list.do");
 				} catch (final Throwable oops) {
-					result = this.createEditModelAndView(problem, "problem.commit.error");
 
+					if (oops.getMessage() == "Invalid URL")
+						result = this.createEditModelAndView(problem, "url.error");
+					else
+						result = this.createEditModelAndView(problem, "problem.commit.error");
 				}
 		}
 		return result;
@@ -157,6 +160,7 @@ public class ProblemCompanyController extends AbstractController {
 					this.problemService.delete(problem);
 					result = new ModelAndView("redirect:list.do");
 				} catch (final Throwable oops) {
+
 					result = this.createEditModelAndView(problem, "problem.commit.error");
 				}
 			else
@@ -165,7 +169,6 @@ public class ProblemCompanyController extends AbstractController {
 		}
 		return result;
 	}
-
 	//Display------------------------------------------------------------------------------
 	@RequestMapping(value = "/display", method = RequestMethod.GET)
 	public ModelAndView display(@RequestParam final int problemId) {

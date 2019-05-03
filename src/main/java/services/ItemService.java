@@ -1,9 +1,11 @@
 
 package services;
 
+import java.net.URL;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -169,13 +171,14 @@ public class ItemService {
 		this.itemRepository.flush();
 	}
 
-	public void checkPictures(final Collection<String> pictures) {
+	public void checkPictures(final Collection<String> attachments) {
 
-		for (final String url : pictures) {
-			final boolean checkUrl = url.matches("^http(s*)://(?:[a-zA-Z0-9\\-\\/\\@\\#\\&]+[\\.\\:])+[a-zA-Z0-9\\-\\/\\@\\#\\&]+$");
-			Assert.isTrue(checkUrl);
-
-		}
+		for (final String url : attachments)
+			try {
+				new URL(url);
+			} catch (final Exception e) {
+				throw new DataIntegrityViolationException("Invalid URL");
+			}
 	}
 
 }

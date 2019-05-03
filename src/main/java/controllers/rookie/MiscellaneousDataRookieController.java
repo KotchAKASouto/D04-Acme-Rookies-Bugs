@@ -130,7 +130,10 @@ public class MiscellaneousDataRookieController extends AbstractController {
 						result = new ModelAndView("redirect:/curriculum/rookie/display.do?curriculumId=" + form.getCurriculumId());
 
 					} catch (final Throwable oops) {
-						result = this.createEditModelAndView(form, "curriculum.commit.error");
+						if (oops.getMessage() == "Invalid URL")
+							result = this.createEditModelAndView(form, "url.error");
+						else
+							result = this.createEditModelAndView(form, "curriculum.commit.error");
 					}
 			} else
 				result = new ModelAndView("redirect:/welcome/index.do");

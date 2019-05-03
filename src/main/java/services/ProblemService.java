@@ -1,6 +1,7 @@
 
 package services;
 
+import java.net.URL;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
@@ -8,6 +9,7 @@ import java.util.HashSet;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
@@ -134,13 +136,13 @@ public class ProblemService {
 
 	public void checkPictures(final Collection<String> attachments) {
 
-		for (final String url : attachments) {
-			final boolean checkUrl = url.matches("^http(s*)://(?:[a-zA-Z0-9\\-\\/\\@\\#\\&]+[\\.\\:])+[a-zA-Z0-9\\-\\/\\@\\#\\&]+$");
-			Assert.isTrue(checkUrl);
-
-		}
+		for (final String url : attachments)
+			try {
+				new URL(url);
+			} catch (final Exception e) {
+				throw new DataIntegrityViolationException("Invalid URL");
+			}
 	}
-
 	//Añadir una position a un problem
 	public void addPositionToProblem(final Position position, final Problem problem) {
 

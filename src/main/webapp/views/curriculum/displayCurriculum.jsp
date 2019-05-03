@@ -47,8 +47,6 @@
 
 	<acme:column property="title" titleKey="curriculum.title" value= "${row1.title} "/>
 	
-	<acme:column property="description" titleKey="curriculum.description" value= "${row1.description} "/>
-	
 	<acme:dateFormat titleKey="curriculum.startDate" pattern="yyyy/MM/dd" value="${row1.startDate}"/>
 	
 	<acme:dateFormat titleKey="curriculum.endDate" pattern="yyyy/MM/dd" value="${row1.endDate}"/>
