@@ -17,10 +17,6 @@
 	<acme:column property="name" titleKey="item.name" value= "${row.name}: "/>
 	
 	<acme:column property="link" titleKey="item.link" value= "${row.link} "/>
-	
-	<display:column titleKey="item.pictures">
-	<jstl:out value="${row.pictures}"></jstl:out><br>
-	</display:column>
 
 	<security:authorize access="hasRole('PROVIDER')">
 	

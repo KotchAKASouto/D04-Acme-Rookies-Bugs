@@ -69,6 +69,8 @@
 
 <acme:display code="actor.photo" property="${actor.photo }" />
 
+<spring:message code="actor.photo"/>: <br> <img src="${actor.photo }"/> <br>
+
 <acme:display code="actor.email" property="${actor.email }" />
 
 <acme:display code="actor.phone" property="${actor.phone }" />

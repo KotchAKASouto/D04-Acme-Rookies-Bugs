@@ -10,7 +10,7 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags" %>
-
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <acme:display code="item.name" property="${item.name} "/>
 	
@@ -18,7 +18,13 @@
 	
 <acme:display code="item.link" property="${item.link} "/>
 	
-<spring:message code="item.pictures" />: <jstl:out value="${item.pictures }"/><br>
+<spring:message code="item.pictures" />: <br>
+<c:forEach items="${item.pictures}" var="item">
+    		<fieldset>
+				<img src="${item}" alt="pictures" width="200" height="100"/>
+			</fieldset>
+    		<br>
+</c:forEach>
 
 
 
