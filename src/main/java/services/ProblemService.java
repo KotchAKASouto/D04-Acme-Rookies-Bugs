@@ -227,4 +227,17 @@ public class ProblemService {
 	public void flush() {
 		this.problemRepository.flush();
 	}
+
+	public Boolean exist(final int problemId) {
+
+		Boolean res = false;
+
+		final Problem problem = this.problemRepository.findOne(problemId);
+
+		if (problem != null)
+			res = true;
+
+		return res;
+
+	}
 }

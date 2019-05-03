@@ -48,6 +48,9 @@ public class ApplicationService {
 	private MessageService			messageService;
 
 	@Autowired
+	private ProblemService			problemService;
+
+	@Autowired
 	private Validator				validator;
 
 
@@ -62,6 +65,7 @@ public class ApplicationService {
 
 		ApplicationForm result;
 		result = new ApplicationForm();
+
 		return result;
 	}
 
@@ -262,6 +266,7 @@ public class ApplicationService {
 		res.setPosition(this.positionService.findOne(applicationForm.getPosition()));
 		res.setId(applicationForm.getId());
 		res.setVersion(applicationForm.getVersion());
+		res.setProblem(this.problemService.findOne(applicationForm.getProblem()));
 
 		if (applicationForm.getId() == 0) {
 
@@ -365,6 +370,7 @@ public class ApplicationService {
 		res.setId(application.getId());
 		res.setPosition(application.getPosition().getId());
 		res.setVersion(application.getVersion());
+		res.setProblem(application.getProblem().getId());
 
 		return res;
 	}

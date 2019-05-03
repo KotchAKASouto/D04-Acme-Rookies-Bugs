@@ -31,6 +31,7 @@ public class Application extends DomainEntity {
 	private Position	position;
 	private Curriculum	curriculum;
 	private Rookie		rookie;
+	private Problem		problem;
 
 
 	@NotNull
@@ -102,6 +103,15 @@ public class Application extends DomainEntity {
 
 	public void setRookie(final Rookie rookie) {
 		this.rookie = rookie;
+	}
+
+	@ManyToOne(optional = false)
+	public Problem getProblem() {
+		return this.problem;
+	}
+
+	public void setProblem(final Problem problem) {
+		this.problem = problem;
 	}
 
 }

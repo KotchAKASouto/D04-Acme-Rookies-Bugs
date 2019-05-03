@@ -9,6 +9,7 @@ public class ApplicationForm {
 	private int		curriculum;
 	private int		id;
 	private int		version;
+	private int		problem;
 
 
 	public String getAnswer() {
@@ -49,6 +50,14 @@ public class ApplicationForm {
 
 	public void setVersion(final int version) {
 		this.version = version;
+	}
+
+	public int getProblem() {
+		return this.problem;
+	}
+
+	public void setProblem(final int problem) {
+		this.problem = problem;
 	}
 
 }

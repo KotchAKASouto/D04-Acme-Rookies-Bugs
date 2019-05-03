@@ -20,9 +20,11 @@ import services.CompanyService;
 import services.ConfigurationService;
 import services.CurriculumService;
 import services.PositionService;
+import services.ProblemService;
 import services.RookieService;
 import domain.Application;
 import domain.Curriculum;
+import domain.Problem;
 import domain.Rookie;
 import forms.ApplicationForm;
 
@@ -49,6 +51,9 @@ public class ApplicationRookieController {
 
 	@Autowired
 	private PositionService			positionService;
+
+	@Autowired
+	private ProblemService			problemService;
 
 
 	@RequestMapping(value = "/display", method = RequestMethod.GET)
@@ -142,8 +147,12 @@ public class ApplicationRookieController {
 
 		if (exist && this.positionService.findOne(positionId).getDeadline().after(now)) {
 
+			final Problem problemDisplay = this.positionService.ramdomProblem(positionId);
+
 			applicationForm.setPosition(positionId);
+			applicationForm.setProblem(problemDisplay.getId());
 			result = this.createEditModelAndView(applicationForm);
+			result.addObject("problemDisplay", problemDisplay);
 
 		} else {
 
@@ -175,6 +184,16 @@ public class ApplicationRookieController {
 				final ApplicationForm applicationForm = this.applicationService.editForm(application);
 
 				result = this.createEditModelAndView(applicationForm, null);
+
+				Problem problemDisplay;
+
+				if (applicationForm.getId() == 0)
+					problemDisplay = this.positionService.ramdomProblem(applicationForm.getPosition());
+				else
+					problemDisplay = this.problemService.findOne(applicationForm.getProblem());
+
+				result.addObject("problemDisplay", problemDisplay);
+
 			} else
 				result = new ModelAndView("redirect:/welcome/index.do");
 
@@ -195,13 +214,15 @@ public class ApplicationRookieController {
 
 		final Boolean security = this.applicationService.securityRookie(applicationForm.getId());
 		final Boolean exist = this.positionService.exist(applicationForm.getPosition());
+		final Boolean exist2 = this.problemService.exist(applicationForm.getProblem());
 
-		if (security && exist)
+		if (security && exist && exist2)
 			application = this.applicationService.reconstruct(applicationForm, binding);
 
 		final Date now = new Date(System.currentTimeMillis() - 1000);
 
-		if (exist && security && (application.getStatus().equals("SUBMITTED") || application.getStatus().equals("PENDING")) && application.getPosition().getDeadline().after(now) && application.getPosition().getFinalMode()) {
+		if (exist && exist2 && this.problemService.findProblemsByPositionId(applicationForm.getPosition()).contains(this.problemService.findOne(applicationForm.getProblem())) && security
+			&& (application.getStatus().equals("SUBMITTED") || application.getStatus().equals("PENDING")) && application.getPosition().getDeadline().after(now) && application.getPosition().getFinalMode()) {
 
 			if (binding.hasErrors())
 				result = this.createEditModelAndView(applicationForm, null);

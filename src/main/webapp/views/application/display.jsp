@@ -12,6 +12,17 @@
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags" %>
 
 
+<acme:display code="application.problem.title" property="${application.problem.title} "/>
+
+<acme:display code="application.problem.statement" property="${application.problem.statement} "/>
+
+<acme:display code="application.problem.hint" property="${application.problem.hint} "/>
+
+<p><spring:message code="application.problem.attachments" /></p>
+
+<display:table name="application.problem.attachments" id="row">
+</display:table>
+
 <acme:display code="application.moment" property="${application.moment} "/>
 	
 <acme:display code="application.status" property="${application.status} "/>

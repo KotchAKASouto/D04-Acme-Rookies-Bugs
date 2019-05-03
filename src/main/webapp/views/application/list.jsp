@@ -14,6 +14,8 @@
 
 	<acme:column property="position.ticker" titleKey="application.position.ticker" value= "${row.position.ticker}: "/>
 	
+	<acme:column property="problem.title" titleKey="application.problem.title" value= "${row.problem.title}: "/>
+	
 	<acme:column property="answer" titleKey="application.answer" value= "${row.answer}: "/>
 	
 	<acme:column property="moment" titleKey="application.moment" value= "${row.moment}: "/>
@@ -50,6 +52,8 @@
 
 	<acme:column property="position.ticker" titleKey="application.position.ticker" value= "${row2.position.ticker}: "/>
 	
+	<acme:column property="problem.title" titleKey="application.problem.title" value= "${row2.problem.title}: "/>
+	
 	<acme:column property="answer" titleKey="application.answer" value= "${row2.answer}: "/>
 	
 	<acme:column property="moment" titleKey="application.moment" value= "${row2.moment}: "/>
@@ -85,6 +89,8 @@
 <display:table name="applicationSubmitted" id="row3" requestURI="${requestURI }" pagesize="5">
 
 	<acme:column property="position.ticker" titleKey="application.position.ticker" value= "${row3.position.ticker}: "/>
+	
+	<acme:column property="problem.title" titleKey="application.problem.title" value= "${row3.problem.title}: "/>
 	
 	<acme:column property="answer" titleKey="application.answer" value= "${row3.answer}: "/>
 	
@@ -133,6 +139,8 @@
 <display:table name="applicationPending" id="row4" requestURI="${requestURI }" pagesize="5">
 
 	<acme:column property="position.ticker" titleKey="application.position.ticker" value= "${row4.position.ticker}: "/>
+	
+	<acme:column property="problem.title" titleKey="application.problem.title" value= "${row4.problem.title}: "/>
 	
 	<acme:column property="answer" titleKey="application.answer" value= "${row4.answer}: "/>
 	

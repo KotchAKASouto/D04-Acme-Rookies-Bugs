@@ -404,4 +404,34 @@ public class PositionService {
 		return res;
 
 	}
+
+	public Problem ramdomProblem(final int positionId) {
+
+		Problem result = null;
+		final Collection<Problem> problems = this.problemService.findProblemsByPositionId(positionId);
+
+		if (!problems.isEmpty()) {
+
+			final int M = 0;
+			final int N = problems.size() - 1;
+			final int limit = (int) (Math.random() * (N - M + 1) + M);
+
+			int i = 0;
+
+			for (final Problem p : problems) {
+
+				if (i == limit) {
+					result = p;
+					break;
+				}
+
+				i++;
+
+			}
+
+		}
+
+		return result;
+	}
+
 }

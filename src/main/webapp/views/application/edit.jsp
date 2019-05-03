@@ -14,6 +14,18 @@
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 	<form:hidden path="position" />
+	<form:hidden path="problem" />
+	
+	<acme:display code="application.problem.title" property="${problemDisplay.title} "/>
+
+	<acme:display code="application.problem.statement" property="${problemDisplay.statement} "/>
+	
+	<acme:display code="application.problem.hint" property="${problemDisplay.hint} "/>
+	
+	<p><spring:message code="application.problem.attachments" /></p>
+	
+	<display:table name="problemDisplay.attachments" id="row">
+	</display:table>
 
 	<acme:textarea code="application.answer" path="answer" obligatory="false"/>
 	
