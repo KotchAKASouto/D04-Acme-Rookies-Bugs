@@ -1703,6 +1703,7 @@
 		<property name="pictures">
 			<list>
 			<value>https://banner2.kisspng.com/20180322/zaw/kisspng-lion-logo-symbol-royalty-free-lion-5ab3f3b5902b47.3295183315217427735905.jpg</value>
+			<value>https://banner2.kisspng.com/20180322/zaw/kisspng-lion-logo-symbol-royalty-free-lion-5ab3f3b5902b47.3295183315217427735905.jpg</value>
 			</list>
 		</property>
 		<property name="provider" ref="provider1" />
