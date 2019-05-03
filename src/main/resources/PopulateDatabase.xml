@@ -2384,6 +2384,7 @@
 		<property name="status" value="SUBMITTED" />
 		<property name="answer" value="www.github.com/Acme-rookie" />
 		<property name="position" ref="position7" />
+		<property name="problem" ref="problem5" />
 		<property name="submitMoment" value="2019/03/30" />
 		<property name="curriculum" ref="curriculumCopy1" />
 		<property name="rookie" ref="rookie1" />
@@ -2393,6 +2394,7 @@
 		<property name="status" value="PENDING" />
 		<property name="answer" value="" />
 		<property name="position" ref="position1" />
+		<property name="problem" ref="problem1" />
 		<property name="curriculum" ref="curriculumCopy3" />
 		<property name="rookie" ref="rookie3" />
 	</bean>
@@ -2403,6 +2405,7 @@
 			value="Form consumer trade small thank lead child ten us those drop agree." />
 		<property name="submitMoment" value="2019/03/30" />
 		<property name="position" ref="position1" />
+		<property name="problem" ref="problem2" />
 		<property name="curriculum" ref="curriculumCopy5" />
 		<property name="rookie" ref="rookie5" />
 	</bean>
@@ -2412,6 +2415,7 @@
 		<property name="answer" value="Quite various make Republican statement store college range sport stay indicate use hand boy drop senior exactly difference south." />
 		<property name="submitMoment" value="2019/03/18" />
 		<property name="position" ref="position1" />
+		<property name="problem" ref="problem2" />
 		<property name="curriculum" ref="curriculumCopy7" />
 		<property name="rookie" ref="rookie7" />
 	</bean>
@@ -2420,6 +2424,7 @@
 		<property name="status" value="PENDING" />
 		<property name="answer" value="" />
 		<property name="position" ref="position1" />
+		<property name="problem" ref="problem2" />
 		<property name="curriculum" ref="curriculumCopy9" />
 		<property name="rookie" ref="rookie9" />
 	</bean>
@@ -2428,6 +2433,7 @@
 		<property name="status" value="PENDING" />
 		<property name="answer" value="" />
 		<property name="position" ref="position1" />
+		<property name="problem" ref="problem1" />
 		<property name="curriculum" ref="curriculumCopy13" />
 		<property name="rookie" ref="rookie13" />
 	</bean>
@@ -2437,7 +2443,8 @@
 		<property name="answer"
 			value="Tax within themselves time much blood recognize trouble I include wall piece win open easy start." />
 		<property name="submitMoment" value="2019/04/22" />
-		<property name="position" ref="position2" />
+		<property name="position" ref="position3" />
+		<property name="problem" ref="problem3" />
 		<property name="curriculum" ref="curriculumCopy2" />
 		<property name="rookie" ref="rookie2" />
 	</bean>
@@ -2445,7 +2452,8 @@
 		<property name="moment" value="2019/02/08" />
 		<property name="status" value="PENDING" />
 		<property name="answer" value="" />
-		<property name="position" ref="position2" />
+		<property name="position" ref="position3" />
+		<property name="problem" ref="problem3" />
 		<property name="curriculum" ref="curriculumCopy8" />
 		<property name="rookie" ref="rookie8" />
 	</bean>
@@ -2453,7 +2461,8 @@
 		<property name="moment" value="2019/02/26" />
 		<property name="status" value="PENDING" />
 		<property name="answer" value="" />
-		<property name="position" ref="position2" />
+		<property name="position" ref="position3" />
+		<property name="problem" ref="problem3" />
 		<property name="curriculum" ref="curriculumCopy4" />
 		<property name="rookie" ref="rookie4" />
 	</bean>
@@ -2464,6 +2473,7 @@
 			value="Message pass weight set threat direction throw drive gun president." />
 		<property name="submitMoment" value="2019/04/04" />
 		<property name="position" ref="position3" />
+		<property name="problem" ref="problem4" />
 		<property name="curriculum" ref="curriculumCopy6" />
 		<property name="rookie" ref="rookie6" />
 	</bean>
@@ -2472,6 +2482,7 @@
 		<property name="status" value="PENDING" />
 		<property name="answer" value="" />
 		<property name="position" ref="position3" />
+		<property name="problem" ref="problem4" />
 		<property name="curriculum" ref="curriculumCopy10" />
 		<property name="rookie" ref="rookie10" />
 	</bean>
@@ -2480,6 +2491,7 @@
 		<property name="status" value="PENDING" />
 		<property name="answer" value="" />
 		<property name="position" ref="position3" />
+		<property name="problem" ref="problem4" />
 		<property name="curriculum" ref="curriculumCopy11" />
 		<property name="rookie" ref="rookie11" />
 	</bean>
@@ -2489,7 +2501,8 @@
 		<property name="answer"
 			value="He clear approach almost huge begin difference describe how." />
 		<property name="submitMoment" value="2019/04/20" />
-		<property name="position" ref="position4" />
+		<property name="position" ref="position7" />
+		<property name="problem" ref="problem5" />
 		<property name="curriculum" ref="curriculumCopy12" />
 		<property name="rookie" ref="rookie12" />
 	</bean>
@@ -2497,7 +2510,8 @@
 		<property name="moment" value="2019/02/09" />
 		<property name="status" value="PENDING" />
 		<property name="answer" value="" />
-		<property name="position" ref="position4" />
+		<property name="position" ref="position7" />
+		<property name="problem" ref="problem5" />
 		<property name="curriculum" ref="curriculumCopy14" />
 		<property name="rookie" ref="rookie14" />
 	</bean>
