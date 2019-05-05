@@ -22,7 +22,8 @@
 
 <acme:display code="provider.phone" property="${provider.phone }" />
 
-<acme:display code="provider.photo" property="${provider.photo }" />
+
+<spring:message code="provider.photo"/>: <br> <img src="${provider.photo }"/> <br>
 
 
 <acme:button name="back" code="provider.back" onclick="javascript: relativeRedir('${backUri }');" />

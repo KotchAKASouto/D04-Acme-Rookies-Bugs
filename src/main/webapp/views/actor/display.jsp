@@ -67,7 +67,6 @@
 <acme:display code="company.commercialName" property="${actor.commercialName }" />
 </security:authorize> 
 
-<acme:display code="actor.photo" property="${actor.photo }" />
 
 <spring:message code="actor.photo"/>: <br> <img src="${actor.photo }"/> <br>
 

@@ -38,7 +38,7 @@
 			value="Russell, Skinner and Wilson PLC" />
 		<property name="vat" value="1" />
 		<property name="photo"
-			value="https://www.lorempixel.com/500/500" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="mariahhernandez@example.net" />
 		<property name="phone" value="+34518533047" />
 		<property name="address" value="Glorieta de Ignacio Álvarez" />
@@ -72,7 +72,7 @@
 		<property name="commercialName" value="Wilkins-Brown Group" />
 		<property name="vat" value="2" />
 		<property name="photo"
-			value="https://placeholdit.imgix.net/~text?txtsize=55&amp;txt=500x500&amp;w=500&amp;h=500" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="zphillips@example.org" />
 		<property name="phone" value="+34074791661" />
 		<property name="address" value="C. de Jose Angel Ríos" />
@@ -107,7 +107,7 @@
 		<property name="commercialName" value="Wallace Inc Ltd" />
 		<property name="vat" value="3" />
 		<property name="photo"
-			value="https://placeimg.com/500/500/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="andrew39@example.org" />
 		<property name="phone" value="+34562469055" />
 		<property name="address" value="Acceso Asunción Sancho" />
@@ -143,7 +143,7 @@
 			value="Trevino, Snyder and Blankenship Inc" />
 		<property name="vat" value="4" />
 		<property name="photo"
-			value="https://placeholdit.imgix.net/~text?txtsize=55&amp;txt=500x500&amp;w=500&amp;h=500" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="sandralewis@example.net" />
 		<property name="phone" value="+34125622892" />
 		<property name="address" value="Avenida de Gema Oller" />
@@ -177,7 +177,7 @@
 		<property name="commercialName" value="Ross Group PLC" />
 		<property name="vat" value="5" />
 		<property name="photo"
-			value="https://placeimg.com/500/500/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="whitneyyoung@example.net" />
 		<property name="phone" value="+34951987974" />
 		<property name="address" value="Callejón Hector Ochoa" />
@@ -210,7 +210,7 @@
 		<property name="surnames" value="drive 24/365 applications" />
 		<property name="commercialName" value="Davenport Inc Group" />
 		<property name="vat" value="6" />
-		<property name="photo" value="https://dummyimage.com/500x500" />
+		<property name="photo" value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="urobinson@example.com" />
 		<property name="phone" value="+34285579306" />
 		<property name="address" value="Avenida Andrés Montenegro" />
@@ -244,7 +244,7 @@
 		<property name="commercialName"
 			value="Montes, Delacruz and Moore and Sons" />
 		<property name="vat" value="7" />
-		<property name="photo" value="https://dummyimage.com/500x500" />
+		<property name="photo" value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="cmullins@example.com" />
 		<property name="phone" value="+34446812949" />
 		<property name="address" value="Calle de Antonio Monreal" />
@@ -280,7 +280,7 @@
 			value="Edwards, Tyler and Jones and Sons" />
 		<property name="vat" value="8" />
 		<property name="photo"
-			value="https://www.lorempixel.com/500/500" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="david42@example.net" />
 		<property name="phone" value="+34951145087" />
 		<property name="address" value="Ronda Jose Maria Ramis" />
@@ -316,7 +316,7 @@
 			value="Petty, Sanchez and Davis and Sons" />
 		<property name="vat" value="9" />
 		<property name="photo"
-			value="https://placekitten.com/500/500" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="qholmes@example.org" />
 		<property name="phone" value="+34608689022" />
 		<property name="address" value="Calle Montserrat Alemán" />
@@ -414,7 +414,7 @@
 		<property name="surnames" value="Yu" />
 		<property name="vat" value="10" />
 		<property name="photo"
-			value="https://placeimg.com/500/500/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="qallison@example.net" />
 		<property name="phone" value="+34862761239" />
 		<property name="address" value="C. Jesús Verdú" />
@@ -473,7 +473,7 @@
 		<property name="surnames" value="Burns" />
 		<property name="vat" value="11" />
 		<property name="photo"
-			value="https://placeholdit.imgix.net/~text?txtsize=55&amp;txt=500x500&amp;w=500&amp;h=500" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="cynthiacastro@example.com" />
 		<property name="phone" value="+34747097065" />
 		<property name="address" value="Paseo de Luis Miguel Zurita" />
@@ -532,7 +532,7 @@
 		<property name="surnames" value="Martin" />
 		<property name="vat" value="12" />
 		<property name="photo"
-			value="https://placekitten.com/500/500" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="nreid@example.com" />
 		<property name="phone" value="+34610331245" />
 		<property name="address" value="Calle Nerea Martin" />
@@ -589,7 +589,7 @@
 		<property name="surnames" value="Ferguson" />
 		<property name="vat" value="13" />
 		<property name="photo"
-			value="https://www.lorempixel.com/500/500" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="michael83@example.org" />
 		<property name="phone" value="+34971140654" />
 		<property name="address" value="Avenida de Pedro Alberto" />
@@ -646,7 +646,7 @@
 		<property name="surnames" value="Green" />
 		<property name="vat" value="14" />
 		<property name="photo"
-			value="https://placekitten.com/500/500" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="tinaschwartz@example.com" />
 		<property name="phone" value="+34465533582" />
 		<property name="address" value="Glorieta de Ismael Riera" />
@@ -703,7 +703,7 @@
 		<property name="surnames" value="Anthony" />
 		<property name="vat" value="15" />
 		<property name="photo"
-			value="https://placeimg.com/500/500/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="fwoods@example.com" />
 		<property name="phone" value="+34607545061" />
 		<property name="address" value="Rambla de Xavier Peláez" />
@@ -760,7 +760,7 @@
 		<property name="surnames" value="Kelly" />
 		<property name="vat" value="16" />
 		<property name="photo"
-			value="https://placeimg.com/500/500/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="tracy45@example.com" />
 		<property name="phone" value="+34222066820" />
 		<property name="address" value="Alameda de Miguel Baena" />
@@ -817,7 +817,7 @@
 		<property name="surnames" value="Jones" />
 		<property name="vat" value="17" />
 		<property name="photo"
-			value="https://www.lorempixel.com/500/500" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="xjoyce@example.org" />
 		<property name="phone" value="+34368137470" />
 		<property name="address" value="Alameda de Mohamed Sevilla" />
@@ -874,7 +874,7 @@
 		<property name="surnames" value="Barry" />
 		<property name="vat" value="18" />
 		<property name="photo"
-			value="https://placeimg.com/500/500/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="michael26@example.net" />
 		<property name="phone" value="+34053273331" />
 		<property name="address" value="Cuesta de Anna Pallarès" />
@@ -931,7 +931,7 @@
 		<property name="surnames" value="Bowers" />
 		<property name="vat" value="19" />
 		<property name="photo"
-			value="https://www.lorempixel.com/500/500" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="floresjamie@example.com" />
 		<property name="phone" value="+34919077743" />
 		<property name="address" value="Glorieta Anna Hervás" />
@@ -988,7 +988,7 @@
 		<property name="surnames" value="Rice" />
 		<property name="vat" value="20" />
 		<property name="photo"
-			value="https://placekitten.com/500/500" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="randolphemily@example.org" />
 		<property name="phone" value="+34188556737" />
 		<property name="address" value="Ronda de Victor Molina" />
@@ -1045,7 +1045,7 @@
 		<property name="surnames" value="Davis" />
 		<property name="vat" value="21" />
 		<property name="photo"
-			value="https://placekitten.com/500/500" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="amy53@example.net" />
 		<property name="phone" value="+34583547263" />
 		<property name="address" value="Vial de Isabel Soler" />
@@ -1102,7 +1102,7 @@
 		<property name="surnames" value="Pearson" />
 		<property name="vat" value="22" />
 		<property name="photo"
-			value="https://placeimg.com/500/500/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="douglas89@example.net" />
 		<property name="phone" value="+34241069432" />
 		<property name="address" value="Rambla de Ivan Huerta" />
@@ -1208,7 +1208,7 @@
 		<property name="surnames" value="Gutierrez" />
 		<property name="vat" value="23" />
 		<property name="photo"
-			value="https://placekitten.com/500/500" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="kfarmer@example.net" />
 		<property name="phone" value="+34093103753" />
 		<property name="address" value="Vial Verónica Fonseca" />
@@ -1223,7 +1223,7 @@
 		<property name="surnames" value="Calzado" />
 		<property name="vat" value="24" />
 		<property name="photo"
-			value="https://placeimg.com/23/23/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="angelcalzadollamas@example.net" />
 		<property name="phone" value="+34 3333" />
 		<property name="address" value="Blanca Paloma" />
@@ -1263,7 +1263,7 @@
 		<property name="surnames" value="Borge" />
 		<property name="vat" value="25" />
 		<property name="photo"
-			value="https://placeimg.com/23/23/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="santiagoporshe@example.net" />
 		<property name="phone" value="+34 3233" />
 		<property name="address" value="Alcalá" />
@@ -1302,7 +1302,7 @@
 		<property name="surnames" value="kotch" />
 		<property name="vat" value="26" />
 		<property name="photo"
-			value="https://placeimg.com/23/23/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="kotchakasouto@example.net" />
 		<property name="phone" value="+34 3233" />
 		<property name="address" value="Alcampo" />
@@ -1340,7 +1340,7 @@
 		<property name="surnames" value="Navarro" />
 		<property name="vat" value="27" />
 		<property name="photo"
-			value="https://placeimg.com/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="raunavcru@example.net" />
 		<property name="phone" value="+34 32ff33" />
 		<property name="address" value="mobile" />
@@ -1380,7 +1380,7 @@
 		<property name="surnames" value="Ríos" />
 		<property name="vat" value="28" />
 		<property name="photo"
-			value="https://placeimg.com/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="albriozea@example.net" />
 		<property name="phone" value="+34 323333" />
 		<property name="address" value="Tomares" />
@@ -1420,7 +1420,7 @@
 		<property name="surnames" value="Palma" />
 		<property name="vat" value="29" />
 		<property name="photo"
-			value="https://placeimg.com/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="juafripal@example.net" />
 		<property name="phone" value="+34 33" />
 		<property name="address" value="Moron" />
@@ -1455,7 +1455,7 @@
 		<property name="surnames" value="Núñez" />
 		<property name="vat" value="30" />
 		<property name="photo"
-			value="https://ewrimg.com/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="ivanumar@example.net" />
 		<property name="phone" value="+34 3243" />
 		<property name="address" value="Sor Gregoria Teresa" />
@@ -1490,7 +1490,7 @@
 		<property name="surnames" value="Palma" />
 		<property name="vat" value="31" />
 		<property name="photo"
-			value="https://ewrimg.com/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="javpalort@example.net" />
 		<property name="phone" value="+34 33243" />
 		<property name="address" value="Viapol" />
@@ -1525,7 +1525,7 @@
 		<property name="surnames" value="Morillo" />
 		<property name="vat" value="32" />
 		<property name="photo"
-			value="https://www.tierras.com/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="alvmor@example.net" />
 		<property name="phone" value="+34 213243" />
 		<property name="address" value="Marchena" />
@@ -1560,7 +1560,7 @@
 		<property name="surnames" value="Martín" />
 		<property name="vat" value="33" />
 		<property name="photo"
-			value="https://www.goiko.com/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="dario@example.net" />
 		<property name="phone" value="+34 21243" />
 		<property name="address" value="retiro" />
@@ -1595,7 +1595,7 @@
 		<property name="surnames" value="Mármol,Fernández" />
 		<property name="vat" value="34" />
 		<property name="photo"
-			value="https://www.startrek.com/any" />
+			value="https://www.lorempixel.com/200/200" />
 		<property name="email" value="angel@example.net" />
 		<property name="phone" value="+34 211243" />
 		<property name="address" value="ayto" />
@@ -1702,11 +1702,119 @@
 		<property name="link" value="http://www.nike.es" />
 		<property name="pictures">
 			<list>
-			<value>https://banner2.kisspng.com/20180322/zaw/kisspng-lion-logo-symbol-royalty-free-lion-5ab3f3b5902b47.3295183315217427735905.jpg</value>
-			<value>https://banner2.kisspng.com/20180322/zaw/kisspng-lion-logo-symbol-royalty-free-lion-5ab3f3b5902b47.3295183315217427735905.jpg</value>
+			<value>https://www.lorempixel.com/200/200</value>
+			<value>http://placeimg.com/200/200/any</value>
 			</list>
 		</property>
 		<property name="provider" ref="provider1" />
+	</bean>
+	<bean id="item2" class="domain.Item">
+		<property name="name" value="Play Station 4" />
+		<property name="description" value="Consola" />
+		<property name="link" value="http://www.sony.es" />
+		<property name="pictures">
+			<list>
+			<value>https://www.lorempixel.com/200/200</value>
+			<value>http://placeimg.com/200/200/any</value>
+			</list>
+		</property>
+		<property name="provider" ref="provider1" />
+	</bean>
+	<bean id="item3" class="domain.Item">
+		<property name="name" value="Bocadillo de calamares" />
+		<property name="description" value="comida" />
+		<property name="link" value="http://www.madrid.es" />
+		<property name="pictures">
+			<list>
+			<value>https://www.lorempixel.com/200/200</value>
+			<value>http://placeimg.com/200/200/any</value>
+			</list>
+		</property>
+		<property name="provider" ref="provider1" />
+	</bean>
+	<bean id="item4" class="domain.Item">
+		<property name="name" value="Ferrari" />
+		<property name="description" value="Coche rojo" />
+		<property name="link" value="http://www.ferrari.es" />
+		<property name="pictures">
+			<list>
+			<value>https://www.lorempixel.com/200/200</value>
+			<value>http://placeimg.com/200/200/any</value>
+			</list>
+		</property>
+		<property name="provider" ref="provider1" />
+	</bean>
+	<bean id="item5" class="domain.Item">
+		<property name="name" value="Bugatti" />
+		<property name="description" value="Coche rápido" />
+		<property name="link" value="http://www.bugatti.es" />
+		<property name="pictures">
+			<list>
+			<value>https://www.lorempixel.com/200/200</value>
+			<value>http://placeimg.com/200/200/any</value>
+			</list>
+		</property>
+		<property name="provider" ref="provider1" />
+	</bean>
+	<bean id="item6" class="domain.Item">
+		<property name="name" value="Camiseta Betis" />
+		<property name="description" value="Ropa de futbol" />
+		<property name="link" value="http://www.betis.es" />
+		<property name="pictures">
+			<list>
+			<value>https://www.lorempixel.com/200/200</value>
+			<value>http://placeimg.com/200/200/any</value>
+			</list>
+		</property>
+		<property name="provider" ref="provider2" />
+	</bean>
+	<bean id="item7" class="domain.Item">
+		<property name="name" value="Lavadora samsung" />
+		<property name="description" value="Lavadora" />
+		<property name="link" value="http://www.samsung.es" />
+		<property name="pictures">
+			<list>
+			<value>https://www.lorempixel.com/200/200</value>
+			<value>http://placeimg.com/200/200/any</value>
+			</list>
+		</property>
+		<property name="provider" ref="provider2" />
+	</bean>
+	<bean id="item8" class="domain.Item">
+		<property name="name" value="Iphone XS" />
+		<property name="description" value="Smartphone potente" />
+		<property name="link" value="http://www.apple.es" />
+		<property name="pictures">
+			<list>
+			<value>https://www.lorempixel.com/200/200</value>
+			<value>http://placeimg.com/200/200/any</value>
+			</list>
+		</property>
+		<property name="provider" ref="provider2" />
+	</bean>
+	<bean id="item9" class="domain.Item">
+		<property name="name" value="MSI GP62" />
+		<property name="description" value="Ordenador gaming" />
+		<property name="link" value="http://www.msi.es" />
+		<property name="pictures">
+			<list>
+			<value>https://www.lorempixel.com/200/200</value>
+			<value>http://placeimg.com/200/200/any</value>
+			</list>
+		</property>
+		<property name="provider" ref="provider2" />
+	</bean>
+	<bean id="item10" class="domain.Item">
+		<property name="name" value="Gorra New Era" />
+		<property name="description" value="Gorra verde" />
+		<property name="link" value="http://www.newera.es" />
+		<property name="pictures">
+			<list>
+			<value>https://www.lorempixel.com/200/200</value>
+			<value>http://placeimg.com/200/200/any</value>
+			</list>
+		</property>
+		<property name="provider" ref="provider2" />
 	</bean>
 	
 	<!-- Audits -->
