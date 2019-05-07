@@ -25,18 +25,7 @@
 	
 	<jstl:if test="${spam}">
 		<display:column titleKey="actor.spammer"> 
-			<jstl:if test="${empty row.spammer}">
-				<spring:message code="actor.status.na" />
-			</jstl:if>
-			
-			<jstl:if test="${not empty row.spammer and !row.spammer}">
-				<spring:message code="actor.status.notSpammer" />
-			</jstl:if>
-			
-			<jstl:if test="${not empty row.spammer and row.spammer}">
-				<spring:message code="actor.status.spammer" />
-			</jstl:if>
-	
+			<jstl:out value="${row.spammer}"/>
 		</display:column>
 	</jstl:if>	
 

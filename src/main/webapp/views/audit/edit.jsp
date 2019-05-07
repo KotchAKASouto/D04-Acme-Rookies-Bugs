@@ -27,7 +27,7 @@
 	
 	<acme:submit name="save" code="audit.save" />	
 
-	<acme:cancel code="audit.cancel" url="audit/auditor/list.do" />
+	<acme:cancel code="audit.cancel" url="welcome/index.do" />
 	
 	<jstl:if test="${audit.id != 0}">
 		<acme:delete code="audit.delete" />

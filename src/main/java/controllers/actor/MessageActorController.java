@@ -156,28 +156,19 @@ public class MessageActorController extends AbstractController {
 		Boolean security = false;
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
-		final Boolean existMessage = this.messageService.existId(messageId);
+		security = this.messageService.securityMessage(messageId);
 
-		if (existMessage) {
+		if (security) {
 
-			security = this.messageService.securityMessage(messageId);
+			message1 = this.messageService.findOne(messageId);
 
-			if (security) {
+			this.messageService.delete(message1);
 
-				message1 = this.messageService.findOne(messageId);
-
-				this.messageService.delete(message1);
-
-				result = new ModelAndView("redirect:/message/actor/list.do");
-				result.addObject("banner", banner);
-
-			} else
-				result = new ModelAndView("redirect:/message/actor/list.do");
-		} else {
-
-			result = new ModelAndView("misc/notExist");
+			result = new ModelAndView("redirect:/message/actor/list.do");
 			result.addObject("banner", banner);
-		}
+
+		} else
+			result = new ModelAndView("redirect:/message/actor/list.do");
 
 		return result;
 	}

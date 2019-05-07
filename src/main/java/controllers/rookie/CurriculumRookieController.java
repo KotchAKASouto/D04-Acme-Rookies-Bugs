@@ -61,7 +61,6 @@ public class CurriculumRookieController extends AbstractController {
 				result = new ModelAndView("curriculum/displayCurriculum");
 				result.addObject("curriculum", curriculum);
 				result.addObject("banner", banner);
-				result.addObject("requestUri", "/curriculum/rookie/display.do?curriculumId=" + curriculumId);
 
 			} else
 				result = new ModelAndView("redirect:/welcome/index.do");

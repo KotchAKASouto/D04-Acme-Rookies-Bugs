@@ -8,8 +8,6 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -49,8 +47,6 @@ public class Audit extends DomainEntity {
 		this.text = text;
 	}
 
-	@Min(0)
-	@Max(10)
 	@NotNull
 	public Double getScore() {
 		return this.score;

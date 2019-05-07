@@ -55,7 +55,6 @@ public class Application extends DomainEntity {
 		this.status = status;
 	}
 
-	@SafeHtml
 	public String getAnswer() {
 		return this.answer;
 	}
