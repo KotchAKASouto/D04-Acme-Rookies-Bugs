@@ -61,7 +61,7 @@ public class AuditAuditorController extends AbstractController {
 			result.addObject("banner", banner);
 
 		} else {
-			final Collection<Audit> audits = this.auditService.findAuditsByAuditorId(auditor.getId());
+			final Collection<Audit> audits = this.auditService.findAll();
 			result = new ModelAndView("audit/list");
 			result.addObject("audits", audits);
 			result.addObject("requestURI", "audit/auditor/list.do");

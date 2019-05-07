@@ -55,7 +55,7 @@ public class ProblemCompanyController extends AbstractController {
 
 		comp = this.companyService.findByPrincipal();
 
-		problems = this.problemService.findAll();
+		problems = this.problemService.findProblemByCompanyId(comp.getId());
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
@@ -120,7 +120,7 @@ public class ProblemCompanyController extends AbstractController {
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
 		if (problem.getId() != 0 && this.problemService.findOne(problem.getId()) == null) {
-			result = new ModelAndView("misc/notExist");
+			result = new ModelAndView("redirect:/welcome/index.do");
 			result.addObject("banner", banner);
 		} else {
 
