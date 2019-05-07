@@ -55,7 +55,7 @@ public class ProblemCompanyController extends AbstractController {
 
 		comp = this.companyService.findByPrincipal();
 
-		problems = this.problemService.findProblemByCompanyId(comp.getId());
+		problems = this.problemService.findAll();
 
 		final String banner = this.configurationService.findConfiguration().getBanner();
 
