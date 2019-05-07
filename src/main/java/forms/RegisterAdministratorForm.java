@@ -2,7 +2,6 @@
 package forms;
 
 import javax.persistence.Column;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.SafeHtml;
@@ -72,7 +71,6 @@ public class RegisterAdministratorForm {
 		this.email = email;
 	}
 
-	@Valid
 	public CreditCard getCreditCard() {
 		return this.creditCard;
 	}
